@@ -79,7 +79,7 @@ export const TemplatesSidebar = React.memo(({
          <div className="flex items-center justify-between mb-6">
              <div className="flex flex-col items-start gap-1">
                   <h1 className={`${isMobile ? 'text-[18px]' : 'text-[22px]'} font-black tracking-tight text-orange-500 flex items-baseline gap-2`}>
-                      提示词填空器
+                      提示詞填空器
                   </h1>
              </div>
              
@@ -89,7 +89,7 @@ export const TemplatesSidebar = React.memo(({
                         if (typeof setShowImportTokenModal === 'function') {
                           setShowImportTokenModal(true);
                         } else {
-                          const val = prompt(language === 'cn' ? '请输入分享口令或链接' : 'Please enter share token or link');
+                          const val = prompt(language === 'cn' ? '請輸入分享口令或連結' : 'Please enter share token or link');
                           if (val && typeof handleManualTokenImport === 'function') {
                             handleManualTokenImport(val);
                           }

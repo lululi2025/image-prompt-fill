@@ -31,7 +31,7 @@
     },
     "subject": {
       "label": {
-        "cn": "主体对象",
+        "cn": "主體對象",
         "en": "Subject"
       },
       "category": "character",
@@ -68,7 +68,7 @@
     },
     "hair_style": {
       "label": {
-        "cn": "发型样式",
+        "cn": "髮型樣式",
         "en": "Hair Style"
       },
       "category": "character",
@@ -138,7 +138,7 @@
     },
     "layout_focus": {
       "label": {
-        "cn": "构图重心",
+        "cn": "構圖重心",
         "en": "Layout Focus"
       },
       "category": "visual",
@@ -163,7 +163,7 @@
     },
     "grid_pose": {
       "label": {
-        "cn": "九宫格动作",
+        "cn": "九宮格動作",
         "en": "Grid Pose"
       },
       "category": "action",
@@ -264,7 +264,7 @@
     },
     "camera_angle": {
       "label": {
-        "cn": "拍摄角度",
+        "cn": "拍攝角度",
         "en": "Camera Angle"
       },
       "category": "visual",
@@ -321,7 +321,7 @@
     },
     "connectors": {
       "label": {
-        "cn": "视觉引导",
+        "cn": "視覺引導",
         "en": "Connectors"
       },
       "category": "visual",
@@ -346,7 +346,7 @@
     },
     "underwear_style": {
       "label": {
-        "cn": "时尚内着设计",
+        "cn": "時尚內著設計",
         "en": "Innerwear Style"
       },
       "category": "item",
@@ -375,7 +375,7 @@
     },
     "clothing": {
       "label": {
-        "cn": "人物服饰",
+        "cn": "人物服飾",
         "en": "Clothing"
       },
       "category": "item",
@@ -412,7 +412,7 @@
     },
     "accessory_glasses": {
       "label": {
-        "cn": "眼镜配饰",
+        "cn": "眼鏡配飾",
         "en": "Glasses"
       },
       "category": "item",
@@ -437,7 +437,7 @@
     },
     "clothing_male": {
       "label": {
-        "cn": "男性服饰",
+        "cn": "男性服飾",
         "en": "Male Clothing"
       },
       "category": "item",
@@ -470,7 +470,7 @@
     },
     "clothing_female": {
       "label": {
-        "cn": "女性服饰",
+        "cn": "女性服飾",
         "en": "Female Clothing"
       },
       "category": "item",
@@ -532,7 +532,7 @@
     },
     "character_originality": {
       "label": {
-        "cn": "人物原创性",
+        "cn": "人物原創性",
         "en": "Character Originality"
       },
       "category": "character",
@@ -553,7 +553,7 @@
     },
     "character_groups": {
       "label": {
-        "cn": "人物组合",
+        "cn": "人物組合",
         "en": "Character Groups"
       },
       "category": "character",
@@ -602,7 +602,7 @@
     },
     "social_media": {
       "label": {
-        "cn": "社交媒体",
+        "cn": "社交媒體",
         "en": "Social Media"
       },
       "category": "location",
@@ -643,7 +643,7 @@
     },
     "texture_zoom": {
       "label": {
-        "cn": "材质特写",
+        "cn": "材質特寫",
         "en": "Texture Zoom"
       },
       "category": "visual",
@@ -668,7 +668,7 @@
     },
     "action_detail": {
       "label": {
-        "cn": "动作细节",
+        "cn": "動作細節",
         "en": "Action Detail"
       },
       "category": "action",
@@ -693,7 +693,7 @@
     },
     "special_view": {
       "label": {
-        "cn": "特殊视角",
+        "cn": "特殊視角",
         "en": "Special View"
       },
       "category": "visual",
@@ -718,7 +718,7 @@
     },
     "bag_content": {
       "label": {
-        "cn": "随身包袋",
+        "cn": "隨身包袋",
         "en": "Bag Content"
       },
       "category": "item",
@@ -743,7 +743,7 @@
     },
     "cosmetics": {
       "label": {
-        "cn": "美妆与护理",
+        "cn": "美妝與護理",
         "en": "Cosmetics"
       },
       "category": "item",
@@ -768,7 +768,7 @@
     },
     "private_items": {
       "label": {
-        "cn": "品质生活好物",
+        "cn": "品質生活好物",
         "en": "Quality Life Items"
       },
       "category": "item",
@@ -793,7 +793,7 @@
     },
     "city_name": {
       "label": {
-        "cn": "城市/国家",
+        "cn": "城市/國家",
         "en": "City/Country"
       },
       "category": "location",
@@ -834,7 +834,7 @@
     },
     "art_tool": {
       "label": {
-        "cn": "绘画工具",
+        "cn": "繪畫工具",
         "en": "Art Tool"
       },
       "category": "item",
@@ -863,7 +863,7 @@
     },
     "art_style": {
       "label": {
-        "cn": "画风",
+        "cn": "畫風",
         "en": "Art Style"
       },
       "category": "visual",
@@ -904,7 +904,7 @@
     },
     "background_style": {
       "label": {
-        "cn": "背景风格",
+        "cn": "背景風格",
         "en": "Background Style"
       },
       "category": "visual",
@@ -929,7 +929,7 @@
     },
     "classic_scene": {
       "label": {
-        "cn": "经典场景",
+        "cn": "經典場景",
         "en": "Classic Scene"
       },
       "category": "location",
@@ -1015,7 +1015,7 @@
     },
     "render_style": {
       "label": {
-        "cn": "渲染风格",
+        "cn": "渲染風格",
         "en": "Render Style"
       },
       "category": "visual",
@@ -1068,7 +1068,7 @@
     },
     "show_name": {
       "label": {
-        "cn": "剧名",
+        "cn": "劇名",
         "en": "Show Name"
       },
       "category": "other",
@@ -1142,7 +1142,7 @@
     },
     "art_type": {
       "label": {
-        "cn": "艺术门类",
+        "cn": "藝術門類",
         "en": "Art Type"
       },
       "category": "other",
@@ -1200,7 +1200,7 @@
     },
     "dominant_colors": {
       "label": {
-        "cn": "主色调",
+        "cn": "主色調",
         "en": "Dominant Colors"
       },
       "category": "visual",
@@ -1262,7 +1262,7 @@
     },
     "city_glimpse_subtitle": {
       "label": {
-        "cn": "副标题内容",
+        "cn": "副標題內容",
         "en": "Subtitle Content"
       },
       "category": "other",
@@ -1287,7 +1287,7 @@
     },
     "ratio": {
       "label": {
-        "cn": "画幅比例",
+        "cn": "畫幅比例",
         "en": "Aspect Ratio"
       },
       "category": "visual",
@@ -1324,7 +1324,7 @@
     },
     "fashion_deconstruct": {
       "label": {
-        "cn": "穿搭解构",
+        "cn": "穿搭解構",
         "en": "Fashion Deconstruct"
       },
       "category": "item",
@@ -1349,7 +1349,7 @@
     },
     "toy_companion": {
       "label": {
-        "cn": "互动公仔",
+        "cn": "互動公仔",
         "en": "Toy Companion"
       },
       "category": "item",
@@ -1378,7 +1378,7 @@
     },
     "lens_param": {
       "label": {
-        "cn": "九宫格镜头",
+        "cn": "九宮格鏡頭",
         "en": "Lens Parameter"
       },
       "category": "visual",
@@ -1427,7 +1427,7 @@
     },
     "lighting": {
       "label": {
-        "cn": "灯光布置",
+        "cn": "燈光布置",
         "en": "Lighting"
       },
       "category": "visual",
@@ -1468,7 +1468,7 @@
     },
     "sticker_core": {
       "label": {
-        "cn": "核心贴纸",
+        "cn": "核心貼紙",
         "en": "Sticker Core"
       },
       "category": "item",
@@ -1493,7 +1493,7 @@
     },
     "sticker_decor": {
       "label": {
-        "cn": "装饰元素",
+        "cn": "裝飾元素",
         "en": "Sticker Decor"
       },
       "category": "item",
@@ -1518,7 +1518,7 @@
     },
     "action_pose": {
       "label": {
-        "cn": "互动姿势",
+        "cn": "互動姿勢",
         "en": "Action Pose"
       },
       "category": "action",
@@ -1543,7 +1543,7 @@
     },
     "background_scene": {
       "label": {
-        "cn": "背景场景",
+        "cn": "背景場景",
         "en": "Background Scene"
       },
       "category": "location",
@@ -1580,7 +1580,7 @@
     },
     "video_color_tone": {
       "label": {
-        "cn": "影视色调",
+        "cn": "影視色調",
         "en": "Cinematic Color Tone"
       },
       "category": "visual",
@@ -1621,7 +1621,7 @@
     },
     "video_art_style": {
       "label": {
-        "cn": "影视风格",
+        "cn": "影視風格",
         "en": "Cinematic Style"
       },
       "category": "visual",
@@ -1662,7 +1662,7 @@
     },
     "scene_type": {
       "label": {
-        "cn": "场景类型",
+        "cn": "場景類型",
         "en": "Scene Type"
       },
       "category": "location",
@@ -1703,7 +1703,7 @@
     },
     "lens_type": {
       "label": {
-        "cn": "镜头类型",
+        "cn": "鏡頭類型",
         "en": "Lens Type"
       },
       "category": "visual",
@@ -1736,7 +1736,7 @@
     },
     "school_uniform": {
       "label": {
-        "cn": "校服样式",
+        "cn": "校服樣式",
         "en": "School Uniform"
       },
       "category": "item",
@@ -1769,7 +1769,7 @@
     },
     "urban_location": {
       "label": {
-        "cn": "城市地点",
+        "cn": "城市地點",
         "en": "Urban Location"
       },
       "category": "location",
@@ -1810,7 +1810,7 @@
     },
     "dynamic_action": {
       "label": {
-        "cn": "动态动作",
+        "cn": "動態動作",
         "en": "Dynamic Action"
       },
       "category": "action",
@@ -1851,7 +1851,7 @@
     },
     "action_status": {
       "label": {
-        "cn": "行为状态",
+        "cn": "行為狀態",
         "en": "Action Status"
       },
       "category": "action",
@@ -1904,7 +1904,7 @@
     },
     "draw_style": {
       "label": {
-        "cn": "绘画风格",
+        "cn": "繪畫風格",
         "en": "Drawing Style"
       },
       "category": "visual",
@@ -1929,7 +1929,7 @@
     },
     "fingernail_detail": {
       "label": {
-        "cn": "手指甲细节",
+        "cn": "手指甲細節",
         "en": "Fingernail Detail"
       },
       "category": "visual",
@@ -1962,7 +1962,7 @@
     },
     "building_cluster": {
       "label": {
-        "cn": "建筑群",
+        "cn": "建築群",
         "en": "Building Cluster"
       },
       "category": "location",
@@ -1995,7 +1995,7 @@
     },
     "monster_element": {
       "label": {
-        "cn": "怪兽元素",
+        "cn": "怪獸元素",
         "en": "Monster Element"
       },
       "category": "character",
@@ -2028,7 +2028,7 @@
     },
     "monster_feature": {
       "label": {
-        "cn": "怪兽特征",
+        "cn": "怪獸特徵",
         "en": "Monster Feature"
       },
       "category": "character",
@@ -2094,7 +2094,7 @@
     },
     "lighting_atmosphere": {
       "label": {
-        "cn": "灯光氛围",
+        "cn": "燈光氛圍",
         "en": "Lighting Atmosphere"
       },
       "category": "visual",
@@ -2135,7 +2135,7 @@
     },
     "shadow_contrast": {
       "label": {
-        "cn": "阴影对比",
+        "cn": "陰影對比",
         "en": "Shadow Contrast"
       },
       "category": "visual",
@@ -2168,7 +2168,7 @@
     },
     "travel_location": {
       "label": {
-        "cn": "旅游地点",
+        "cn": "旅遊地點",
         "en": "Travel Location"
       },
       "category": "location",
@@ -2225,7 +2225,7 @@
     },
     "comic_scene": {
       "label": {
-        "cn": "漫画场景",
+        "cn": "漫畫場景",
         "en": "Comic Scene"
       },
       "category": "location",
@@ -2274,7 +2274,7 @@
     },
     "designer": {
       "label": {
-        "cn": "设计师",
+        "cn": "設計師",
         "en": "Designer"
       },
       "category": "character",
@@ -2331,7 +2331,7 @@
     },
     "design_item": {
       "label": {
-        "cn": "设计物品",
+        "cn": "設計物品",
         "en": "Design Item"
       },
       "category": "item",
@@ -2490,7 +2490,7 @@
     },
     "xmas_theme": {
       "label": {
-        "cn": "圣诞主题",
+        "cn": "聖誕主題",
         "en": "Christmas Theme"
       },
       "category": "other",
@@ -2519,7 +2519,7 @@
     },
     "jewelry_style": {
       "label": {
-        "cn": "珠宝样式",
+        "cn": "珠寶樣式",
         "en": "Jewelry Style"
       },
       "category": "item",
@@ -2548,7 +2548,7 @@
     },
     "flower_type": {
       "label": {
-        "cn": "花卉品种",
+        "cn": "花卉品種",
         "en": "Flower Type"
       },
       "category": "item",
@@ -2610,7 +2610,7 @@
     },
     "theme_pixar": {
       "label": {
-        "cn": "配色主题",
+        "cn": "配色主題",
         "en": "Theme & Color"
       },
       "category": "visual",
@@ -2660,7 +2660,7 @@
     },
     "fashion_parts": {
       "label": {
-        "cn": "时尚穿搭拆解",
+        "cn": "時尚穿搭拆解",
         "en": "Fashion Deconstruction"
       },
       "category": "item",
@@ -2689,7 +2689,7 @@
     },
     "beauty_items": {
       "label": {
-        "cn": "美妆个护拆解",
+        "cn": "美妝個護拆解",
         "en": "Beauty Deconstruction"
       },
       "category": "item",
@@ -2714,7 +2714,7 @@
     },
     "digital_items": {
       "label": {
-        "cn": "数码生活拆解",
+        "cn": "數碼生活拆解",
         "en": "Digital Deconstruction"
       },
       "category": "item",
@@ -2739,7 +2739,7 @@
     },
     "underwater_color": {
       "label": {
-        "cn": "水下色调",
+        "cn": "水下色調",
         "en": "Underwater Color"
       },
       "category": "location",
@@ -2764,7 +2764,7 @@
     },
     "creatures": {
       "label": {
-        "cn": "伴随生物",
+        "cn": "伴隨生物",
         "en": "Creatures"
       },
       "category": "character",
@@ -2789,7 +2789,7 @@
     },
     "luxury_hobby_items": {
       "label": {
-        "cn": "个人爱好/奢华",
+        "cn": "個人愛好/奢華",
         "en": "Hobby & Luxury"
       },
       "category": "item",
@@ -2814,7 +2814,7 @@
     },
     "clothing_style_chinese": {
       "label": {
-        "cn": "中式服饰风格",
+        "cn": "中式服飾風格",
         "en": "Chinese Clothing Style"
       },
       "category": "item",
@@ -2855,7 +2855,7 @@
     },
     "clothing_color_traditional": {
       "label": {
-        "cn": "传统服装颜色",
+        "cn": "傳統服裝顏色",
         "en": "Traditional Clothing Color"
       },
       "category": "visual",
@@ -2929,7 +2929,7 @@
     },
     "greeting_new_year": {
       "label": {
-        "cn": "新年祝福语",
+        "cn": "新年祝福語",
         "en": "New Year Greeting"
       },
       "category": "other",
@@ -2970,7 +2970,7 @@
     },
     "background_color_festive": {
       "label": {
-        "cn": "节日背景颜色",
+        "cn": "節日背景顏色",
         "en": "Festive Background Color"
       },
       "category": "visual",
@@ -3003,7 +3003,7 @@
     },
     "character_heroic": {
       "label": {
-        "cn": "人物类型",
+        "cn": "人物類型",
         "en": "Character Type"
       },
       "category": "character",
@@ -3044,7 +3044,7 @@
     },
     "room_style_cute": {
       "label": {
-        "cn": "可爱房间风格",
+        "cn": "可愛房間風格",
         "en": "Cute Room Style"
       },
       "category": "location",
@@ -3085,7 +3085,7 @@
     },
     "cute_outfit": {
       "label": {
-        "cn": "可爱服装",
+        "cn": "可愛服裝",
         "en": "Cute Outfit"
       },
       "category": "item",
@@ -3126,7 +3126,7 @@
     },
     "product_category": {
       "label": {
-        "cn": "产品类别",
+        "cn": "產品類別",
         "en": "Product Category"
       },
       "category": "item",
@@ -3167,7 +3167,7 @@
     },
     "environment_style": {
       "label": {
-        "cn": "环境风格",
+        "cn": "環境風格",
         "en": "Environment Style"
       },
       "category": "location",
@@ -3208,7 +3208,7 @@
     },
     "primary_material": {
       "label": {
-        "cn": "主要材质",
+        "cn": "主要材質",
         "en": "Primary Material"
       },
       "category": "item",
@@ -3249,7 +3249,7 @@
     },
     "drawing_style": {
       "label": {
-        "cn": "绘图风格",
+        "cn": "繪圖風格",
         "en": "Drawing Style"
       },
       "category": "visual",
@@ -3282,7 +3282,7 @@
     },
     "character_subject": {
       "label": {
-        "cn": "人物主体",
+        "cn": "人物主體",
         "en": "Character Subject"
       },
       "category": "character",
@@ -3323,7 +3323,7 @@
     },
     "portrait_view": {
       "label": {
-        "cn": "画面视角",
+        "cn": "畫面視角",
         "en": "Portrait View"
       },
       "category": "visual",
@@ -3364,7 +3364,7 @@
     },
     "line_art_style": {
       "label": {
-        "cn": "线稿风格",
+        "cn": "線稿風格",
         "en": "Line Art Style"
       },
       "category": "visual",
@@ -3405,7 +3405,7 @@
     },
     "shading_technique": {
       "label": {
-        "cn": "阴影技法",
+        "cn": "陰影技法",
         "en": "Shading Technique"
       },
       "category": "visual",
@@ -3446,7 +3446,7 @@
     },
     "background_treatment": {
       "label": {
-        "cn": "背景处理",
+        "cn": "背景處理",
         "en": "Background Treatment"
       },
       "category": "location",
@@ -3487,7 +3487,7 @@
     },
     "classic_game": {
       "label": {
-        "cn": "经典游戏",
+        "cn": "經典遊戲",
         "en": "Classic Game"
       },
       "category": "other",
@@ -3560,7 +3560,7 @@
     },
     "scientific_discovery": {
       "label": {
-        "cn": "科学发现",
+        "cn": "科學髮現",
         "en": "Scientific Discovery"
       },
       "category": "other",
@@ -3633,7 +3633,7 @@
     },
     "cute_pose_dynamic": {
       "label": {
-        "cn": "可爱动态姿势",
+        "cn": "可愛動態姿勢",
         "en": "Cute Dynamic Pose"
       },
       "category": "action",
@@ -3674,7 +3674,7 @@
     },
     "fitness_location": {
       "label": {
-        "cn": "健身场景",
+        "cn": "健身場景",
         "en": "Fitness Location"
       },
       "category": "location",
@@ -3703,7 +3703,7 @@
     },
     "fitness_pose": {
       "label": {
-        "cn": "健身姿势",
+        "cn": "健身姿勢",
         "en": "Fitness Pose"
       },
       "category": "action",
@@ -3744,7 +3744,7 @@
     },
     "fitness_clothing": {
       "label": {
-        "cn": "健身服装",
+        "cn": "健身服裝",
         "en": "Fitness Clothing"
       },
       "category": "item",
@@ -3785,7 +3785,7 @@
     },
     "selfie_style": {
       "label": {
-        "cn": "自拍风格",
+        "cn": "自拍風格",
         "en": "Selfie Style"
       },
       "category": "visual",
@@ -3855,7 +3855,7 @@
     },
     "physical_state": {
       "label": {
-        "cn": "身体状态",
+        "cn": "身體狀態",
         "en": "Physical State"
       },
       "category": "character",
@@ -3888,7 +3888,7 @@
     },
     "sweat_appearance": {
       "label": {
-        "cn": "汗水状态",
+        "cn": "汗水狀態",
         "en": "Sweat Appearance"
       },
       "category": "character",
@@ -3962,7 +3962,7 @@
     },
     "miniature_character": {
       "label": {
-        "cn": "微缩人物角色",
+        "cn": "微縮人物角色",
         "en": "Miniature Character"
       },
       "category": "character",
@@ -4088,7 +4088,7 @@
     },
     "miniature_action": {
       "label": {
-        "cn": "微缩动作",
+        "cn": "微縮動作",
         "en": "Miniature Action"
       },
       "category": "action",
@@ -4145,7 +4145,7 @@
     },
     "plush_expression": {
       "label": {
-        "cn": "毛绒玩具表情",
+        "cn": "毛絨玩具表情",
         "en": "Plush Toy Expression"
       },
       "category": "character",
@@ -4194,7 +4194,7 @@
     },
     "cute_accessory": {
       "label": {
-        "cn": "可爱配饰",
+        "cn": "可愛配飾",
         "en": "Cute Accessory"
       },
       "category": "item",
@@ -4251,7 +4251,7 @@
     },
     "festive_archway": {
       "label": {
-        "cn": "节日拱门场景",
+        "cn": "節日拱門場景",
         "en": "Festive Archway Scene"
       },
       "category": "location",
@@ -4292,7 +4292,7 @@
     },
     "exhibition_type": {
       "label": {
-        "cn": "展览类型",
+        "cn": "展覽類型",
         "en": "Exhibition Type"
       },
       "category": "location",
@@ -4341,7 +4341,7 @@
     },
     "display_objects": {
       "label": {
-        "cn": "展示物体",
+        "cn": "展示物體",
         "en": "Display Objects"
       },
       "category": "item",
@@ -4390,7 +4390,7 @@
     },
     "pod_structure": {
       "label": {
-        "cn": "展台结构",
+        "cn": "展台結構",
         "en": "Pod Structure"
       },
       "category": "location",
@@ -4439,7 +4439,7 @@
     },
     "bridal_hair_decoration": {
       "label": {
-        "cn": "新娘发饰",
+        "cn": "新娘髮飾",
         "en": "Bridal Hair Decoration"
       },
       "category": "item",
@@ -4488,7 +4488,7 @@
     },
     "traditional_bridal_attire": {
       "label": {
-        "cn": "传统新娘服饰",
+        "cn": "傳統新娘服飾",
         "en": "Traditional Bridal Attire"
       },
       "category": "item",
@@ -4537,7 +4537,7 @@
     },
     "bridal_jewelry": {
       "label": {
-        "cn": "新娘首饰",
+        "cn": "新娘首飾",
         "en": "Bridal Jewelry"
       },
       "category": "item",
@@ -4586,7 +4586,7 @@
     },
     "premium_food_subject": {
       "label": {
-        "cn": "高端食品主体",
+        "cn": "高端食品主體",
         "en": "Premium Food Subject"
       },
       "category": "item",
@@ -4643,7 +4643,7 @@
     },
     "ingredient_bits": {
       "label": {
-        "cn": "配料碎屑装饰",
+        "cn": "配料碎屑裝飾",
         "en": "Ingredient Bits"
       },
       "category": "item",
@@ -4700,7 +4700,7 @@
     },
     "imperial_palace_scene": {
       "label": {
-        "cn": "皇家宫殿场景",
+        "cn": "皇家宮殿場景",
         "en": "Imperial Palace Scene"
       },
       "category": "location",
@@ -4749,7 +4749,7 @@
     },
     "phoenix_crown": {
       "label": {
-        "cn": "凤冠发饰",
+        "cn": "鳳冠髮飾",
         "en": "Phoenix Crown"
       },
       "category": "item",
@@ -4798,7 +4798,7 @@
     },
     "flowing_garment": {
       "label": {
-        "cn": "流动华服",
+        "cn": "流動華服",
         "en": "Flowing Garment"
       },
       "category": "item",
@@ -4847,7 +4847,7 @@
     },
     "festive_props": {
       "label": {
-        "cn": "节日道具",
+        "cn": "節日道具",
         "en": "Festive Props"
       },
       "category": "item",
@@ -4896,7 +4896,7 @@
     },
     "room_type": {
       "label": {
-        "cn": "室内空间类型",
+        "cn": "室內空間類型",
         "en": "Room Type"
       },
       "category": "location",
@@ -4945,7 +4945,7 @@
     },
     "interior_design_style": {
       "label": {
-        "cn": "室内设计风格",
+        "cn": "室內設計風格",
         "en": "Interior Design Style"
       },
       "category": "visual",
@@ -5002,7 +5002,7 @@
     },
     "furniture_set": {
       "label": {
-        "cn": "家具组合",
+        "cn": "家具組合",
         "en": "Furniture Set"
       },
       "category": "item",
@@ -5043,7 +5043,7 @@
     },
     "ceiling_material": {
       "label": {
-        "cn": "天花板材质",
+        "cn": "天花板材質",
         "en": "Ceiling Material"
       },
       "category": "visual",
@@ -5092,7 +5092,7 @@
     },
     "wall_material": {
       "label": {
-        "cn": "墙面材质",
+        "cn": "牆面材質",
         "en": "Wall Material"
       },
       "category": "visual",
@@ -5145,7 +5145,7 @@
     },
     "floor_material": {
       "label": {
-        "cn": "地板材质",
+        "cn": "地板材質",
         "en": "Floor Material"
       },
       "category": "visual",
@@ -5198,7 +5198,7 @@
     },
     "interior_lighting": {
       "label": {
-        "cn": "室内光线效果",
+        "cn": "室內光線效果",
         "en": "Interior Lighting"
       },
       "category": "visual",
@@ -5247,7 +5247,7 @@
     },
     "render_quality": {
       "label": {
-        "cn": "渲染质量",
+        "cn": "渲染質量",
         "en": "Render Quality"
       },
       "category": "other",
@@ -5288,7 +5288,7 @@
     },
     "room_condition": {
       "label": {
-        "cn": "房间状态",
+        "cn": "房間狀態",
         "en": "Room Condition"
       },
       "category": "location",
@@ -5329,7 +5329,7 @@
     },
     "anatomy_teaching_style": {
       "label": {
-        "cn": "解剖教学风格",
+        "cn": "解剖教學風格",
         "en": "Anatomy Teaching Style"
       },
       "category": "visual",
@@ -5370,7 +5370,7 @@
     },
     "construction_line_color": {
       "label": {
-        "cn": "构造线颜色",
+        "cn": "構造線顏色",
         "en": "Construction Line Color"
       },
       "category": "visual",
@@ -5407,7 +5407,7 @@
     },
     "fight_style": {
       "label": {
-        "cn": "打斗风格",
+        "cn": "打斗風格",
         "en": "Fight Style"
       },
       "category": "action",
@@ -5444,7 +5444,7 @@
     },
     "camera_rhythm": {
       "label": {
-        "cn": "镜头节奏",
+        "cn": "鏡頭節奏",
         "en": "Camera Rhythm"
       },
       "category": "visual",
@@ -5477,7 +5477,7 @@
     },
     "sci_fi_movie_style": {
       "label": {
-        "cn": "科幻电影风格",
+        "cn": "科幻電影風格",
         "en": "Sci-Fi Movie Style"
       },
       "category": "visual",
@@ -5518,7 +5518,7 @@
     },
     "futuristic_vehicle": {
       "label": {
-        "cn": "未来载具",
+        "cn": "未來載具",
         "en": "Futuristic Vehicle"
       },
       "category": "item",
@@ -5559,7 +5559,7 @@
     },
     "cyberpunk_city_scene": {
       "label": {
-        "cn": "赛博朋克城市场景",
+        "cn": "賽博朋克城市場景",
         "en": "Cyberpunk City Scene"
       },
       "category": "location",
@@ -5600,7 +5600,7 @@
     },
     "tracking_camera_shot": {
       "label": {
-        "cn": "跟拍镜头类型",
+        "cn": "跟拍鏡頭類型",
         "en": "Tracking Camera Shot"
       },
       "category": "visual",
@@ -5641,7 +5641,7 @@
     },
     "action_camera_shot": {
       "label": {
-        "cn": "动作镜头类型",
+        "cn": "動作鏡頭類型",
         "en": "Action Camera Shot"
       },
       "category": "visual",
@@ -5682,7 +5682,7 @@
     },
     "natural_environment": {
       "label": {
-        "cn": "自然环境类型",
+        "cn": "自然環境類型",
         "en": "Natural Environment Type"
       },
       "category": "location",
@@ -5723,7 +5723,7 @@
     },
     "military_aircraft": {
       "label": {
-        "cn": "军用飞行器",
+        "cn": "軍用飛行器",
         "en": "Military Aircraft"
       },
       "category": "item",
@@ -5764,7 +5764,7 @@
     },
     "aerial_opening_shot": {
       "label": {
-        "cn": "航拍开场镜头",
+        "cn": "航拍開場鏡頭",
         "en": "Aerial Opening Shot"
       },
       "category": "visual",
@@ -5805,7 +5805,7 @@
     },
     "dynamic_tracking_shot": {
       "label": {
-        "cn": "动态跟拍风格",
+        "cn": "動態跟拍風格",
         "en": "Dynamic Tracking Shot Style"
       },
       "category": "visual",
@@ -6455,7 +6455,7 @@
     "action": {
       "id": "action",
       "label": {
-        "cn": "动作",
+        "cn": "動作",
         "en": "ACTION"
       },
       "color": "rose"
@@ -6463,7 +6463,7 @@
     "location": {
       "id": "location",
       "label": {
-        "cn": "地点",
+        "cn": "地點",
         "en": "LOCATION"
       },
       "color": "emerald"
@@ -6471,7 +6471,7 @@
     "visual": {
       "id": "visual",
       "label": {
-        "cn": "画面",
+        "cn": "畫面",
         "en": "VISUALS"
       },
       "color": "violet"

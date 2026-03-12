@@ -36,7 +36,7 @@ const FuCharacter = React.memo(({ isDarkMode }) => {
           overflow: 'hidden',
         }}
       >
-        {'福到心顺'.split('').map((char, i) => (
+        {'福到心順'.split('').map((char, i) => (
           <span
             key={i}
             className={`text-[13px] font-bold leading-snug ${isDarkMode ? 'text-amber-400/90' : 'text-amber-700/80'}`}
@@ -82,7 +82,7 @@ const FuCharacter = React.memo(({ isDarkMode }) => {
           overflow: 'hidden',
         }}
       >
-        {'马到功成'.split('').map((char, i) => (
+        {'馬到功成'.split('').map((char, i) => (
           <span
             key={i}
             className={`text-[13px] font-bold leading-snug ${isDarkMode ? 'text-amber-400/90' : 'text-amber-700/80'}`}
@@ -276,8 +276,8 @@ export const DiscoveryView = React.memo(({
               <div className="flex gap-6 items-center">
                 {[
                   { id: 'all', cn: '全部', en: 'All' },
-                  { id: 'image', cn: '图片', en: 'Image' },
-                  { id: 'video', cn: '视频', en: 'Video' }
+                  { id: 'image', cn: '圖片', en: 'Image' },
+                  { id: 'video', cn: '影片', en: 'Video' }
                 ].map(type => (
                   <button
                     key={type.id}
@@ -299,7 +299,7 @@ export const DiscoveryView = React.memo(({
                 type="button"
                 onClick={() => setIsMobileTagsExpanded(prev => !prev)}
                 className={`flex-shrink-0 p-2 -mr-2 rounded-full transition-colors ${isDarkMode ? 'text-white/60 hover:text-white/90' : 'text-black/50 hover:text-black/80'}`}
-                aria-label={isMobileTagsExpanded ? (language === 'cn' ? '收起标签' : 'Collapse tags') : (language === 'cn' ? '展开标签' : 'Expand tags')}
+                aria-label={isMobileTagsExpanded ? (language === 'cn' ? '收起標籤' : 'Collapse tags') : (language === 'cn' ? '展開標籤' : 'Expand tags')}
               >
                 {isMobileTagsExpanded ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
               </button>
@@ -439,14 +439,14 @@ export const DiscoveryView = React.memo(({
                   {/* 区块1: Logo + 描述 + Slogan */}
                   <div className="flex flex-col items-center lg:items-start gap-6 w-full">
                       <div className="w-full max-w-[320px] scale-75 sm:scale-85 lg:scale-90 xl:scale-100 origin-center lg:origin-left flex flex-col gap-3">
-                          <h1 className="sr-only">提示词填空器 (Prompt Fill) - 专业的 AI 提示词管理与优化工具</h1>
-                          <img 
-                              src={isDarkMode ? "/Title_Dark.svg" : "/Title.svg"} 
-                              alt="提示词填空器 (Prompt Fill) - 专业的 AI 提示词管理与优化工具" 
+                          <h1 className="sr-only">提示詞填空器 (Prompt Fill) - 專業的 AI 提示詞管理與優化工具</h1>
+                          <img
+                              src={isDarkMode ? "/Title_Dark.svg" : "/Title.svg"}
+                              alt="提示詞填空器 (Prompt Fill) - 專業的 AI 提示詞管理與優化工具"
                               className="w-full h-auto"
                           />
                           <p className={`text-xs lg:text-sm font-medium leading-relaxed opacity-80 ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-                            提示词填空器 (Prompt Fill) 是一款专业的 AI 提示词管理工具，支持模版化、变量填充及一键优化。
+                            提示詞填空器 (Prompt Fill) 是一款專業的 AI 提示詞管理工具，支援模板化、變數填充及一鍵優化。
                           </p>
                       </div>
                       <div className="w-full scale-90 lg:scale-95 xl:scale-100 origin-center lg:origin-left min-h-[80px]">
@@ -553,7 +553,7 @@ export const DiscoveryView = React.memo(({
                   <div className={`flex items-center gap-3 text-[11px] font-medium px-4 py-2 ${isDarkMode ? 'text-gray-400' : 'text-gray-700'}`}>
                       <p>Made by CornerStudio</p>
                       <div className={`w-1 h-1 rounded-full ${isDarkMode ? 'bg-gray-600' : 'bg-gray-400'}`} />
-                      <p>公众号：角落工作室</p>
+                      <p>公眾號：角落工作室</p>
                       <div className={`w-1 h-1 rounded-full ${isDarkMode ? 'bg-gray-600' : 'bg-gray-400'}`} />
                       <p>Wechat: tanshilongmario</p>
                       <button 

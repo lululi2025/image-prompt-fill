@@ -71,12 +71,12 @@ export const Sidebar = ({
       <div className="flex flex-col items-center gap-8 w-full">
         {/* Logo */}
         <div className="mt-4 mb-2">
-          <img src="/Logo_icon.svg" alt="提示词填空器 (Prompt Fill) - AI 提示词管理工具" className="w-9 h-9" />
+          <img src="/Logo_icon.svg" alt="提示詞填空器 (Prompt Fill) - AI 提示詞管理工具" className="w-9 h-9" />
         </div>
 
         {/* 导航按钮组 */}
         <div className="flex flex-col items-center gap-6">
-          <Tooltip content="主页" isDarkMode={isDarkMode}>
+          <Tooltip content="主頁" isDarkMode={isDarkMode}>
             {activeTab === 'settings' ? (
               <Link
                 to="/"
@@ -94,7 +94,7 @@ export const Sidebar = ({
             )}
           </Tooltip>
 
-          <Tooltip content="详情页" isDarkMode={isDarkMode}>
+          <Tooltip content="詳情頁" isDarkMode={isDarkMode}>
             {activeTab === 'settings' ? (
               <Link
                 to="/"

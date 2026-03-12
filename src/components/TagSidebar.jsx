@@ -55,13 +55,13 @@ export const TagSidebar = ({
       {/* 库源筛选 - 固定顶部 */}
       <div className="flex flex-col gap-3 flex-shrink-0">
         <h3 className={`text-xs font-bold uppercase px-4 opacity-50 ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>
-          {language === 'cn' ? '库源' : 'Library'}
+          {language === 'cn' ? '庫源' : 'Library'}
         </h3>
         <div className="flex flex-col gap-1">
           {[
             { id: 'all', cn: '全部', en: 'All' },
-            { id: 'official', cn: '官方库', en: 'Official' },
-            { id: 'personal', cn: '个人库', en: 'Personal' }
+            { id: 'official', cn: '官方庫', en: 'Official' },
+            { id: 'personal', cn: '個人庫', en: 'Personal' }
           ].map(lib => (
             <button
               key={lib.id}
@@ -79,13 +79,13 @@ export const TagSidebar = ({
       {/* 类型筛选 - 固定在库源下方 */}
       <div className="flex flex-col gap-3 flex-shrink-0 mt-8">
         <h3 className={`text-xs font-bold uppercase px-4 opacity-50 ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>
-          {language === 'cn' ? '类型' : 'Type'}
+          {language === 'cn' ? '類型' : 'Type'}
         </h3>
         <div className="flex flex-col gap-1">
           {[
             { id: 'all', cn: '全部', en: 'All' },
-            { id: 'image', cn: '图片', en: 'Image' },
-            { id: 'video', cn: '视频', en: 'Video' }
+            { id: 'image', cn: '圖片', en: 'Image' },
+            { id: 'video', cn: '影片', en: 'Video' }
           ].map(type => (
             <button
               key={type.id}
@@ -103,7 +103,7 @@ export const TagSidebar = ({
       {/* 标签筛选 - 独立滚动区域 */}
       <div className="flex flex-col gap-3 mt-8 min-h-0 flex-1 overflow-hidden">
         <h3 className={`text-xs font-bold uppercase px-4 opacity-50 flex-shrink-0 ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>
-          {language === 'cn' ? '标签' : 'Tags'}
+          {language === 'cn' ? '標籤' : 'Tags'}
         </h3>
         <div className="flex flex-col gap-1 overflow-y-auto custom-scrollbar pb-4">
           <button

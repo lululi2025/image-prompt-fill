@@ -3,9 +3,9 @@
 export const INITIAL_CATEGORIES = {
   character: { id: "character", label: { cn: "人物", en: "CHARACTER" }, color: "blue" },
   item: { id: "item", label: { cn: "物品", en: "ITEM" }, color: "amber" },
-  action: { id: "action", label: { cn: "动作", en: "ACTION" }, color: "rose" },
-  location: { id: "location", label: { cn: "地点", en: "LOCATION" }, color: "emerald" },
-  visual: { id: "visual", label: { cn: "画面", en: "VISUALS" }, color: "violet" },
+  action: { id: "action", label: { cn: "動作", en: "ACTION" }, color: "rose" },
+  location: { id: "location", label: { cn: "地點", en: "LOCATION" }, color: "emerald" },
+  visual: { id: "visual", label: { cn: "畫面", en: "VISUALS" }, color: "violet" },
   other: { id: "other", label: { cn: "其他", en: "OTHER" }, color: "slate" }
 };
 
@@ -23,7 +23,7 @@ export const INITIAL_BANKS = {
     ]
   },
   subject: {
-    label: { cn: "主体对象", en: "Subject" },
+    label: { cn: "主體對象", en: "Subject" },
     category: "character",
     options: [
       { cn: "女性角色", en: "Female Character" },
@@ -36,7 +36,7 @@ export const INITIAL_BANKS = {
     ]
   },
   hair_style: {
-    label: { cn: "发型样式", en: "Hair Style" },
+    label: { cn: "髮型樣式", en: "Hair Style" },
     category: "character",
     options: [
       { cn: "短发，柔和凌乱的深色头发", en: "Short, softly tousled dark hair" },
@@ -61,7 +61,7 @@ export const INITIAL_BANKS = {
     ]
   },
   layout_focus: {
-    label: { cn: "构图重心", en: "Layout Focus" },
+    label: { cn: "構圖重心", en: "Layout Focus" },
     category: "visual",
     options: [
       { cn: "全身立绘", en: "Full-body Portrait" },
@@ -71,7 +71,7 @@ export const INITIAL_BANKS = {
     ]
   },
   grid_pose: { 
-    label: { cn: "九宫格动作", en: "Grid Pose" }, 
+    label: { cn: "九宮格動作", en: "Grid Pose" }, 
     category: "action", 
     options: [
       { cn: "前景手指虚化", en: "Out-of-focus fingers in foreground" },
@@ -101,7 +101,7 @@ export const INITIAL_BANKS = {
   },
   
   camera_angle: {
-    label: { cn: "拍摄角度", en: "Camera Angle" },
+    label: { cn: "拍攝角度", en: "Camera Angle" },
     category: "visual",
     options: [
       { cn: "脸颊和颈部特写", en: "Cheek and neck close-up" },
@@ -119,7 +119,7 @@ export const INITIAL_BANKS = {
     ]
   },
   connectors: {
-    label: { cn: "视觉引导", en: "Connectors" },
+    label: { cn: "視覺引導", en: "Connectors" },
     category: "visual",
     options: [
       { cn: "手绘箭头或引导线", en: "Hand-drawn arrows or guide lines" },
@@ -129,7 +129,7 @@ export const INITIAL_BANKS = {
     ]
   },
   underwear_style: {
-    label: { cn: "时尚内着设计", en: "Innerwear Style" },
+    label: { cn: "時尚內著設計", en: "Innerwear Style" },
     category: "item",
     options: [
       { cn: "简约舒适棉质内衣", en: "Simple and comfortable cotton innerwear" },
@@ -140,7 +140,7 @@ export const INITIAL_BANKS = {
     ]
   },
   clothing: {
-    label: { cn: "人物服饰", en: "Clothing" },
+    label: { cn: "人物服飾", en: "Clothing" },
     category: "item",
     options: [
       { cn: "炭灰色无袖连衣裙", en: "Charcoal grey sleeveless dress" },
@@ -153,7 +153,7 @@ export const INITIAL_BANKS = {
     ]
   },
   accessory_glasses: {
-    label: { cn: "眼镜配饰", en: "Glasses" },
+    label: { cn: "眼鏡配飾", en: "Glasses" },
     category: "item",
     options: [
       { cn: "戴着有轻微镜面反射的眼镜", en: "wearing glasses with mild lens reflections" },
@@ -163,7 +163,7 @@ export const INITIAL_BANKS = {
     ]
   },
   clothing_male: {
-    label: { cn: "男性服饰", en: "Male Clothing" },
+    label: { cn: "男性服飾", en: "Male Clothing" },
     category: "item",
     options: [
       { cn: "剪裁合体的深蓝西装", en: "Tailored deep blue suit" },
@@ -175,7 +175,7 @@ export const INITIAL_BANKS = {
     ]
   },
   clothing_female: {
-    label: { cn: "女性服饰", en: "Female Clothing" },
+    label: { cn: "女性服飾", en: "Female Clothing" },
     category: "item",
     options: [
       { cn: "炭灰色无袖连衣裙", en: "Charcoal grey sleeveless dress" },
@@ -198,7 +198,7 @@ export const INITIAL_BANKS = {
     ]
   },
   character_originality: {
-    label: { cn: "人物原创性", en: "Character Originality" },
+    label: { cn: "人物原創性", en: "Character Originality" },
     category: "character",
     options: [
       { cn: "创作一个原创人物", en: "Create an original character" },
@@ -207,7 +207,7 @@ export const INITIAL_BANKS = {
     ]
   },
   character_groups: {
-    label: { cn: "人物组合", en: "Character Groups" },
+    label: { cn: "人物組合", en: "Character Groups" },
     category: "character",
     options: [
       { cn: "中国古代开国皇帝", en: "Ancient Chinese Founding Emperors" },
@@ -223,7 +223,7 @@ export const INITIAL_BANKS = {
     ]
   },
   social_media: {
-    label: { cn: "社交媒体", en: "Social Media" },
+    label: { cn: "社交媒體", en: "Social Media" },
     category: "location",
     options: [
       { cn: "微信朋友圈", en: "WeChat Moments" },
@@ -237,7 +237,7 @@ export const INITIAL_BANKS = {
     ]
   },
   texture_zoom: {
-    label: { cn: "材质特写", en: "Texture Zoom" },
+    label: { cn: "材質特寫", en: "Texture Zoom" },
     category: "visual",
     options: [
       { cn: "丝滑感", en: "Silkiness" },
@@ -247,7 +247,7 @@ export const INITIAL_BANKS = {
     ]
   },
   action_detail: {
-    label: { cn: "动作细节", en: "Action Detail" },
+    label: { cn: "動作細節", en: "Action Detail" },
     category: "action",
     options: [
       { cn: "优雅的行走姿态", en: "Elegant walking posture" },
@@ -257,7 +257,7 @@ export const INITIAL_BANKS = {
     ]
   },
   special_view: {
-    label: { cn: "特殊视角", en: "Special View" },
+    label: { cn: "特殊視角", en: "Special View" },
     category: "visual",
     options: [
       { cn: "被踩在脚下的仰视视角", en: "Low-angle view from being stepped on" },
@@ -267,7 +267,7 @@ export const INITIAL_BANKS = {
     ]
   },
   bag_content: {
-    label: { cn: "随身包袋", en: "Bag Content" },
+    label: { cn: "隨身包袋", en: "Bag Content" },
     category: "item",
     options: [
       { cn: "日常通勤包或手拿包", en: "Daily commuter bag or clutch" },
@@ -277,7 +277,7 @@ export const INITIAL_BANKS = {
     ]
   },
   cosmetics: {
-    label: { cn: "美妆与护理", en: "Cosmetics" },
+    label: { cn: "美妝與護理", en: "Cosmetics" },
     category: "item",
     options: [
       { cn: "常用的化妆品组合", en: "Commonly used cosmetics combo" },
@@ -287,7 +287,7 @@ export const INITIAL_BANKS = {
     ]
   },
   private_items: {
-    label: { cn: "品质生活好物", en: "Quality Life Items" },
+    label: { cn: "品質生活好物", en: "Quality Life Items" },
     category: "item",
     options: [
       { cn: "香薰加湿器", en: "Aroma Diffuser" },
@@ -297,7 +297,7 @@ export const INITIAL_BANKS = {
     ]
   },
   city_name: {
-    label: { cn: "城市/国家", en: "City/Country" },
+    label: { cn: "城市/國家", en: "City/Country" },
     category: "location",
     options: [
       { cn: "京都", en: "Kyoto" },
@@ -311,7 +311,7 @@ export const INITIAL_BANKS = {
     ]
   },
   art_tool: {
-    label: { cn: "绘画工具", en: "Art Tool" },
+    label: { cn: "繪畫工具", en: "Art Tool" },
     category: "item",
     options: [
       { cn: "毛笔", en: "Ink Brush" },
@@ -322,7 +322,7 @@ export const INITIAL_BANKS = {
     ]
   },
   art_style: {
-    label: { cn: "画风", en: "Art Style" },
+    label: { cn: "畫風", en: "Art Style" },
     category: "visual",
     options: [
       { cn: "浮世绘 (Ukiyo-e)", en: "Ukiyo-e" },
@@ -336,7 +336,7 @@ export const INITIAL_BANKS = {
     ]
   },
   background_style: {
-    label: { cn: "背景风格", en: "Background Style" },
+    label: { cn: "背景風格", en: "Background Style" },
     category: "visual",
     options: [
       { cn: "漫画网格笔记本", en: "Manga grid notebook" },
@@ -346,7 +346,7 @@ export const INITIAL_BANKS = {
     ]
   },
   classic_scene: {
-    label: { cn: "经典场景", en: "Classic Scene" },
+    label: { cn: "經典場景", en: "Classic Scene" },
     category: "location",
     options: [
       { cn: "黑客帝国", en: "The Matrix" },
@@ -375,7 +375,7 @@ export const INITIAL_BANKS = {
     ]
   },
   render_style: {
-    label: { cn: "渲染风格", en: "Render Style" },
+    label: { cn: "渲染風格", en: "Render Style" },
     category: "visual",
     options: [
       { cn: "Octane Render 和 Cinema 4D", en: "Octane Render and Cinema 4D" },
@@ -392,7 +392,7 @@ export const INITIAL_BANKS = {
     ]
   },
   show_name: {
-    label: { cn: "剧名", en: "Show Name" },
+    label: { cn: "劇名", en: "Show Name" },
     category: "other",
     options: [
       { cn: "泰坦尼克号", en: "Titanic" },
@@ -418,7 +418,7 @@ export const INITIAL_BANKS = {
     ]
   },
   art_type: {
-    label: { cn: "艺术门类", en: "Art Type" },
+    label: { cn: "藝術門類", en: "Art Type" },
     category: "other",
     options: [
       { cn: "美术学", en: "Fine Arts" },
@@ -440,7 +440,7 @@ export const INITIAL_BANKS = {
     ]
   },
   dominant_colors: {
-    label: { cn: "主色调", en: "Dominant Colors" },
+    label: { cn: "主色調", en: "Dominant Colors" },
     category: "visual",
     options: [
       { cn: "传统的京都红与古朴的墨黑色", en: "Traditional Kyoto red and antique ink black" },
@@ -463,7 +463,7 @@ export const INITIAL_BANKS = {
     ]
   },
   city_glimpse_subtitle: {
-    label: { cn: "副标题内容", en: "Subtitle Content" },
+    label: { cn: "副標題內容", en: "Subtitle Content" },
     category: "other",
     options: [
       { cn: "古韵悠长的千年古都", en: "The thousand-year-old ancient capital" },
@@ -473,7 +473,7 @@ export const INITIAL_BANKS = {
     ]
   },
   ratio: {
-    label: { cn: "画幅比例", en: "Aspect Ratio" },
+    label: { cn: "畫幅比例", en: "Aspect Ratio" },
     category: "visual",
     options: [
       { cn: "3:4竖构图", en: "3:4 Vertical" },
@@ -487,7 +487,7 @@ export const INITIAL_BANKS = {
   },
   // Fashion Template additions
   fashion_deconstruct: {
-    label: { cn: "穿搭解构", en: "Fashion Deconstruct" },
+    label: { cn: "穿搭解構", en: "Fashion Deconstruct" },
     category: "item",
     options: [
       { cn: "整齐折叠的外套和精致的高跟鞋", en: "Neatly folded coat and exquisite high heels" },
@@ -497,7 +497,7 @@ export const INITIAL_BANKS = {
     ]
   },
   toy_companion: {
-    label: { cn: "互动公仔", en: "Toy Companion" },
+    label: { cn: "互動公仔", en: "Toy Companion" },
     category: "item",
     options: [
       { cn: "Labubu艺术公仔", en: "Labubu Art Toy" },
@@ -510,7 +510,7 @@ export const INITIAL_BANKS = {
   
   // Old ones preserved for compatibility or other templates
   lens_param: {
-    label: { cn: "九宫格镜头", en: "Lens Parameter" },
+    label: { cn: "九宮格鏡頭", en: "Lens Parameter" },
     category: "visual",
     options: [
       { cn: "85mm, f/1.8", en: "85mm, f/1.8" },
@@ -526,7 +526,7 @@ export const INITIAL_BANKS = {
     ]
   },
   lighting: {
-    label: { cn: "灯光布置", en: "Lighting" },
+    label: { cn: "燈光布置", en: "Lighting" },
     category: "visual",
     options: [
       { cn: "大型顶置柔光箱，轻微侧向反射光", en: "Large overhead softbox, slight side reflection" },
@@ -540,7 +540,7 @@ export const INITIAL_BANKS = {
     ]
   },
   sticker_core: {
-    label: { cn: "核心贴纸", en: "Sticker Core" },
+    label: { cn: "核心貼紙", en: "Sticker Core" },
     category: "item",
     options: [
       { cn: "用户穿着甜美约会装的照片", en: "Photo of user in a sweet date outfit" },
@@ -550,7 +550,7 @@ export const INITIAL_BANKS = {
     ]
   },
   sticker_decor: {
-    label: { cn: "装饰元素", en: "Sticker Decor" },
+    label: { cn: "裝飾元素", en: "Sticker Decor" },
     category: "item",
     options: [
       { cn: "手绘爱心、闪光符号", en: "Hand-drawn hearts, sparkle symbols" },
@@ -560,7 +560,7 @@ export const INITIAL_BANKS = {
     ]
   },
   action_pose: {
-    label: { cn: "互动姿势", en: "Action Pose" },
+    label: { cn: "互動姿勢", en: "Action Pose" },
     category: "action",
     options: [
       { cn: "用手指在男人脑后比划'兔耳朵'", en: "Using fingers to make 'bunny ears' behind the man's head" },
@@ -570,7 +570,7 @@ export const INITIAL_BANKS = {
     ]
   },
   background_scene: {
-    label: { cn: "背景场景", en: "Background Scene" },
+    label: { cn: "背景場景", en: "Background Scene" },
     category: "location",
     options: [
       { cn: "俯瞰纽约市的复仇者大厦楼顶", en: "Rooftop of Avengers Tower overlooking New York City" },
@@ -585,7 +585,7 @@ export const INITIAL_BANKS = {
 
   // 视频分镜-影视色调
   video_color_tone: {
-    label: { cn: "影视色调", en: "Cinematic Color Tone" },
+    label: { cn: "影視色調", en: "Cinematic Color Tone" },
     category: "visual",
     options: [
       { cn: "冷蓝调，暗部发青（如《银翼杀手2049》）", en: "Cool blue tones, teal shadows (Blade Runner 2049 style)" },
@@ -601,7 +601,7 @@ export const INITIAL_BANKS = {
 
   // 视频分镜-影视风格
   video_art_style: {
-    label: { cn: "影视风格", en: "Cinematic Style" },
+    label: { cn: "影視風格", en: "Cinematic Style" },
     category: "visual",
     options: [
       { cn: "好莱坞大片质感（高成本电影感）", en: "Hollywood blockbuster cinematic quality" },
@@ -617,7 +617,7 @@ export const INITIAL_BANKS = {
 
   // 视频分镜-场景类型
   scene_type: {
-    label: { cn: "场景类型", en: "Scene Type" },
+    label: { cn: "場景類型", en: "Scene Type" },
     category: "location",
     options: [
       { cn: "古代酒馆内部，烛光摇曳", en: "Ancient tavern interior, candlelight flickering" },
@@ -633,7 +633,7 @@ export const INITIAL_BANKS = {
 
   // Fish Eye Urban Template additions
   lens_type: {
-    label: { cn: "镜头类型", en: "Lens Type" },
+    label: { cn: "鏡頭類型", en: "Lens Type" },
     category: "visual",
     options: [
       { cn: "标准镜头", en: "Standard Lens" },
@@ -645,7 +645,7 @@ export const INITIAL_BANKS = {
     ]
   },
   school_uniform: {
-    label: { cn: "校服样式", en: "School Uniform" },
+    label: { cn: "校服樣式", en: "School Uniform" },
     category: "item",
     options: [
       { cn: "传统水手服校服", en: "Traditional Sailor Uniform" },
@@ -657,7 +657,7 @@ export const INITIAL_BANKS = {
     ]
   },
   urban_location: {
-    label: { cn: "城市地点", en: "Urban Location" },
+    label: { cn: "城市地點", en: "Urban Location" },
     category: "location",
     options: [
       { cn: "涩谷十字路口", en: "Shibuya Crossing" },
@@ -671,7 +671,7 @@ export const INITIAL_BANKS = {
     ]
   },
   dynamic_action: {
-    label: { cn: "动态动作", en: "Dynamic Action" },
+    label: { cn: "動態動作", en: "Dynamic Action" },
     category: "action",
     options: [
       { cn: "一只手夸张地伸向镜头前景", en: "One hand exaggeratedly reaching towards the foreground" },
@@ -685,7 +685,7 @@ export const INITIAL_BANKS = {
     ]
   },
   action_status: {
-    label: { cn: "行为状态", en: "Action Status" },
+    label: { cn: "行為狀態", en: "Action Status" },
     category: "action",
     options: [
       { cn: "玩PS5", en: "playing PS5" },
@@ -702,7 +702,7 @@ export const INITIAL_BANKS = {
     ]
   },
   draw_style: {
-    label: { cn: "绘画风格", en: "Drawing Style" },
+    label: { cn: "繪畫風格", en: "Drawing Style" },
     category: "visual",
     options: [
       { cn: "手绘漫画风格", en: "Hand-drawn Manga Style" },
@@ -712,7 +712,7 @@ export const INITIAL_BANKS = {
     ]
   },
   fingernail_detail: {
-    label: { cn: "手指甲细节", en: "Fingernail Detail" },
+    label: { cn: "手指甲細節", en: "Fingernail Detail" },
     category: "visual",
     options: [
       { cn: "手指甲清晰可见", en: "Fingernails clearly visible" },
@@ -724,7 +724,7 @@ export const INITIAL_BANKS = {
     ]
   },
   building_cluster: {
-    label: { cn: "建筑群", en: "Building Cluster" },
+    label: { cn: "建築群", en: "Building Cluster" },
     category: "location",
     options: [
       { cn: "扭曲的涩谷109大楼和其他建筑林立", en: "Distorted Shibuya 109 building and other forest of buildings" },
@@ -736,7 +736,7 @@ export const INITIAL_BANKS = {
     ]
   },
   monster_element: {
-    label: { cn: "怪兽元素", en: "Monster Element" },
+    label: { cn: "怪獸元素", en: "Monster Element" },
     category: "character",
     options: [
       { cn: "巨大的粉色和蓝色渐变卡通怪兽", en: "Giant pink and blue gradient cartoon monster" },
@@ -748,7 +748,7 @@ export const INITIAL_BANKS = {
     ]
   },
   monster_feature: {
-    label: { cn: "怪兽特征", en: "Monster Feature" },
+    label: { cn: "怪獸特徵", en: "Monster Feature" },
     category: "character",
     options: [
       { cn: "巨大的触手和角", en: "Giant tentacles and horns" },
@@ -772,7 +772,7 @@ export const INITIAL_BANKS = {
     ]
   },
   lighting_atmosphere: {
-    label: { cn: "灯光氛围", en: "Lighting Atmosphere" },
+    label: { cn: "燈光氛圍", en: "Lighting Atmosphere" },
     category: "visual",
     options: [
       { cn: "阳光明媚", en: "Sunny" },
@@ -786,7 +786,7 @@ export const INITIAL_BANKS = {
     ]
   },
   shadow_contrast: {
-    label: { cn: "阴影对比", en: "Shadow Contrast" },
+    label: { cn: "陰影對比", en: "Shadow Contrast" },
     category: "visual",
     options: [
       { cn: "光影对比强烈", en: "Strong light-shadow contrast" },
@@ -798,7 +798,7 @@ export const INITIAL_BANKS = {
     ]
   },
   travel_location: {
-    label: { cn: "旅游地点", en: "Travel Location" },
+    label: { cn: "旅遊地點", en: "Travel Location" },
     category: "location",
     options: [
       { cn: "西藏拉萨布达拉宫", en: "Potala Palace, Lhasa, Tibet" },
@@ -816,7 +816,7 @@ export const INITIAL_BANKS = {
     ]
   },
   comic_scene: {
-    label: { cn: "漫画场景", en: "Comic Scene" },
+    label: { cn: "漫畫場景", en: "Comic Scene" },
     category: "location",
     options: [
       { cn: "唯美的卧室", en: "Beautiful bedroom" },
@@ -832,7 +832,7 @@ export const INITIAL_BANKS = {
     ]
   },
   designer: {
-    label: { cn: "设计师", en: "Designer" },
+    label: { cn: "設計師", en: "Designer" },
     category: "character",
     options: [
       { cn: "安东尼·高迪 (Antoni Gaudí)", en: "Antoni Gaudí" },
@@ -850,7 +850,7 @@ export const INITIAL_BANKS = {
     ]
   },
   design_item: {
-    label: { cn: "设计物品", en: "Design Item" },
+    label: { cn: "設計物品", en: "Design Item" },
     category: "item",
     options: [
       { cn: "无人机", en: "Drone" },
@@ -901,7 +901,7 @@ export const INITIAL_BANKS = {
     ]
   },
   xmas_theme: {
-    label: { cn: "圣诞主题", en: "Christmas Theme" },
+    label: { cn: "聖誕主題", en: "Christmas Theme" },
     category: "other",
     options: [
       { cn: "抽象圣诞树", en: "an abstract Christmas Tree" },
@@ -912,7 +912,7 @@ export const INITIAL_BANKS = {
     ]
   },
   jewelry_style: {
-    label: { cn: "珠宝样式", en: "Jewelry Style" },
+    label: { cn: "珠寶樣式", en: "Jewelry Style" },
     category: "item",
     options: [
       { cn: "精美的金色背链", en: "Fine gold back necklace" },
@@ -923,7 +923,7 @@ export const INITIAL_BANKS = {
     ]
   },
   flower_type: {
-    label: { cn: "花卉品种", en: "Flower Type" },
+    label: { cn: "花卉品種", en: "Flower Type" },
     category: "item",
     options: [
       { cn: "一束深红色玫瑰", en: "A bouquet of deep red roses" },
@@ -946,7 +946,7 @@ export const INITIAL_BANKS = {
     ]
   },
   theme_pixar: {
-    label: { cn: "配色主题", en: "Theme & Color" },
+    label: { cn: "配色主題", en: "Theme & Color" },
     category: "visual",
     options: [
       { cn: "女性/时尚主题：香槟金、玫瑰金、奶油色、樱花粉", en: "Female/Fashion: Champagne Gold, Rose Gold, Cream, Cherry Pink" },
@@ -966,7 +966,7 @@ export const INITIAL_BANKS = {
     ]
   },
   fashion_parts: {
-    label: { cn: "时尚穿搭拆解", en: "Fashion Deconstruction" },
+    label: { cn: "時尚穿搭拆解", en: "Fashion Deconstruction" },
     category: "item",
     options: [
       { cn: "风衣拆解：翻领、肩章、腰带、袖口束带、主衣身", en: "Trench coat: Lapel, epaulets, belt, cuffs, main body" },
@@ -977,7 +977,7 @@ export const INITIAL_BANKS = {
     ]
   },
   beauty_items: {
-    label: { cn: "美妆个护拆解", en: "Beauty Deconstruction" },
+    label: { cn: "美妝個護拆解", en: "Beauty Deconstruction" },
     category: "item",
     options: [
       { cn: "彩妆：口红（带切面）、眼影盘、粉饼、腮红刷", en: "Makeup: Lipstick (cut), eyeshadow palette, compact, blush brush" },
@@ -987,7 +987,7 @@ export const INITIAL_BANKS = {
     ]
   },
   digital_items: {
-    label: { cn: "数码生活拆解", en: "Digital Deconstruction" },
+    label: { cn: "數碼生活拆解", en: "Digital Deconstruction" },
     category: "item",
     options: [
       { cn: "手机拆解：手机壳、屏幕内容、摄像头模组、主板组件", en: "Phone: Case, screen content, camera module, motherboard" },
@@ -997,7 +997,7 @@ export const INITIAL_BANKS = {
     ]
   },
   underwater_color: {
-    label: { cn: "水下色调", en: "Underwater Color" },
+    label: { cn: "水下色調", en: "Underwater Color" },
     category: "location",
     options: [
       { cn: "深青色透明水下", en: "deep teal transparent underwater" },
@@ -1007,7 +1007,7 @@ export const INITIAL_BANKS = {
     ]
   },
   creatures: {
-    label: { cn: "伴随生物", en: "Creatures" },
+    label: { cn: "伴隨生物", en: "Creatures" },
     category: "character",
     options: [
       { cn: "许多银色小鱼", en: "many small silver fish" },
@@ -1017,7 +1017,7 @@ export const INITIAL_BANKS = {
     ]
   },
   luxury_hobby_items: {
-    label: { cn: "个人爱好/奢华", en: "Hobby & Luxury" },
+    label: { cn: "個人愛好/奢華", en: "Hobby & Luxury" },
     category: "item",
     options: [
       { cn: "珠宝：项链、耳环、戒指（宝石带色散效果）", en: "Jewelry: Necklace, earrings, ring (gemstone dispersion)" },
@@ -1028,7 +1028,7 @@ export const INITIAL_BANKS = {
   },
   // 新年海报相关词库
   clothing_style_chinese: {
-    label: { cn: "中式服饰风格", en: "Chinese Clothing Style" },
+    label: { cn: "中式服飾風格", en: "Chinese Clothing Style" },
     category: "item",
     options: [
       { cn: "传统暗红色中式长袍", en: "Traditional dark red Chinese robe" },
@@ -1042,7 +1042,7 @@ export const INITIAL_BANKS = {
     ]
   },
   clothing_color_traditional: {
-    label: { cn: "传统服装颜色", en: "Traditional Clothing Color" },
+    label: { cn: "傳統服裝顏色", en: "Traditional Clothing Color" },
     category: "visual",
     options: [
       { cn: "暗红色", en: "Dark Red" },
@@ -1068,7 +1068,7 @@ export const INITIAL_BANKS = {
     ]
   },
   greeting_new_year: {
-    label: { cn: "新年祝福语", en: "New Year Greeting" },
+    label: { cn: "新年祝福語", en: "New Year Greeting" },
     category: "other",
     options: [
       { cn: "马到成功", en: "Immediate Success" },
@@ -1082,7 +1082,7 @@ export const INITIAL_BANKS = {
     ]
   },
   background_color_festive: {
-    label: { cn: "节日背景颜色", en: "Festive Background Color" },
+    label: { cn: "節日背景顏色", en: "Festive Background Color" },
     category: "visual",
     options: [
       { cn: "红色背景", en: "Red background" },
@@ -1094,7 +1094,7 @@ export const INITIAL_BANKS = {
     ]
   },
   character_heroic: {
-    label: { cn: "人物类型", en: "Character Type" },
+    label: { cn: "人物類型", en: "Character Type" },
     category: "character",
     options: [
       { cn: "年轻学生", en: "Young Student" },
@@ -1108,7 +1108,7 @@ export const INITIAL_BANKS = {
     ]
   },
   room_style_cute: {
-    label: { cn: "可爱房间风格", en: "Cute Room Style" },
+    label: { cn: "可愛房間風格", en: "Cute Room Style" },
     category: "location",
     options: [
       { cn: "可爱粉色房间，粉彩床和墙壁，原创动物玩偶，妖精灯光，可爱海报，毛绒地毯", en: "Cute pink room, pastel pink bed and walls, original cute animal plushies, fairy lights, cute posters, fluffy rug" },
@@ -1122,7 +1122,7 @@ export const INITIAL_BANKS = {
     ]
   },
   cute_outfit: {
-    label: { cn: "可爱服装", en: "Cute Outfit" },
+    label: { cn: "可愛服裝", en: "Cute Outfit" },
     category: "item",
     options: [
       { cn: "黑色紧身吊带连衣裙，长度到臀部，无袖，细肩带", en: "Black tight camisole dress, hip-length, sleeveless, thin straps" },
@@ -1136,7 +1136,7 @@ export const INITIAL_BANKS = {
     ]
   },
   product_category: {
-    label: { cn: "产品类别", en: "Product Category" },
+    label: { cn: "產品類別", en: "Product Category" },
     category: "item",
     options: [
       { cn: "现代椅子", en: "Modern Chair" },
@@ -1150,7 +1150,7 @@ export const INITIAL_BANKS = {
     ]
   },
   environment_style: {
-    label: { cn: "环境风格", en: "Environment Style" },
+    label: { cn: "環境風格", en: "Environment Style" },
     category: "location",
     options: [
       { cn: "极简建筑室内", en: "Minimal Architectural Interior" },
@@ -1164,7 +1164,7 @@ export const INITIAL_BANKS = {
     ]
   },
   primary_material: {
-    label: { cn: "主要材质", en: "Primary Material" },
+    label: { cn: "主要材質", en: "Primary Material" },
     category: "item",
     options: [
       { cn: "木材", en: "Wood" },
@@ -1178,7 +1178,7 @@ export const INITIAL_BANKS = {
     ]
   },
   drawing_style: {
-    label: { cn: "绘图风格", en: "Drawing Style" },
+    label: { cn: "繪圖風格", en: "Drawing Style" },
     category: "visual",
     options: [
       { cn: "建筑线图风格", en: "Architectural Line Drawing Style" },
@@ -1190,7 +1190,7 @@ export const INITIAL_BANKS = {
     ]
   },
   character_subject: {
-    label: { cn: "人物主体", en: "Character Subject" },
+    label: { cn: "人物主體", en: "Character Subject" },
     category: "character",
     options: [
       { cn: "年轻女性，长发，微笑", en: "Young woman with long hair, smiling" },
@@ -1204,7 +1204,7 @@ export const INITIAL_BANKS = {
     ]
   },
   portrait_view: {
-    label: { cn: "画面视角", en: "Portrait View" },
+    label: { cn: "畫面視角", en: "Portrait View" },
     category: "visual",
     options: [
       { cn: "正面肖像", en: "Front portrait" },
@@ -1218,7 +1218,7 @@ export const INITIAL_BANKS = {
     ]
   },
   line_art_style: {
-    label: { cn: "线稿风格", en: "Line Art Style" },
+    label: { cn: "線稿風格", en: "Line Art Style" },
     category: "visual",
     options: [
       { cn: "钢笔墨水风格", en: "Pen and ink style" },
@@ -1232,7 +1232,7 @@ export const INITIAL_BANKS = {
     ]
   },
   shading_technique: {
-    label: { cn: "阴影技法", en: "Shading Technique" },
+    label: { cn: "陰影技法", en: "Shading Technique" },
     category: "visual",
     options: [
       { cn: "极简排线阴影", en: "Minimalist cross-hatching" },
@@ -1246,7 +1246,7 @@ export const INITIAL_BANKS = {
     ]
   },
   background_treatment: {
-    label: { cn: "背景处理", en: "Background Treatment" },
+    label: { cn: "背景處理", en: "Background Treatment" },
     category: "location",
     options: [
       { cn: "白色背景", en: "White background" },
@@ -1260,7 +1260,7 @@ export const INITIAL_BANKS = {
     ]
   },
   classic_game: {
-    label: { cn: "经典游戏", en: "Classic Game" },
+    label: { cn: "經典遊戲", en: "Classic Game" },
     category: "other",
     options: [
       { cn: "Donkey Kong (1981 街机游戏)", en: "Donkey Kong (1981 vintage arcade game)" },
@@ -1282,7 +1282,7 @@ export const INITIAL_BANKS = {
     ]
   },
   scientific_discovery: {
-    label: { cn: "科学发现", en: "Scientific Discovery" },
+    label: { cn: "科學髮現", en: "Scientific Discovery" },
     category: "other",
     options: [
       { cn: "DNA结构", en: "The Structure of DNA" },
@@ -1304,7 +1304,7 @@ export const INITIAL_BANKS = {
     ]
   },
   cute_pose_dynamic: {
-    label: { cn: "可爱动态姿势", en: "Cute Dynamic Pose" },
+    label: { cn: "可愛動態姿勢", en: "Cute Dynamic Pose" },
     category: "action",
     options: [
       { cn: "向前走时回望，从正上方自信俏皮地俯视，迷人微笑", en: "Walking forward while looking back, confidently and playfully looking down from directly above, charming smile" },
@@ -1318,7 +1318,7 @@ export const INITIAL_BANKS = {
     ]
   },
   fitness_location: {
-    label: { cn: "健身场景", en: "Fitness Location" },
+    label: { cn: "健身場景", en: "Fitness Location" },
     category: "location",
     options: [
       { cn: "繁忙的健身房，镜子和器械随处可见", en: "Busy gym with mirrors and equipment visible" },
@@ -1329,7 +1329,7 @@ export const INITIAL_BANKS = {
     ]
   },
   fitness_pose: {
-    label: { cn: "健身姿势", en: "Fitness Pose" },
+    label: { cn: "健身姿勢", en: "Fitness Pose" },
     category: "action",
     options: [
       { cn: "半蹲姿势，侧身对镜子", en: "Half-squat pose, turned sideways to mirror" },
@@ -1343,7 +1343,7 @@ export const INITIAL_BANKS = {
     ]
   },
   fitness_clothing: {
-    label: { cn: "健身服装", en: "Fitness Clothing" },
+    label: { cn: "健身服裝", en: "Fitness Clothing" },
     category: "item",
     options: [
       { cn: "运动裙，紧身贴身", en: "Sports skirt, tight and form-fitting" },
@@ -1357,7 +1357,7 @@ export const INITIAL_BANKS = {
     ]
   },
   selfie_style: {
-    label: { cn: "自拍风格", en: "Selfie Style" },
+    label: { cn: "自拍風格", en: "Selfie Style" },
     category: "visual",
     options: [
       { cn: "原始真实的镜子自拍", en: "Raw, authentic mirror selfie" },
@@ -1382,7 +1382,7 @@ export const INITIAL_BANKS = {
     ]
   },
   physical_state: {
-    label: { cn: "身体状态", en: "Physical State" },
+    label: { cn: "身體狀態", en: "Physical State" },
     category: "character",
     options: [
       { cn: "健康健美的身材", en: "Healthy athletic build" },
@@ -1394,7 +1394,7 @@ export const INITIAL_BANKS = {
     ]
   },
   sweat_appearance: {
-    label: { cn: "汗水状态", en: "Sweat Appearance" },
+    label: { cn: "汗水狀態", en: "Sweat Appearance" },
     category: "character",
     options: [
       { cn: "头发凌乱湿透，汗水明显", en: "Hair disheveled and damp with sweat" },
@@ -1421,7 +1421,7 @@ export const INITIAL_BANKS = {
   },
   // ===== 微缩模型系列（新增） =====
   miniature_character: {
-    label: { cn: "微缩人物角色", en: "Miniature Character" },
+    label: { cn: "微縮人物角色", en: "Miniature Character" },
     category: "character",
     options: [
       { cn: "消防员", en: "Firefighter" },
@@ -1460,7 +1460,7 @@ export const INITIAL_BANKS = {
     ]
   },
   miniature_action: {
-    label: { cn: "微缩动作", en: "Miniature Action" },
+    label: { cn: "微縮動作", en: "Miniature Action" },
     category: "action",
     options: [
       { cn: "攀爬巨型物体", en: "Climbing the giant object" },
@@ -1479,7 +1479,7 @@ export const INITIAL_BANKS = {
   },
   // ==================== Pop Mart Plush Toys Template ====================
   plush_expression: {
-    label: { cn: "毛绒玩具表情", en: "Plush Toy Expression" },
+    label: { cn: "毛絨玩具表情", en: "Plush Toy Expression" },
     category: "character",
     options: [
       { cn: "眨眼俏皮表情", en: "winking with playful expression" },
@@ -1495,7 +1495,7 @@ export const INITIAL_BANKS = {
     ]
   },
   cute_accessory: {
-    label: { cn: "可爱配饰", en: "Cute Accessory" },
+    label: { cn: "可愛配飾", en: "Cute Accessory" },
     category: "item",
     options: [
       { cn: "针织帽", en: "beanie hats" },
@@ -1513,7 +1513,7 @@ export const INITIAL_BANKS = {
     ]
   },
   festive_archway: {
-    label: { cn: "节日拱门场景", en: "Festive Archway Scene" },
+    label: { cn: "節日拱門場景", en: "Festive Archway Scene" },
     category: "location",
     options: [
       { cn: "中国传统拱门", en: "traditional Chinese archway" },
@@ -1528,7 +1528,7 @@ export const INITIAL_BANKS = {
   },
   // ==================== 3D Isometric Diorama Template ====================
   exhibition_type: {
-    label: { cn: "展览类型", en: "Exhibition Type" },
+    label: { cn: "展覽類型", en: "Exhibition Type" },
     category: "location",
     options: [
       { cn: "现代艺术展览", en: "modern art exhibition" },
@@ -1544,7 +1544,7 @@ export const INITIAL_BANKS = {
     ]
   },
   display_objects: {
-    label: { cn: "展示物体", en: "Display Objects" },
+    label: { cn: "展示物體", en: "Display Objects" },
     category: "item",
     options: [
       { cn: "抽象雕塑和装置艺术", en: "abstract sculptures and installation art" },
@@ -1560,7 +1560,7 @@ export const INITIAL_BANKS = {
     ]
   },
   pod_structure: {
-    label: { cn: "展台结构", en: "Pod Structure" },
+    label: { cn: "展台結構", en: "Pod Structure" },
     category: "location",
     options: [
       { cn: "玻璃立方体展台", en: "glass cube pod" },
@@ -1577,7 +1577,7 @@ export const INITIAL_BANKS = {
   },
   // ==================== Chinese Traditional Bridal Portrait Template ====================
   bridal_hair_decoration: {
-    label: { cn: "新娘发饰", en: "Bridal Hair Decoration" },
+    label: { cn: "新娘髮飾", en: "Bridal Hair Decoration" },
     category: "item",
     options: [
       { cn: "红色纸剪花和蝴蝶装饰", en: "red paper-cut flowers and butterflies" },
@@ -1593,7 +1593,7 @@ export const INITIAL_BANKS = {
     ]
   },
   traditional_bridal_attire: {
-    label: { cn: "传统新娘服饰", en: "Traditional Bridal Attire" },
+    label: { cn: "傳統新娘服飾", en: "Traditional Bridal Attire" },
     category: "item",
     options: [
       { cn: "红色缎面旗袍", en: "red satin cheongsam" },
@@ -1609,7 +1609,7 @@ export const INITIAL_BANKS = {
     ]
   },
   bridal_jewelry: {
-    label: { cn: "新娘首饰", en: "Bridal Jewelry" },
+    label: { cn: "新娘首飾", en: "Bridal Jewelry" },
     category: "item",
     options: [
       { cn: "白色珍珠首饰和小珍珠耳环", en: "white pearl jewelry and small pearl earrings" },
@@ -1626,7 +1626,7 @@ export const INITIAL_BANKS = {
   },
   // ==================== Premium Food Advertising Template ====================
   premium_food_subject: {
-    label: { cn: "高端食品主体", en: "Premium Food Subject" },
+    label: { cn: "高端食品主體", en: "Premium Food Subject" },
     category: "item",
     options: [
       { cn: "手工巧克力球", en: "handcrafted chocolate truffles" },
@@ -1644,7 +1644,7 @@ export const INITIAL_BANKS = {
     ]
   },
   ingredient_bits: {
-    label: { cn: "配料碎屑装饰", en: "Ingredient Bits" },
+    label: { cn: "配料碎屑裝飾", en: "Ingredient Bits" },
     category: "item",
     options: [
       { cn: "可可粉和金箔碎屑", en: "cocoa powder and gold flakes" },
@@ -1663,7 +1663,7 @@ export const INITIAL_BANKS = {
   },
   // ==================== Forbidden City Phoenix Portrait Template ====================
   imperial_palace_scene: {
-    label: { cn: "皇家宫殿场景", en: "Imperial Palace Scene" },
+    label: { cn: "皇家宮殿場景", en: "Imperial Palace Scene" },
     category: "location",
     options: [
       { cn: "紫禁城雪夜，飞雪飘零", en: "Forbidden City snow night with falling snowflakes" },
@@ -1679,7 +1679,7 @@ export const INITIAL_BANKS = {
     ]
   },
   phoenix_crown: {
-    label: { cn: "凤冠发饰", en: "Phoenix Crown" },
+    label: { cn: "鳳冠髮飾", en: "Phoenix Crown" },
     category: "item",
     options: [
       { cn: "华丽繁复的金凤冠", en: "ornate golden phoenix crown" },
@@ -1695,7 +1695,7 @@ export const INITIAL_BANKS = {
     ]
   },
   flowing_garment: {
-    label: { cn: "流动华服", en: "Flowing Garment" },
+    label: { cn: "流動華服", en: "Flowing Garment" },
     category: "item",
     options: [
       { cn: "流动的红橙色丝绸华服", en: "flowing red-orange silk robes" },
@@ -1711,7 +1711,7 @@ export const INITIAL_BANKS = {
     ]
   },
   festive_props: {
-    label: { cn: "节日道具", en: "Festive Props" },
+    label: { cn: "節日道具", en: "Festive Props" },
     category: "item",
     options: [
       { cn: "口中叼着中式红包，手中拿着展开的春节祝福", en: "holding red envelope in mouth and unfolded spring festival blessing in hand" },
@@ -1730,7 +1730,7 @@ export const INITIAL_BANKS = {
   // ==================== 室内设计词库 ====================
 
   room_type: {
-    label: { cn: "室内空间类型", en: "Room Type" },
+    label: { cn: "室內空間類型", en: "Room Type" },
     category: "location",
     options: [
       { cn: "客厅", en: "Living Room" },
@@ -1747,7 +1747,7 @@ export const INITIAL_BANKS = {
   },
 
   interior_design_style: {
-    label: { cn: "室内设计风格", en: "Interior Design Style" },
+    label: { cn: "室內設計風格", en: "Interior Design Style" },
     category: "visual",
     options: [
       { cn: "现代轻奢风格", en: "Modern Light Luxury Style" },
@@ -1766,7 +1766,7 @@ export const INITIAL_BANKS = {
   },
 
   furniture_set: {
-    label: { cn: "家具组合", en: "Furniture Set" },
+    label: { cn: "家具組合", en: "Furniture Set" },
     category: "item",
     options: [
       { cn: "沙发、地毯、茶几、电视", en: "Sofa, rug, coffee table, TV" },
@@ -1781,7 +1781,7 @@ export const INITIAL_BANKS = {
   },
 
   ceiling_material: {
-    label: { cn: "天花板材质", en: "Ceiling Material" },
+    label: { cn: "天花板材質", en: "Ceiling Material" },
     category: "visual",
     options: [
       { cn: "白色乳胶漆平顶", en: "White latex flat ceiling" },
@@ -1798,7 +1798,7 @@ export const INITIAL_BANKS = {
   },
 
   wall_material: {
-    label: { cn: "墙面材质", en: "Wall Material" },
+    label: { cn: "牆面材質", en: "Wall Material" },
     category: "visual",
     options: [
       { cn: "白色乳胶漆墙面", en: "White latex paint wall" },
@@ -1816,7 +1816,7 @@ export const INITIAL_BANKS = {
   },
 
   floor_material: {
-    label: { cn: "地板材质", en: "Floor Material" },
+    label: { cn: "地板材質", en: "Floor Material" },
     category: "visual",
     options: [
       { cn: "浅灰色大理石地砖", en: "Light gray marble tile" },
@@ -1834,7 +1834,7 @@ export const INITIAL_BANKS = {
   },
 
   interior_lighting: {
-    label: { cn: "室内光线效果", en: "Interior Lighting" },
+    label: { cn: "室內光線效果", en: "Interior Lighting" },
     category: "visual",
     options: [
       { cn: "自然光线", en: "Natural lighting" },
@@ -1851,7 +1851,7 @@ export const INITIAL_BANKS = {
   },
 
   render_quality: {
-    label: { cn: "渲染质量", en: "Render Quality" },
+    label: { cn: "渲染質量", en: "Render Quality" },
     category: "other",
     options: [
       { cn: "4K超高清分辨率", en: "4K Ultra HD resolution" },
@@ -1866,7 +1866,7 @@ export const INITIAL_BANKS = {
   },
 
   room_condition: {
-    label: { cn: "房间状态", en: "Room Condition" },
+    label: { cn: "房間狀態", en: "Room Condition" },
     category: "location",
     options: [
       { cn: "精致装修，高档材料的质感与细节", en: "Exquisitely decorated, high-end materials with refined details" },
@@ -1880,7 +1880,7 @@ export const INITIAL_BANKS = {
     ]
   },
   anatomy_teaching_style: {
-    label: { cn: "解剖教学风格", en: "Anatomy Teaching Style" },
+    label: { cn: "解剖教學風格", en: "Anatomy Teaching Style" },
     category: "visual",
     options: [
       { cn: "Proko 风格（简化几何、教学导向、清晰构造线）", en: "Proko style (simplified geometry, educational focus, clear construction lines)" },
@@ -1894,7 +1894,7 @@ export const INITIAL_BANKS = {
     ]
   },
   construction_line_color: {
-    label: { cn: "构造线颜色", en: "Construction Line Color" },
+    label: { cn: "構造線顏色", en: "Construction Line Color" },
     category: "visual",
     options: [
       { cn: "紫色/紫罗兰色（主构造线）", en: "Purple/violet sketch lines (primary construction)" },
@@ -1909,7 +1909,7 @@ export const INITIAL_BANKS = {
 
   // 视频打斗风格词库
   fight_style: {
-    label: { cn: "打斗风格", en: "Fight Style" },
+    label: { cn: "打斗風格", en: "Fight Style" },
     category: "action",
     options: [
       { cn: "武侠飘逸风（轻功、剑气、衣袂飘飘）", en: "Wuxia elegant style (light kung fu, sword aura, flowing robes)" },
@@ -1924,7 +1924,7 @@ export const INITIAL_BANKS = {
 
   // 镜头节奏词库
   camera_rhythm: {
-    label: { cn: "镜头节奏", en: "Camera Rhythm" },
+    label: { cn: "鏡頭節奏", en: "Camera Rhythm" },
     category: "visual",
     options: [
       { cn: "快速切换蒙太奇（多角度快速剪辑）", en: "Rapid montage cutting (multi-angle fast edits)" },
@@ -1938,7 +1938,7 @@ export const INITIAL_BANKS = {
 
   // 科幻电影风格词库
   sci_fi_movie_style: {
-    label: { cn: "科幻电影风格", en: "Sci-Fi Movie Style" },
+    label: { cn: "科幻電影風格", en: "Sci-Fi Movie Style" },
     category: "visual",
     options: [
       { cn: "好莱坞科幻大片（Hollywood Sci-Fi Blockbuster）", en: "Hollywood Sci-Fi Blockbuster" },
@@ -1954,7 +1954,7 @@ export const INITIAL_BANKS = {
 
   // 未来载具词库
   futuristic_vehicle: {
-    label: { cn: "未来载具", en: "Futuristic Vehicle" },
+    label: { cn: "未來載具", en: "Futuristic Vehicle" },
     category: "item",
     options: [
       { cn: "流线型反重力飞行器（Anti-gravity Vehicle）", en: "Streamlined Anti-gravity Vehicle" },
@@ -1970,7 +1970,7 @@ export const INITIAL_BANKS = {
 
   // 赛博朋克城市场景词库
   cyberpunk_city_scene: {
-    label: { cn: "赛博朋克城市场景", en: "Cyberpunk City Scene" },
+    label: { cn: "賽博朋克城市場景", en: "Cyberpunk City Scene" },
     category: "location",
     options: [
       { cn: "未来主义超级城市峡谷（Megacity Canyon）", en: "Futuristic Megacity Canyon" },
@@ -1986,7 +1986,7 @@ export const INITIAL_BANKS = {
 
   // 跟拍镜头类型词库
   tracking_camera_shot: {
-    label: { cn: "跟拍镜头类型", en: "Tracking Camera Shot" },
+    label: { cn: "跟拍鏡頭類型", en: "Tracking Camera Shot" },
     category: "visual",
     options: [
       { cn: "极具纵深感的广角跟拍（Wide Angle Tracking Shot）", en: "Wide Angle Tracking Shot with Deep Depth" },
@@ -2002,7 +2002,7 @@ export const INITIAL_BANKS = {
 
   // 动作镜头类型词库
   action_camera_shot: {
-    label: { cn: "动作镜头类型", en: "Action Camera Shot" },
+    label: { cn: "動作鏡頭類型", en: "Action Camera Shot" },
     category: "visual",
     options: [
       { cn: "紧张的驾驶舱视角（Cockpit View）", en: "Tense Cockpit View" },
@@ -2018,7 +2018,7 @@ export const INITIAL_BANKS = {
 
   // 自然环境类型词库
   natural_environment: {
-    label: { cn: "自然环境类型", en: "Natural Environment Type" },
+    label: { cn: "自然環境類型", en: "Natural Environment Type" },
     category: "location",
     options: [
       { cn: "古代雨林（Ancient Rainforest）", en: "Ancient Rainforest" },
@@ -2034,7 +2034,7 @@ export const INITIAL_BANKS = {
 
   // 军用飞行器词库
   military_aircraft: {
-    label: { cn: "军用飞行器", en: "Military Aircraft" },
+    label: { cn: "軍用飛行器", en: "Military Aircraft" },
     category: "item",
     options: [
       { cn: "战斗机（Fighter Jet）", en: "Fighter Jet" },
@@ -2050,7 +2050,7 @@ export const INITIAL_BANKS = {
 
   // 航拍开场镜头词库
   aerial_opening_shot: {
-    label: { cn: "航拍开场镜头", en: "Aerial Opening Shot" },
+    label: { cn: "航拍開場鏡頭", en: "Aerial Opening Shot" },
     category: "visual",
     options: [
       { cn: "史诗超广角航拍（Epic Ultra Wide Aerial Shot）", en: "Epic Ultra Wide Aerial Shot" },
@@ -2066,7 +2066,7 @@ export const INITIAL_BANKS = {
 
   // 动态跟拍风格词库
   dynamic_tracking_shot: {
-    label: { cn: "动态跟拍风格", en: "Dynamic Tracking Shot Style" },
+    label: { cn: "動態跟拍風格", en: "Dynamic Tracking Shot Style" },
     category: "visual",
     options: [
       { cn: "第三人称紧密跟拍（Third-Person Tight Tracking）", en: "Third-Person Tight Tracking" },
