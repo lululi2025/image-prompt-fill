@@ -7,16 +7,16 @@
  * 智能拆分确认弹窗文案
  */
 export const SMART_SPLIT_CONFIRM_MESSAGE = {
-  cn: `智能拆分将根据当前内容自动润色、结构化并提取变量，
-这将重写当前模板内容并可能创建新词库。
+  cn: `智慧拆分將根據目前內容自動潤色、結構化並提取變數，
+這將重寫目前模板內容並可能建立新詞庫。
 
-【Beta 测试版限制】
-  AI 理解能力有限，可能无法准确识别变量
-  拆分结果不稳定，建议手动调整
-  可能产生错误或意外的结果
-  建议在测试模板上使用，避免影响重要内容
+【Beta 測試版限制】
+  AI 理解能力有限，可能無法準確識別變數
+  拆分結果不穩定，建議手動調整
+  可能產生錯誤或意外的結果
+  建議在測試模板上使用，避免影響重要內容
 
-确定继续吗？`,
+確定繼續嗎？`,
 
   en: `Smart Split will polish, structure and extract variables based on
 current content. This will rewrite current template and may create new banks.
@@ -34,7 +34,7 @@ Continue?`
  * 智能拆分标题
  */
 export const SMART_SPLIT_CONFIRM_TITLE = {
-  cn: '智能拆分 (Beta)',
+  cn: '智慧拆分 (Beta)',
   en: 'Smart Split (Beta)'
 };
 
@@ -43,11 +43,11 @@ export const SMART_SPLIT_CONFIRM_TITLE = {
  */
 export const SMART_SPLIT_BUTTON_TEXT = {
   confirm: {
-    cn: '确定拆分',
+    cn: '確定拆分',
     en: 'Confirm Split'
   },
   cancel: {
-    cn: '取消',
+    cn: '取消',  // same in Traditional Chinese
     en: 'Cancel'
   }
 };

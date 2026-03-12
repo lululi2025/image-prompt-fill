@@ -183,7 +183,7 @@ const App = () => {
           // 或者如果本地是空的（刚安装 App），则直接加载
           const lastLocalSync = lastICloudSyncAt || 0;
           if (timestamp > lastLocalSync || templates.length <= INITIAL_TEMPLATES_CONFIG.length) {
-            if (window.confirm(language === 'cn' ? '发现更新的 iCloud 云端备份，是否恢复数据？' : 'Found newer iCloud backup, restore data?')) {
+            if (window.confirm(language === 'cn' ? '發現更新的 iCloud 雲端備份，是否還原資料？' : 'Found newer iCloud backup, restore data?')) {
               if (payload.templates) setTemplates(payload.templates);
               if (payload.banks) setBanks(payload.banks);
               if (payload.categories) setCategories(payload.categories);
