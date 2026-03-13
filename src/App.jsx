@@ -56,7 +56,7 @@ const App = () => {
 
   // Global State with Persistence
   // 使用异步 IndexedDB 存储核心大数据
-  const [banks, setBanks, isBanksLoaded] = useAsyncStickyState(INITIAL_BANKS, "app_banks_v9");
+  const [banks, setBanks, isBanksLoaded] = useAsyncStickyState(INITIAL_BANKS, "app_banks_v10");
   const [defaults, setDefaults, isDefaultsLoaded] = useAsyncStickyState(INITIAL_DEFAULTS, "app_defaults_v9");
   const [categories, setCategories, isCategoriesLoaded] = useAsyncStickyState(INITIAL_CATEGORIES, "app_categories_v1");
   const [templates, setTemplates, isTemplatesLoaded] = useAsyncStickyState(INITIAL_TEMPLATES_CONFIG, "app_templates_v10");
