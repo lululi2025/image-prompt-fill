@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { SCENE_WORDS, STYLE_WORDS } from '../../constants/slogan';
 
 /**
- * 动态 Slogan 组件 - PC 端版本
- * 展示动态变化的场景和风格文字
+ * 動態 Slogan 组件 - PC 端版本
+ * 展示動態变化的场景和风格文字
  *
  * @param {Object} props
  * @param {boolean} props.isActive - 是否激活动画
- * @param {string} props.language - 语言设置
+ * @param {string} props.language - 语言設定
  * @param {boolean} props.isDarkMode - 是否暗色模式
  */
 export const AnimatedSlogan = React.memo(({ isActive, language, isDarkMode }) => {
@@ -34,7 +34,7 @@ export const AnimatedSlogan = React.memo(({ isActive, language, isDarkMode }) =>
 
   return (
     <div className={`flex flex-wrap items-center justify-center lg:justify-start gap-x-2 gap-y-3 text-sm md:text-base lg:text-lg font-medium font-['MiSans',system-ui,sans-serif] px-2 leading-relaxed min-h-[50px] ${isDarkMode ? 'text-gray-400' : 'text-gray-700'}`}>
-      <span className="whitespace-nowrap">"{language === 'en' ? 'Show a detailed, miniature' : '展示一个精致的、微缩'}</span>
+      <span className="whitespace-nowrap">"{language === 'en' ? 'Show a detailed, miniature' : '展示一個精致的、微缩'}</span>
       <div className="inline-flex items-center justify-center min-w-[100px]">
         <span
           key={`style-${styleIndex}-${language}`}
@@ -76,12 +76,12 @@ export const AnimatedSlogan = React.memo(({ isActive, language, isDarkMode }) =>
 AnimatedSlogan.displayName = 'AnimatedSlogan';
 
 /**
- * 动态 Slogan 组件 - 移动端版本
- * 展示动态变化的场景和风格文字（移动端优化）
+ * 動態 Slogan 组件 - 行動端版本
+ * 展示動態变化的场景和风格文字（行動端優化）
  *
  * @param {Object} props
  * @param {boolean} props.isActive - 是否激活动画
- * @param {string} props.language - 语言设置
+ * @param {string} props.language - 语言設定
  * @param {boolean} props.isDarkMode - 是否暗色模式
  */
 export const MobileAnimatedSlogan = React.memo(({ isActive, language, isDarkMode }) => {

@@ -7,7 +7,7 @@ import { WaypointsIcon } from './icons/WaypointsIcon';
 import { getLocalized, getVideoEmbedInfo } from '../utils/helpers';
 
 /**
- * TemplatePreview 组件 - 负责渲染模版的预览内容，包括变量交互
+ * TemplatePreview 组件 - 负责渲染模板的預覽內容，包括變數交互
  */
 export const TemplatePreview = React.memo(({
   activeTemplate,
@@ -32,7 +32,7 @@ export const TemplatePreview = React.memo(({
   requestDeleteImage,
   language,
   setLanguage,
-  // 标签编辑相关
+  // 標籤編輯相关
   TEMPLATE_TAGS,
   handleUpdateTemplateTags,
   editingTemplateTags,
@@ -40,7 +40,7 @@ export const TemplatePreview = React.memo(({
   // 多图相关
   setImageUpdateMode,
   setCurrentImageEditIndex,
-  // 标题编辑相关
+  // 标题編輯相关
   editingTemplateNameId,
   tempTemplateName,
   setTempTemplateName,
@@ -55,7 +55,7 @@ export const TemplatePreview = React.memo(({
   setTempTemplateBaseImage,
   INITIAL_TEMPLATES_CONFIG,
   isDarkMode,
-  // 编辑模式相关
+  // 編輯模式相关
   isEditing,
   setIsInsertModalOpen,
   historyPast,
@@ -71,7 +71,7 @@ export const TemplatePreview = React.memo(({
   templateLanguage,
   handleShareLink, // 新增：分享处理函数
   // AI 相关（预留接口）
-  onGenerateAITerms = null,  // AI 生成词条的回调函数
+  onGenerateAITerms = null,  // AI 生成詞條的回调函数
   updateTemplateProperty, // 新增：立即更新属性的函数
 }) => {
   const [activeSelect, setActiveSelect] = React.useState(null); // 'bestModel' | 'baseImage' | null
@@ -93,7 +93,7 @@ export const TemplatePreview = React.memo(({
   const previewShareIconRef = React.useRef(null);
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
 
-  // 颜色映射配置 - 参考词库 (CATEGORY_STYLES) 的专业配色，弃用灰色系
+  // 颜色映射配置 - 参考詞庫 (CATEGORY_STYLES) 的专业配色，弃用灰色系
   const MODEL_COLORS = {
     'Nano Banana Pro': 'text-blue-600/90 dark:text-blue-400/90',
     'Midjourney V7': 'text-violet-600/90 dark:text-violet-400/90',
@@ -139,7 +139,7 @@ export const TemplatePreview = React.memo(({
 
   const currentImageUrl = allImages[editImageIndex] || activeTemplate?.imageUrl;
 
-  // 当多图数组长度增加时（即添加了新图），自动切换到最后一张
+  // 当多图数组长度增加时（即添加了新图），自动切換到最后一张
   const lastImageCount = React.useRef(allImages.length);
   React.useEffect(() => {
     if (allImages.length > lastImageCount.current) {
@@ -148,7 +148,7 @@ export const TemplatePreview = React.memo(({
     lastImageCount.current = allImages.length;
   }, [allImages.length]);
 
-  // 当模板切换或图片索引切换时，同步编辑索引给父组件
+  // 当模板切換或圖片索引切換时，同步編輯索引给父组件
   React.useEffect(() => {
     setCurrentImageEditIndex(editImageIndex);
   }, [editImageIndex, setCurrentImageEditIndex]);
@@ -160,10 +160,10 @@ export const TemplatePreview = React.memo(({
 
   const templateLangs = activeTemplate.language ? (Array.isArray(activeTemplate.language) ? activeTemplate.language : [activeTemplate.language]) : ['cn', 'en'];
   
-  // 自动切换到模板支持的语言
+  // 自动切換到模板支持的语言
   React.useEffect(() => {
     if (!templateLangs.includes(language)) {
-      // 如果当前语言不支持，切换到模板支持的第一个语言
+      // 如果当前语言不支持，切換到模板支持的第一個语言
       setLanguage(templateLangs[0]);
     }
   }, [activeTemplate.id, templateLangs, language]);
@@ -174,7 +174,7 @@ export const TemplatePreview = React.memo(({
   const isVideo = activeTemplate.type === 'video';
   const sources = activeTemplate.source || [];
 
-  // 变量解析工具函数：从变量名中提取 baseKey 和 groupId
+  // 變數解析工具函数：从變數名中提取 baseKey 和 groupId
   const parseVariableName = (varName) => {
     const match = varName.match(/^(.+?)(?:_(\d+))?$/);
     if (match) {
@@ -194,7 +194,7 @@ export const TemplatePreview = React.memo(({
         const parsed = parseVariableName(fullKey);
         const baseKey = parsed.baseKey;
         
-        // 使用完整的 fullKey 作为计数器的 key，以区分不同组的同名变量
+        // 使用完整的 fullKey 作为计数器的 key，以区分不同组的同名變數
         const varIndex = counters[fullKey] || 0;
         counters[fullKey] = varIndex + 1;
         
@@ -202,18 +202,18 @@ export const TemplatePreview = React.memo(({
         // 获取值：优先从 selections 中获取，否则从 defaults 中获取（使用 baseKey）
         let currentValue = activeTemplate.selections[uniqueKey];
         
-        // 如果存储的值是字符串且等于变量名（如 "fruit_1"），说明是错误存储，使用默认值
+        // 如果存储的值是字符串且等于變數名（如 "fruit_1"），说明是错误存储，使用默认值
         if (typeof currentValue === 'string' && currentValue === fullKey) {
           currentValue = defaults[baseKey];
         } else if (!currentValue) {
-          // 如果没有选择值，使用默认值
+          // 如果没有選擇值，使用默认值
           currentValue = defaults[baseKey];
         }
         
-        // 如果 currentValue 是字符串且包含变量名后缀（如 "柠檬_1"），需要清理
+        // 如果 currentValue 是字符串且包含變數名后缀（如 "柠檬_1"），需要清理
         // 这种情况不应该发生，但为了安全起见，我们检查一下
         if (typeof currentValue === 'string' && currentValue.endsWith(`_${parsed.groupId}`) && parsed.groupId) {
-          // 如果值以 groupId 结尾，可能是错误拼接，尝试从词库中查找正确的值
+          // 如果值以 groupId 结尾，可能是错误拼接，尝试从詞庫中查找正确的值
           const bank = banks[baseKey];
           if (bank && bank.options) {
             // 尝试找到匹配的选项（去掉后缀后匹配）
@@ -228,22 +228,22 @@ export const TemplatePreview = React.memo(({
           }
         }
 
-        // 获取词库配置：使用 baseKey 查找，确保即使变量名是 fruit_1 也能找到 fruit 词库
+        // 获取詞庫配置：使用 baseKey 查找，确保即使變數名是 fruit_1 也能找到 fruit 詞庫
         // 例如：fruit_1 -> baseKey: "fruit" -> banks["fruit"]
         const bankConfig = banks[baseKey];
         
-        // 如果找不到词库，尝试使用 fullKey 作为后备（向后兼容）
-        // 但这种情况不应该发生，因为所有词库都应该使用 baseKey
+        // 如果找不到詞庫，尝试使用 fullKey 作为后备（向后兼容）
+        // 但这种情况不应该发生，因为所有詞庫都应该使用 baseKey
         const config = bankConfig || banks[fullKey];
         
-        // 调试：如果找不到词库，输出警告（开发环境）
+        // 调试：如果找不到詞庫，输出警告（开发环境）
         if (!config && process.env.NODE_ENV === 'development') {
-          console.warn(`[Variable] 找不到词库配置: baseKey="${baseKey}", fullKey="${fullKey}", available keys:`, Object.keys(banks).slice(0, 10));
+          console.warn(`[Variable] 找不到詞庫配置: baseKey="${baseKey}", fullKey="${fullKey}", available keys:`, Object.keys(banks).slice(0, 10));
         }
         
         // 确保 config 存在且包含 category，否则使用默认值
         if (config && !config.category) {
-          console.warn(`[Variable] 词库配置缺少 category: baseKey="${baseKey}", config:`, config);
+          console.warn(`[Variable] 詞庫配置缺少 category: baseKey="${baseKey}", config:`, config);
         }
 
         return (
@@ -251,7 +251,7 @@ export const TemplatePreview = React.memo(({
             key={`${lineKeyPrefix}-${idx}`}
             id={fullKey}
             index={varIndex}
-            config={config}  // 使用 baseKey 获取的词库配置，确保颜色正确
+            config={config}  // 使用 baseKey 获取的詞庫配置，确保颜色正确
             currentVal={currentValue}
             isOpen={activePopover === uniqueKey}
             onToggle={(e) => {
@@ -267,7 +267,7 @@ export const TemplatePreview = React.memo(({
             isDarkMode={isDarkMode}
             groupId={parsed.groupId}  // 传递 groupId 用于显示分组标识
             onGenerateAITerms={onGenerateAITerms}  // 传递 AI 生成回调
-            templateContext={fullContext} // 传递全文内容
+            templateContext={fullContext} // 传递全文內容
           />
         );
       }
@@ -359,7 +359,7 @@ export const TemplatePreview = React.memo(({
                 id="preview-card"
                 className={`${isVideo && !isEditing ? 'max-w-none w-full' : 'max-w-4xl'} mx-auto p-4 sm:p-6 md:p-8 lg:p-12 min-h-[500px] md:min-h-[600px] transition-all duration-500 relative ${isMobile ? (isDarkMode ? 'bg-[#242120]/90 border border-white/5 rounded-2xl shadow-2xl overflow-visible' : 'bg-white/90 border border-white/60 rounded-2xl shadow-xl overflow-visible') : (isDarkMode ? 'bg-black/20 backdrop-blur-md rounded-2xl border border-white/5 shadow-2xl' : 'bg-white/40 backdrop-blur-sm rounded-2xl border border-white/40 shadow-sm')}`}
             >
-                {/* 移动端模版内语言切换 - 单独一行 */}
+                {/* 行動端模板内语言切換 - 单独一行 */}
                 {isMobile && showLanguageToggle && (
                   <div className={`flex items-center justify-center py-1 mb-3 border-b ${isDarkMode ? 'border-white/5' : 'border-gray-200/60'}`}>
                     <div className={`premium-toggle-container ${isDarkMode ? 'dark' : 'light'} shrink-0 scale-75`}>
@@ -400,7 +400,7 @@ export const TemplatePreview = React.memo(({
                             <div className="absolute inset-0 z-10 flex items-center justify-center bg-black/30 backdrop-blur-sm rounded-md">
                               <div className="flex flex-col items-center gap-3">
                                 <div className="w-8 h-8 border-2 border-orange-500 border-t-transparent rounded-full animate-spin" />
-                                <span className="text-xs font-bold text-white/70">{language === 'cn' ? '视频加载中...' : 'Loading video...'}</span>
+                                <span className="text-xs font-bold text-white/70">{language === 'cn' ? '影片載入中...' : 'Loading video...'}</span>
                               </div>
                             </div>
                           )}
@@ -454,7 +454,7 @@ export const TemplatePreview = React.memo(({
                                         if (templates && templates.some(t => t.id === src.templateId)) {
                                           setActiveTemplateId(src.templateId);
                                         } else {
-                                          alert(language === 'cn' ? `关联的模版「${src.templateName || '未知'}」已不存在` : `Linked template "${src.templateName || 'Unknown'}" no longer exists`);
+                                          alert(language === 'cn' ? `关联的模板「${src.templateName || '未知'}」已不存在` : `Linked template "${src.templateName || 'Unknown'}" no longer exists`);
                                         }
                                       } else if (src.url) {
                                         setSourceZoomedItem(src);
@@ -555,7 +555,7 @@ export const TemplatePreview = React.memo(({
                             <div className="mb-4 flex flex-col gap-3 animate-in fade-in slide-in-from-top-1 duration-200">
                                 <div className="flex flex-col gap-1.5">
                                     <label className={`text-[10px] font-black uppercase tracking-widest ${isDarkMode ? 'text-gray-600' : 'text-gray-400'}`}>
-                                        {language === 'cn' ? '模版标题 (TITLE)' : 'Template Title'}
+                                        {language === 'cn' ? '模板标题 (TITLE)' : 'Template Title'}
                                     </label>
                                     <input 
                                         autoFocus
@@ -581,7 +581,7 @@ export const TemplatePreview = React.memo(({
                                     />
                                     {INITIAL_TEMPLATES_CONFIG.some(cfg => cfg.id === activeTemplate.id) && (
                                         <p className="text-[10px] text-orange-500/50 font-bold italic">
-                                            {language === 'cn' ? '* 系统模版作者不可修改' : '* System template author is read-only'}
+                                            {language === 'cn' ? '* 系統模板作者不可修改' : '* System template author is read-only'}
                                         </p>
                                     )}
                                 </div>
@@ -686,7 +686,7 @@ export const TemplatePreview = React.memo(({
                                     onMouseEnter={() => previewShareIconRef.current?.startAnimation()}
                                     onMouseLeave={() => previewShareIconRef.current?.stopAnimation()}
                                     className="p-2 rounded-xl transition-all duration-200 opacity-0 group-hover/title-edit:opacity-100 dark:text-gray-600 dark:hover:text-orange-400 dark:hover:bg-white/5 text-gray-300 hover:text-orange-500 hover:bg-orange-50"
-                                    title={language === 'cn' ? '分享模版' : t('share_link')}
+                                    title={language === 'cn' ? '分享模板' : t('share_link')}
                                 >
                                     <WaypointsIcon ref={previewShareIconRef} size={18} />
                                 </button>
@@ -775,7 +775,7 @@ export const TemplatePreview = React.memo(({
                                                 if (templates && templates.some(t => t.id === src.templateId)) {
                                                   setActiveTemplateId(src.templateId);
                                                 } else {
-                                                  alert(language === 'cn' ? `关联的模版「${src.templateName || '未知'}」已不存在` : `Linked template "${src.templateName || 'Unknown'}" no longer exists`);
+                                                  alert(language === 'cn' ? `关联的模板「${src.templateName || '未知'}」已不存在` : `Linked template "${src.templateName || 'Unknown'}" no longer exists`);
                                                 }
                                               } else if (src.url) {
                                                 setSourceZoomedItem(src);
@@ -901,7 +901,7 @@ export const TemplatePreview = React.memo(({
                                     <div className="absolute inset-0 z-10 flex items-center justify-center bg-black/30 backdrop-blur-sm rounded-md">
                                         <div className="flex flex-col items-center gap-3">
                                             <div className="w-8 h-8 border-2 border-orange-500 border-t-transparent rounded-full animate-spin" />
-                                            <span className="text-xs font-bold text-white/70">{language === 'cn' ? '视频加载中...' : 'Loading video...'}</span>
+                                            <span className="text-xs font-bold text-white/70">{language === 'cn' ? '影片載入中...' : 'Loading video...'}</span>
                                         </div>
                                     </div>
                                 )}
@@ -974,7 +974,7 @@ export const TemplatePreview = React.memo(({
                                             <button 
                                                 onClick={(e) => { e.stopPropagation(); setZoomedImage(currentImageUrl); }}
                                                 className={`p-2.5 rounded-full transition-all shadow-lg ${isDarkMode ? 'bg-black/60 text-gray-300 hover:bg-black hover:text-orange-400' : 'bg-white/90 text-gray-700 hover:bg-white hover:text-orange-600'}`}
-                                                title="查看大图"
+                                                title="查看大圖"
                                             >
                                                 <ArrowUpRight size={18} />
                                             </button>
@@ -982,21 +982,21 @@ export const TemplatePreview = React.memo(({
                                         <button 
                                             onClick={(e) => { e.stopPropagation(); setImageUpdateMode('replace'); fileInputRef.current?.click(); }}
                                             className={`p-2.5 rounded-full transition-all shadow-lg ${isDarkMode ? 'bg-black/60 text-gray-300 hover:bg-black hover:text-orange-400' : 'bg-white/90 text-gray-700 hover:bg-white hover:text-orange-600'}`}
-                                            title="更换当前图片(本地)"
+                                            title="更换当前圖片(本地)"
                                         >
                                             <Upload size={18} />
                                         </button>
                                         <button 
                                             onClick={(e) => { e.stopPropagation(); setImageUpdateMode('replace'); setShowImageUrlInput(true); }}
                                             className={`p-2.5 rounded-full transition-all shadow-lg ${isDarkMode ? 'bg-black/60 text-gray-300 hover:bg-black hover:text-orange-400' : 'bg-white/90 text-gray-700 hover:bg-white hover:text-orange-600'}`}
-                                            title="更换当前图片(URL)"
+                                            title="更换当前圖片(URL)"
                                         >
                                             <Globe size={18} />
                                         </button>
                                         <button 
                                             onClick={(e) => { e.stopPropagation(); handleResetImage(); }}
                                             className={`p-2.5 rounded-full transition-all shadow-lg ${isDarkMode ? 'bg-black/60 text-gray-300 hover:bg-black hover:text-orange-400' : 'bg-white/90 text-gray-700 hover:bg-white hover:text-orange-600'}`}
-                                            title="恢复默认图片"
+                                            title="還原默认圖片"
                                         >
                                             <RotateCcw size={18} />
                                         </button>
@@ -1004,7 +1004,7 @@ export const TemplatePreview = React.memo(({
                                             <button 
                                                 onClick={(e) => requestDeleteImage(e)}
                                                 className={`p-2.5 rounded-full transition-all shadow-lg ${isDarkMode ? 'bg-black/60 text-red-400 hover:bg-red-500 hover:text-white' : 'bg-white/90 text-red-500 hover:bg-red-500 hover:text-white'}`}
-                                                title="删除当前图片"
+                                                title="刪除当前圖片"
                                             >
                                                 <Trash2 size={18} />
                                             </button>
@@ -1054,7 +1054,7 @@ export const TemplatePreview = React.memo(({
                                         className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all border ${isDarkMode ? 'bg-white/5 hover:bg-white/10 text-gray-500 hover:text-orange-400 border-white/5' : 'bg-gray-50 hover:bg-orange-50 text-gray-500 hover:text-orange-600 border-gray-100'}`}
                                     >
                                         <Plus size={14} />
-                                        本地图片
+                                        本地圖片
                                     </button>
                                     <button
                                         onClick={(e) => {
@@ -1065,7 +1065,7 @@ export const TemplatePreview = React.memo(({
                                         className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all border ${isDarkMode ? 'bg-white/5 hover:bg-white/10 text-gray-500 hover:text-orange-400 border-white/5' : 'bg-gray-50 hover:bg-orange-50 text-gray-500 hover:text-orange-600 border-gray-100'}`}
                                     >
                                         <Globe size={14} />
-                                        网络链接
+                                        网络連結
                                     </button>
                                     <button
                                         onClick={(e) => {
@@ -1075,7 +1075,7 @@ export const TemplatePreview = React.memo(({
                                         className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all border ${isDarkMode ? 'bg-white/5 hover:bg-red-500/20 text-red-400 hover:text-red-500 border-white/5' : 'bg-red-50 hover:bg-red-100 text-red-500 border-red-100'}`}
                                     >
                                         <Trash2 size={14} />
-                                        删除图片
+                                        刪除圖片
                                     </button>
                                 </div>
                             )}
@@ -1097,7 +1097,7 @@ export const TemplatePreview = React.memo(({
                                                         if (templates && templates.some(t => t.id === src.templateId)) {
                                                           setActiveTemplateId(src.templateId);
                                                         } else {
-                                                          alert(language === 'cn' ? `关联的模版「${src.templateName || '未知'}」已不存在` : `Linked template "${src.templateName || 'Unknown'}" no longer exists`);
+                                                          alert(language === 'cn' ? `关联的模板「${src.templateName || '未知'}」已不存在` : `Linked template "${src.templateName || 'Unknown'}" no longer exists`);
                                                         }
                                                       } else if (src.url) {
                                                         setSourceZoomedItem(src);

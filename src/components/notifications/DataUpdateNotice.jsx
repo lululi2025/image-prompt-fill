@@ -2,11 +2,11 @@ import React from 'react';
 import { RefreshCw } from 'lucide-react';
 
 /**
- * 数据更新提示弹窗
- * 当系统模板或词库有更新时显示
+ * 資料更新提示彈窗
+ * 当系統模板或詞庫有更新时显示
  *
  * @param {Object} props
- * @param {boolean} props.isOpen - 是否显示弹窗
+ * @param {boolean} props.isOpen - 是否显示彈窗
  * @param {Function} props.onLater - 稍后更新的回调
  * @param {Function} props.onUpdate - 立即更新的回调
  * @param {Function} props.t - 翻译函数

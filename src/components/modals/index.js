@@ -1,5 +1,5 @@
 /**
- * Modal 组件统一导出文件
+ * Modal 组件统一匯出文件
  */
 
 export { default as ShareOptionsModal } from './ShareOptionsModal';

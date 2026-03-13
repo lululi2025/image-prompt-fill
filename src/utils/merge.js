@@ -3,7 +3,7 @@ import { INITIAL_TEMPLATES_CONFIG } from '../data/templates';
 import { INITIAL_BANKS, INITIAL_DEFAULTS } from '../data/banks';
 import { deepClone, makeUniqueKey } from './helpers';
 
-// 合并系统模板，系统模板强制更新，用户改动备份
+// 合并系統模板，系統模板强制更新，用户改动備份
 export const mergeTemplatesWithSystem = (currentTemplates, { backupSuffix }) => {
   const systemMap = new Map(INITIAL_TEMPLATES_CONFIG.map(t => [t.id, deepClone(t)]));
   const merged = INITIAL_TEMPLATES_CONFIG.map(t => deepClone(t));
@@ -14,14 +14,14 @@ export const mergeTemplatesWithSystem = (currentTemplates, { backupSuffix }) => 
     if (systemMap.has(t.id)) {
       const sys = systemMap.get(t.id);
       
-      // 比较名称和内容（忽略 selections 等交互状态）
+      // 比较名称和內容（忽略 selections 等交互状态）
       const isDifferent = JSON.stringify(t.name) !== JSON.stringify(sys.name) || 
                           JSON.stringify(t.content) !== JSON.stringify(sys.content);
       
-      // 在 merged 列表中找到对应的系统模板进行状态合并
+      // 在 merged 列表中找到对应的系統模板进行状态合并
       const targetInMerged = merged.find(m => m.id === t.id);
       if (targetInMerged && t.selections) {
-        // 迁移用户的填空选择 (selections)，保留用户已填的内容
+        // 迁移用户的填空選擇 (selections)，保留用户已填的內容
         targetInMerged.selections = { 
           ...(targetInMerged.selections || {}), 
           ...t.selections 
@@ -42,13 +42,13 @@ export const mergeTemplatesWithSystem = (currentTemplates, { backupSuffix }) => 
         };
 
         merged.push({ ...deepClone(t), id: backupId, name: duplicateName(t.name) });
-        notes.push(`模板 ${t.id} 已更新，旧版备份为 ${backupId}`);
+        notes.push(`模板 ${t.id} 已更新，旧版備份为 ${backupId}`);
       }
     } else {
       let newId = t.id;
       if (existingIds.has(newId)) {
         newId = makeUniqueKey(newId, existingIds, "custom");
-        notes.push(`自定义模板 ${t.id} 与系统冲突，已重命名为 ${newId}`);
+        notes.push(`自訂模板 ${t.id} 与系统冲突，已重命名为 ${newId}`);
       }
       existingIds.add(newId);
       merged.push({ ...deepClone(t), id: newId });
@@ -58,7 +58,7 @@ export const mergeTemplatesWithSystem = (currentTemplates, { backupSuffix }) => 
   return { templates: merged, notes };
 };
 
-// 合并系统词库与默认值，系统词库强制更新，用户改动内容合并
+// 合并系统詞庫与默认值，系统詞庫强制更新，用户改动內容合并
 export const mergeBanksWithSystem = (currentBanks, currentDefaults, { backupSuffix }) => {
   const mergedBanks = deepClone(INITIAL_BANKS);
   const mergedDefaults = { ...INITIAL_DEFAULTS };
@@ -69,7 +69,7 @@ export const mergeBanksWithSystem = (currentBanks, currentDefaults, { backupSuff
     if (INITIAL_BANKS[key]) {
       const sysBank = INITIAL_BANKS[key];
       
-      // 检查是否有自定义选项（即不在系统预设中的选项）
+      // 检查是否有自訂选项（即不在系统预设中的选项）
       const sysOptionsSet = new Set(sysBank.options.map(opt => 
         typeof opt === 'string' ? opt : JSON.stringify(opt)
       ));
@@ -79,18 +79,18 @@ export const mergeBanksWithSystem = (currentBanks, currentDefaults, { backupSuff
         return !sysOptionsSet.has(optKey);
       });
 
-      // 如果有自定义选项，合并到系统词库中，而不是触发整体备份
+      // 如果有自訂选项，合并到系统詞庫中，而不是触发整体備份
       if (customOptions.length > 0) {
         mergedBanks[key].options = [...mergedBanks[key].options, ...customOptions];
-        notes.push(`词库 ${key} 已同步系统更新，并保留了您的自定义选项`);
+        notes.push(`詞庫 ${key} 已同步系统更新，并保留了您的自訂选项`);
       }
       
-      // 如果词库的其他属性（如分类）发生变化，仍可考虑是否备份，但通常以系统为准
+      // 如果詞庫的其他属性（如分類）发生变化，仍可考虑是否備份，但通常以系统为准
     } else {
       let newKey = key;
       if (existingKeys.has(newKey)) {
         newKey = makeUniqueKey(newKey, existingKeys, "custom");
-        notes.push(`自定义词库 ${key} 与系统冲突，已重命名为 ${newKey}`);
+        notes.push(`自訂詞庫 ${key} 与系统冲突，已重命名为 ${newKey}`);
       }
       existingKeys.add(newKey);
       mergedBanks[newKey] = deepClone(bank);

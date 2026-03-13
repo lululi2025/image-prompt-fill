@@ -7,7 +7,7 @@ import { PremiumButton } from './PremiumButton';
 import { CategoryManagerModal } from './modals/CategoryManagerModal';
 
 /**
- * 组件：词库分类块
+ * 组件：詞庫分類块
  */
 const CategorySection = ({ catId, categories, banks, onInsert, onDeleteOption, onAddOption, onUpdateOption, onDeleteBank, onUpdateBankCategory, onStartAddBank, t, language, onTouchDragStart, isDarkMode, bankSearchQuery }) => {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -31,7 +31,7 @@ const CategorySection = ({ catId, categories, banks, onInsert, onDeleteOption, o
     return matchesBankName || matchesOptions;
   });
   
-  // 如果该分类下没有词库，不显示
+  // 如果该分類下没有詞庫，不显示
   if (catBanks.length === 0) return null;
 
   const style = CATEGORY_STYLES[category.color] || CATEGORY_STYLES.slate;
@@ -49,7 +49,7 @@ const CategorySection = ({ catId, categories, banks, onInsert, onDeleteOption, o
                 <span className={`w-1.5 h-1.5 rounded-full ${style.dotBg} opacity-60`}></span>
                 {getLocalized(category.label, language)}
                 
-                {/* 快捷添加按钮：点击后执行新建变量组逻辑 */}
+                {/* 快捷添加按钮：点击后执行新建變數组逻辑 */}
                 <button
                     onClick={(e) => {
                         e.stopPropagation();
@@ -91,7 +91,7 @@ const CategorySection = ({ catId, categories, banks, onInsert, onDeleteOption, o
                     />
                 ))}
                 
-                {/* 新建词组按钮 */}
+                {/* 新建詞组按钮 */}
                 {!bankSearchQuery && (
                     <button
                         onClick={() => onStartAddBank(catId)}
@@ -109,7 +109,7 @@ const CategorySection = ({ catId, categories, banks, onInsert, onDeleteOption, o
 };
 
 /**
- * 组件：可折叠的词库组
+ * 组件：可折疊的詞庫组
  */
 const BankGroup = ({ bankKey, bank, onInsert, onDeleteOption, onAddOption, onUpdateOption, onDeleteBank, onUpdateBankCategory, categories, t, language, onTouchDragStart, isDarkMode, bankSearchQuery }) => {
     const [isCollapsed, setIsCollapsed] = useState(true);
@@ -125,7 +125,7 @@ const BankGroup = ({ bankKey, bank, onInsert, onDeleteOption, onAddOption, onUpd
     const getOtherLanguage = (currentLang) => currentLang === 'cn' ? 'en' : 'cn';
     const otherLanguage = getOtherLanguage(language);
 
-    // 如果有搜索词，且搜索词匹配到了词库名称或选项，则默认展开
+    // 如果有搜尋詞，且搜尋詞匹配到了詞庫名称或选项，则默认展开
     React.useEffect(() => {
         if (bankSearchQuery) {
             setIsCollapsed(false);
@@ -142,7 +142,7 @@ const BankGroup = ({ bankKey, bank, onInsert, onDeleteOption, onAddOption, onUpd
     };
 
     const handleTouchStart = (e) => {
-        // 移动端拖拽过于敏感，根据用户反馈，禁用移动端拖拽插入功能
+        // 行動端拖拽过于敏感，根据用户反馈，禁用行動端拖拽插入功能
         return;
     };
 
@@ -150,7 +150,7 @@ const BankGroup = ({ bankKey, bank, onInsert, onDeleteOption, onAddOption, onUpd
     const filteredOptions = bank.options.filter(opt => {
         if (!bankSearchQuery) return true;
         const query = bankSearchQuery.toLowerCase();
-        // 如果词库名称已经匹配，则显示所有选项；否则只显示匹配的选项
+        // 如果詞庫名称已经匹配，则显示所有选项；否则只显示匹配的选项
         const bankLabel = getLocalized(bank.label, language).toLowerCase();
         if (bankLabel.includes(query) || bankKey.toLowerCase().includes(query)) return true;
         return getLocalized(opt, language).toLowerCase().includes(query);
@@ -163,7 +163,7 @@ const BankGroup = ({ bankKey, bank, onInsert, onDeleteOption, onAddOption, onUpd
 
         if (!primary && !secondary) return;
 
-        // 如果两个输入框都有值，创建双语对象
+        // 如果两个输入框都有值，建立双语对象
         if (primary && secondary) {
             const bilingualOption = {
                 [language]: primary,
@@ -171,13 +171,13 @@ const BankGroup = ({ bankKey, bank, onInsert, onDeleteOption, onAddOption, onUpd
             };
             onAddOption(bankKey, bilingualOption);
         } else {
-            // 只有其中一个有值，创建双语对象（确保切换语言时行为符合预期）
+            // 只有其中一個有值，建立双语对象（确保切換语言时行为符合预期）
             // 如果用户填了 Primary (当前语言)，Secondary 为空
             // 或者用户只填了 Secondary (另一种语言)，Primary 为空
             const val = primary || secondary;
             
-            // 为了保持“只有一个语言，切换语言时显示相同内容”
-            // 如果只有一个值，我们存为字符串，这样 getLocalized 会直接返回它
+            // 为了保持“只有一個语言，切換语言时显示相同內容”
+            // 如果只有一個值，我们存为字符串，这样 getLocalized 会直接返回它
             onAddOption(bankKey, val);
         }
 
@@ -186,7 +186,7 @@ const BankGroup = ({ bankKey, bank, onInsert, onDeleteOption, onAddOption, onUpd
         setNewOptionSecondary("");
     };
 
-    // 处理双语编辑保存
+    // 处理双语編輯保存
     const handleUpdateBilingualOption = (oldOpt) => {
         const primary = editOptionPrimary.trim();
         const secondary = editOptionSecondary.trim();
@@ -210,7 +210,7 @@ const BankGroup = ({ bankKey, bank, onInsert, onDeleteOption, onAddOption, onUpd
         setEditingOptionIdx(null);
     };
 
-    // 当语言切换时，清空输入框
+    // 当语言切換时，清空输入框
     React.useEffect(() => {
         setNewOptionPrimary("");
         setNewOptionSecondary("");
@@ -345,7 +345,7 @@ const BankGroup = ({ bankKey, bank, onInsert, onDeleteOption, onAddOption, onUpd
                                                             type="text"
                                                             value={editOptionPrimary}
                                                             onChange={(e) => setEditOptionPrimary(e.target.value)}
-                                                            placeholder={language === 'cn' ? '中文内容' : 'English Content'}
+                                                            placeholder={language === 'cn' ? '中文內容' : 'English Content'}
                                                             className={`w-full bg-transparent border-none outline-none py-1.5 text-[14px] font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}
                                                             onKeyDown={(e) => {
                                                                 if (e.key === 'Enter') {
@@ -365,7 +365,7 @@ const BankGroup = ({ bankKey, bank, onInsert, onDeleteOption, onAddOption, onUpd
                                                             type="text"
                                                             value={editOptionSecondary}
                                                             onChange={(e) => setEditOptionSecondary(e.target.value)}
-                                                            placeholder={language === 'cn' ? '英文内容' : '中文内容'}
+                                                            placeholder={language === 'cn' ? '英文內容' : '中文內容'}
                                                             className={`w-full bg-transparent border-none outline-none py-1.5 text-[13px] font-medium ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}
                                                             onKeyDown={(e) => {
                                                                 if (e.key === 'Enter') {
@@ -396,7 +396,7 @@ const BankGroup = ({ bankKey, bank, onInsert, onDeleteOption, onAddOption, onUpd
                                                         onClick={(e) => {
                                                             e.stopPropagation();
                                                             setEditingOptionIdx(idx);
-                                                            // 初始化编辑值
+                                                            // 初始化編輯值
                                                             if (typeof opt === 'object') {
                                                                 setEditOptionPrimary(opt[language] || "");
                                                                 setEditOptionSecondary(opt[otherLanguage] || "");
@@ -425,7 +425,7 @@ const BankGroup = ({ bankKey, bank, onInsert, onDeleteOption, onAddOption, onUpd
                             })}
                         </div>
 
-                        {/* 双语新增选项区域 - 优化后符合图片设计 */}
+                        {/* 双语新增选项区域 - 優化后符合圖片设计 */}
                         <div className="mt-2 pl-1 pr-1 pb-1 flex items-stretch gap-3">
                             <div className={`flex-1 rounded-2xl overflow-hidden border transition-all duration-300 ${isDarkMode ? 'bg-black/20 border-white/5 focus-within:border-orange-500/50 shadow-inner' : 'bg-black/5 border-gray-200/40 focus-within:border-orange-300 shadow-sm'}`}>
                                 {/* 第一语言输入框 */}
@@ -443,7 +443,7 @@ const BankGroup = ({ bankKey, bank, onInsert, onDeleteOption, onAddOption, onUpd
                                             }
                                         }}
                                     />
-                                    {/* 语言标签提示 */}
+                                    {/* 语言標籤提示 */}
                                     <span className={`absolute right-3 top-3 text-[9px] font-black uppercase tracking-tighter opacity-30 pointer-events-none ${isDarkMode ? 'text-white' : 'text-black'}`}>
                                         {language.toUpperCase()}
                                     </span>
@@ -467,7 +467,7 @@ const BankGroup = ({ bankKey, bank, onInsert, onDeleteOption, onAddOption, onUpd
                                             }
                                         }}
                                     />
-                                    {/* 语言标签提示 */}
+                                    {/* 语言標籤提示 */}
                                     <span className={`absolute right-3 top-2.5 text-[9px] font-black uppercase tracking-tighter opacity-30 pointer-events-none ${isDarkMode ? 'text-white' : 'text-black'}`}>
                                         {otherLanguage.toUpperCase()}
                                     </span>
@@ -495,7 +495,7 @@ const BankGroup = ({ bankKey, bank, onInsert, onDeleteOption, onAddOption, onUpd
 };
 
 /**
- * 核心组件：变量插入选择器
+ * 核心组件：變數插入選擇器
  */
 export const InsertVariableModal = ({ isOpen, onClose, categories, banks, onSelect, t, language, isDarkMode }) => {
   if (!isOpen) return null;
@@ -552,7 +552,7 @@ export const InsertVariableModal = ({ isOpen, onClose, categories, banks, onSele
 };
 
 /**
- * 核心组件：添加词库模态框
+ * 核心组件：添加詞庫模态框
  */
 export const AddBankModal = ({ isOpen, onClose, t, categories, newBankLabel, setNewBankLabel, newBankKey, setNewBankKey, newBankCategory, setNewBankCategory, onConfirm, language, isDarkMode }) => {
     if (!isOpen) return null;
@@ -633,7 +633,7 @@ export const AddBankModal = ({ isOpen, onClose, t, categories, newBankLabel, set
 };
 
 /**
- * BanksSidebar 组件 - 负责展示右侧词库配置
+ * BanksSidebar 组件 - 负责展示右侧詞庫配置
  */
 export const BanksSidebar = React.memo(({ 
   mobileTab, 
@@ -655,7 +655,7 @@ export const BanksSidebar = React.memo(({
   t,
   language,
   isDarkMode,
-  // 移动端模拟拖拽 props
+  // 行動端模拟拖拽 props
   onTouchDragStart,
   globalContainerStyle
 }) => {
@@ -710,12 +710,12 @@ export const BanksSidebar = React.memo(({
           </PremiumButton>
         </div>
         <div className="flex flex-col gap-4">
-            {/* 搜索框 */}
+            {/* 搜尋框 */}
             <div className={`premium-search-container group ${isDarkMode ? 'dark' : 'light'}`}>
                 <Search className={`absolute left-4 top-1/2 -translate-y-1/2 transition-colors pointer-events-none z-10 ${isDarkMode ? 'text-gray-600 group-focus-within:text-orange-500' : 'text-gray-400 group-focus-within:text-orange-500'}`} size={16} />
                 <input 
                   type="text" 
-                  placeholder={t('search_banks') || "搜索词条..."} 
+                  placeholder={t('search_banks') || "搜尋詞條..."} 
                   value={bankSearchQuery} 
                   onChange={(e) => setBankSearchQuery(e.target.value)} 
                   className={`premium-search-input ${isDarkMode ? 'dark' : 'light'}`} 

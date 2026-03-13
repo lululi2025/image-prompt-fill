@@ -5,15 +5,15 @@ import { getLocalized } from '../../utils/helpers';
 import { PremiumButton } from '../PremiumButton';
 
 /**
- * 词库分类管理弹窗组件
+ * 詞庫分類管理彈窗组件
  *
  * @param {Object} props
- * @param {boolean} props.isOpen - 是否打开弹窗
- * @param {Function} props.onClose - 关闭弹窗回调
- * @param {Object} props.categories - 分类对象
- * @param {Function} props.setCategories - 设置分类的函数
- * @param {Object} props.banks - 词库对象
- * @param {Function} props.setBanks - 设置词库的函数
+ * @param {boolean} props.isOpen - 是否打开彈窗
+ * @param {Function} props.onClose - 关闭彈窗回调
+ * @param {Object} props.categories - 分類对象
+ * @param {Function} props.setCategories - 設定分類的函数
+ * @param {Object} props.banks - 詞庫对象
+ * @param {Function} props.setBanks - 設定詞庫的函数
  * @param {Function} props.t - 翻译函数
  * @param {string} props.language - 当前语言
  * @param {boolean} props.isDarkMode - 是否暗色模式
@@ -110,7 +110,7 @@ export const CategoryManagerModal = ({
   };
 
   /**
-   * 渲染颜色选择控件
+   * 渲染颜色選擇控件
    * @param {string} direction - 'up' 或 'down'，控制弹出方向
    */
   const renderColorPicker = (id, currentColor, onColorSelect, direction = 'up') => {
@@ -127,7 +127,7 @@ export const CategoryManagerModal = ({
               : 'bg-white/40 border-gray-200 hover:bg-white hover:border-gray-300'
           }`}
           style={{ backgroundColor: colorStyle?.from || '#64748B' }}
-          title={language === 'cn' ? '选择颜色' : (t('select_color') || 'Select Color')}
+          title={language === 'cn' ? '選擇颜色' : (t('select_color') || 'Select Color')}
         >
         </button>
 
@@ -171,7 +171,7 @@ export const CategoryManagerModal = ({
         {/* Header */}
         <div className={`p-6 flex justify-between items-center ${isDarkMode ? 'bg-white/[0.02]' : 'bg-gray-50/50'}`}>
           <h3 className={`font-black text-lg tracking-tight ${isDarkMode ? 'text-gray-100' : 'text-gray-900'}`}>
-            {language === 'cn' ? '词库分类管理' : (t('manage_categories') || 'Manage Categories')}
+            {language === 'cn' ? '詞庫分類管理' : (t('manage_categories') || 'Manage Categories')}
           </h3>
           <button
             onClick={onClose}
@@ -181,12 +181,12 @@ export const CategoryManagerModal = ({
           </button>
         </div>
 
-        {/* Content - 开启色盘时通过动态类名允许溢出，彻底防止裁切 */}
+        {/* Content - 开启色盘时通過動態类名允许溢出，彻底防止裁切 */}
         <div className={`p-8 py-10 space-y-10 max-h-[70vh] overflow-y-auto custom-scrollbar relative ${openPickerId ? 'overflow-y-visible' : ''}`}>
           {/* Add New Category */}
           <section className={`relative ${openPickerId === 'new' ? 'z-[50]' : 'z-[10]'}`}>
             <label className={`block text-[10px] font-black uppercase tracking-[0.2em] mb-4 ${isDarkMode ? 'text-gray-600' : 'text-gray-400'}`}>
-              {language === 'cn' ? '增加新词库分类' : (t('add_new_category') || 'Add New Category')}
+              {language === 'cn' ? '新增詞庫分類' : (t('add_new_category') || 'Add New Category')}
             </label>
             <div className="flex gap-3 items-center">
               <input
@@ -194,7 +194,7 @@ export const CategoryManagerModal = ({
                 type="text"
                 value={newCatName}
                 onChange={(e) => setNewCatName(e.target.value)}
-                placeholder={language === 'cn' ? '输入分类名称...' : (t('category_name_placeholder') || 'Enter category name...')}
+                placeholder={language === 'cn' ? '输入分類名称...' : (t('category_name_placeholder') || 'Enter category name...')}
                 className={`flex-1 text-sm font-bold rounded-xl px-5 py-3 focus:ring-4 focus:ring-orange-500/10 focus:border-orange-500 outline-none transition-all ${isDarkMode ? 'bg-white/5 border border-white/10 text-gray-200 placeholder:text-gray-700' : 'border border-gray-200 bg-gray-50 text-gray-800 placeholder:text-gray-400'}`}
               />
               
@@ -216,7 +216,7 @@ export const CategoryManagerModal = ({
           {/* Category List */}
           <section className="relative z-[10]">
             <label className={`block text-[10px] font-black uppercase tracking-[0.2em] mb-4 ${isDarkMode ? 'text-gray-600' : 'text-gray-400'}`}>
-              {language === 'cn' ? '词库列表' : (t('category_list') || 'Category List')}
+              {language === 'cn' ? '詞庫列表' : (t('category_list') || 'Category List')}
             </label>
             <div className="grid gap-4">
               {Object.values(categories).map(cat => {
@@ -227,7 +227,7 @@ export const CategoryManagerModal = ({
                 return (
                   <div
                     key={cat.id}
-                    // 核心修复：开启色盘时动态提升整行的 z-index，确保其处于所有词条行的最上方
+                    // 核心修复：开启色盘时動態提升整行的 z-index，确保其处于所有詞條行的最上方
                     className={`relative group/card cursor-default transition-all duration-300 hover:translate-y-[-1px] ml-1.5 ${isCurrentPickerOpen ? 'z-[50]' : 'z-10'}`}
                   >
                     {/* Tag */}
@@ -283,7 +283,7 @@ export const CategoryManagerModal = ({
                         <button
                           onClick={() => startEditing(cat)}
                           className={`p-2 rounded-xl transition-all duration-200 ${isDarkMode ? 'text-gray-500 hover:text-white hover:bg-white/10' : 'text-gray-500 hover:text-gray-900 hover:bg-white/40'}`}
-                          title={t('edit') || '编辑'}
+                          title={t('edit') || '編輯'}
                         >
                           <Pencil size={14} />
                         </button>
@@ -292,7 +292,7 @@ export const CategoryManagerModal = ({
                           <button
                             onClick={() => handleDeleteCategory(cat.id)}
                             className={`p-2 rounded-xl transition-all duration-200 ${isDarkMode ? 'text-gray-500 hover:text-red-400 hover:bg-red-500/10' : 'text-gray-500 hover:text-red-600 hover:bg-red-50/50'}`}
-                            title={t('delete') || '删除'}
+                            title={t('delete') || '刪除'}
                           >
                             <Trash2 size={14} />
                           </button>

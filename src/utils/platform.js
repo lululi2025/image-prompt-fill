@@ -21,18 +21,18 @@ export const isTauriIOS = () => isTauri() && isIOS();
 /** 是否为 Tauri Android App */
 export const isTauriAndroid = () => isTauri() && isAndroid();
 
-/** 是否为移动设备（屏幕宽度） */
+/** 是否为移动设备（螢幕宽度） */
 export const isMobile = () => typeof window !== 'undefined' && window.innerWidth < 768;
 
 
-// ========== 跨平台网络请求 ==========
+// ========== 跨平台网络請求 ==========
 
 /**
  * 跨平台 fetch 封装
  * - Tauri 环境：使用 @tauri-apps/plugin-http（绕过 WKWebView 的 CORS / ATS 限制）
  * - 普通浏览器：使用原生 fetch
  *
- * @param {string} url - 请求地址
+ * @param {string} url - 請求地址
  * @param {RequestInit} [options] - fetch 选项
  * @returns {Promise<Response>}
  */
@@ -49,14 +49,14 @@ export const smartFetch = async (url, options = {}) => {
 };
 
 
-// ========== 外部链接 ==========
+// ========== 外部連結 ==========
 
 /**
- * 在系统浏览器中打开外部链接
+ * 在系统浏览器中打开外部連結
  * - Tauri 环境：使用 @tauri-apps/plugin-opener 的 openUrl
  * - 普通浏览器：使用 window.open
  *
- * @param {string} url - 要打开的链接
+ * @param {string} url - 要打开的連結
  */
 export const openExternalLink = async (url) => {
   if (!url) return;

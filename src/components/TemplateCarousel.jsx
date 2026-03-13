@@ -3,8 +3,8 @@ import { Play } from 'lucide-react';
 
 /**
  * 模板轮播图组件
- * 随机选取模板的3张图片进行轮播展示
- * 支持自动轮播和左右滑动切换
+ * 随机选取模板的3张圖片进行轮播展示
+ * 支持自动轮播和左右滑动切換
  */
 export const TemplateCarousel = ({ templates, language, isDarkMode, setZoomedImage }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -18,7 +18,7 @@ export const TemplateCarousel = ({ templates, language, isDarkMode, setZoomedIma
 
   const minSwipeDistance = 50; // 最小滑动距离
 
-  // 从模板中随机选择3张有图片的模板
+  // 从模板中随机選擇3张有圖片的模板
   useEffect(() => {
     const templatesWithImages = templates.filter(t => t.imageUrl && t.imageUrl.trim() !== '');
 
@@ -42,7 +42,7 @@ export const TemplateCarousel = ({ templates, language, isDarkMode, setZoomedIma
 
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % carouselImages.length);
-    }, 4000); // 每4秒切换一次
+    }, 4000); // 每4秒切換一次
 
     return () => clearInterval(timer);
   }, [carouselImages.length, isPaused]);
@@ -71,24 +71,24 @@ export const TemplateCarousel = ({ templates, language, isDarkMode, setZoomedIma
     const deltaX = Math.abs(touchEndX - touchStartX.current);
     const deltaY = Math.abs(touchEndY - touchStartY.current);
 
-    // 只有当水平滑动距离大于垂直滑动距离时，才认为是滑动切换图片
+    // 只有当水平滑动距离大于垂直滑动距离时，才认为是滑动切換圖片
     if (deltaX > deltaY && deltaX > minSwipeDistance) {
-      // 向左滑动，切换到下一张
+      // 向左滑动，切換到下一张
       if (touchStartX.current - touchEndX > 0) {
         goToNext();
       }
-      // 向右滑动，切换到上一张
+      // 向右滑动，切換到上一张
       else {
         goToPrevious();
       }
     }
     // 如果是垂直滑动或点击，不阻止默认行为，允许页面滚动
 
-    // 恢复自动轮播
+    // 還原自动轮播
     setTimeout(() => setIsPaused(false), 2000);
   };
 
-  // 点击处理：视频模板传 videoUrl 以便大图预览播视频，否则传 imageUrl
+  // 点击处理：影片模板传 videoUrl 以便大图預覽播影片，否则传 imageUrl
   const handleClick = () => {
     if (!hasMoved && setZoomedImage) {
       const url = currentImage.type === 'video' && currentImage.videoUrl
@@ -98,7 +98,7 @@ export const TemplateCarousel = ({ templates, language, isDarkMode, setZoomedIma
     }
   };
 
-  // 如果没有图片，不显示轮播图
+  // 如果没有圖片，不显示轮播图
   if (carouselImages.length === 0) {
     return null;
   }
@@ -115,7 +115,7 @@ export const TemplateCarousel = ({ templates, language, isDarkMode, setZoomedIma
 
   return (
     <div className="relative w-full h-[60vh] overflow-hidden">
-      {/* 轮播图片 - 支持触摸滑动和点击展开 */}
+      {/* 轮播圖片 - 支持触摸滑动和点击展开 */}
       <div
         className="relative w-full h-full cursor-pointer"
         onTouchStart={onTouchStart}
@@ -154,7 +154,7 @@ export const TemplateCarousel = ({ templates, language, isDarkMode, setZoomedIma
         </div>
       </div>
 
-      {/* 顶部 Safe Area 纯色渐变遮罩 - 不受下方图片影响 */}
+      {/* 頂部 Safe Area 纯色渐变遮罩 - 不受下方圖片影响 */}
       <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-black/30 via-black/15 to-transparent pointer-events-none z-10" />
 
       {/* 指示器圆点 - 右下角 */}

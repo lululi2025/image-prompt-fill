@@ -15,7 +15,7 @@ export const useStickyState = (defaultValue, key) => {
   useEffect(() => {
     try {
       const storageMode = window.localStorage.getItem('app_storage_mode') || 'browser';
-      // 在使用本地文件夹模式时，不再写入 localStorage，避免大图触发配额弹窗
+      // 在使用本地資料夾模式时，不再写入 localStorage，避免大图触发配额彈窗
       if (storageMode === 'folder') return;
 
       const serialized = JSON.stringify(value);

@@ -3,7 +3,7 @@ import { X } from 'lucide-react';
 import { getLocalized, getVideoEmbedInfo } from '../../utils/helpers';
 
 /**
- * 全局素材大图预览模态框
+ * 全局素材大图預覽模态框
  * 
  * @param {Object} props
  * @param {Object} props.item - 素材对象 {type, url, label}

@@ -5,27 +5,27 @@ import { Copy, Plus, X, Settings, Check, Edit3, Eye, Trash2, FileText, Pencil, C
 import { WaypointsIcon } from './components/icons/WaypointsIcon';
 import html2canvas from 'html2canvas';
 
-// ====== 导入数据配置 ======
+// ====== 匯入数据配置 ======
 import { INITIAL_TEMPLATES_CONFIG, TEMPLATE_TAGS, SYSTEM_DATA_VERSION, PUBLIC_SHARE_URL } from './data/templates';
 import { INITIAL_BANKS, INITIAL_DEFAULTS, INITIAL_CATEGORIES } from './data/banks';
 
-// ====== 导入常量配置 ======
+// ====== 匯入常量配置 ======
 import { TRANSLATIONS } from './constants/translations';
 import { PREMIUM_STYLES, CATEGORY_STYLES, TAG_STYLES, TAG_LABELS } from './constants/styles';
 import { MASONRY_STYLES } from './constants/masonryStyles';
 import { SMART_SPLIT_CONFIRM_MESSAGE, SMART_SPLIT_CONFIRM_TITLE, SMART_SPLIT_BUTTON_TEXT } from './constants/modalMessages';
 
-// ====== 导入工具函数 ======
+// ====== 匯入工具函数 ======
 import { deepClone, makeUniqueKey, waitForImageLoad, getLocalized, getSystemLanguage, compressTemplate, decompressTemplate, copyToClipboard, saveDirectoryHandle } from './utils';
 import { mergeTemplatesWithSystem, mergeBanksWithSystem } from './utils/merge';
 import { generateAITerms, polishAndSplitPrompt } from './utils/aiService';  // AI 服务
 import { uploadToICloud, downloadFromICloud } from './utils/icloud'; // iCloud 服务
 import { smartFetch } from './utils/platform'; // 跨平台 fetch
 
-// ====== 导入自定义 Hooks ======
+// ====== 匯入自訂 Hooks ======
 import { useStickyState, useAsyncStickyState, useEditorHistory, useLinkageGroups, useShareFunctions, useTemplateManagement, useServiceWorker } from './hooks';
 
-// ====== 导入 UI 组件 ======
+// ====== 匯入 UI 组件 ======
 import { Variable, VisualEditor, PremiumButton, EditorToolbar, Lightbox, TemplatePreview, TemplateEditor, TemplatesSidebar, BanksSidebar, InsertVariableModal, AddBankModal, DiscoveryView, MobileSettingsView, SettingsView, Sidebar, TagSidebar } from './components';
 import { ImagePreviewModal, SourceAssetModal, AnimatedSlogan, MobileAnimatedSlogan } from './components/preview';
 import { MobileBottomNav } from './components/mobile';
@@ -36,7 +36,7 @@ import { DataUpdateNotice, AppUpdateNotice } from './components/notifications';
 // ====== 以下组件保留在此文件中 ======
 // CategorySection, BankGroup, CategoryManager, InsertVariableModal, App
 
-// --- 组件：可折叠的分类区块 (New Component) ---
+// --- 组件：可折疊的分類区块 (New Component) ---
 // ====== 核心组件区 (已提取至独立文件) ======
 
 // Poster View Animated Slogan Constants - 已移至 constants/slogan.js
@@ -63,7 +63,7 @@ const App = () => {
   
   // 基础配置保持使用 LocalStorage (同步读取)
   const [language, setLanguage] = useStickyState(getSystemLanguage(), "app_language_v1"); // 全局UI语言
-  const [templateLanguage, setTemplateLanguage] = useStickyState(getSystemLanguage(), "app_template_language_v1"); // 模板内容语言
+  const [templateLanguage, setTemplateLanguage] = useStickyState(getSystemLanguage(), "app_template_language_v1"); // 模板內容语言
   const [activeTemplateId, setActiveTemplateId] = useStickyState("tpl_photo_grid", "app_active_template_id_v4");
 
   const [isSmartSplitLoading, setIsSmartSplitLoading] = useState(false);
@@ -71,10 +71,10 @@ const App = () => {
   const [isAddTemplateTypeModalOpen, setIsAddTemplateTypeModalOpen] = useState(false);
   const [isVideoSubTypeModalOpen, setIsVideoSubTypeModalOpen] = useState(false);
 
-  // 包装 setActiveTemplateId，在智能拆分期间防止切换
+  // 包装 setActiveTemplateId，在智慧拆分期间防止切換
   const handleSetActiveTemplateId = React.useCallback((id) => {
     if (isSmartSplitLoading) {
-      return; // 正在拆分时，静默忽略切换请求，或者可以添加提示
+      return; // 正在拆分时，静默忽略切換請求，或者可以添加提示
     }
     setActiveTemplateId(id);
   }, [isSmartSplitLoading, setActiveTemplateId]);
@@ -105,7 +105,7 @@ const App = () => {
     }
   }, [themeMode]);
 
-  // 同步移动端浏览器状态栏颜色
+  // 同步行動端浏览器状态栏颜色
   useEffect(() => {
     const themeColor = isDarkMode ? '#181716' : '#D6D6D6';
     
@@ -124,7 +124,7 @@ const App = () => {
     if (lightMeta) lightMeta.setAttribute('content', '#D6D6D6');
     if (darkMeta) darkMeta.setAttribute('content', '#181716');
     
-    // 3. 始终保持 black-translucent 以实现真正的全屏沉浸体验
+    // 3. 始终保持 black-translucent 以实现真正的全屏沉浸體驗
     let appleMeta = document.querySelector('meta[name="apple-mobile-web-app-status-bar-style"]');
     if (appleMeta) {
       appleMeta.setAttribute('content', 'black-translucent');
@@ -142,7 +142,7 @@ const App = () => {
   const [lastICloudSyncAt, setLastICloudSyncAt] = useStickyState(0, "app_last_icloud_sync");
   const [lastICloudSyncError, setLastICloudSyncError] = useState("");
   
-  // ====== iCloud 自动同步逻辑 ======
+  // ====== iCloud 自動同步逻辑 ======
   // 1. 数据变更自动上传
   useEffect(() => {
     if (iCloudEnabled && isTemplatesLoaded && isBanksLoaded && isCategoriesLoaded && isDefaultsLoaded) {
@@ -176,11 +176,11 @@ const App = () => {
         if (cloudData && cloudData.payload) {
           const { timestamp, payload } = cloudData;
           // 这里的逻辑可以根据你的需求调整：是直接覆盖，还是弹出提示？
-          // 为了安全起见，我们暂且只在控制台输出，或者你可以添加一个“发现云端数据”的提示
-          console.log('[iCloud] 发现云端数据，时间戳:', new Date(timestamp).toLocaleString());
+          // 为了安全起见，我们暂且只在控制台输出，或者你可以添加一個“發現云端数据”的提示
+          console.log('[iCloud] 發現云端数据，時間戳:', new Date(timestamp).toLocaleString());
           
-          // 如果云端数据比本地新（这里需要更复杂的逻辑，比如存一个本地时间戳）
-          // 或者如果本地是空的（刚安装 App），则直接加载
+          // 如果云端数据比本地新（这里需要更复杂的逻辑，比如存一個本地時間戳）
+          // 或者如果本地是空的（刚安装 App），则直接載入
           const lastLocalSync = lastICloudSyncAt || 0;
           if (timestamp > lastLocalSync || templates.length <= INITIAL_TEMPLATES_CONFIG.length) {
             if (window.confirm(language === 'cn' ? '發現更新的 iCloud 雲端備份，是否還原資料？' : 'Found newer iCloud backup, restore data?')) {
@@ -209,7 +209,7 @@ const App = () => {
   }, [isSettingPage, isMobileDevice]);
   const [isTemplatesDrawerOpen, setIsTemplatesDrawerOpen] = useState(false);
   const [isBanksDrawerOpen, setIsBanksDrawerOpen] = useState(false);
-  const [touchDraggingVar, setTouchDraggingVar] = useState(null); // { key, x, y } 用于移动端模拟拖拽
+  const [touchDraggingVar, setTouchDraggingVar] = useState(null); // { key, x, y } 用于行動端模拟拖拽
   const touchDragRef = useRef(null);
 
   const [isEditing, setIsEditing] = useState(false);
@@ -227,7 +227,7 @@ const App = () => {
   const [isExportModalOpen, setIsExportModalOpen] = useState(false);
   const [selectedExportTemplateIds, setSelectedExportTemplateIds] = useState([]);
   
-  // 新增：图片 Base64 缓存，用于解决导出时的跨域和稳定性问题
+  // 新增：圖片 Base64 缓存，用于解決匯出时的跨域和穩定性问题
   const imageBase64Cache = useRef({});
 
   // Add Bank State
@@ -248,7 +248,7 @@ const App = () => {
   React.useEffect(() => {
     if (activeTemplate) {
       // 如果模板缺少这些属性，我们在这里做一次静默初始化（仅针对内存中的状态）
-      // 实际保存会在用户操作或切换时发生
+      // 实际保存会在用户操作或切換时发生
       if (!activeTemplate.bestModel) {
         setTempTemplateBestModel("Nano Banana Pro");
       } else {
@@ -261,7 +261,7 @@ const App = () => {
         setTempTemplateBaseImage(activeTemplate.baseImage);
       }
 
-      // 同步视频URL
+      // 同步影片URL
       setTempVideoUrl(activeTemplate.videoUrl || "");
     }
   }, [activeTemplate?.id]);
@@ -288,13 +288,13 @@ const App = () => {
   const [selectedType, setSelectedType] = useState("all"); // all, image, video
   const [searchQuery, setSearchQuery] = useState("");
   const [editingTemplateTags, setEditingTemplateTags] = useState(null); // {id, tags}
-  const [isDiscoveryView, setDiscoveryView] = useState(true); // 首次加载默认显示发现（海报）视图
+  const [isDiscoveryView, setDiscoveryView] = useState(true); // 首次載入默认显示發現（海报）視圖
   
-  // 统一的发现页切换处理器
+  // 统一的發現页切換处理器
   const handleSetDiscoveryView = React.useCallback((val, options = {}) => {
     const { skipMobileTabSync = false } = options;
     setDiscoveryView(val);
-    // 移动端：侧边栏里的“回到发现页”按钮需要同步切回 mobileTab
+    // 行動端：側邊欄里的“回到發現页”按钮需要同步切回 mobileTab
     if (!skipMobileTabSync && isMobileDevice && val) {
       setMobileTab('home');
     } else if (!skipMobileTabSync && isMobileDevice && !val && mobileTab === 'home') {
@@ -308,7 +308,7 @@ const App = () => {
   const textareaRef = useRef(null);
   const sidebarRef = useRef(null);
   
-  // 移动端：首页是否展示完全由 mobileTab 控制，避免 isDiscoveryView 残留导致其它 Tab 白屏
+  // 行動端：首頁是否展示完全由 mobileTab 控制，避免 isDiscoveryView 残留导致其它 Tab 白屏
   // 桌面端：保持现有 isDiscoveryView 行为（不影响已正常的桌面端）
   const showDiscoveryOverlay = isMobileDevice ? mobileTab === "home" : isDiscoveryView;
   
@@ -343,10 +343,10 @@ const App = () => {
 
   const [updateNoticeType, setUpdateNoticeType] = useState(null); // 'app' | 'data' | null
 
-  // Service Worker - 图片缓存
+  // Service Worker - 圖片缓存
   const sw = useServiceWorker();
 
-  // ====== 智能多源数据同步逻辑 ======
+  // ====== 智慧多源数据同步逻辑 ======
   const DATA_SOURCES = {
     cloud: "https://data.tanshilong.com/data", // 宝塔后端 (最高优先级)
     static: "/data" // Vercel/本地 静态目录 (同步 Git)
@@ -355,7 +355,7 @@ const App = () => {
   useEffect(() => {
     const syncData = async () => {
       try {
-        console.log("[Sync] 正在检查数据更新...");
+        console.log("[Sync] 正在检查資料更新...");
         
         // 1. 并行获取各源版本号
         const results = await Promise.allSettled([
@@ -377,9 +377,9 @@ const App = () => {
           }
         });
 
-        // 3. 如果发现了更新的版本，执行拉取
+        // 3. 如果發現了更新的版本，执行拉取
         if (bestSource) {
-          console.log(`[Sync] 发现更新版本 ${maxVersion}，来源: ${bestSource}`);
+          console.log(`[Sync] 發現更新版本 ${maxVersion}，来源: ${bestSource}`);
           const [tplRes, bankRes] = await Promise.all([
             smartFetch(`${bestSource}/templates.json`),
             smartFetch(`${bestSource}/banks.json`)
@@ -410,8 +410,8 @@ const App = () => {
   }, []);
   // ================================
 
-  // 检查系统模版更新
-  // 检测数据版本更新 (模板与词库)
+  // 检查系統模板更新
+  // 检测資料版本更新 (模板與詞庫)
   useEffect(() => {
     if (SYSTEM_DATA_VERSION && lastAppliedDataVersion !== SYSTEM_DATA_VERSION) {
       // 检查是否有存储的数据。如果是第一次使用（无数据），直接静默更新版本号
@@ -426,7 +426,7 @@ const App = () => {
     }
   }, [lastAppliedDataVersion]);
 
-  // 检查应用代码版本更新与数据版本更新
+  // 检查应用代码版本更新与資料版本更新
   useEffect(() => {
     const checkUpdates = async () => {
       try {
@@ -458,7 +458,7 @@ const App = () => {
     return () => clearInterval(timer);
   }, [lastAppliedDataVersion]); // 移除 lastAppliedAppVersion 依赖
 
-  // 当在编辑模式下切换模板或语言时，同步更新标题和作者的临时状态
+  // 当在編輯模式下切換模板或语言时，同步更新标题和作者的临时状态
   useEffect(() => {
     if (isEditing && activeTemplate) {
       setTempTemplateName(getLocalized(activeTemplate.name, language));
@@ -480,29 +480,29 @@ const App = () => {
     return TAG_LABELS[language]?.[tag] || tag;
   }, [language]);
 
-  // 确保有一个有效的 activeTemplateId - 自动选择第一个模板
+  // 确保有一個有效的 activeTemplateId - 自动選擇第一個模板
   useEffect(() => {
       if (templates.length > 0) {
           // 检查当前 activeTemplateId 是否有效
           const currentTemplateExists = templates.some(t => t.id === activeTemplateId);
           if (!currentTemplateExists || !activeTemplateId) {
-              // 如果当前选中的模板不存在或为空，选择第一个模板
-              console.log('[自动选择] 选择第一个模板:', templates[0].id);
+              // 如果当前选中的模板不存在或为空，選擇第一個模板
+              console.log('[自动選擇] 選擇第一個模板:', templates[0].id);
               setActiveTemplateId(templates[0].id);
           }
       }
   }, [templates, activeTemplateId]);  // 依赖 templates 和 activeTemplateId
 
-  // 移动端：切换 Tab 时的状态保障
+  // 行動端：切換 Tab 时的状态保障
   useEffect(() => {
-      // 模版 Tab：强制收起模式 + 列表视图
+      // 模板 Tab：强制收起模式 + 列表視圖
       if (mobileTab === 'templates') {
           setMasonryStyleKey('list');
       }
 
-      // 编辑 / 词库 Tab：确保有选中的模板
+      // 編輯 / 詞庫 Tab：确保有选中的模板
       if ((mobileTab === 'editor' || mobileTab === 'banks') && templates.length > 0 && !activeTemplateId) {
-          console.log('[tab切换] 自动选择第一个模板:', templates[0].id);
+          console.log('[tab切換] 自动選擇第一個模板:', templates[0].id);
           setActiveTemplateId(templates[0].id);
       }
   }, [mobileTab, templates, activeTemplateId]);
@@ -532,7 +532,7 @@ const App = () => {
                       }
                   }
               } catch (error) {
-                  console.error('恢复文件夹句柄失败:', error);
+                  console.error('還原資料夾句柄失败:', error);
               }
           }
       };
@@ -552,11 +552,11 @@ const App = () => {
           const oldTemplates = localStorage.getItem("app_templates_v10");
           if (oldTemplates) await dbSet("app_templates_v10", JSON.parse(oldTemplates));
           
-          // 迁移词库
+          // 迁移詞庫
           const oldBanks = localStorage.getItem("app_banks_v9");
           if (oldBanks) await dbSet("app_banks_v9", JSON.parse(oldBanks));
           
-          // 迁移分类
+          // 迁移分類
           const oldCategories = localStorage.getItem("app_categories_v1");
           if (oldCategories) await dbSet("app_categories_v1", JSON.parse(oldCategories));
           
@@ -574,15 +574,15 @@ const App = () => {
         }
       }
 
-      // 重新恢复文件夹句柄
+      // 重新還原資料夾句柄
       const db = await openDB();
       const handle = await getDirectoryHandle(db);
       if (handle) {
         setDirectoryHandle(handle);
-        // 验证权限
+        // 驗證权限
         const permission = await handle.queryPermission({ mode: 'readwrite' });
         if (permission !== 'granted') {
-          console.log('文件夹访问权限已过期，需重新授权');
+          console.log('資料夾访问权限已过期，需重新授权');
         }
       }
     }
@@ -654,7 +654,7 @@ const App = () => {
     }));
   }, [setBanks]);
 
-  // 新增：静默预缓存当前模板图片，提升导出体验
+  // 新增：静默預快取当前模板圖片，提升匯出體驗
   useEffect(() => {
     if (!activeTemplate || !activeTemplate.imageUrl || !activeTemplate.imageUrl.startsWith('http')) return;
     
@@ -674,7 +674,7 @@ const App = () => {
                 imageBase64Cache.current[url] = base64;
             }
         } catch (e) {
-            // 静默失败，导出时会尝试代理
+            // 静默失败，匯出时会尝试代理
         }
     };
     
@@ -683,16 +683,16 @@ const App = () => {
     return () => clearTimeout(timer);
   }, [activeTemplate?.imageUrl]);
 
-  // 动态更新 SEO 标题和描述
+  // 動態更新 SEO 标题和描述
   useEffect(() => {
     if (activeTemplate && typeof window !== 'undefined') {
       try {
         const templateName = getLocalized(activeTemplate.name, language);
         if (templateName) {
-          const siteTitle = "Prompt Fill | 提示词填空器";
+          const siteTitle = "Prompt Fill | 提示詞填空器";
           document.title = `${templateName} - ${siteTitle}`;
           
-          // 动态更新 meta description
+          // 動態更新 meta description
           const metaDescription = document.querySelector('meta[name="description"]');
           if (metaDescription) {
             const content = typeof activeTemplate.content === 'object' 
@@ -721,9 +721,9 @@ const App = () => {
     }));
   }, [setBanks]);
 
-  // ====== 使用自定义 Hooks ======
+  // ====== 使用自訂 Hooks ======
 
-  // 1. 编辑器历史记录 Hook
+  // 1. 編輯器历史记录 Hook
   const {
     historyPast,
     historyFuture,
@@ -735,7 +735,7 @@ const App = () => {
     canRedo,
   } = useEditorHistory(activeTemplateId, activeTemplate, setTemplates);
 
-  // 2. 联动组管理 Hook
+  // 2. 聯動組管理 Hook
   const linkageGroups = useLinkageGroups(
     activeTemplateId,
     templates,
@@ -846,11 +846,11 @@ const App = () => {
 
   const onConfirmAddTemplate = React.useCallback((type) => {
     if (type === 'video') {
-      // 视频模板：关闭类型弹窗，打开子类型弹窗
+      // 影片模板：关闭类型彈窗，打开子类型彈窗
       setIsAddTemplateTypeModalOpen(false);
       setIsVideoSubTypeModalOpen(true);
     } else {
-      // 图片模板：直接创建并跳转到编辑页
+      // 圖片模板：直接建立并跳转到編輯页
       performAddTemplate(type);
       setIsAddTemplateTypeModalOpen(false);
       setDiscoveryView(false);
@@ -877,7 +877,7 @@ const App = () => {
 
   const openExportModal = React.useCallback(() => {
     if (userTemplates.length === 0) {
-      setNoticeMessage(language === 'cn' ? '暂无可导出的个人模版' : 'No user templates to export');
+      setNoticeMessage(language === 'cn' ? '暫無可匯出的个人模板' : 'No user templates to export');
       return;
     }
     setSelectedExportTemplateIds(userTemplates.map(t => t.id));
@@ -909,9 +909,9 @@ const App = () => {
   const requestResetTemplate = React.useCallback((id, e) => {
     if (e) e.stopPropagation();
     openActionConfirm({
-      title: language === 'cn' ? '恢复模板' : 'Reset Template',
+      title: language === 'cn' ? '還原模板' : 'Reset Template',
       message: t('confirm_reset_template'),
-      confirmText: language === 'cn' ? '恢复' : 'Reset',
+      confirmText: language === 'cn' ? '還原' : 'Reset',
       cancelText: language === 'cn' ? '取消' : 'Cancel',
       onConfirm: () => handleResetTemplate(id, undefined, { skipConfirm: true }),
     });
@@ -931,7 +931,7 @@ const App = () => {
     }
   };
 
-  // 新增：专门用于更新模板属性的函数（选择后立即生效）
+  // 新增：专门用于更新模板属性的函数（選擇后立即生效）
   const updateTemplateProperty = (property, value) => {
     if (!activeTemplateId) return;
     
@@ -958,7 +958,7 @@ const App = () => {
     handleAddCustomAndSelectFromHook(key, index, newValue, setActivePopover);
   }, [handleAddCustomAndSelectFromHook]);
 
-  // AI 生成词条处理函数（增强版：支持上下文感知 + 联动组清理）
+  // AI 生成詞條处理函数（增強版：支持上下文感知 + 聯動組清理）
   const performSmartSplit = React.useCallback(async () => {
     if (!activeTemplate) return;
     
@@ -966,7 +966,7 @@ const App = () => {
     
     setIsSmartSplitLoading(true);
     try {
-      // 提取现有词库的特征上下文（键名、中文名称、示例词组）
+      // 提取现有詞庫的特征上下文（键名、中文名称、示例詞组）
       // 我们只提取前 2 个选项作为示例，避免上下文过长
       const existingBankContext = Object.entries(banks).map(([key, bank]) => {
         const label = typeof bank.label === 'object' ? (bank.label.cn || bank.label.en) : bank.label;
@@ -987,19 +987,19 @@ const App = () => {
       console.log('[App] Smart Split Result:', result);
 
       if (result) {
-        // 1. 更新模板内容
+        // 1. 更新模板內容
         const newContent = typeof activeTemplate.content === 'object'
           ? { ...activeTemplate.content, [templateLanguage]: result.content }
           : result.content;
         
-        // 2. 批量处理变量和词库
+        // 2. 批量处理變數和詞庫
         const newBanks = { ...banks };
         const newDefaults = { ...defaults };
         const newSelections = { ...activeTemplate.selections };
 
         if (result.variables && Array.isArray(result.variables)) {
           result.variables.forEach(v => {
-            // 如果是新词库，添加到 banks
+            // 如果是新詞庫，添加到 banks
             if (!newBanks[v.key]) {
               newBanks[v.key] = {
                 label: typeof v.label === 'string' ? { cn: v.label, en: v.label } : v.label,
@@ -1010,7 +1010,7 @@ const App = () => {
               newDefaults[v.key] = typeof v.default === 'string' ? { cn: v.default, en: v.default } : v.default;
             }
             
-            // 设置当前模板的选择值
+            // 設定当前模板的選擇值
             const defaultValue = v.default || (v.options && v.options[0]);
             newSelections[v.key] = typeof defaultValue === 'string' ? { cn: defaultValue, en: defaultValue } : defaultValue;
           });
@@ -1023,7 +1023,7 @@ const App = () => {
         // 4. 更新当前模板
         setTemplates(prev => prev.map(t => {
           if (t.id === activeTemplateId) {
-            // 过滤标签，确保只使用系统中存在的标签
+            // 过滤標籤，确保只使用系统中存在的標籤
             const filteredTags = result.tags 
               ? result.tags.filter(tag => TEMPLATE_TAGS.includes(tag))
               : t.tags;
@@ -1039,7 +1039,7 @@ const App = () => {
           return t;
         }));
 
-        // 5. 特殊处理：如果名称更新了，也同步到临时编辑状态
+        // 5. 特殊处理：如果名称更新了，也同步到临时編輯状态
         if (result.name) {
           setTempTemplateName(typeof result.name === 'string' ? result.name : (result.name[language] || result.name.cn || result.name.en));
         }
@@ -1049,7 +1049,7 @@ const App = () => {
       }
     } catch (error) {
       console.error('[App] Smart Split Error:', error);
-      alert(language === 'cn' ? `智能拆分失败: ${error.message}` : `Smart Split failed: ${error.message}`);
+      alert(language === 'cn' ? `智慧拆分失败: ${error.message}` : `Smart Split failed: ${error.message}`);
     } finally {
       setIsSmartSplitLoading(false);
     }
@@ -1060,7 +1060,7 @@ const App = () => {
     
     const rawPrompt = getLocalized(activeTemplate.content, templateLanguage);
     if (!rawPrompt || rawPrompt.trim().length < 10) {
-      alert(language === 'cn' ? '提示词太短了，请先输入一些内容再尝试智能拆分' : 'Prompt too short, please enter more text first.');
+      alert(language === 'cn' ? '提示詞太短了，請先输入一些內容再尝试智慧拆分' : 'Prompt too short, please enter more text first.');
       return;
     }
 
@@ -1070,7 +1070,7 @@ const App = () => {
   const handleGenerateAITerms = React.useCallback(async (params) => {
     console.log('[App] AI Generation Request:', params);
 
-    // 收集当前模板中已选择的所有变量值，用于 AI 上下文理解
+    // 收集当前模板中已選擇的所有變數值，用于 AI 上下文理解
     const selectedValues = {};
     if (activeTemplate?.selections) {
       // 第一步：解析 selections，按 baseKey 分组
@@ -1095,21 +1095,21 @@ const App = () => {
         });
       });
 
-      // 第二步：对于每个 baseKey，只保留索引最大的值（最新的选择）
+      // 第二步：对于每个 baseKey，只保留索引最大的值（最新的選擇）
       Object.entries(selectionsByBaseKey).forEach(([baseKey, items]) => {
         // 按索引降序排序，带 -N 的键会排在前面
         items.sort((a, b) => b.index - a.index);
 
         if (items.length > 1) {
-          console.log(`[App] 检测到联动组变量 ${baseKey}，使用最新值:`, items[0].fullKey, '=', items[0].value, '，忽略旧值:', items.slice(1).map(i => i.fullKey));
+          console.log(`[App] 检测到聯動組變數 ${baseKey}，使用最新值:`, items[0].fullKey, '=', items[0].value, '，忽略旧值:', items.slice(1).map(i => i.fullKey));
         }
 
         const latest = items[0];
 
-        // 过滤掉当前正在生成的变量
+        // 过滤掉当前正在生成的變數
         const currentVarBaseKey = params.variableId.replace(/_\d+$/, '');
         if (baseKey !== currentVarBaseKey) {
-          // 提取实际的显示值（支持双语对象）
+          // 提取实际的显示值（支援雙語对象）
           let displayValue = latest.value;
           if (typeof latest.value === 'object' && latest.value !== null) {
             displayValue = latest.value[language] || latest.value.cn || latest.value.en || JSON.stringify(latest.value);
@@ -1121,11 +1121,11 @@ const App = () => {
 
     console.log('[App] Selected values for AI context:', selectedValues);
 
-    // 调用 AI 服务生成词条，传递已选择的值
+    // 调用 AI 服务生成詞條，传递已選擇的值
     try {
       const result = await generateAITerms({
         ...params,
-        selectedValues  // 新增：传递用户已选择的变量值
+        selectedValues  // 新增：传递用户已選擇的變數值
       });
       console.log('[App] AI Generation Result:', result);
       return result;
@@ -1144,7 +1144,7 @@ const App = () => {
     resetHistory();
   }, [activeTemplateId, resetHistory]);
 
-  // 检测光标是否在变量内，并提取当前变量信息
+  // 检测游標是否在變數内，并提取当前變數信息
   const detectCursorInVariable = React.useCallback(() => {
     const textarea = textareaRef.current;
     if (!textarea || !isEditing) {
@@ -1169,11 +1169,11 @@ const App = () => {
       endPos++;
     }
 
-    // 检查光标是否在 {{...}} 之间
+    // 检查游標是否在 {{...}} 之间
     if (startPos >= 0 && endPos < text.length &&
         text.substring(startPos - 2, startPos) === '{{' &&
         text.substring(endPos, endPos + 2) === '}}') {
-      // 光标在变量内
+      // 游標在變數内
       const variableName = text.substring(startPos, endPos).trim();
       const parsed = parseVariableName(variableName);
 
@@ -1187,7 +1187,7 @@ const App = () => {
     }
   }, [isEditing, parseVariableName, setCursorInVariable, setCurrentVariableName, setCurrentGroupId]);
 
-  // 监听光标位置变化
+  // 监听游標位置变化
   useEffect(() => {
     const textarea = textareaRef.current;
     if (!textarea || !isEditing) return;
@@ -1207,7 +1207,7 @@ const App = () => {
     };
   }, [isEditing, detectCursorInVariable]);
 
-  // 设置分组：为当前变量添加或修改分组后缀
+  // 設定分组：为当前變數添加或修改分组后缀
   const handleSetGroup = React.useCallback((groupNum) => {
     if (!cursorInVariable || !currentVariableName) return;
 
@@ -1234,15 +1234,15 @@ const App = () => {
       const parsed = parseVariableName(variableName);
       const baseKey = parsed.baseKey;
 
-      // 构建新的变量名：baseKey_groupNum
+      // 构建新的變數名：baseKey_groupNum
       const newVariableName = `${baseKey}_${groupNum}`;
 
-      // 替换文本：只替换 {{ 和 }} 之间的内容
+      // 替换文本：只替换 {{ 和 }} 之间的內容
       const before = text.substring(0, startPos);
       const after = text.substring(endPos);
       const newText = `${before}${newVariableName}${after}`;
 
-      // 更新内容
+      // 更新內容
       const currentContent = activeTemplate.content;
       const isMultilingual = typeof currentContent === 'object';
       if (isMultilingual) {
@@ -1254,7 +1254,7 @@ const App = () => {
         updateActiveTemplateContent(newText, true);
       }
 
-      // 恢复光标位置（调整偏移）
+      // 還原游標位置（调整偏移）
       setTimeout(() => {
         const offset = newVariableName.length - variableName.length;
         const newCursorPos = cursorPos + offset;
@@ -1265,7 +1265,7 @@ const App = () => {
     }
   }, [cursorInVariable, currentVariableName, parseVariableName, activeTemplate.content, templateLanguage, updateActiveTemplateContent, detectCursorInVariable]);
 
-  // 移除分组：移除当前变量的分组后缀
+  // 移除分组：移除当前變數的分组后缀
   const handleRemoveGroup = React.useCallback(() => {
     if (!cursorInVariable || !currentVariableName || !currentGroupId) return;
 
@@ -1292,15 +1292,15 @@ const App = () => {
       const parsed = parseVariableName(variableName);
       const baseKey = parsed.baseKey;
 
-      // 新的变量名：只保留 baseKey，移除后缀
+      // 新的變數名：只保留 baseKey，移除后缀
       const newVariableName = baseKey;
 
-      // 替换文本：只替换 {{ 和 }} 之间的内容
+      // 替换文本：只替换 {{ 和 }} 之间的內容
       const before = text.substring(0, startPos);
       const after = text.substring(endPos);
       const newText = `${before}${newVariableName}${after}`;
 
-      // 更新内容
+      // 更新內容
       const currentContent = activeTemplate.content;
       const isMultilingual = typeof currentContent === 'object';
       if (isMultilingual) {
@@ -1312,7 +1312,7 @@ const App = () => {
         updateActiveTemplateContent(newText, true);
       }
 
-      // 恢复光标位置（调整偏移）
+      // 還原游標位置（调整偏移）
       setTimeout(() => {
         const offset = newVariableName.length - variableName.length;
         const newCursorPos = cursorPos + offset;
@@ -1355,7 +1355,7 @@ const App = () => {
       if (scrollDirection === 1 && currentScroll >= maxScroll - 1) {
         scrollDirection = -1;
       }
-      // 到达顶部，改变方向向下
+      // 到达頂部，改变方向向下
       else if (scrollDirection === -1 && currentScroll <= 1) {
         scrollDirection = 1;
       }
@@ -1412,7 +1412,7 @@ const App = () => {
 
   // --- Template Actions ---
 
-  // 刷新系统模板与词库，保留用户数据
+  // 刷新系統模板與詞庫，保留用户数据
   const handleRefreshSystemData = React.useCallback(() => {
     const backupSuffix = t('refreshed_backup_suffix') || '';
     
@@ -1421,7 +1421,7 @@ const App = () => {
       const newSelections = {};
       Object.entries(tpl.selections || {}).forEach(([key, value]) => {
         if (typeof value === 'string' && banks[key.split('-')[0]]) {
-          // 查找对应的词库选项
+          // 查找对应的詞庫选项
           const bankKey = key.split('-')[0];
           const bank = banks[bankKey];
           if (bank && bank.options) {
@@ -1484,7 +1484,7 @@ const App = () => {
       const matchesSearch = !searchQuery || 
         templateName.toLowerCase().includes(searchQuery.toLowerCase());
       
-      // 语言过滤：如果模板指定了语言，且不包含当前语言，则隐藏
+      // 语言过滤：如果模板指定了语言，且不包含当前语言，则隱藏
       const templateLangs = t.language ? (Array.isArray(t.language) ? t.language : [t.language]) : ['cn', 'en'];
       const matchesLanguage = templateLangs.includes(language);
       
@@ -1584,24 +1584,24 @@ const App = () => {
           const isImage = file.type.startsWith('image/');
           const isVideo = file.type.startsWith('video/');
 
-          // 验证文件类型
+          // 驗證文件类型
           if (!isImage && !isVideo) {
               if (storageMode === 'browser') {
-                  alert('请选择图片或视频文件');
+                  alert('請選擇圖片或影片文件');
               }
               return;
           }
 
-          // 容量控制：图片 10MB, 视频 50MB (Base64 会增加约 33% 体积)
+          // 容量控制：圖片 10MB, 影片 50MB (Base64 会增加约 33% 体积)
           const MAX_IMAGE_SIZE = 10 * 1024 * 1024; // 10MB
           const MAX_VIDEO_SIZE = 50 * 1024 * 1024; // 50MB
           
           if (isImage && file.size > MAX_IMAGE_SIZE) {
-              alert(`图片大小不能超过 10MB (当前: ${(file.size / 1024 / 1024).toFixed(2)}MB)`);
+              alert(`圖片大小不能超過 10MB (目前: ${(file.size / 1024 / 1024).toFixed(2)}MB)`);
               return;
           }
           if (isVideo && file.size > MAX_VIDEO_SIZE) {
-              alert(`视频大小不能超过 50MB (当前: ${(file.size / 1024 / 1024).toFixed(2)}MB)`);
+              alert(`影片大小不能超過 50MB (目前: ${(file.size / 1024 / 1024).toFixed(2)}MB)`);
               return;
           }
           
@@ -1616,16 +1616,16 @@ const App = () => {
                         const newUrls = [...(t.imageUrls || [t.imageUrl]), reader.result];
                         return { ...t, imageUrls: newUrls, imageUrl: newUrls[0] };
                       } else if (imageUpdateMode === 'add_source') {
-                        // 新增：向 source 数组中添加图片或视频素材
+                        // 新增：向 source 数组中添加圖片或影片素材
                         const type = isVideo ? 'video' : 'image';
                         const newSources = [...(t.source || []), { type, url: reader.result }];
                         return { ...t, source: newSources };
                       } else if (imageUpdateMode === 'replace_video_url') {
-                        // 新增：更新视频模板的视频成果链接
+                        // 新增：更新影片模板的影片成果連結
                         setTempVideoUrl(reader.result);
                         return { ...t, videoUrl: reader.result };
                       } else if (imageUpdateMode === 'replace_cover') {
-                        // 更新视频模板的封面图
+                        // 更新影片模板的封面图
                         return { ...t, imageUrl: reader.result };
                       } else {
                         // Replace current index
@@ -1638,11 +1638,11 @@ const App = () => {
                       }
                   }));
               } catch (error) {
-                  console.error('图片上传失败:', error);
+                  console.error('圖片上传失败:', error);
                   if (error.name === 'QuotaExceededError') {
-                      console.error('存储空间不足！图片过大。建议使用图片链接方式或切换到本地文件夹模式。');
+                      console.error('儲存空間不足！圖片過大。建議使用圖片連結方式或切換到本地資料夾模式。');
                   } else {
-                      alert('图片上传失败，请重试');
+                      alert('圖片上传失败，請重試');
                   }
               }
           };
@@ -1650,18 +1650,18 @@ const App = () => {
           reader.onerror = () => {
               console.error('文件读取失败');
               if (storageMode === 'browser') {
-                  alert('文件读取失败，请重试');
+                  alert('文件读取失败，請重試');
               }
           };
           
           reader.readAsDataURL(file);
       } catch (error) {
-          console.error('上传图片出错:', error);
+          console.error('上传圖片出错:', error);
           if (storageMode === 'browser') {
-              alert('上传图片出错，请重试');
+              alert('上传圖片出错，請重試');
           }
       } finally {
-          // 重置input，允许重复选择同一文件
+          // 重置input，允许重复選擇同一文件
           if (e.target) {
               e.target.value = '';
           }
@@ -1691,7 +1691,7 @@ const App = () => {
                   imageUrl: newUrls[0] // 默认切回第一张
               };
           } else {
-              // 只有一张图时，清除图片
+              // 只有一张图时，清除圖片
               return { ...t, imageUrl: "", imageUrls: [] };
           }
       }));
@@ -1702,9 +1702,9 @@ const App = () => {
     if (e) e.stopPropagation();
     const targetIndex = index !== undefined ? index : currentImageEditIndex;
     openActionConfirm({
-      title: language === 'cn' ? '删除图片' : 'Delete Image',
-      message: language === 'cn' ? '确定要删除这张图片吗？' : 'Delete this image?',
-      confirmText: language === 'cn' ? '删除' : 'Delete',
+      title: language === 'cn' ? '刪除圖片' : 'Delete Image',
+      message: language === 'cn' ? '確定要刪除这张圖片吗？' : 'Delete this image?',
+      confirmText: language === 'cn' ? '刪除' : 'Delete',
       cancelText: language === 'cn' ? '取消' : 'Cancel',
       onConfirm: () => handleDeleteImage(targetIndex),
     });
@@ -1717,17 +1717,17 @@ const App = () => {
           if (t.id !== activeTemplateId) return t;
           
           if (imageUpdateMode === 'replace_video_url') {
-            // 更新视频模板的视频成果链接
+            // 更新影片模板的影片成果連結
             setTempVideoUrl(imageUrlInput);
             return { ...t, videoUrl: imageUrlInput };
           } else if (imageUpdateMode === 'replace_cover') {
-            // 更新视频模板的封面图
+            // 更新影片模板的封面图
             return { ...t, imageUrl: imageUrlInput };
           } else if (imageUpdateMode === 'add') {
             const newUrls = [...(t.imageUrls || [t.imageUrl]), imageUrlInput];
             return { ...t, imageUrls: newUrls, imageUrl: newUrls[0] };
           } else if (imageUpdateMode === 'add_source') {
-            // 向 source 数组中添加 URL 素材，自动判断视频/图片类型
+            // 向 source 数组中添加 URL 素材，自动判断影片/圖片类型
             const isVideoUrl = /\.(mp4|webm|ogg|mov|m4v)(\?.*)?$/i.test(imageUrlInput) ||
               /youtube\.com|youtu\.be|bilibili\.com|player\.bilibili\.com/i.test(imageUrlInput);
             const type = isVideoUrl ? 'video' : 'image';
@@ -1747,7 +1747,7 @@ const App = () => {
       setShowImageUrlInput(false);
   };
 
-  // --- 导出/导入功能 ---
+  // --- 匯出/匯入功能 ---
   const handleExportTemplate = async (template) => {
       try {
           const templateName = getLocalized(template.name, language);
@@ -1760,24 +1760,24 @@ const App = () => {
           const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
           
           if (isMobileDevice && navigator.share) {
-              // 移动端：使用 Web Share API
+              // 行動端：使用 Web Share API
               try {
                   const file = new File([dataBlob], filename, { type: 'application/json' });
                   if (navigator.canShare && navigator.canShare({ files: [file] })) {
                       await navigator.share({
                           files: [file],
                           title: templateName,
-                          text: '导出的提示词模板'
+                          text: '匯出的提示詞模板'
                       });
                       showToastMessage('✅ 模板已分享/保存');
                       return;
                   }
               } catch (shareError) {
-                  console.log('Web Share API 失败，使用降级方案', shareError);
+                  console.log('Web Share API 失败，使用降級方案', shareError);
               }
           }
           
-          // 桌面端或降级方案：使用传统下载方式
+          // 桌面端或降級方案：使用传统下載方式
           const url = URL.createObjectURL(dataBlob);
           const link = document.createElement('a');
           link.href = url;
@@ -1797,10 +1797,10 @@ const App = () => {
               URL.revokeObjectURL(url);
           }, 100);
           
-          showToastMessage('✅ 模板已导出');
+          showToastMessage('✅ 模板已匯出');
       } catch (error) {
-          console.error('导出失败:', error);
-          alert('导出失败，请重试');
+          console.error('匯出失败:', error);
+          alert('匯出失败，請重試');
       }
   };
 
@@ -1811,7 +1811,7 @@ const App = () => {
             : templates;
 
           if (!exportTemplates.length) {
-            setNoticeMessage(language === 'cn' ? '请选择至少一个模版' : 'Select at least one template');
+            setNoticeMessage(language === 'cn' ? '請選擇至少一個模板' : 'Select at least one template');
             return;
           }
 
@@ -1831,24 +1831,24 @@ const App = () => {
           const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
           
           if (isMobileDevice && navigator.share) {
-              // 移动端：使用 Web Share API
+              // 行動端：使用 Web Share API
               try {
                   const file = new File([dataBlob], filename, { type: 'application/json' });
                   if (navigator.canShare && navigator.canShare({ files: [file] })) {
                       await navigator.share({
                           files: [file],
-                          title: '提示词填空器备份',
-                          text: '所有模板和词库的完整备份'
+                          title: '提示詞填空器備份',
+                          text: '所有模板和詞庫的完整備份'
                       });
-                      setNoticeMessage(language === 'cn' ? '✅ 备份已分享/保存' : '✅ Backup shared/saved');
+                      setNoticeMessage(language === 'cn' ? '✅ 備份已分享/保存' : '✅ Backup shared/saved');
                       return;
                   }
               } catch (shareError) {
-                  console.log('Web Share API 失败，使用降级方案', shareError);
+                  console.log('Web Share API 失败，使用降級方案', shareError);
               }
           }
           
-          // 桌面端或降级方案：使用传统下载方式
+          // 桌面端或降級方案：使用传统下載方式
           const url = URL.createObjectURL(dataBlob);
           const link = document.createElement('a');
           link.href = url;
@@ -1868,10 +1868,10 @@ const App = () => {
               URL.revokeObjectURL(url);
           }, 100);
           
-          setNoticeMessage(language === 'cn' ? '✅ 备份已导出' : '✅ Backup exported');
+          setNoticeMessage(language === 'cn' ? '✅ 備份已匯出' : '✅ Backup exported');
       } catch (error) {
-          console.error('导出失败:', error);
-          setNoticeMessage(language === 'cn' ? '导出失败，请重试' : 'Export failed, please retry');
+          console.error('匯出失败:', error);
+          setNoticeMessage(language === 'cn' ? '匯出失败，請重試' : 'Export failed, please retry');
       }
   };
 
@@ -1884,14 +1884,14 @@ const App = () => {
           try {
               const data = JSON.parse(e.target.result);
               
-              // 检查是单个模板还是完整备份
+              // 检查是单个模板还是完整備份
               if (data.templates && Array.isArray(data.templates)) {
-                  // 完整备份
-                  if (window.confirm('检测到完整备份文件。是否要覆盖当前所有数据？')) {
+                  // 完整備份
+                  if (window.confirm('检测到完整備份文件。是否要覆蓋目前所有資料？')) {
                       setTemplates(data.templates);
                       if (data.banks) setBanks(data.banks);
                       if (data.categories) setCategories(data.categories);
-                      alert('导入成功！');
+                      alert('匯入成功！');
                   }
               } else if (data.id && data.name) {
                   // 单个模板
@@ -1899,13 +1899,13 @@ const App = () => {
                   const newTemplate = { ...data, id: newId };
                   setTemplates(prev => [...prev, newTemplate]);
                   setActiveTemplateId(newId);
-                  alert('模板导入成功！');
+                  alert('模板匯入成功！');
               } else {
                   alert('文件格式不正确');
               }
           } catch (error) {
-              console.error('导入失败:', error);
-              alert('导入失败，请检查文件格式');
+              console.error('匯入失败:', error);
+              alert('匯入失败，請檢查文件格式');
           }
       };
       reader.readAsText(file);
@@ -1934,11 +1934,11 @@ const App = () => {
           // Save handle to IndexedDB for future use
           await saveDirectoryHandle(handle);
           
-          // 尝试保存当前数据到文件夹
+          // 尝试保存当前数据到資料夾
           await saveToFileSystem(handle);
           alert(t('auto_save_enabled'));
       } catch (error) {
-          console.error('选择文件夹失败:', error);
+          console.error('選擇資料夾失败:', error);
           if (error.name !== 'AbortError') {
               alert(t('folder_access_denied'));
           }
@@ -1963,7 +1963,7 @@ const App = () => {
           await writable.write(JSON.stringify(data, null, 2));
           await writable.close();
           
-          console.log('数据已保存到本地文件夹');
+          console.log('数据已保存到本地資料夾');
       } catch (error) {
           console.error('保存到文件系统失败:', error);
       }
@@ -1983,7 +1983,7 @@ const App = () => {
           if (data.categories) setCategories(data.categories);
           if (data.defaults) setDefaults(data.defaults);
           
-          console.log('从本地文件夹加载数据成功');
+          console.log('从本地資料夾載入数据成功');
       } catch (error) {
           console.error('从文件系统读取失败:', error);
       }
@@ -2000,7 +2000,7 @@ const App = () => {
       }
   }, [templates, banks, categories, defaults, storageMode, directoryHandle]);
 
-  // 存储空间管理
+  // 儲存空間管理
   const getStorageSize = () => {
       try {
           let total = 0;
@@ -2059,7 +2059,7 @@ const App = () => {
   const requestResetSystemData = React.useCallback(() => {
     openActionConfirm({
       title: language === 'cn' ? '重置系统数据' : 'Reset System Data',
-      message: language === 'cn' ? '确定要重置系统数据吗？这将清除所有本地修改并重新从系统加载初始模板。' : 'Reset system data? This will clear local changes and reload defaults.',
+      message: language === 'cn' ? '確定要重置系统数据吗？这将清除所有本地修改并重新从系统載入初始模板。' : 'Reset system data? This will clear local changes and reload defaults.',
       confirmText: language === 'cn' ? '重置' : 'Reset',
       cancelText: language === 'cn' ? '取消' : 'Cancel',
       onConfirm: handleResetSystemData
@@ -2078,7 +2078,7 @@ const App = () => {
           const store = transaction.objectStore('handles');
           await store.delete('directory');
       } catch (error) {
-          console.error('清除文件夹句柄失败:', error);
+          console.error('清除資料夾句柄失败:', error);
       }
   };
   
@@ -2086,18 +2086,18 @@ const App = () => {
       if (directoryHandle) {
           try {
               await loadFromFileSystem(directoryHandle);
-              alert('从文件夹加载成功！');
+              alert('从資料夾載入成功！');
           } catch (error) {
-              alert('从文件夹加载失败，请检查文件是否存在');
+              alert('从資料夾載入失败，請檢查文件是否存在');
           }
       }
   };
 
-  // 以下函数已移至自定义 Hooks:
+  // 以下函数已移至自訂 Hooks:
   // - updateActiveTemplateContent -> useEditorHistory
   // - handleUndo, handleRedo -> useEditorHistory
   // - parseVariableName -> useLinkageGroups
-  // - detectCursorInVariable -> 需要在组件中重新实现（使用 Hook 返回的状态设置器）
+  // - detectCursorInVariable -> 需要在组件中重新实现（使用 Hook 返回的状态設定器）
   // - handleSetGroup, handleRemoveGroup -> 需要在组件中重新实现
   // - findLinkedVariables -> useLinkageGroups
   // - updateActiveTemplateSelection -> useLinkageGroups
@@ -2182,7 +2182,7 @@ const App = () => {
     let start = textarea.selectionStart;
     let end = textarea.selectionEnd;
 
-    // 移动端模拟拖拽的特殊处理：计算落点位置
+    // 行動端模拟拖拽的特殊处理：计算落点位置
     if (dropPoint) {
       const { x, y } = dropPoint;
       let range;
@@ -2198,9 +2198,9 @@ const App = () => {
       }
       
       if (range && range.startContainer) {
-        // 对于 textarea，我们需要手动计算偏移，这很困难
-        // 简化方案：如果在 textarea 区域内释放，则插入到最后或保持当前光标
-        // 但如果是在编辑器内，我们通常已经聚焦了
+        // 对于 textarea，我们需要手動计算偏移，这很困难
+        // 简化方案：如果在 textarea 区域内释放，则插入到最后或保持当前游標
+        // 但如果是在編輯器内，我们通常已经聚焦了
       }
     }
 
@@ -2223,7 +2223,7 @@ const App = () => {
   };
 
   const handleCopy = () => {
-    // 获取当前模板语言的内容
+    // 获取当前模板语言的內容
     let finalString = getLocalized(activeTemplate.content, templateLanguage);
     const counters = {};
 
@@ -2262,8 +2262,8 @@ const App = () => {
 
     setIsExporting(true);
     
-    // --- 新增：尝试获取短链接并预处理二维码 ---
-    // 导出长图时，水印链接优先使用正式域名，避免显示 localhost
+    // --- 新增：尝试获取短連結并预处理二維碼 ---
+    // 匯出長圖时，水印連結优先使用正式域名，避免显示 localhost
     let displayUrl = PUBLIC_SHARE_URL || (window.location.origin + window.location.pathname);
     if (!displayUrl || displayUrl.includes('localhost') || displayUrl.includes('127.0.0.1')) {
         displayUrl = "https://aipromptfill.com";
@@ -2280,17 +2280,17 @@ const App = () => {
         const normalizedBase = base.endsWith('/') ? base.slice(0, -1) : base;
         
         if (shortCode) {
-            // 成功获取短码，二维码和文字都指向短链接
+            // 成功获取短码，二維碼和文字都指向短連結
             const shortUrl = `${normalizedBase}/#/share?share=${shortCode}`;
             displayUrl = shortUrl;
             qrContentUrl = shortUrl;
         } else if (compressed) {
-            // 未获取到短码（长链接情况），文字显示长链接，但二维码指向官网
+            // 未获取到短码（長連結情况），文字显示長連結，但二維碼指向官网
             displayUrl = `${normalizedBase}/#/share?share=${compressed}`;
             qrContentUrl = "https://aipromptfill.com";
         }
         
-        // 生成二维码 Base64 (避免跨域问题)
+        // 生成二維碼 Base64 (避免跨域问题)
         const qrApiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&margin=10&data=${encodeURIComponent(qrContentUrl)}`;
         const qrResponse = await fetch(qrApiUrl);
         if (qrResponse.ok) {
@@ -2302,17 +2302,17 @@ const App = () => {
             });
         }
     } catch (e) {
-        console.warn("获取短链接或二维码失败:", e);
+        console.warn("获取短連結或二維碼失败:", e);
     }
     
-    // 如果是极长的链接（超过 150 字符），进行截断显示，防止撑破布局
-    // 但在导出 DOM 中我们要确保它能换行
+    // 如果是极长的連結（超过 150 字符），进行截断显示，防止撑破佈局
+    // 但在匯出 DOM 中我们要确保它能换行
     const displayUrlText = displayUrl.length > 150 
         ? displayUrl.substring(0, 140) + '...' 
         : displayUrl;
     
-    // --- 关键修复：预处理图片为 Base64 ---
-    // 这能彻底解决 html2canvas 的跨域 (CORS) 和图片加载不全问题
+    // --- 关键修复：预处理圖片为 Base64 ---
+    // 这能彻底解決 html2canvas 的跨域 (CORS) 和圖片載入不全问题
     const templateDefault = INITIAL_TEMPLATES_CONFIG.find(t => t.id === activeTemplateId);
     const originalImageSrc = activeTemplate.imageUrl || templateDefault?.imageUrl || "";
     let tempBase64Src = imageBase64Cache.current[originalImageSrc] || null;
@@ -2348,7 +2348,7 @@ const App = () => {
             
             // 2. 如果失败，尝试使用 weserv.nl 作为 CORS 代理
             if (!tempBase64Src) {
-                console.log("直接获取图片失败，尝试使用代理...");
+                console.log("直接获取圖片失败，尝试使用代理...");
                 const proxyUrl = `https://images.weserv.nl/?url=${encodeURIComponent(originalImageSrc)}`;
                 tempBase64Src = await fetchWithRetry(proxyUrl);
             }
@@ -2358,7 +2358,7 @@ const App = () => {
                 imageBase64Cache.current[originalImageSrc] = tempBase64Src;
             }
         } catch (e) {
-            console.warn("图片 Base64 转换失败", e);
+            console.warn("圖片 Base64 转换失败", e);
         }
     }
 
@@ -2367,16 +2367,16 @@ const App = () => {
         imgElement.src = tempBase64Src;
         await waitForImageLoad(imgElement);
     } else if (imgElement) {
-        // 即便没转 base64，也要确保当前展示图已加载完成
+        // 即便没转 base64，也要确保当前展示图已載入完成
         await waitForImageLoad(imgElement);
     }
 
-    // --- 关键修复：预处理图片为 Base64 ---
+    // --- 关键修复：预处理圖片为 Base64 ---
 
 
 
     try {
-        // 创建一个临时的导出容器
+        // 建立一個临时的匯出容器
         const exportContainer = document.createElement('div');
         exportContainer.id = 'export-container-temp';
         exportContainer.style.position = 'fixed';
@@ -2391,7 +2391,7 @@ const App = () => {
         exportContainer.style.justifyContent = 'center';
         document.body.appendChild(exportContainer);
         
-        // 创建橙色渐变背景层
+        // 建立橙色渐变背景层
         const bgLayer = document.createElement('div');
         bgLayer.style.position = 'absolute';
         bgLayer.style.inset = '0';
@@ -2435,17 +2435,17 @@ const App = () => {
                    const contentElement = card.querySelector('#final-prompt-content');
                    const contentHTML = contentElement ? contentElement.innerHTML : '';
                    
-                   console.log('正文内容获取:', contentHTML ? '成功' : '失败', contentHTML.length);
+                   console.log('正文內容获取:', contentHTML ? '成功' : '失败', contentHTML.length);
                    
-                   // 获取版本号（动态从原始DOM）
+                   // 获取版本号（動態从原始DOM）
                    const metaContainer = card.querySelector('.flex.flex-wrap.gap-2');
                    const versionElement = metaContainer ? metaContainer.querySelector('.bg-orange-50') : null;
                    const versionText = versionElement ? versionElement.textContent.trim() : '';
                    
-                   // 清空卡片内容
+                   // 清空卡片內容
                    card.innerHTML = '';
                    
-                   // --- 1. 图片区域（顶部，保持原始宽高比不裁切）---
+                   // --- 1. 圖片区域（頂部，保持原始宽高比不裁切）---
                    if (imgSrc) {
                        const imgContainer = clonedDoc.createElement('div');
                        imgContainer.style.width = '100%';
@@ -2458,7 +2458,7 @@ const App = () => {
                        img.src = imgSrc;
                        img.style.width = '100%'; // 充分利用卡片宽度
                        img.style.height = 'auto'; // 高度自动，保持原始宽高比
-                       img.style.objectFit = 'contain'; // 包含模式，不裁切图片
+                       img.style.objectFit = 'contain'; // 包含模式，不裁切圖片
                        img.style.borderRadius = '12px'; // 加入圆角
                        img.style.boxShadow = '0 4px 12px rgba(0,0,0,0.1)';
                        img.style.boxSizing = 'border-box';
@@ -2467,13 +2467,13 @@ const App = () => {
                        card.appendChild(imgContainer);
                    }
                    
-                   // --- 2. 标题区域（无版本号、无标签）---
+                   // --- 2. 标题区域（无版本号、无標籤）---
                    const titleContainer = clonedDoc.createElement('div');
                    titleContainer.style.marginBottom = '25px';
                    
                    const title = clonedDoc.createElement('h2');
                    title.textContent = titleText;
-                   title.style.fontSize = '32px'; // 恢复原状
+                   title.style.fontSize = '32px'; // 還原原状
                    title.style.fontWeight = '700';
                    title.style.color = '#1f2937';
                    title.style.margin = '0';
@@ -2486,7 +2486,7 @@ const App = () => {
                    if (contentHTML) {
                        const contentContainer = clonedDoc.createElement('div');
                        contentContainer.innerHTML = contentHTML;
-                       contentContainer.style.fontSize = '18px'; // 恢复原状
+                       contentContainer.style.fontSize = '18px'; // 還原原状
                        contentContainer.style.lineHeight = '1.8';
                        contentContainer.style.color = '#374151'; // 默认正文颜色
                        contentContainer.style.marginBottom = '40px';
@@ -2520,31 +2520,31 @@ const App = () => {
                            st.style.color = '#9ca3af'; // 对应 Lightmode 的 text-gray-400
                        });
                        
-                       // 修复胶囊样式 - 使用更精确的属性选择器
+                       // 修复胶囊样式 - 使用更精确的属性選擇器
                        const variables = contentContainer.querySelectorAll('[data-export-pill="true"]');
                        variables.forEach(v => {
-                           // 优化父级容器（如果是 Variable 组件的 wrapper）
+                           // 優化父级容器（如果是 Variable 组件的 wrapper）
                            if (v.parentElement && v.parentElement.classList.contains('inline-block')) {
                                v.parentElement.style.display = 'inline';
                                v.parentElement.style.margin = '0';
                            }
 
-                           // 保留原有的背景色和文字颜色，只优化布局
+                           // 保留原有的背景色和文字颜色，只優化佈局
                            v.style.display = 'inline-flex';
                            v.style.alignItems = 'center';
                            v.style.justifyContent = 'center';
-                           v.style.padding = '4px 12px'; // 恢复原状
+                           v.style.padding = '4px 12px'; // 還原原状
                            v.style.margin = '2px 4px';
-                           v.style.borderRadius = '6px'; // 恢复原状
-                           v.style.fontSize = '17px'; // 恢复原状
+                           v.style.borderRadius = '6px'; // 還原原状
+                           v.style.fontSize = '17px'; // 還原原状
                            v.style.fontWeight = '600';
                            v.style.lineHeight = '1.5';
                            v.style.verticalAlign = 'middle';
                            v.style.boxShadow = '0 1px 3px rgba(0,0,0,0.1)';
                            v.style.color = '#ffffff'; // 确保彩色胶囊文字是白色
-                           v.style.border = 'none'; // 导出时去掉半透明边框，减少干扰
+                           v.style.border = 'none'; // 匯出时去掉半透明边框，減少干擾
                            
-                           // 如果是未定义变量的占位符（背景较浅），恢复其深色文字
+                           // 如果是未定义變數的占位符（背景较浅），還原其深色文字
                            if (v.textContent.includes('[') && v.textContent.includes('?]')) {
                                v.style.color = '#9ca3af'; 
                                v.style.background = '#f8fafc';
@@ -2574,7 +2574,7 @@ const App = () => {
                                </div>
                                ${versionText ? `<span style="font-size: 11px; padding: 3px 10px; background: #fff7ed; color: #f97316; border-radius: 5px; font-weight: 600; border: 1px solid #fed7aa;">${versionText}</span>` : ''}
                            </div>
-                           <div style="font-size: 12px; color: #6b7280; margin-bottom: 6px; font-weight: 500;">提示词填空器 - 让分享更简单</div>
+                           <div style="font-size: 12px; color: #6b7280; margin-bottom: 6px; font-weight: 500;">提示詞填空器 - 让分享更简单</div>
                            <div style="font-size: 11px; color: #3b82f6; font-weight: 500; background: #eff6ff; padding: 4px 10px; border-radius: 6px; display: block; letter-spacing: 0.3px; word-break: break-all; max-width: 100%; min-height: 14px; line-height: 1.4;">
                                ${displayUrlText}
                            </div>
@@ -2584,13 +2584,13 @@ const App = () => {
                                <img src="${qrBase64}" 
                                     style="width: 85px; height: 85px; border: 3px solid #e2e8f0; border-radius: 8px; display: block; background: white;" 
                                     alt="QR Code" />
-                               <div style="font-size: 9px; color: #94a3b8; margin-top: 4px; font-weight: 500;">扫码体验</div>
+                               <div style="font-size: 9px; color: #94a3b8; margin-top: 4px; font-weight: 500;">扫码體驗</div>
                            </div>
                        </div>
                    `;
                    
                    card.appendChild(footer);
-                   console.log('新布局已应用');
+                   console.log('新佈局已应用');
                 }
             }
         });
@@ -2605,7 +2605,7 @@ const App = () => {
         const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
         
         if (isMobileDevice) {
-            // 移动端：尝试使用 Web Share API 保存到相册
+            // 行動端：尝试使用 Web Share API 保存到相冊
             try {
                 // 将 base64 转换为 blob
                 const base64Response = await fetch(image);
@@ -2617,13 +2617,13 @@ const App = () => {
                     await navigator.share({
                         files: [file],
                         title: activeTemplateName,
-                        text: '导出的提示词模板'
+                        text: '匯出的提示詞模板'
                     });
-                    showToastMessage('✅ 图片已分享，请选择"存储图像"保存到相册');
+                    showToastMessage('✅ 圖片已分享，請選擇"存储圖像"保存到相冊');
                 } else {
-                    // 降级方案：对于iOS，打开新标签页显示图片
+                    // 降級方案：对于iOS，打开新標籤页显示圖片
                     if (isIOS) {
-                        // iOS特殊处理：在新窗口打开图片，用户可以长按保存
+                        // iOS特殊处理：在新窗口打开圖片，用户可以長按保存
                         const newWindow = window.open();
                         if (newWindow) {
                             newWindow.document.write(`
@@ -2638,14 +2638,14 @@ const App = () => {
                                     </style>
                                 </head>
                                 <body>
-                                    <div class="tip">长按图片保存到相册 📱</div>
+                                    <div class="tip">長按圖片保存到相冊 📱</div>
                                     <img src="${image}" alt="${activeTemplateName}" />
                                 </body>
                                 </html>
                             `);
-                            showToastMessage('✅ 请在新页面长按图片保存');
+                            showToastMessage('✅ 請在新页面長按圖片保存');
                         } else {
-                            // 如果无法打开新窗口，尝试下载
+                            // 如果无法打开新窗口，尝试下載
                             const link = document.createElement('a');
                             link.href = image;
                             link.download = filename;
@@ -2653,37 +2653,37 @@ const App = () => {
                             document.body.appendChild(link);
                             link.click();
                             document.body.removeChild(link);
-                            showToastMessage('✅ 图片已导出，请在新页面保存');
+                            showToastMessage('✅ 圖片已匯出，請在新页面保存');
                         }
                     } else {
-                        // 安卓等其他移动设备：触发下载
+                        // 安卓等其他移动设备：触发下載
                         const link = document.createElement('a');
                         link.href = image;
                         link.download = filename;
                         document.body.appendChild(link);
                         link.click();
                         document.body.removeChild(link);
-                        showToastMessage('✅ 图片已保存到下载文件夹');
+                        showToastMessage('✅ 圖片已保存到下載資料夾');
                     }
                 }
             } catch (shareError) {
                 console.log('Share failed:', shareError);
-                // 最终降级方案
+                // 最终降級方案
                 if (isIOS) {
-                    // iOS最终方案：打开新标签页
+                    // iOS最终方案：打开新標籤页
                     const newWindow = window.open();
                     if (newWindow) {
                         newWindow.document.write(`
                             <html>
                             <head><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>${activeTemplateName}</title></head>
                             <body style="margin:0;padding:20px;background:#000;text-align:center;">
-                                <p style="color:#fff;margin-bottom:20px;">长按图片保存到相册 📱</p>
+                                <p style="color:#fff;margin-bottom:20px;">長按圖片保存到相冊 📱</p>
                                 <img src="${image}" style="max-width:100%;height:auto;" />
                             </body>
                             </html>
                         `);
                     }
-                    showToastMessage('⚠️ 请在新页面长按图片保存');
+                    showToastMessage('⚠️ 請在新页面長按圖片保存');
                 } else {
                     const link = document.createElement('a');
                     link.href = image;
@@ -2691,22 +2691,22 @@ const App = () => {
                     document.body.appendChild(link);
                     link.click();
                     document.body.removeChild(link);
-                    showToastMessage('✅ 图片已保存');
+                    showToastMessage('✅ 圖片已保存');
                 }
             }
         } else {
-            // 桌面端：直接下载
+            // 桌面端：直接下載
             const link = document.createElement('a');
             link.href = image;
             link.download = filename;
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
-            showToastMessage('✅ 图片导出成功！');
+            showToastMessage('✅ 圖片匯出成功！');
         }
     } catch (err) {
         console.error("Export failed:", err);
-        showToastMessage('❌ 导出失败，请重试');
+        showToastMessage('❌ 匯出失败，請重試');
     } finally {
         // 清理临时容器
         const tempContainer = document.getElementById('export-container-temp');
@@ -2714,7 +2714,7 @@ const App = () => {
             document.body.removeChild(tempContainer);
         }
         
-        // 恢复原始图片 src
+        // 還原原始圖片 src
         if (imgElement && originalImageSrc) {
             imgElement.src = originalImageSrc;
         }
@@ -2722,10 +2722,10 @@ const App = () => {
     }
   };
 
-  // 移动端模拟拖拽处理器
+  // 行動端模拟拖拽处理器
   const onTouchDragStart = (key, x, y) => {
     setTouchDraggingVar({ key, x, y });
-    setIsBanksDrawerOpen(false); // 开始拖拽立刻收起抽屉
+    setIsBanksDrawerOpen(false); // 开始拖拽立刻收起抽屜
   };
 
   const onTouchDragMove = (x, y) => {
@@ -2762,7 +2762,7 @@ const App = () => {
       <div className={`flex items-center justify-center h-screen w-screen ${isDarkMode ? 'bg-[#181716] text-white' : 'bg-[#FAF5F1] text-gray-800'}`}>
         <div className="flex flex-col items-center gap-4">
           <div className="w-12 h-12 border-4 border-orange-400 border-t-transparent rounded-full animate-spin"></div>
-          <p className="text-sm font-medium opacity-70">加载中...</p>
+          <p className="text-sm font-medium opacity-70">載入中...</p>
         </div>
       </div>
     );
@@ -2774,7 +2774,7 @@ const App = () => {
       onTouchMove={(e) => touchDraggingVar && onTouchDragMove(e.touches[0].clientX, e.touches[0].clientY)}
       onTouchEnd={(e) => touchDraggingVar && onTouchDragEnd(e.changedTouches[0].clientX, e.changedTouches[0].clientY)}
     >
-      {/* 桌面端全局侧边栏 - 位置固定不动 */}
+      {/* 桌面端全局側邊欄 - 位置固定不动 */}
       {!isMobileDevice && (
         <>
           <Sidebar
@@ -2849,7 +2849,7 @@ const App = () => {
         </>
       )}
 
-      {/* 移动端拖拽浮层 */}
+      {/* 行動端拖拽浮层 */}
       {touchDraggingVar && (
         <div 
           className="fixed z-[9999] pointer-events-none px-3 py-1.5 bg-orange-500 text-white rounded-lg shadow-2xl text-xs font-bold font-mono animate-in zoom-in-50 duration-200"
@@ -2864,7 +2864,7 @@ const App = () => {
         </div>
       )}
       
-      {/* 主视图区域 */}
+      {/* 主視圖区域 */}
       <div className="flex-1 relative flex overflow-hidden">
         {isSettingPage || (isMobileDevice && mobileTab === 'settings') ? (
           isMobileDevice ? (
@@ -3031,7 +3031,7 @@ const App = () => {
               templateLanguage={templateLanguage}
               setTemplateLanguage={setTemplateLanguage}
 
-              // ===== 编辑模式状态 =====
+              // ===== 編輯模式状态 =====
               isEditing={isEditing}
               setIsEditing={setIsEditing}
               handleStartEditing={handleStartEditing}
@@ -3043,20 +3043,20 @@ const App = () => {
               handleUndo={handleUndo}
               handleRedo={handleRedo}
 
-              // ===== 联动组 =====
+              // ===== 聯動組 =====
               cursorInVariable={cursorInVariable}
               currentGroupId={currentGroupId}
               handleSetGroup={handleSetGroup}
               handleRemoveGroup={handleRemoveGroup}
 
-              // ===== 变量交互 =====
+              // ===== 變數交互 =====
               activePopover={activePopover}
               setActivePopover={setActivePopover}
               handleSelect={handleSelect}
               handleAddCustomAndSelect={handleAddCustomAndSelect}
               popoverRef={popoverRef}
 
-              // ===== 标题编辑 =====
+              // ===== 标题編輯 =====
               editingTemplateNameId={editingTemplateNameId}
               tempTemplateName={tempTemplateName}
               setTempTemplateName={setTempTemplateName}
@@ -3072,12 +3072,12 @@ const App = () => {
               tempVideoUrl={tempVideoUrl}
               setTempVideoUrl={setTempVideoUrl}
 
-              // ===== 标签编辑 =====
+              // ===== 標籤編輯 =====
               handleUpdateTemplateTags={handleUpdateTemplateTags}
               editingTemplateTags={editingTemplateTags}
               setEditingTemplateTags={setEditingTemplateTags}
 
-              // ===== 图片管理 =====
+              // ===== 圖片管理 =====
               fileInputRef={fileInputRef}
               setShowImageUrlInput={setShowImageUrlInput}
               handleResetImage={handleResetImage}
@@ -3085,7 +3085,7 @@ const App = () => {
               setImageUpdateMode={setImageUpdateMode}
               setCurrentImageEditIndex={setCurrentImageEditIndex}
 
-              // ===== 分享/导出/复制 =====
+              // ===== 分享/匯出/複製 =====
               handleShareLink={handleShareLink}
               handleExportImage={handleExportImage}
               isExporting={isExporting}
@@ -3132,13 +3132,13 @@ const App = () => {
 
                     <h3 className={`text-xl font-black mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
                       {activeTemplate?.type === 'video' 
-                        ? (language === 'cn' ? '视频链接' : 'Video URL')
-                        : (language === 'cn' ? '图片链接' : 'Image URL')}
+                        ? (language === 'cn' ? '影片連結' : 'Video URL')
+                        : (language === 'cn' ? '圖片連結' : 'Image URL')}
                     </h3>
                     <p className={`text-xs font-bold mb-6 ${isDarkMode ? 'text-gray-500' : 'text-gray-400'}`}>
                       {activeTemplate?.type === 'video'
-                        ? (language === 'cn' ? '请输入视频的在线地址' : 'Please enter the online video URL')
-                        : (language === 'cn' ? '请输入图片的在线地址' : 'Please enter the online image URL')}
+                        ? (language === 'cn' ? '請輸入影片的在线地址' : 'Please enter the online video URL')
+                        : (language === 'cn' ? '請輸入圖片的在线地址' : 'Please enter the online image URL')}
                     </p>
                     
                     <div className="space-y-6">
@@ -3149,7 +3149,7 @@ const App = () => {
                           value={imageUrlInput}
                           onChange={(e) => setImageUrlInput(e.target.value)}
                           placeholder={activeTemplate?.type === 'video'
-                            ? (language === 'cn' ? '输入视频 URL 地址...' : 'Enter video URL...')
+                            ? (language === 'cn' ? '输入影片 URL 地址...' : 'Enter video URL...')
                             : t('image_url_placeholder')}
                           className={`
                             w-full px-5 py-4 text-xs font-mono outline-none bg-transparent
@@ -3172,7 +3172,7 @@ const App = () => {
                             {t('use_url')}
                           </span>
                           <span className={`text-[10px] font-bold opacity-50`}>
-                            {language === 'cn' ? '确认并应用此链接' : 'Confirm and apply this link'}
+                            {language === 'cn' ? '確認并应用此連結' : 'Confirm and apply this link'}
                           </span>
                         </div>
                       </PremiumButton>
@@ -3305,9 +3305,9 @@ const App = () => {
         isOpen={isDeleteTemplateConfirmOpen}
         onClose={() => setIsDeleteTemplateConfirmOpen(false)}
         onConfirm={confirmDeleteTemplate}
-        title={language === 'cn' ? '删除模板' : 'Delete Template'}
+        title={language === 'cn' ? '刪除模板' : 'Delete Template'}
         message={t('confirm_delete_template')}
-        confirmText={language === 'cn' ? '删除' : 'Delete'}
+        confirmText={language === 'cn' ? '刪除' : 'Delete'}
         cancelText={language === 'cn' ? '取消' : 'Cancel'}
         isDarkMode={isDarkMode}
       />
@@ -3392,10 +3392,10 @@ const App = () => {
             <div className="p-8 flex flex-col items-center gap-4">
               <div className="w-10 h-10 rounded-full border-2 border-orange-500 border-t-transparent animate-spin" />
               <div className={`text-sm font-bold ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-                {language === 'cn' ? '正在解析模版…' : 'Loading template…'}
+                {language === 'cn' ? '正在解析模板…' : 'Loading template…'}
               </div>
               <div className={`text-[10px] font-bold opacity-60 ${isDarkMode ? 'text-gray-500' : 'text-gray-400'}`}>
-                {language === 'cn' ? '请稍等片刻' : 'Please wait'}
+                {language === 'cn' ? '請稍等片刻' : 'Please wait'}
               </div>
             </div>
           </div>
@@ -3414,7 +3414,7 @@ const App = () => {
           >
             <div className={`p-6 flex justify-between items-center ${isDarkMode ? 'bg-white/[0.02]' : 'bg-gray-50/50'}`}>
               <h3 className={`font-black text-lg tracking-tight ${isDarkMode ? 'text-gray-100' : 'text-gray-900'}`}>
-                {language === 'cn' ? '导出模版' : 'Export Templates'}
+                {language === 'cn' ? '匯出模板' : 'Export Templates'}
               </h3>
               <button
                 onClick={() => setIsExportModalOpen(false)}
@@ -3427,7 +3427,7 @@ const App = () => {
             <div className="p-6">
               <div className="flex items-center justify-between mb-4">
                 <span className={`text-sm font-bold ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-                  {language === 'cn' ? '仅导出个人模版（系统模版不可选）' : 'Only user templates can be exported'}
+                  {language === 'cn' ? '仅匯出个人模板（系統模板不可选）' : 'Only user templates can be exported'}
                 </span>
                 <button
                   onClick={toggleExportSelectAll}
@@ -3484,7 +3484,7 @@ const App = () => {
                 isDarkMode={isDarkMode}
                 className="!h-11 !rounded-2xl min-w-[120px]"
               >
-                <span className="text-sm font-black tracking-widest px-4">{language === 'cn' ? '导出' : 'Export'}</span>
+                <span className="text-sm font-black tracking-widest px-4">{language === 'cn' ? '匯出' : 'Export'}</span>
               </PremiumButton>
             </div>
           </div>
@@ -3545,7 +3545,7 @@ const App = () => {
         isOpen={showAppUpdateNotice}
         noticeType={updateNoticeType}
         onRefresh={() => {
-          // 如果是数据更新，也可以尝试直接触发更新逻辑
+          // 如果是資料更新，也可以尝试直接触发更新逻辑
           if (updateNoticeType === 'data') {
             handleAutoUpdate();
             setShowAppUpdateNotice(false);
@@ -3557,7 +3557,7 @@ const App = () => {
         t={t}
       />
 
-      {/* 移动端底部导航栏 */}
+      {/* 行動端底部導航栏 */}
       {isMobileDevice && (
         <MobileBottomNav
           mobileTab={mobileTab}

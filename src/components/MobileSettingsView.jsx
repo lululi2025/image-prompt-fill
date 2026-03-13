@@ -37,7 +37,7 @@ export const MobileSettingsView = ({
   };
   const iCloudDescription = lastICloudSyncError
     ? (language === 'cn' ? `同步失败：${lastICloudSyncError}` : `Sync failed: ${lastICloudSyncError}`)
-    : (language === 'cn' ? '开启后自动同步模版与词库' : 'Auto sync templates and banks');
+    : (language === 'cn' ? '開啟後自動同步模板與詞庫' : 'Auto sync templates and banks');
 
   React.useEffect(() => {
     if (storageMode === 'browser' && navigator.storage && navigator.storage.estimate) {
@@ -51,152 +51,152 @@ export const MobileSettingsView = ({
     }
   }, [storageMode]);
   
-  // 完善后的更新日志 (同步桌面端内容)
+  // 完善后的更新日志 (同步桌面端內容)
   const updateLogs = language === 'cn' ? [
     { 
       version: 'V0.9.2', 
       date: '2026-02-10', 
-      title: '支持素材使用模版素材',
+      title: '支援素材使用模板素材',
       content: [
-        '支持素材使用模版素材',
+        '支援素材使用模板素材',
       ]
     },
     { 
       version: 'V0.9.1', 
       date: '2026-02-08', 
-      title: '手机端体验与布局优化',
+      title: '手機端體驗与佈局優化',
       content: [
-        '优化手机端交互体验与小屏适配',
-        '优化模版编辑面板布局与对齐方式'
+        '優化手機端交互體驗與小螢幕適配',
+        '優化模板編輯面板佈局與對齊方式'
       ]
     },
     { 
       version: 'V0.9.0', 
       date: '2026-02-08', 
-      title: '视频模版支持与移动端体验优化',
+      title: '影片模板支援與行動端體驗優化',
       content: [
-        '视频支持：支持视频预览、封面管理及素材上传',
-        '布局重构：移动端编辑区采用新布局，文字宽度 60%',
-        '自动折叠：手机端编辑或滑动时信息区自动折叠',
-        '视觉优化：减小上传控件尺寸，隐藏冗余标签'
+        '影片支持：支持影片預覽、封面管理及素材上传',
+        '佈局重構：行動端編輯区採用新佈局，文字寬度 60%',
+        '自动折疊：手機端編輯或滑动时資訊區自动折疊',
+        '視覺優化：减小上传控件尺寸，隱藏冗餘標籤'
       ]
     },
     { 
       version: 'V0.8.2', 
       date: '2026-01-31', 
-      title: '移动端 UI 深度优化与鸣谢更新',
+      title: '行動端 UI 深度優化与鳴謝更新',
       content: [
-        '首页重构：引入渐进式毛玻璃顶部栏与无滚动条横向标签导航。',
-        '布局重组：详情页集成模版与词库抽屉开关至顶栏，优化屏幕利用率。',
-        '复制增强：复制提示词结果时，自动附带推荐的出图平台信息。',
-        '视觉微调：去除设置界面图标底色，提升整体视觉通透感。',
-        '鸣谢更新：完整补充了所有提示词灵感贡献作者。'
+        '首頁重構：引入漸進式毛玻璃頂部栏与無捲軸橫向標籤導航。',
+        '佈局重組：詳情頁整合模板與詞庫抽屜開關至頂欄，優化螢幕利用率。',
+        '複製增強：複製提示詞結果時，自動附帶推薦的出圖平台資訊。',
+        '視覺微調：去除設定界面圖示底色，提升整体視覺通透感。',
+        '鳴謝更新：完整补充了所有提示詞灵感贡献作者。'
       ]
     },
     { 
       version: 'Data V0.8.7', 
       date: '2026-01-24', 
-      title: '提示词作者标注修正',
+      title: '提示詞作者标注修正',
       content: [
-        '修正了部分模版的作者归属信息'
+        '修正了部分模板的作者歸屬資訊'
       ]
     },
     { 
       version: 'V0.8.1', 
       date: '2026-01-22', 
-      title: '自定义词条支持双语模式',
+      title: '自訂詞條支持雙語模式',
       content: [
-        '自定义词条现在支持分别输入中英文内容'
+        '自訂詞條現在支援分別輸入中英文內容'
       ]
     },
     { 
       version: 'V0.8.0', 
       date: '2026-01-17', 
-      title: '智能词条正式上线与多项增强',
+      title: '智慧詞條正式上線與多項增強',
       content: [
-        '智能词条正式版：支持 AI 驱动的提示词自动生成',
-        '官方模版扩充：新增紫禁城、食品广告等多款模版',
-        '性能优化：优化瀑布流加载与移动端交互体验'
+        '智慧詞條正式版：支援 AI 驅動的提示詞自動生成',
+        '官方模板擴充：新增紫禁城、食品廣告等多款模板',
+        '性能優化：優化瀑布流載入与行動端交互體驗'
       ]
     },
     { 
       version: 'V0.7.2', 
       date: '2026-01-13', 
-      title: '系统架构优化与数据更新',
+      title: '系統架構優化与資料更新',
       content: [
-        '全站版本号同步升级至 V0.7.2',
-        '数据版本升级至 V0.8.4，扩充词库模版',
-        '优化系统运行效率与核心交互性能'
+        '全站版本号同步升級至 V0.7.2',
+        '資料版本升級至 V0.8.4，擴充詞庫模板',
+        '優化系统运行效率与核心交互性能'
       ]
     },
     { 
       version: 'V0.7.1', 
       date: '2026-01-07', 
-      title: '存储架构升级与系统维护',
+      title: '存储架构升級与系统维护',
       content: [
-        '核心数据迁移至 IndexedDB，解决 5MB 限制',
-        '暂时下线“智能词条”功能，优化存储稳定性',
-        '全站版本号对齐升级至 V0.7.1'
+        '核心数据迁移至 IndexedDB，解決 5MB 限制',
+        '暫時下線“智慧詞條”功能，優化儲存穩定性',
+        '全站版本号对齐升級至 V0.7.1'
       ]
     },
     { 
       version: 'V0.7.0', 
       date: '2026-01-03', 
-      title: '导出增强与统计集成',
+      title: '匯出增強與統計整合',
       content: [
-        '新增 Vercel Analytics 数据统计集成',
-        '导出长图支持动态短链接二维码，长链接自动降级',
-        '图片预览弹窗全面适配暗色模式',
-        '引入图片预缓存与代理，解决导出图片空白问题'
+        '新增 Vercel Analytics 数据統計整合',
+        '匯出長圖支援動態短連結二維碼，長連結自動降級',
+        '圖片預覽彈窗全面適配暗色模式',
+        '引入圖片預快取與代理，解決匯出圖片空白問題'
       ]
     },
     { 
       version: 'V0.6.5', 
       date: '2025-12-31', 
-      title: '数据版本升级与性能优化',
+      title: '資料版本升級与性能優化',
       content: [
-        '新增模版链接分享功能，支持通过 URL 快速分享与导入模版',
-        '数据版本升级至 V0.7.6，包含多项预置模版更新与词库扩充',
-        '系统版本升级至 V0.6.5，优化跨端数据同步稳定性',
-        '修复了移动端部分 UI 适配细节'
+        '新增模板連結分享功能，支援通過 URL 快速分享與匯入模板',
+        '資料版本升級至 V0.7.6，包含多項預置模板更新與詞庫擴充',
+        '系统版本升級至 V0.6.5，優化跨端数据同步穩定性',
+        '修复了行動端部分 UI 適配细节'
       ]
     },
     { 
       version: 'V0.6.1', 
       date: '2025-12-26', 
-      title: '联动组逻辑修复',
+      title: '聯動組逻辑修复',
       content: [
-        '修复了联动组匹配过于宽松的 Bug，现在仅限相同组号联动',
-        '全站版本号同步升级至 V0.6.1'
+        '修复了聯動組匹配过于宽松的 Bug，現在仅限相同组号聯動',
+        '全站版本号同步升級至 V0.6.1'
       ]
     },
     { 
       version: 'V0.6.0', 
       date: '2025-12-23', 
-      title: 'UI 全面升级与极简重构',
+      title: 'UI 全面升級与极简重構',
       content: [
-        '侧边栏采用 Morandi 色系重构，视觉更温暖优雅',
-        '全面支持暗色模式，支持桌面端与移动端切换'
+        '側邊欄採用 Morandi 色系重構，視覺更溫暖優雅',
+        '全面支持暗色模式，支持桌面端与行動端切換'
       ]
     },
     { 
       version: 'V0.5.1', 
       date: '2025-12-22', 
-      title: '移动端架构优化',
+      title: '行動端架构優化',
       content: [
-        '全新移动端交互架构，引入侧滑抽屉与沉浸式预览',
-        '首页引入 Mesh Gradient 彻底根治背景闪烁',
-        '优化了 LocalStorage 存储配额满时的静默处理'
+        '全新行動端交互架构，引入侧滑抽屜与沉浸式預覽',
+        '首頁引入 Mesh Gradient 彻底根治背景闪烁',
+        '優化了 LocalStorage 存储配额满时的静默处理'
       ]
     },
     { 
       version: 'V0.5.0', 
       date: '2025-12-20', 
-      title: '功能增强与性能重构',
+      title: '功能增強与性能重構',
       content: [
-        '深度架构重构，引入发现页瀑布流展示',
-        '导出功能增强，支持 Base64 预取解决图片空白',
-        '模版多图编辑功能初步上线'
+        '深度架构重構，引入發現页瀑布流展示',
+        '匯出功能增強，支援 Base64 預取解決圖片空白',
+        '模板多图編輯功能初步上線'
       ]
     }
   ] : [
@@ -395,12 +395,12 @@ export const MobileSettingsView = ({
         <p className={`text-xs font-medium mt-1 uppercase tracking-widest ${isDarkMode ? 'text-gray-500' : 'text-gray-400'}`}>{t('template_subtitle')}</p>
       </div>
 
-      {/* 1. 系统设置 */}
+      {/* 1. 系统設定 */}
       <SettingSection title={t('general_settings')} icon={Settings}>
         <SettingItem 
           icon={Globe} 
           label={t('language')} 
-          value={language === 'cn' ? '简体中文' : 'English'} 
+          value={language === 'cn' ? '繁體中文' : 'English'} 
           onClick={() => setLanguage(language === 'cn' ? 'en' : 'cn')}
         />
         <div className={`w-full flex items-center justify-between px-5 py-4 transition-all border-b ${
@@ -434,8 +434,8 @@ export const MobileSettingsView = ({
           icon={Database} 
           label={t('storage_mode')} 
           description={language === 'cn' ? '使用 IndexedDB 模式 (无限容量)' : 'IndexedDB Mode (Unlimited)'}
-          value={storageMode === 'browser' ? (language === 'cn' ? '浏览器' : 'Browser') : (language === 'cn' ? '本地文件夹' : 'Local Folder')} 
-          disabled={true} // 移动端暂不支持切换到本地文件夹
+          value={storageMode === 'browser' ? (language === 'cn' ? '浏览器' : 'Browser') : (language === 'cn' ? '本地資料夾' : 'Local Folder')} 
+          disabled={true} // 行動端暂不支持切換到本地資料夾
         />
         
         {isTauriMobile && (
@@ -455,8 +455,8 @@ export const MobileSettingsView = ({
                 <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
               </svg>
             )}
-            label={language === 'cn' ? '下载 iOS App' : 'Download iOS App'}
-            description={language === 'cn' ? '获得更好的原生体验' : 'Better native experience'}
+            label={language === 'cn' ? '下載 iOS App' : 'Download iOS App'}
+            description={language === 'cn' ? '获得更好的原生體驗' : 'Better native experience'}
             onClick={() => openExternalLink('https://apps.apple.com/cn/app/%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%A1%AB%E7%A9%BA%E5%99%A8/id6758574801')}
           />
         )}
@@ -465,7 +465,7 @@ export const MobileSettingsView = ({
           <div className="px-5 mb-4 mt-2">
             <div className="flex justify-between items-center mb-1.5">
               <span className={`text-[10px] font-bold ${isDarkMode ? 'text-gray-500' : 'text-gray-400'}`}>
-                {language === 'cn' ? '存储空间已用' : 'Storage Used'}
+                {language === 'cn' ? '儲存空間已用' : 'Storage Used'}
               </span>
               <span className={`text-[10px] font-bold ${isDarkMode ? 'text-gray-500' : 'text-gray-400'}`}>
                 {(storageStats.usage / 1024 / 1024).toFixed(1)}MB / {(storageStats.quota / 1024 / 1024 / 1024).toFixed(1)}GB
@@ -538,7 +538,7 @@ export const MobileSettingsView = ({
       <SettingSection title={t('connect_author')} icon={Info}>
         <SettingItem 
           icon={Heart} 
-          label={language === 'cn' ? '鸣谢与致敬' : 'Credits'} 
+          label={language === 'cn' ? '鳴謝与致敬' : 'Credits'} 
           onClick={() => setShowCredits(true)}
         />
         <SettingItem 
@@ -614,7 +614,7 @@ export const MobileSettingsView = ({
               </div>
               
               <h3 className={`text-xl font-black mb-4 tracking-tight ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-                {language === 'cn' ? '鸣谢与致敬' : 'Credits'}
+                {language === 'cn' ? '鳴謝与致敬' : 'Credits'}
               </h3>
               
               <div className={`space-y-4 text-xs leading-relaxed ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>
@@ -636,7 +636,7 @@ export const MobileSettingsView = ({
                   {language === 'cn' ? '初期支持：' : 'Early support:'} 
                   <span className={`font-bold ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>松果先森</span>
                   <br />
-                  {language === 'cn' ? '及所有提供建议、Bug 发现的小伙伴。' : '& all community contributors.'}
+                  {language === 'cn' ? '及所有提供建議、Bug 發現的小伙伴。' : '& all community contributors.'}
                 </p>
                 
                 <div className={`h-px w-10 mx-auto my-4 ${isDarkMode ? 'bg-white/5' : 'bg-gray-100'}`} />

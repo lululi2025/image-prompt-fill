@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
 /**
- * 移动端专用：当视频模板没有 imageUrl 时，用视频第一帧作为预览图。
- * 仅在 DiscoveryView 手机端瀑布流中使用，不影响桌面端。
+ * 行動端专用：当影片模板没有 imageUrl 时，用影片第一帧作为預覽图。
+ * 仅在 DiscoveryView 手機端瀑布流中使用，不影响桌面端。
  */
 export const MobileVideoFirstFrame = React.memo(({ videoUrl, alt, className = '' }) => {
   const [posterDataUrl, setPosterDataUrl] = useState(null);
@@ -60,7 +60,7 @@ export const MobileVideoFirstFrame = React.memo(({ videoUrl, alt, className = ''
     };
   }, [videoUrl]);
 
-  // 成功截到首帧：显示图片
+  // 成功截到首帧：显示圖片
   if (posterDataUrl) {
     return (
       <img
@@ -73,11 +73,11 @@ export const MobileVideoFirstFrame = React.memo(({ videoUrl, alt, className = ''
     );
   }
 
-  // 加载中或失败：显示占位（保持 4:3 比例，避免布局跳动）
+  // 載入中或失败：显示占位（保持 4:3 比例，避免佈局跳动）
   return (
     <div className={`w-full bg-gray-200/50 flex items-center justify-center ${className}`} style={{ aspectRatio: '4/3', minHeight: 80 }}>
       {failed ? (
-        <span className="text-[10px] text-gray-400">预览不可用</span>
+        <span className="text-[10px] text-gray-400">預覽不可用</span>
       ) : (
         <div className="w-6 h-6 border-2 border-gray-300 border-t-orange-400 rounded-full animate-spin" />
       )}

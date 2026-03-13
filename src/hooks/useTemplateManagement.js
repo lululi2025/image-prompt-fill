@@ -6,17 +6,17 @@ import { TRANSLATIONS } from '../constants/translations';
  * 封装模板的增删改查操作
  *
  * @param {Object} templates - 当前模板列表
- * @param {Function} setTemplates - 设置模板列表的函数
+ * @param {Function} setTemplates - 設定模板列表的函数
  * @param {string} activeTemplateId - 当前激活的模板ID
  * @param {Object} activeTemplate - 当前激活的模板对象
- * @param {Function} setActiveTemplateId - 设置激活模板ID的函数
- * @param {Function} setIsEditing - 设置编辑状态的函数
- * @param {Function} setEditingTemplateNameId - 设置编辑中模板名称ID的函数
- * @param {Function} setTempTemplateName - 设置临时模板名称的函数
- * @param {Function} setTempTemplateAuthor - 设置临时模板作者的函数
+ * @param {Function} setActiveTemplateId - 設定激活模板ID的函数
+ * @param {Function} setIsEditing - 設定編輯状态的函数
+ * @param {Function} setEditingTemplateNameId - 設定編輯中模板名称ID的函数
+ * @param {Function} setTempTemplateName - 設定临时模板名称的函数
+ * @param {Function} setTempTemplateAuthor - 設定临时模板作者的函数
  * @param {string} language - 当前语言
  * @param {boolean} isMobileDevice - 是否为移动设备
- * @param {Function} setMobileTab - 设置移动端Tab的函数
+ * @param {Function} setMobileTab - 設定行動端Tab的函数
  * @param {Array} INITIAL_TEMPLATES_CONFIG - 初始模板配置
  * @param {Function} t - 翻译函数
  */
@@ -49,7 +49,7 @@ export const useTemplateManagement = (
     const newName = t('new_template_name');
     const newAuthor = "PromptFill User";
 
-    // 根据视频子类型决定默认内容
+    // 根据影片子类型决定默认內容
     let content = t('new_template_content');
     if (type === 'video' && videoSubType === 'structured') {
       content = t('new_video_template_structured_content');
@@ -63,15 +63,15 @@ export const useTemplateManagement = (
       selections: {},
       tags: [],
       type: type, // 模板类型
-      bestModel: type === 'video' ? "Seedance 2.0" : "Nano Banana Pro", // 视频模版默认模型
+      bestModel: type === 'video' ? "Seedance 2.0" : "Nano Banana Pro", // 影片模板默认模型
       baseImage: "optional_base_image"
     };
     
-    // 如果是视频模版，初始化 videoUrl 和 source
+    // 如果是影片模板，初始化 videoUrl 和 source
     if (type === 'video') {
       newTemplate.videoUrl = "";
       newTemplate.source = [];
-      // 记录视频子类型，方便后续识别
+      // 记录影片子类型，方便后续识别
       if (videoSubType) {
         newTemplate.videoSubType = videoSubType;
       }
@@ -81,7 +81,7 @@ export const useTemplateManagement = (
     setActiveTemplateId(newId);
     setIsEditing(true);
 
-    // 初始化标题和作者编辑状态
+    // 初始化标题和作者編輯状态
     setEditingTemplateNameId(newId);
     setTempTemplateName(newName);
     setTempTemplateAuthor(newAuthor);
@@ -89,13 +89,13 @@ export const useTemplateManagement = (
     setTempTemplateBaseImage("optional_base_image");
     setTempVideoUrl("");
 
-    // 在移动端自动切换到编辑Tab
+    // 在行動端自动切換到編輯Tab
     if (isMobileDevice) {
       setMobileTab('editor');
     }
   }, [setTemplates, setActiveTemplateId, setIsEditing, setEditingTemplateNameId, setTempTemplateName, setTempTemplateAuthor, isMobileDevice, setMobileTab, t]);
 
-  // 复制模板
+  // 複製模板
   const handleDuplicateTemplate = useCallback((t_item, e) => {
     e.stopPropagation();
     const newId = `tpl_${Date.now()}`;
@@ -122,13 +122,13 @@ export const useTemplateManagement = (
     };
     setTemplates(prev => [...prev, newTemplate]);
     setActiveTemplateId(newId);
-    // 在移动端自动切换到编辑Tab
+    // 在行動端自动切換到編輯Tab
     if (isMobileDevice) {
       setMobileTab('editor');
     }
   }, [INITIAL_TEMPLATES_CONFIG, setTemplates, setActiveTemplateId, isMobileDevice, setMobileTab, t]);
 
-  // 删除模板
+  // 刪除模板
   const handleDeleteTemplate = useCallback((id, e, options = {}) => {
     if (e) e.stopPropagation();
     if (templates.length <= 1) {
@@ -171,10 +171,10 @@ export const useTemplateManagement = (
     setTempVideoUrl(t_item.videoUrl || "");
   }, [setIsEditing, setEditingTemplateNameId, setTempTemplateName, setTempTemplateAuthor, setTempTemplateBestModel, setTempTemplateBaseImage, setTempVideoUrl, language]);
 
-  // 开始编辑
+  // 开始編輯
   const handleStartEditing = useCallback(() => {
     setIsEditing(true);
-    // 仅初始化临时变量，不设置 editingTemplateNameId (避免某些自动聚焦逻辑)
+    // 仅初始化临时變數，不設定 editingTemplateNameId (避免某些自动聚焦逻辑)
     if (activeTemplate) {
       setTempTemplateName(typeof activeTemplate.name === 'string' ? activeTemplate.name : activeTemplate.name[language]);
       setTempTemplateAuthor(activeTemplate.author || "");
@@ -184,7 +184,7 @@ export const useTemplateManagement = (
     }
   }, [setIsEditing, activeTemplate, setTempTemplateName, setTempTemplateAuthor, setTempTemplateBestModel, setTempTemplateBaseImage, setTempVideoUrl, language]);
 
-  // 停止编辑
+  // 停止編輯
   const handleStopEditing = useCallback(() => {
     setIsEditing(false);
     setEditingTemplateNameId(null);

@@ -3,7 +3,7 @@ import { Search, X, ImageIcon, ChevronLeft, ChevronRight } from 'lucide-react';
 import { getLocalized } from '../../utils/helpers';
 
 /**
- * 获取模版指定索引的图片
+ * 获取模板指定索引的圖片
  */
 function getTemplateImageUrl(template, index = 0) {
   if (template.imageUrls && template.imageUrls.length > 0) {
@@ -13,14 +13,14 @@ function getTemplateImageUrl(template, index = 0) {
 }
 
 /**
- * LinkTemplateModal - 关联模版选择弹窗
- * 宫格相册 3×N，支持多图切换预览；Hover 时外置大图预览。
+ * LinkTemplateModal - 关联模板選擇彈窗
+ * 宫格相冊 3×N，支持多图切換預覽；Hover 时外置大图預覽。
  *
  * @param {boolean} isOpen - 是否打开
  * @param {Function} onClose - 关闭回调
- * @param {Function} onSelect - 选中模版回调 (template, selectedImageUrl) => void
- * @param {Array} templates - 全部模版列表
- * @param {string} currentTemplateId - 当前编辑的模版 id
+ * @param {Function} onSelect - 选中模板回调 (template, selectedImageUrl) => void
+ * @param {Array} templates - 全部模板列表
+ * @param {string} currentTemplateId - 当前編輯的模板 id
  * @param {string} language - 语言 cn | en
  * @param {boolean} isDarkMode - 暗色模式
  */
@@ -35,7 +35,7 @@ export const LinkTemplateModal = React.memo(({
 }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [hoveredTemplate, setHoveredTemplate] = useState(null);
-  // 记录每个模版当前显示的图片索引: { templateId: index }
+  // 记录每个模板当前显示的圖片索引: { templateId: index }
   const [templateIndices, setTemplateIndices] = useState({});
 
   const imageTemplates = useMemo(() => {
@@ -71,7 +71,7 @@ export const LinkTemplateModal = React.memo(({
 
   if (!isOpen) return null;
 
-  // 获取悬停项当前索引对应的图片
+  // 获取悬停项当前索引对应的圖片
   const hoveredIdx = hoveredTemplate ? (templateIndices[hoveredTemplate.id] || 0) : 0;
   const previewImageUrl = hoveredTemplate ? getTemplateImageUrl(hoveredTemplate, hoveredIdx) : '';
 
@@ -91,7 +91,7 @@ export const LinkTemplateModal = React.memo(({
         {/* Header */}
         <div className={`flex-shrink-0 flex items-center justify-between px-5 py-4 border-b ${isDarkMode ? 'border-white/10' : 'border-gray-100'}`}>
           <h3 className={`text-lg font-black ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-            {language === 'cn' ? '关联模版' : 'Link Template'}
+            {language === 'cn' ? '关联模板' : 'Link Template'}
           </h3>
           <button
             type="button"
@@ -112,7 +112,7 @@ export const LinkTemplateModal = React.memo(({
             />
             <input
               type="text"
-              placeholder={language === 'cn' ? '搜索模版…' : 'Search templates…'}
+              placeholder={language === 'cn' ? '搜尋模板…' : 'Search templates…'}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className={`premium-search-input ${isDarkMode ? 'dark' : 'light'} pl-10`}
@@ -160,7 +160,7 @@ export const LinkTemplateModal = React.memo(({
                       </div>
                     )}
 
-                    {/* 多图切换箭头 */}
+                    {/* 多图切換箭头 */}
                     {totalImages > 1 && (
                       <div className="absolute inset-0 flex items-center justify-between px-1 opacity-0 group-hover/item:opacity-100 transition-opacity pointer-events-none">
                         <button
@@ -180,7 +180,7 @@ export const LinkTemplateModal = React.memo(({
                       </div>
                     )}
 
-                    {/* 图片指示器 (点点) */}
+                    {/* 圖片指示器 (点点) */}
                     {totalImages > 1 && (
                       <div className="absolute top-2 right-2 flex gap-1 pointer-events-none">
                         {[...Array(totalImages)].map((_, i) => (
@@ -203,14 +203,14 @@ export const LinkTemplateModal = React.memo(({
             </div>
             {filteredTemplates.length === 0 && (
               <div className={`py-12 text-center text-sm ${isDarkMode ? 'text-gray-500' : 'text-gray-400'}`}>
-                {language === 'cn' ? '暂无符合条件的图片模版' : 'No matching image templates'}
+                {language === 'cn' ? '暫無符合条件的圖片模板' : 'No matching image templates'}
               </div>
             )}
           </div>
         </div>
       </div>
 
-      {/* Preview: 弹窗外悬浮 (仅桌面端) */}
+      {/* Preview: 彈窗外悬浮 (仅桌面端) */}
       <div
         className={`
           hidden lg:block fixed z-[1010] w-80 pointer-events-none transition-all duration-300

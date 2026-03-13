@@ -4,10 +4,10 @@
  */
 
 const DB_NAME = 'PromptFillDB';
-const DB_VERSION = 2; // 升级版本以包含新的存储对象
+const DB_VERSION = 2; // 升級版本以包含新的存储对象
 const STORES = {
   HANDLES: 'handles', // 存储文件系统句柄
-  APP_DATA: 'app_data' // 存储模板、词库等应用数据
+  APP_DATA: 'app_data' // 存储模板、詞庫等应用数据
 };
 
 /**
@@ -37,7 +37,7 @@ export const openDB = () => {
 };
 
 /**
- * 通用的设置数据方法
+ * 通用的設定数据方法
  */
 export const dbSet = async (key, value) => {
   try {
@@ -51,7 +51,7 @@ export const dbSet = async (key, value) => {
     });
   } catch (error) {
     console.error(`IndexedDB Set Error (${key}):`, error);
-    // 降级处理：如果 IDB 失败，暂时写入内存（不写 LS，避免溢出）
+    // 降級处理：如果 IDB 失败，暫時写入内存（不写 LS，避免溢出）
   }
 };
 
@@ -75,7 +75,7 @@ export const dbGet = async (key, defaultValue = null) => {
 };
 
 /**
- * 特殊：获取文件夹句柄
+ * 特殊：获取資料夾句柄
  */
 export const getDirectoryHandle = async () => {
   try {
@@ -88,13 +88,13 @@ export const getDirectoryHandle = async () => {
       request.onerror = () => reject(request.error);
     });
   } catch (error) {
-    console.error('获取文件夹句柄失败:', error);
+    console.error('获取資料夾句柄失败:', error);
     return null;
   }
 };
 
 /**
- * 特殊：保存文件夹句柄
+ * 特殊：保存資料夾句柄
  */
 export const saveDirectoryHandle = async (handle) => {
   try {
@@ -103,7 +103,7 @@ export const saveDirectoryHandle = async (handle) => {
     const store = transaction.objectStore(STORES.HANDLES);
     await store.put(handle, 'directory');
   } catch (error) {
-    console.error('保存文件夹句柄失败:', error);
+    console.error('保存資料夾句柄失败:', error);
   }
 };
 

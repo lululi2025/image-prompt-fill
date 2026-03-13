@@ -1,4 +1,4 @@
-// EditorToolbar 组件 - 编辑器工具栏
+// EditorToolbar 组件 - 編輯器工具栏
 import React, { useState } from 'react';
 import { Plus, Undo, Redo, Link, Unlink, ChevronDown, ChevronUp, Sparkles, Loader2 } from 'lucide-react';
 import { PremiumButton } from './PremiumButton';
@@ -51,7 +51,7 @@ export const EditorToolbar = ({
 
           <div className={`h-6 w-px ${isDarkMode ? 'bg-white/10' : 'bg-gray-300'}`} />
 
-          {/* 移动端折叠触发器 */}
+          {/* 行動端折疊触发器 */}
           {isMobile && (
             <button 
               onClick={() => setIsGroupsExpanded(!isGroupsExpanded)}
@@ -59,17 +59,17 @@ export const EditorToolbar = ({
             >
               <Link size={14} className={currentGroupId ? 'text-orange-500' : ''} />
               <span className="text-[10px] font-black uppercase tracking-widest">
-                {currentGroupId ? `${t('link_group') || '联动组'} ${currentGroupId}` : (t('link_group') || '联动组')}
+                {currentGroupId ? `${t('link_group') || '聯動組'} ${currentGroupId}` : (t('link_group') || '聯動組')}
               </span>
               {isGroupsExpanded ? <ChevronUp size={12} /> : <ChevronDown size={12} />}
             </button>
           )}
 
-          {/* 桌面端显示联动组标签 */}
+          {/* 桌面端显示聯動組標籤 */}
           {!isMobile && (
             <div className="flex items-center gap-2">
               <span className={`text-[10px] font-black uppercase tracking-widest ${isDarkMode ? 'text-gray-600' : 'text-gray-400'}`}>
-                {t('link_group') || '联动组'}:
+                {t('link_group') || '聯動組'}:
               </span>
               <div className={`premium-toggle-container ${isDarkMode ? 'dark' : 'light'}`}>
                 {[1, 2, 3, 4, 5].map(num => (
@@ -83,7 +83,7 @@ export const EditorToolbar = ({
                       ${currentGroupId === num.toString() ? 'is-active' : ''}
                       ${!cursorInVariable ? 'opacity-30 cursor-not-allowed' : ''}
                     `}
-                    title={cursorInVariable ? `${t('set_group') || '设置为联动组'} ${num}` : t('place_cursor_in_variable') || '请将光标置于变量内'}
+                    title={cursorInVariable ? `${t('set_group') || '設定为聯動組'} ${num}` : t('place_cursor_in_variable') || '請将游標置於變數内'}
                   >
                     {num}
                   </button>
@@ -118,12 +118,12 @@ export const EditorToolbar = ({
               disabled={isSmartSplitLoading}
               isDarkMode={isDarkMode}
               className={`rainbow ${isSmartSplitLoading ? 'opacity-80' : ''}`}
-              title={language === 'cn' ? '一键润色与智能拆分' : 'Smart Polish & Split'}
+              title={language === 'cn' ? '一鍵潤色與智慧拆分' : 'Smart Polish & Split'}
             >
               <span className={`flex items-center gap-1.5 ${isSmartSplitLoading ? 'animate-pulse' : ''}`}>
                 {isSmartSplitLoading
-                  ? (language === 'cn' ? '正在智能拆分...' : 'Splitting...')
-                  : (language === 'cn' ? '智能拆分' : 'Smart Split')}
+                  ? (language === 'cn' ? '正在智慧拆分...' : 'Splitting...')
+                  : (language === 'cn' ? '智慧拆分' : 'Smart Split')}
                 <span className="text-[9px] font-medium text-orange-500/80">
                   Beta
                 </span>
@@ -142,13 +142,13 @@ export const EditorToolbar = ({
         </div>
       </div>
 
-      {/* 移动端折叠面板：联动组选择 */}
+      {/* 行動端折疊面板：聯動組選擇 */}
       {isMobile && isGroupsExpanded && (
         <div className={`px-4 py-4 border-t animate-in slide-in-from-top-1 duration-200 ${isDarkMode ? 'border-white/5 bg-black/20' : 'border-gray-100 bg-gray-50/50'}`}>
           <div className="flex flex-col gap-4">
             <div className="flex items-center justify-between">
               <span className={`text-[10px] font-black uppercase tracking-widest px-1 ${isDarkMode ? 'text-gray-500' : 'text-gray-400'}`}>
-                {t('link_group_desc') || '设置选中变量的联动编号'}
+                {t('link_group_desc') || '設定选中變數的聯動编号'}
               </span>
               {currentGroupId && (
                 <button
@@ -179,7 +179,7 @@ export const EditorToolbar = ({
             </div>
             {!cursorInVariable && (
               <p className="text-[11px] text-orange-500/80 font-bold italic px-1 text-center">
-                {t('place_cursor_in_variable') || '请先将光标置于编辑器中的变量内'}
+                {t('place_cursor_in_variable') || '請先将游標置於編輯器中的變數内'}
               </p>
             )}
           </div>

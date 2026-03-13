@@ -1,5 +1,5 @@
 /**
- * Notification 组件统一导出文件
+ * Notification 组件统一匯出文件
  */
 
 export { default as DataUpdateNotice } from './DataUpdateNotice';

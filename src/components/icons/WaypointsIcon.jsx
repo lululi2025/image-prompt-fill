@@ -3,7 +3,7 @@ import { motion, useAnimation } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
 /**
- * WaypointsIcon - 增强动画版本的 Waypoints 图标
+ * WaypointsIcon - 增強动画版本的 Waypoints 图标
  * 基于用户提供的结构和动画逻辑实现
  */
 const VARIANTS = {

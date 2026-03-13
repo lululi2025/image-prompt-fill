@@ -1,5 +1,5 @@
-// 组件统一导出文件
-// 这个文件集中管理所有组件的导出，方便管理和导入
+// 组件统一匯出文件
+// 这个文件集中管理所有组件的匯出，方便管理和匯入
 
 export { Variable } from './Variable';
 export { VisualEditor } from './VisualEditor';

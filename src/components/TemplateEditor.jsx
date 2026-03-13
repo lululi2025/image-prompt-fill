@@ -9,7 +9,7 @@ import { PremiumButton } from './PremiumButton';
 import { LinkTemplateModal } from './modals/LinkTemplateModal';
 
 /**
- * HScrollArea — 支持鼠标滚轮横向滑动 + 左右翻页按钮
+ * HScrollArea — 支持鼠标滚轮橫向滑动 + 左右翻页按钮
  */
 const HScrollArea = ({ children, className = '', isDarkMode }) => {
   const scrollRef = useRef(null);
@@ -77,8 +77,8 @@ const HScrollArea = ({ children, className = '', isDarkMode }) => {
 };
 
 /**
- * TemplateEditor 组件 - 整合模板编辑的所有UI元素
- * 包括：顶部工具栏、编辑模式、预览模式
+ * TemplateEditor 组件 - 整合模板編輯的所有UI元素
+ * 包括：頂部工具栏、編輯模式、預覽模式
  */
 export const TemplateEditor = React.memo(({
   // ===== 模板数据 =====
@@ -98,7 +98,7 @@ export const TemplateEditor = React.memo(({
   templateLanguage,
   setTemplateLanguage,
 
-  // ===== 编辑模式状态 =====
+  // ===== 編輯模式状态 =====
   isEditing,
   setIsEditing,
   handleStartEditing,
@@ -110,20 +110,20 @@ export const TemplateEditor = React.memo(({
   handleUndo,
   handleRedo,
 
-  // ===== 联动组 =====
+  // ===== 聯動組 =====
   cursorInVariable,
   currentGroupId,
   handleSetGroup,
   handleRemoveGroup,
 
-  // ===== 变量交互 =====
+  // ===== 變數交互 =====
   activePopover,
   setActivePopover,
   handleSelect,
   handleAddCustomAndSelect,
   popoverRef,
 
-  // ===== 标题编辑 =====
+  // ===== 标题編輯 =====
   editingTemplateNameId,
   tempTemplateName,
   setTempTemplateName,
@@ -139,12 +139,12 @@ export const TemplateEditor = React.memo(({
   tempVideoUrl,
   setTempVideoUrl,
 
-  // ===== 标签编辑 =====
+  // ===== 標籤編輯 =====
   handleUpdateTemplateTags,
   editingTemplateTags,
   setEditingTemplateTags,
 
-  // ===== 图片管理 =====
+  // ===== 圖片管理 =====
   fileInputRef,
   setShowImageUrlInput,
   handleResetImage,
@@ -152,7 +152,7 @@ export const TemplateEditor = React.memo(({
   setImageUpdateMode,
   setCurrentImageEditIndex,
 
-  // ===== 分享/导出/复制 =====
+  // ===== 分享/匯出/複製 =====
   handleShareLink,
   handleExportImage,
   isExporting,
@@ -171,9 +171,9 @@ export const TemplateEditor = React.memo(({
   mobileTab,
   textareaRef,
   // AI 相关（预留接口）
-  onGenerateAITerms = null,  // AI 生成词条的回调函数
-  onSmartSplitClick = null,  // 智能拆分的回调函数
-  isSmartSplitLoading = false, // 智能拆分加载状态
+  onGenerateAITerms = null,  // AI 生成詞條的回调函数
+  onSmartSplitClick = null,  // 智慧拆分的回调函数
+  isSmartSplitLoading = false, // 智慧拆分載入状态
   updateTemplateProperty, // 新增：立即更新属性的函数
   setIsTemplatesDrawerOpen,
   setIsBanksDrawerOpen,
@@ -181,7 +181,7 @@ export const TemplateEditor = React.memo(({
   const [activeSelect, setActiveSelect] = React.useState(null); // 'bestModel' | 'baseImage' | null
   const [isLinkModalOpen, setIsLinkModalOpen] = React.useState(false);
 
-  // 手机端手风琴: 'info' | 'preview' | 'source' | 'content' | null
+  // 手機端手风琴: 'info' | 'preview' | 'source' | 'content' | null
   const [mobileAccordion, setMobileAccordion] = React.useState('content');
   const toggleAccordion = React.useCallback((section) => {
     setMobileAccordion(prev => prev === section ? null : section);
@@ -251,11 +251,11 @@ export const TemplateEditor = React.memo(({
               className={`flex-shrink-0 relative group/source rounded-lg border-2 transition-all cursor-zoom-in hover:scale-[1.03] ${isDarkMode ? 'border-white/5 bg-white/5' : 'border-gray-100 bg-gray-50'}`}
               onClick={() => {
                 if (src.templateId) {
-                  // 关联模式：跳转到模版
+                  // 关联模式：跳转到模板
                   if (templates && templates.some(t => t.id === src.templateId)) {
                     setActiveTemplateId(src.templateId);
                   } else {
-                    alert(language === 'cn' ? `关联的模版「${src.templateName || '未知'}」已不存在` : `Linked template "${src.templateName || 'Unknown'}" no longer exists`);
+                    alert(language === 'cn' ? `关联的模板「${src.templateName || '未知'}」已不存在` : `Linked template "${src.templateName || 'Unknown'}" no longer exists`);
                   }
                 } else {
                   setSourceZoomedItem(src);
@@ -296,7 +296,7 @@ export const TemplateEditor = React.memo(({
             <div className={`w-px ${isMobileDevice ? 'h-6' : 'h-8'} ${isDarkMode ? 'bg-white/10' : 'bg-gray-200'} opacity-50`} />
             <button onClick={() => { setImageUpdateMode('add_source'); setShowImageUrlInput(true); }}
               className={`flex flex-col items-center gap-1.5 p-1 md:p-2 rounded transition-all ${isDarkMode ? 'hover:bg-white/10 hover:text-orange-400' : 'hover:bg-orange-50 hover:text-orange-500'}`}>
-              <Globe size={isMobileDevice ? 18 : 24} /><span className={`${isMobileDevice ? 'text-[8px]' : 'text-[10px]'} font-bold`}>{language === 'cn' ? '链接' : 'URL'}</span>
+              <Globe size={isMobileDevice ? 18 : 24} /><span className={`${isMobileDevice ? 'text-[8px]' : 'text-[10px]'} font-bold`}>{language === 'cn' ? '連結' : 'URL'}</span>
             </button>
             <div className={`w-px ${isMobileDevice ? 'h-6' : 'h-8'} ${isDarkMode ? 'bg-white/10' : 'bg-gray-200'} opacity-50`} />
             <button onClick={() => setIsLinkModalOpen(true)}
@@ -322,10 +322,10 @@ export const TemplateEditor = React.memo(({
         className={`flex flex-col w-full h-full ${!isMobileDevice ? 'backdrop-blur-sm' : ''}`}
       >
 
-        {/* ===== 顶部工具栏 ===== */}
+        {/* ===== 頂部工具栏 ===== */}
         {(!isMobileDevice || mobileTab !== 'settings') && (
           <div className={`px-4 md:px-8 py-3 md:py-4 border-b flex flex-col gap-4 z-30 h-auto flex-shrink-0 pt-safe ${isDarkMode ? 'border-white/5' : 'border-gray-100/50'}`}>
-            {/* 第一行：模版开关、标题、词库开关 (Mobile) / 标题、语言 (Desktop) */}
+            {/* 第一行：模板開關、标题、詞庫開關 (Mobile) / 标题、语言 (Desktop) */}
             <div className="w-full flex items-center justify-between gap-2 shrink-0">
               {isMobileDevice && (
                 <button 
@@ -341,7 +341,7 @@ export const TemplateEditor = React.memo(({
                   {getLocalized(activeTemplate?.name, language)}
                 </h1>
                 
-                {/* 语言切换 - 桌面端显示在标题旁 */}
+                {/* 语言切換 - 桌面端显示在标题旁 */}
                 {!isMobileDevice && showLanguageToggle && (
                   <div className={`premium-toggle-container ${isDarkMode ? 'dark' : 'light'} shrink-0 scale-90`}>
                     <button
@@ -370,9 +370,9 @@ export const TemplateEditor = React.memo(({
               )}
             </div>
 
-            {/* 第二行：模式切换 (左侧)、操作按钮 (右侧) */}
+            {/* 第二行：模式切換 (左侧)、操作按钮 (右侧) */}
             <div className="w-full flex items-center justify-between gap-1.5 md:gap-3 shrink-0">
-              {/* 模式切换 (预览/编辑) */}
+              {/* 模式切換 (預覽/編輯) */}
               <div className={`premium-toggle-container ${isDarkMode ? 'dark' : 'light'} shrink-0 scale-90 md:scale-100 origin-left`}>
                 <button
                   onClick={handleStopEditing}
@@ -405,26 +405,26 @@ export const TemplateEditor = React.memo(({
                 <PremiumButton
                   onClick={handleExportImage}
                   disabled={isEditing || isExporting}
-                  title={isExporting ? t('exporting') : (language === 'cn' ? '导出' : t('export_image'))}
+                  title={isExporting ? t('exporting') : (language === 'cn' ? '匯出' : t('export_image'))}
                   icon={ImageIcon}
                   isDarkMode={isDarkMode}
                   className="scale-90 md:scale-100 origin-right"
                 >
                   <span className="hidden md:inline ml-1.5 truncate">
-                    {isExporting ? (language === 'cn' ? '导出中...' : 'Exp...') : (language === 'cn' ? '导出长图' : 'Img')}
+                    {isExporting ? (language === 'cn' ? '匯出中...' : 'Exp...') : (language === 'cn' ? '匯出長圖' : 'Img')}
                   </span>
                 </PremiumButton>
 
                 <PremiumButton
                   onClick={handleCopy}
-                  title={copied ? t('copied') : (language === 'cn' ? '复制' : t('copy_result'))}
+                  title={copied ? t('copied') : (language === 'cn' ? '複製' : t('copy_result'))}
                   icon={copied ? Check : Copy}
                   active={true}
                   isDarkMode={isDarkMode}
                   className="scale-90 md:scale-100 origin-right"
                 >
                   <span className="hidden md:inline ml-1.5 truncate">
-                    {copied ? t('copied') : (language === 'cn' ? '复制结果' : 'Copy')}
+                    {copied ? t('copied') : (language === 'cn' ? '複製结果' : 'Copy')}
                   </span>
                 </PremiumButton>
               </div>
@@ -432,18 +432,18 @@ export const TemplateEditor = React.memo(({
           </div>
         )}
 
-        {/* ===== 核心内容区 ===== */}
+        {/* ===== 核心內容区 ===== */}
         <div className={`flex-1 overflow-hidden relative flex flex-col ${mobileTab === 'settings' ? 'pt-0' : (!isMobileDevice ? 'p-2' : 'pb-24')}`}>
           <div 
             style={innerBoxStyle}
             className={`flex-1 overflow-hidden relative flex flex-col ${!isMobileDevice ? 'rounded-xl' : ''}`}
           >
-            {/* 编辑模式 */}
+            {/* 編輯模式 */}
             {isEditing ? (
               isMobileDevice ? (
               /* ==================== MOBILE: 四段手风琴 ==================== */
               <div className="flex-1 relative overflow-y-auto overflow-x-hidden flex flex-col custom-scrollbar">
-                {/* 编辑工具栏 */}
+                {/* 編輯工具栏 */}
                 <div className={`backdrop-blur-sm ${isDarkMode ? 'bg-white/5' : 'bg-white/30'}`}>
                   <EditorToolbar
                     onInsertClick={() => setIsInsertModalOpen(true)}
@@ -463,7 +463,7 @@ export const TemplateEditor = React.memo(({
                   />
                 </div>
 
-                {/* 语言切换 - 单独一行 */}
+                {/* 语言切換 - 单独一行 */}
                 {showLanguageToggle && (
                   <div className={`flex items-center justify-center py-1 border-b ${isDarkMode ? 'border-white/5' : 'border-gray-200/60'}`}>
                     <div className={`premium-toggle-container ${isDarkMode ? 'dark' : 'light'} shrink-0 scale-75`}>
@@ -509,7 +509,7 @@ export const TemplateEditor = React.memo(({
                           className={`text-sm font-bold bg-transparent border-b border-dashed focus:border-solid border-orange-500/30 focus:border-orange-500 focus:outline-none w-full pb-0.5 transition-all ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}
                           placeholder={language === 'cn' ? '作者...' : 'Author...'} />
                         {INITIAL_TEMPLATES_CONFIG.some(cfg => cfg.id === activeTemplate.id) && (
-                          <p className="text-[9px] text-orange-500/50 font-bold italic">{language === 'cn' ? '* 系统模版作者不可修改' : '* Read-only'}</p>
+                          <p className="text-[9px] text-orange-500/50 font-bold italic">{language === 'cn' ? '* 系統模板作者不可修改' : '* Read-only'}</p>
                         )}
                       </div>
                       <div className="flex gap-3" ref={selectRef}>
@@ -554,7 +554,7 @@ export const TemplateEditor = React.memo(({
                   )}
                 </div>
 
-                {/* ---- Section 2: 成果预览 ---- */}
+                {/* ---- Section 2: 成果預覽 ---- */}
                 <div className={`border-b ${isDarkMode ? 'border-white/5' : 'border-gray-200/60'}`}>
                   <button
                     onClick={() => toggleAccordion('preview')}
@@ -562,12 +562,12 @@ export const TemplateEditor = React.memo(({
                   >
                     <div className="flex items-center gap-2.5 flex-shrink-0 w-32">
                       <Film size={14} className={`flex-shrink-0 ${mobileAccordion === 'preview' ? 'text-orange-500' : 'opacity-40'}`} />
-                      <span className="text-[13px] font-bold">{language === 'cn' ? '成果预览' : 'Results'}</span>
+                      <span className="text-[13px] font-bold">{language === 'cn' ? '成果預覽' : 'Results'}</span>
                     </div>
                     {mobileAccordion !== 'preview' && (
                       <span className={`text-[10px] truncate opacity-50 flex-1 ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>
                         {activeTemplate.type === 'video'
-                          ? `${tempVideoUrl ? '1' : '0'} ${language === 'cn' ? '视频' : 'Video'}${activeTemplate.imageUrl ? ` + ${language === 'cn' ? '封面' : 'Cover'}` : ''}`
+                          ? `${tempVideoUrl ? '1' : '0'} ${language === 'cn' ? '影片' : 'Video'}${activeTemplate.imageUrl ? ` + ${language === 'cn' ? '封面' : 'Cover'}` : ''}`
                           : `${(activeTemplate.imageUrls?.length || (activeTemplate.imageUrl ? 1 : 0))} ${language === 'cn' ? '张图' : 'images'}`
                         }
                       </span>
@@ -583,7 +583,7 @@ export const TemplateEditor = React.memo(({
                           <>
                             {/* Video result */}
                             <div className="flex-shrink-0 flex flex-col gap-1">
-                              <label className={`text-[10px] font-black uppercase tracking-widest opacity-40 ${isDarkMode ? 'text-gray-500' : 'text-gray-400'}`}>{language === 'cn' ? '成果视频' : 'Video'}</label>
+                              <label className={`text-[10px] font-black uppercase tracking-widest opacity-40 ${isDarkMode ? 'text-gray-500' : 'text-gray-400'}`}>{language === 'cn' ? '成果影片' : 'Video'}</label>
                               {tempVideoUrl ? (
                                 <div className={`relative group/v-result rounded-lg border-2 transition-all cursor-zoom-in hover:scale-[1.02] ${isDarkMode ? 'border-white/5 bg-white/5' : 'border-gray-100 bg-gray-50'}`}
                                   onClick={() => setSourceZoomedItem({ url: tempVideoUrl, type: 'video' })}>
@@ -595,7 +595,7 @@ export const TemplateEditor = React.memo(({
                                       <div className="w-full h-full flex items-center justify-center bg-black/20"><Play size={24} className="text-white/60" fill="currentColor" /></div>
                                     )}
                                   </div>
-                                  <div className={`absolute bottom-0 inset-x-0 text-center py-0.5 text-[8px] font-bold rounded-b-lg ${isDarkMode ? 'bg-black/50 text-white/50' : 'bg-black/30 text-white/80'}`}>{language === 'cn' ? '视频' : 'Video'}</div>
+                                  <div className={`absolute bottom-0 inset-x-0 text-center py-0.5 text-[8px] font-bold rounded-b-lg ${isDarkMode ? 'bg-black/50 text-white/50' : 'bg-black/30 text-white/80'}`}>{language === 'cn' ? '影片' : 'Video'}</div>
                                   <button onClick={(e) => { e.stopPropagation(); setImageUpdateMode('replace_video_url'); fileInputRef.current?.click(); }}
                                     className="absolute top-2 left-2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-1.5 shadow-lg opacity-0 group-hover/v-result:opacity-100 transition-opacity z-[20]"><Upload size={12} /></button>
                                   <button onClick={(e) => { e.stopPropagation(); setTempVideoUrl(''); updateTemplateProperty('videoUrl', ''); }}
@@ -610,7 +610,7 @@ export const TemplateEditor = React.memo(({
                                   <div className={`w-px h-6 ${isDarkMode ? 'bg-white/10' : 'bg-gray-200'}`} />
                                   <button onClick={() => { setImageUpdateMode('replace_video_url'); setShowImageUrlInput(true); }}
                                     className={`flex flex-col items-center gap-1.5 p-2 rounded transition-all ${isDarkMode ? 'hover:bg-white/10 hover:text-orange-400' : 'hover:bg-orange-50 hover:text-orange-500'}`}>
-                                    <Globe size={18} /><span className="text-[10px] font-bold">{language === 'cn' ? '链接' : 'URL'}</span>
+                                    <Globe size={18} /><span className="text-[10px] font-bold">{language === 'cn' ? '連結' : 'URL'}</span>
                                   </button>
                                 </div>
                               )}
@@ -636,7 +636,7 @@ export const TemplateEditor = React.memo(({
                                   <div className={`w-px h-6 ${isDarkMode ? 'bg-white/10' : 'bg-gray-200'}`} />
                                   <button onClick={() => { setImageUpdateMode('replace_cover'); setShowImageUrlInput(true); }}
                                     className={`flex flex-col items-center gap-1.5 p-2 rounded transition-all ${isDarkMode ? 'hover:bg-white/10 hover:text-orange-400' : 'hover:bg-orange-50 hover:text-orange-500'}`}>
-                                    <Globe size={18} /><span className="text-[10px] font-bold">{language === 'cn' ? '链接' : 'URL'}</span>
+                                    <Globe size={18} /><span className="text-[10px] font-bold">{language === 'cn' ? '連結' : 'URL'}</span>
                                   </button>
                                 </div>
                               )}
@@ -663,7 +663,7 @@ export const TemplateEditor = React.memo(({
                               <div className={`w-px h-6 ${isDarkMode ? 'bg-white/10' : 'bg-gray-200'}`} />
                               <button onClick={() => { setImageUpdateMode('add'); setShowImageUrlInput(true); }}
                                 className={`flex flex-col items-center gap-1.5 p-2 rounded transition-all ${isDarkMode ? 'hover:bg-white/10 hover:text-orange-400' : 'hover:bg-orange-50 hover:text-orange-500'}`}>
-                                <Globe size={18} /><span className="text-[10px] font-bold">{language === 'cn' ? '链接' : 'URL'}</span>
+                                <Globe size={18} /><span className="text-[10px] font-bold">{language === 'cn' ? '連結' : 'URL'}</span>
                               </button>
                             </div>
                           </>
@@ -699,7 +699,7 @@ export const TemplateEditor = React.memo(({
                   )}
                 </div>
 
-                {/* ---- Section 4: 内容呈现 ---- */}
+                {/* ---- Section 4: 內容呈现 ---- */}
                 <div className={`border-b ${isDarkMode ? 'border-white/5' : 'border-gray-200/60'}`}>
                   <button
                     onClick={() => toggleAccordion('content')}
@@ -707,7 +707,7 @@ export const TemplateEditor = React.memo(({
                   >
                     <div className="flex items-center gap-2.5 flex-shrink-0 w-32">
                       <FileText size={14} className={`flex-shrink-0 ${mobileAccordion === 'content' ? 'text-orange-500' : 'opacity-40'}`} />
-                      <span className="text-[13px] font-bold">{language === 'cn' ? '内容呈现' : 'Content'}</span>
+                      <span className="text-[13px] font-bold">{language === 'cn' ? '內容呈现' : 'Content'}</span>
                     </div>
                     <span className="ml-auto flex-shrink-0 pl-2">
                       {mobileAccordion === 'content' ? <ChevronUp size={14} className="text-orange-500" /> : <ChevronDown size={14} className="opacity-40" />}
@@ -740,7 +740,7 @@ export const TemplateEditor = React.memo(({
                         <div className="absolute inset-0 z-[60] flex flex-col items-center justify-center pointer-events-none smart-split-loading-overlay">
                           <div className={`flex flex-col items-center gap-3 p-6 rounded-3xl backdrop-blur-md ${isDarkMode ? 'bg-black/60' : 'bg-white/80 shadow-2xl'}`}>
                             <div className="w-10 h-10 border-4 border-orange-500/20 border-t-orange-500 rounded-full animate-spin" />
-                            <span className={`text-sm font-black tracking-widest ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>{language === 'cn' ? '正在智能分析...' : 'Analyzing...'}</span>
+                            <span className={`text-sm font-black tracking-widest ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>{language === 'cn' ? '正在智慧分析...' : 'Analyzing...'}</span>
                           </div>
                         </div>
                       )}
@@ -751,7 +751,7 @@ export const TemplateEditor = React.memo(({
               ) : (
               /* ==================== DESKTOP: 四段手风琴 ==================== */
               <div className="flex-1 relative overflow-y-auto overflow-x-hidden flex flex-col custom-scrollbar">
-                {/* 编辑工具栏 */}
+                {/* 編輯工具栏 */}
                 <div className={`backdrop-blur-sm ${isDarkMode ? 'bg-white/5' : 'bg-white/30'}`}>
                   <EditorToolbar
                     onInsertClick={() => setIsInsertModalOpen(true)}
@@ -804,7 +804,7 @@ export const TemplateEditor = React.memo(({
                             className={`text-sm font-bold bg-transparent border-b border-dashed focus:border-solid border-orange-500/30 focus:border-orange-500 focus:outline-none w-full pb-0.5 transition-all ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}
                             placeholder={language === 'cn' ? '作者...' : 'Author...'} />
                           {INITIAL_TEMPLATES_CONFIG.some(cfg => cfg.id === activeTemplate.id) && (
-                            <p className="text-[9px] text-orange-500/50 font-bold italic mt-1">{language === 'cn' ? '* 系统模版作者不可修改' : '* Read-only'}</p>
+                            <p className="text-[9px] text-orange-500/50 font-bold italic mt-1">{language === 'cn' ? '* 系統模板作者不可修改' : '* Read-only'}</p>
                           )}
                         </div>
                         <div className="flex flex-col gap-0.5 relative">
@@ -848,18 +848,18 @@ export const TemplateEditor = React.memo(({
                   )}
                 </div>
 
-                {/* ---- Desktop Section 2: 成果预览 ---- */}
+                {/* ---- Desktop Section 2: 成果預覽 ---- */}
                 <div className={`border-b ${isDarkMode ? 'border-white/5' : 'border-gray-200/60'}`}>
                   <button
                     onClick={() => toggleDesktopAccordion('preview')}
                     className={`w-full flex items-center gap-3 px-6 h-11 select-none hover:opacity-80 transition-opacity ${isDarkMode ? 'text-white' : 'text-gray-800'}`}
                   >
                     <Film size={15} className={`flex-shrink-0 ${desktopAccordion.has('preview') ? 'text-orange-500' : 'opacity-40'}`} />
-                    <span className="text-sm font-bold">{language === 'cn' ? '成果预览' : 'Results'}</span>
+                    <span className="text-sm font-bold">{language === 'cn' ? '成果預覽' : 'Results'}</span>
                     {!desktopAccordion.has('preview') && (
                       <span className={`text-[11px] truncate opacity-50 ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>
                         {activeTemplate.type === 'video'
-                          ? `${tempVideoUrl ? '1' : '0'} ${language === 'cn' ? '视频' : 'Video'}${activeTemplate.imageUrl ? ` + ${language === 'cn' ? '封面' : 'Cover'}` : ''}`
+                          ? `${tempVideoUrl ? '1' : '0'} ${language === 'cn' ? '影片' : 'Video'}${activeTemplate.imageUrl ? ` + ${language === 'cn' ? '封面' : 'Cover'}` : ''}`
                           : `${(activeTemplate.imageUrls?.length || (activeTemplate.imageUrl ? 1 : 0))} ${language === 'cn' ? '张图' : 'images'}`
                         }
                       </span>
@@ -875,7 +875,7 @@ export const TemplateEditor = React.memo(({
                           <>
                             {/* Video result */}
                             <div className="flex-shrink-0 flex flex-col gap-1">
-                              <label className={`text-[10px] font-black uppercase tracking-widest opacity-40 ${isDarkMode ? 'text-gray-500' : 'text-gray-400'}`}>{language === 'cn' ? '成果视频' : 'Video'}</label>
+                              <label className={`text-[10px] font-black uppercase tracking-widest opacity-40 ${isDarkMode ? 'text-gray-500' : 'text-gray-400'}`}>{language === 'cn' ? '成果影片' : 'Video'}</label>
                               {tempVideoUrl ? (
                                 <div className={`relative group/v-result rounded-lg border-2 transition-all cursor-zoom-in hover:scale-[1.02] ${isDarkMode ? 'border-white/5 bg-white/5' : 'border-gray-100 bg-gray-50'}`}
                                   onClick={() => setSourceZoomedItem({ url: tempVideoUrl, type: 'video' })}>
@@ -887,7 +887,7 @@ export const TemplateEditor = React.memo(({
                                       <div className="w-full h-full flex items-center justify-center bg-black/20"><Play size={32} className="text-white/60" fill="currentColor" /></div>
                                     )}
                                   </div>
-                                  <div className={`absolute bottom-0 inset-x-0 text-center py-1 text-[9px] font-bold rounded-b-lg ${isDarkMode ? 'bg-black/50 text-white/50' : 'bg-black/30 text-white/80'}`}>{language === 'cn' ? '视频' : 'Video'}</div>
+                                  <div className={`absolute bottom-0 inset-x-0 text-center py-1 text-[9px] font-bold rounded-b-lg ${isDarkMode ? 'bg-black/50 text-white/50' : 'bg-black/30 text-white/80'}`}>{language === 'cn' ? '影片' : 'Video'}</div>
                                   <button onClick={(e) => { e.stopPropagation(); setImageUpdateMode('replace_video_url'); fileInputRef.current?.click(); }}
                                     className="absolute top-2 left-2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-2 shadow-lg opacity-0 group-hover/v-result:opacity-100 transition-opacity z-[20]"><Upload size={16} /></button>
                                   <button onClick={(e) => { e.stopPropagation(); setTempVideoUrl(''); updateTemplateProperty('videoUrl', ''); }}
@@ -902,7 +902,7 @@ export const TemplateEditor = React.memo(({
                                   <div className={`w-px h-8 ${isDarkMode ? 'bg-white/10' : 'bg-gray-200'}`} />
                                   <button onClick={() => { setImageUpdateMode('replace_video_url'); setShowImageUrlInput(true); }}
                                     className={`flex flex-col items-center gap-2 p-3 rounded transition-all ${isDarkMode ? 'hover:bg-white/10 hover:text-orange-400' : 'hover:bg-orange-50 hover:text-orange-500'}`}>
-                                    <Globe size={24} /><span className="text-[10px] font-bold">{language === 'cn' ? '链接' : 'URL'}</span>
+                                    <Globe size={24} /><span className="text-[10px] font-bold">{language === 'cn' ? '連結' : 'URL'}</span>
                                   </button>
                                 </div>
                               )}
@@ -928,7 +928,7 @@ export const TemplateEditor = React.memo(({
                                   <div className={`w-px h-8 ${isDarkMode ? 'bg-white/10' : 'bg-gray-200'}`} />
                                   <button onClick={() => { setImageUpdateMode('replace_cover'); setShowImageUrlInput(true); }}
                                     className={`flex flex-col items-center gap-2 p-3 rounded transition-all ${isDarkMode ? 'hover:bg-white/10 hover:text-orange-400' : 'hover:bg-orange-50 hover:text-orange-500'}`}>
-                                    <Globe size={24} /><span className="text-[10px] font-bold">{language === 'cn' ? '链接' : 'URL'}</span>
+                                    <Globe size={24} /><span className="text-[10px] font-bold">{language === 'cn' ? '連結' : 'URL'}</span>
                                   </button>
                                 </div>
                               )}
@@ -955,7 +955,7 @@ export const TemplateEditor = React.memo(({
                               <div className={`w-px h-8 ${isDarkMode ? 'bg-white/10' : 'bg-gray-200'}`} />
                               <button onClick={() => { setImageUpdateMode('add'); setShowImageUrlInput(true); }}
                                 className={`flex flex-col items-center gap-2 p-3 rounded transition-all ${isDarkMode ? 'hover:bg-white/10 hover:text-orange-400' : 'hover:bg-orange-50 hover:text-orange-500'}`}>
-                                <Globe size={24} /><span className="text-[10px] font-bold">{language === 'cn' ? '链接' : 'URL'}</span>
+                                <Globe size={24} /><span className="text-[10px] font-bold">{language === 'cn' ? '連結' : 'URL'}</span>
                               </button>
                             </div>
                           </>
@@ -989,14 +989,14 @@ export const TemplateEditor = React.memo(({
                   )}
                 </div>
 
-                {/* ---- Desktop Section 4: 内容呈现 ---- */}
+                {/* ---- Desktop Section 4: 內容呈现 ---- */}
                 <div className={`border-b ${isDarkMode ? 'border-white/5' : 'border-gray-200/60'}`}>
                   <button
                     onClick={() => toggleDesktopAccordion('content')}
                     className={`w-full flex items-center gap-3 px-6 h-11 select-none hover:opacity-80 transition-opacity ${isDarkMode ? 'text-white' : 'text-gray-800'}`}
                   >
                     <FileText size={15} className={`flex-shrink-0 ${desktopAccordion.has('content') ? 'text-orange-500' : 'opacity-40'}`} />
-                    <span className="text-sm font-bold">{language === 'cn' ? '内容呈现' : 'Content'}</span>
+                    <span className="text-sm font-bold">{language === 'cn' ? '內容呈现' : 'Content'}</span>
                     <span className="ml-auto flex-shrink-0">
                       {desktopAccordion.has('content') ? <ChevronUp size={15} className="text-orange-500" /> : <ChevronDown size={15} className="opacity-40" />}
                     </span>
@@ -1032,7 +1032,7 @@ export const TemplateEditor = React.memo(({
                         <div className="absolute inset-0 z-[60] flex flex-col items-center justify-center pointer-events-none smart-split-loading-overlay">
                           <div className={`flex flex-col items-center gap-3 p-6 rounded-3xl backdrop-blur-md ${isDarkMode ? 'bg-black/60' : 'bg-white/80 shadow-2xl'}`}>
                             <div className="w-10 h-10 border-4 border-orange-500/20 border-t-orange-500 rounded-full animate-spin" />
-                            <span className={`text-sm font-black tracking-widest ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>{language === 'cn' ? '正在智能分析...' : 'Analyzing...'}</span>
+                            <span className={`text-sm font-black tracking-widest ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>{language === 'cn' ? '正在智慧分析...' : 'Analyzing...'}</span>
                           </div>
                         </div>
                       )}
@@ -1042,7 +1042,7 @@ export const TemplateEditor = React.memo(({
               </div>
               )
             ) : (
-              /* 预览模式 */
+              /* 預覽模式 */
               <div className="flex-1 relative overflow-hidden flex flex-col">
                 {/* Content Area with Shimmer Effect */}
                 <div className={`flex-1 overflow-hidden flex flex-col ${isSmartSplitLoading ? 'text-processing-mask' : ''}`}>
@@ -1125,10 +1125,10 @@ export const TemplateEditor = React.memo(({
                       <div className="w-10 h-10 border-4 border-orange-500/20 border-t-orange-500 rounded-full animate-spin" />
                       <div className="flex flex-col items-center">
                         <span className={`text-sm font-black tracking-widest ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-                          {language === 'cn' ? '正在智能拆分...' : 'Splitting...'}
+                          {language === 'cn' ? '正在智慧拆分...' : 'Splitting...'}
                         </span>
                         <span className={`text-[10px] font-bold ${isDarkMode ? 'text-gray-500' : 'text-gray-400'} mt-1`}>
-                          {language === 'cn' ? '深度学习词库关联中' : 'Deep learning banks association'}
+                          {language === 'cn' ? '深度學習詞庫关联中' : 'Deep learning banks association'}
                         </span>
                       </div>
                     </div>
@@ -1140,7 +1140,7 @@ export const TemplateEditor = React.memo(({
         </div>
       </div>
 
-      {/* 关联模版选择弹窗 */}
+      {/* 关联模板選擇彈窗 */}
       <LinkTemplateModal
         isOpen={isLinkModalOpen}
         onClose={() => setIsLinkModalOpen(false)}

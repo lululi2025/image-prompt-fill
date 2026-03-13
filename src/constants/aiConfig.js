@@ -1,13 +1,13 @@
 /**
  * AI 功能配置文件
- * 用于控制 AI 智能词组功能的开关和参数
+ * 用于控制 AI 智慧詞组功能的開關和参数
  */
 
-// ===== 功能开关 =====
-// 测试功能开关：设置为 false 即可完全关闭 AI 智能词组功能
+// ===== 功能開關 =====
+// 测试功能開關：設定为 false 即可完全关闭 AI 智慧詞组功能
 export const AI_FEATURE_ENABLED = true;
 
-// 智能拆分功能开关
+// 智慧拆分功能開關
 export const AI_SMART_SPLIT_ENABLED = false;
 
 // ===== AI 提供商配置 =====
@@ -15,7 +15,7 @@ export const AI_SMART_SPLIT_ENABLED = false;
 export const AI_PROVIDERS = {
   OPENAI: 'openai',
   ANTHROPIC: 'anthropic',
-  CUSTOM: 'custom' // 自定义 API
+  CUSTOM: 'custom' // 自訂 API
 };
 
 // 默认提供商
@@ -35,22 +35,22 @@ export const DEFAULT_AI_MODELS = {
 };
 
 // ===== 生成参数配置 =====
-// AI 生成词条的数量
+// AI 生成詞條的数量
 export const AI_GENERATION_COUNT = {
   MIN: 3,
   MAX: 8,
   DEFAULT: 5
 };
 
-// 系统提示词模板
+// 系统提示詞模板
 export const AI_SYSTEM_PROMPT_TEMPLATE = {
-  cn: `你是一个专业的AI提示词助手，专门为{variableLabel}生成{count}个富有创意的选项。
+  cn: `你是一個专业的AI提示詞助手，专门为{variableLabel}生成{count}个富有创意的选项。
 
 要求：
 1. 生成的选项应该多样化，覆盖不同的风格和角度
 2. 每个选项应该简洁有力，通常在2-8个字之间
-3. 考虑上下文语境，生成与当前主题相关的词条
-4. 输出格式必须是纯文本，每行一个选项，不要编号
+3. 考虑上下文语境，生成与当前主题相关的詞條
+4. 输出格式必须是纯文本，每行一個选项，不要编号
 5. 不要包含任何解释、引言或总结
 
 示例输出格式：
@@ -73,9 +73,9 @@ Option Two
 Option Three`
 };
 
-// 用户提示词模板
+// 用户提示詞模板
 export const AI_USER_PROMPT_TEMPLATE = {
-  cn: `请为"{variableLabel}"生成{count}个不同的选项。\n\n当前上下文：{context}`,
+  cn: `請为"{variableLabel}"生成{count}個不同的選項。\n\n目前上下文：{context}`,
   en: `Please generate {count} different options for "{variableLabel}".\n\nCurrent context: {context}`
 };
 
@@ -90,13 +90,13 @@ export const AI_LOGS_STORAGE_KEY = 'prompt_fill_ai_logs';
 export const AI_MAX_LOGS = 100;
 
 // ===== UI 配置 =====
-// AI 词组按钮文本
+// AI 詞组按钮文本
 export const AI_BUTTON_TEXT = {
-  cn: '✨ 智能词条',
+  cn: '✨ 智慧詞條',
   en: '✨ AI Terms'
 };
 
-// AI 加载状态文本
+// AI 載入状态文本
 export const AI_LOADING_TEXT = {
   cn: 'AI 生成中...',
   en: 'AI Generating...'
@@ -105,31 +105,31 @@ export const AI_LOADING_TEXT = {
 // AI 错误提示
 export const AI_ERROR_MESSAGES = {
   NO_API_KEY: {
-    cn: '请先设置 API Key',
+    cn: '請先設定 API Key',
     en: 'Please set API Key first'
   },
   GENERATION_FAILED: {
-    cn: 'AI 生成失败，请重试',
+    cn: 'AI 生成失敗，請重試',
     en: 'AI generation failed, please retry'
   },
   NETWORK_ERROR: {
-    cn: '网络错误，请检查连接',
+    cn: '網路錯誤，請檢查連線',
     en: 'Network error, please check connection'
   },
   RATE_LIMIT: {
-    cn: '请求过于频繁，请稍后重试',
+    cn: '請求過於頻繁，請稍後重試',
     en: 'Too many requests, please try again later'
   }
 };
 
 // AI 列表标题
 export const AI_SECTION_TITLE = {
-  cn: '智能词条',
+  cn: '智慧詞條',
   en: 'Smart Terms'
 };
 
-// 本地词库标题
+// 本地詞庫标题
 export const LOCAL_SECTION_TITLE = {
-  cn: '本地词库',
+  cn: '本地詞庫',
   en: 'Local Library'
 };

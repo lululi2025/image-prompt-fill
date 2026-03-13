@@ -1,4 +1,4 @@
-// 词库与分类配置，供 App 按需引入
+// 詞庫与分類配置，供 App 按需引入
 
 export const INITIAL_CATEGORIES = {
   character: { id: "character", label: { cn: "人物", en: "CHARACTER" }, color: "blue" },
@@ -15,10 +15,10 @@ export const INITIAL_BANKS = {
     label: { cn: "角色身份", en: "Role" },
     category: "character",
     options: [
-      { cn: "游戏与动漫概念美术设计大师", en: "Master of Game and Anime Concept Art" },
-      { cn: "资深影视角色原画师", en: "Senior Film Character Concept Artist" },
-      { cn: "赛博朋克风格设计师", en: "Cyberpunk Style Designer" },
-      { cn: "暗黑幻想风格插画师", en: "Dark Fantasy Style Illustrator" },
+      { cn: "遊戲與動漫概念美術設計大師", en: "Master of Game and Anime Concept Art" },
+      { cn: "资深影視角色原画师", en: "Senior Film Character Concept Artist" },
+      { cn: "賽博龐克風格設計師", en: "Cyberpunk Style Designer" },
+      { cn: "暗黑幻想風格插畫師", en: "Dark Fantasy Style Illustrator" },
       { cn: "美术摄影与电影写实风格", en: "Fine-art photography blended with cinematic realism" }
     ]
   },
@@ -28,22 +28,22 @@ export const INITIAL_BANKS = {
     options: [
       { cn: "女性角色", en: "Female Character" },
       { cn: "男性角色", en: "Male Character" },
-      { cn: "机甲少女", en: "Mecha Girl" },
-      { cn: "怪物拟人化", en: "Monster Anthropomorphism" },
-      { cn: "奇幻种族(精灵/恶魔)", en: "Fantasy Race (Elf/Demon)" },
+      { cn: "機甲少女", en: "Mecha Girl" },
+      { cn: "怪物擬人化", en: "Monster Anthropomorphism" },
+      { cn: "奇幻種族(精靈/惡魔)", en: "Fantasy Race (Elf/Demon)" },
       { cn: "女性，约20岁", en: "Female, around 20 years old" },
-      { cn: "年轻韩国女团偶像", en: "Young Korean female K-pop idol" }
+      { cn: "年輕韓國女團偶像", en: "Young Korean female K-pop idol" }
     ]
   },
   hair_style: {
     label: { cn: "髮型樣式", en: "Hair Style" },
     category: "character",
     options: [
-      { cn: "短发，柔和凌乱的深色头发", en: "Short, softly tousled dark hair" },
-      { cn: "深色波浪长发", en: "Dark wavy long hair" },
-      { cn: "黑色直发，垂在肩上", en: "Black straight hair, falling over shoulders" },
-      { cn: "浅金色卷发", en: "Light blonde curly hair" },
-      { cn: "高马尾辫", en: "High ponytail" }
+      { cn: "短髮，柔和凌亂的深色頭髮", en: "Short, softly tousled dark hair" },
+      { cn: "深色波浪長髮", en: "Dark wavy long hair" },
+      { cn: "黑色直髮，垂在肩上", en: "Black straight hair, falling over shoulders" },
+      { cn: "淺金色捲髮", en: "Light blonde curly hair" },
+      { cn: "高馬尾辮", en: "High ponytail" }
     ]
   },
   character_companion: {
@@ -52,9 +52,9 @@ export const INITIAL_BANKS = {
     options: [
       { cn: "死侍 (Deadpool)", en: "Deadpool" },
       { cn: "超人 (Superman)", en: "Superman" },
-      { cn: "爱因斯坦 (Einstein)", en: "Einstein" },
+      { cn: "愛因斯坦 (Einstein)", en: "Einstein" },
       { cn: "神奇女侠 (Wonder Woman)", en: "Wonder Woman" },
-      { cn: "钢铁侠 (Iron Man)", en: "Iron Man" },
+      { cn: "鋼鐵俠 (Iron Man)", en: "Iron Man" },
       { cn: "皮卡丘 (Pikachu)", en: "Pikachu" },
       { cn: "哥斯拉 (Godzilla)", en: "Godzilla" },
       { cn: "初音未来 (Hatsune Miku)", en: "Hatsune Miku" }
@@ -64,9 +64,9 @@ export const INITIAL_BANKS = {
     label: { cn: "構圖重心", en: "Layout Focus" },
     category: "visual",
     options: [
-      { cn: "全身立绘", en: "Full-body Portrait" },
+      { cn: "全身立繪", en: "Full-body Portrait" },
       { cn: "半身肖像", en: "Half-body Portrait" },
-      { cn: "动态战斗姿势", en: "Dynamic Action Pose" },
+      { cn: "動態戰鬥姿勢", en: "Dynamic Action Pose" },
       { cn: "背影回眸", en: "Back View Looking Back" }
     ]
   },
@@ -74,12 +74,12 @@ export const INITIAL_BANKS = {
     label: { cn: "九宮格動作", en: "Grid Pose" }, 
     category: "action", 
     options: [
-      { cn: "前景手指虚化", en: "Out-of-focus fingers in foreground" },
-      { cn: "目光锁定镜头", en: "Eyes locked on camera" },
-      { cn: "单色下巴托手", en: "Monochrome hand on chin" },
-      { cn: "透过模糊肩带拍摄", en: "Shooting through blurred shoulder straps" },
+      { cn: "前景手指虛化", en: "Out-of-focus fingers in foreground" },
+      { cn: "目光鎖定鏡頭", en: "Eyes locked on camera" },
+      { cn: "單色下巴托手", en: "Monochrome hand on chin" },
+      { cn: "透過模糊肩帶拍攝", en: "Shooting through blurred shoulder straps" },
       { cn: "正面特写阴影", en: "Frontal close-up with shadows" },
-      { cn: "斜角拍摄", en: "Angled shot" },
+      { cn: "斜角拍攝", en: "Angled shot" },
       { cn: "双手置于锁骨", en: "Hands on collarbones" },
       { cn: "坐姿半身侧面", en: "Seated half-body profile" },
       { cn: "侧面微距水滴", en: "Side macro with water drops" },
@@ -87,14 +87,14 @@ export const INITIAL_BANKS = {
       { cn: "用手遮挡阳光", en: "Shading eyes from sun with hand" },
       { cn: "回眸一笑", en: "Looking back with a smile" },
       { cn: "吹泡泡糖特写", en: "Close-up blowing bubble gum" },
-      { cn: "正面直视镜头，表情平静，眼神清澈", en: "Staring straight at the camera, calm expression, clear eyes" },
-      { cn: "凝视镜头，嘴角微微上扬，展现自信", en: "Staring at the camera, slight smile, showing confidence" },
-      { cn: "专注地看着镜头，表情柔和，眼神温和", en: "Looking intently at the camera, soft expression, gentle eyes" },
+      { cn: "正面直視鏡頭，表情平静，眼神清澈", en: "Staring straight at the camera, calm expression, clear eyes" },
+      { cn: "凝視鏡頭，嘴角微微上扬，展现自信", en: "Staring at the camera, slight smile, showing confidence" },
+      { cn: "专注地看着鏡頭，表情柔和，眼神温和", en: "Looking intently at the camera, soft expression, gentle eyes" },
       { cn: "侧身回望，眼神温柔，嘴角上扬", en: "Side view looking back, gentle eyes, smiling" },
-      { cn: "转身回眸，长发飘逸，笑容自然", en: "Turning back, flowing hair, natural smile" },
-      { cn: "手轻抚下巴，表情优雅，眼神柔和", en: "Hand gently on chin, elegant expression, soft eyes" },
+      { cn: "转身回眸，長髮飘逸，笑容自然", en: "Turning back, flowing hair, natural smile" },
+      { cn: "手轻抚下巴，表情優雅，眼神柔和", en: "Hand gently on chin, elegant expression, soft eyes" },
       { cn: "单手支撑下巴，表情自然，眼神专注", en: "Supporting chin with one hand, natural expression, focused eyes" },
-      { cn: "利用肩带营造景深，焦点清晰在眼睛", en: "Using shoulder straps for depth of field, focus on eyes" },
+      { cn: "利用肩帶营造景深，焦点清晰在眼睛", en: "Using shoulder straps for depth of field, focus on eyes" },
       { cn: "正在吹泡泡糖，表情可爱，眼神专注", en: "Blowing bubble gum, cute expression, focused eyes" },
       { cn: "侧面微距特写，突出面部轮廓和细节", en: "Side macro close-up, highlighting facial contours and details" }
     ] 
@@ -105,16 +105,16 @@ export const INITIAL_BANKS = {
     category: "visual",
     options: [
       { cn: "脸颊和颈部特写", en: "Cheek and neck close-up" },
-      { cn: "目光锁定镜头", en: "Eyes locked on camera" },
-      { cn: "单色下巴托手肖像", en: "Monochrome hand on chin portrait" },
-      { cn: "透过模糊的肩带拍摄", en: "Shooting through blurred shoulder straps" },
+      { cn: "目光鎖定鏡頭", en: "Eyes locked on camera" },
+      { cn: "單色下巴托手肖像", en: "Monochrome hand on chin portrait" },
+      { cn: "透過模糊的肩帶拍攝", en: "Shooting through blurred shoulder straps" },
       { cn: "正面特写，面部阴影交错", en: "Frontal close-up, interlocking facial shadows" },
-      { cn: "斜角拍摄的原始人像", en: "Raw portrait from an angle" },
+      { cn: "斜角拍攝的原始人像", en: "Raw portrait from an angle" },
       { cn: "双手置于锁骨附近的特写", en: "Close-up with hands near collarbones" },
       { cn: "坐姿半身侧面照", en: "Seated half-body profile shot" },
       { cn: "侧面微距照", en: "Side macro shot" },
       { cn: "上半身特写", en: "upper-body close-up" },
-      { cn: "平视、略微隐藏的中景镜头", en: "eye-level, slightly hidden intimate medium shot" },
+      { cn: "平視、略微隱藏的中景鏡頭", en: "eye-level, slightly hidden intimate medium shot" },
       { cn: "腰部以上的美术肖像", en: "Waist-up fine-art portrait" }
     ]
   },
@@ -156,10 +156,10 @@ export const INITIAL_BANKS = {
     label: { cn: "眼鏡配飾", en: "Glasses" },
     category: "item",
     options: [
-      { cn: "戴着有轻微镜面反射的眼镜", en: "wearing glasses with mild lens reflections" },
-      { cn: "戴着时尚的太阳镜", en: "wearing stylish sunglasses" },
-      { cn: "戴着黑框近视眼镜", en: "wearing black-rimmed glasses" },
-      { cn: "不戴眼镜", en: "no glasses" }
+      { cn: "戴著有轻微镜面反射的眼鏡", en: "wearing glasses with mild lens reflections" },
+      { cn: "戴著时尚的太阳镜", en: "wearing stylish sunglasses" },
+      { cn: "戴著黑框近視眼鏡", en: "wearing black-rimmed glasses" },
+      { cn: "不戴眼鏡", en: "no glasses" }
     ]
   },
   clothing_male: {
@@ -183,7 +183,7 @@ export const INITIAL_BANKS = {
       { cn: "机车皮衣与短裙", en: "Biker leather jacket and short skirt" },
       { cn: "白色蕾丝衬衫", en: "White lace blouse" },
       { cn: "黑色紧身连体衣", en: "Black tight bodysuit" },
-      { cn: "优雅的香奈儿风套装", en: "Elegant Chanel-style suit" },
+      { cn: "優雅的香奈儿风套装", en: "Elegant Chanel-style suit" },
       { cn: "半脱的灰色大号连帽衫，露出白色吊带", en: "half-removed oversized grey hoodie, revealing white camisole" }
     ]
   },
@@ -193,7 +193,7 @@ export const INITIAL_BANKS = {
     options: [
       { cn: "疯狂、病娇、狂喜", en: "Crazy, Yandere, Ecstatic" },
       { cn: "羞涩、躲闪、红晕", en: "Shy, Evasive, Blushing" },
-      { cn: "冷漠、鄙视、高傲", en: "Indifferent, Contemptuous, Proud" },
+      { cn: "冷漠、鄙視、高傲", en: "Indifferent, Contemptuous, Proud" },
       { cn: "痛苦、忍耐、咬唇", en: "Painful, Enduring, Biting lip" }
     ]
   },
@@ -201,7 +201,7 @@ export const INITIAL_BANKS = {
     label: { cn: "人物原創性", en: "Character Originality" },
     category: "character",
     options: [
-      { cn: "创作一个原创人物", en: "Create an original character" },
+      { cn: "创作一個原创人物", en: "Create an original character" },
       { cn: "使用附图中的人物，确保结果与人物一致性", en: "Use character in attachment, ensure consistency" },
       { cn: "对知名角色再创作", en: "Re-create a well-known character" }
     ]
@@ -250,7 +250,7 @@ export const INITIAL_BANKS = {
     label: { cn: "動作細節", en: "Action Detail" },
     category: "action",
     options: [
-      { cn: "优雅的行走姿态", en: "Elegant walking posture" },
+      { cn: "優雅的行走姿态", en: "Elegant walking posture" },
       { cn: "自信的站立", en: "Confident standing" },
       { cn: "开怀大笑", en: "Laughing out loud" },
       { cn: "专注的眼神", en: "Focused gaze" }
@@ -260,10 +260,10 @@ export const INITIAL_BANKS = {
     label: { cn: "特殊視角", en: "Special View" },
     category: "visual",
     options: [
-      { cn: "被踩在脚下的仰视视角", en: "Low-angle view from being stepped on" },
-      { cn: "从门缝中偷窥的视角", en: "Perspective of peeking through a door crack" },
+      { cn: "被踩在腳下的仰視視角", en: "Low-angle view from being stepped on" },
+      { cn: "从門縫中偷窺的視角", en: "Perspective of peeking through a door crack" },
       { cn: "镜子反射的背影", en: "Back view reflected in a mirror" },
-      { cn: "监控摄像头的俯视视角", en: "Top-down view from a security camera" }
+      { cn: "監控攝影機的俯視視角", en: "Top-down view from a security camera" }
     ]
   },
   bag_content: {
@@ -293,7 +293,7 @@ export const INITIAL_BANKS = {
       { cn: "香薰加湿器", en: "Aroma Diffuser" },
       { cn: "降噪耳机", en: "Noise-cancelling Headphones" },
       { cn: "复古黑胶唱片机", en: "Vintage Vinyl Player" },
-      { cn: "智能运动手表", en: "Smart Sports Watch" }
+      { cn: "智慧运动手表", en: "Smart Sports Watch" }
     ]
   },
   city_name: {
@@ -331,7 +331,7 @@ export const INITIAL_BANKS = {
       { cn: "列宾现实主义 (Realism)", en: "Realism" },
       { cn: "高质量的 2D 插画风格", en: "High-quality 2D illustration style" },
       { cn: "写实厚涂风格", en: "Realistic impasto style" },
-      { cn: "赛博朋克霓虹风格", en: "Cyberpunk neon style" },
+      { cn: "賽博龐克霓虹风格", en: "Cyberpunk neon style" },
       { cn: "水彩手绘风格", en: "Watercolor hand-drawn style" }
     ]
   },
@@ -340,7 +340,7 @@ export const INITIAL_BANKS = {
     category: "visual",
     options: [
       { cn: "漫画网格笔记本", en: "Manga grid notebook" },
-      { cn: "蓝图设计稿纸", en: "Blueprint design paper" },
+      { cn: "藍圖設計稿紙", en: "Blueprint design paper" },
       { cn: "工业风金属背景", en: "Industrial metal background" },
       { cn: "极简纯色背景", en: "Minimalist solid color background" }
     ]
@@ -355,11 +355,11 @@ export const INITIAL_BANKS = {
       { cn: "生活大爆炸", en: "The Big Bang Theory" },
       { cn: "霍格沃茨魔法学院", en: "Hogwarts School of Witchcraft and Wizardry" },
       { cn: "侏罗纪公园丛林入口", en: "Jurassic Park Jungle Entrance" },
-      { cn: "星球大战塔图因集市", en: "Star Wars Tatooine Market" },
+      { cn: "星際大戰塔圖因集市", en: "Star Wars Tatooine Market" },
       { cn: "指环王夏尔", en: "The Lord of the Rings - The Shire" },
       { cn: "权力的游戏君临城城墙", en: "Game of Thrones - King's Landing Walls" },
-      { cn: "盗梦空间折叠城市", en: "Inception - Folding City" },
-      { cn: "赛博朋克霓虹夜市", en: "Cyberpunk Neon Night Market" },
+      { cn: "盗梦空间折疊城市", en: "Inception - Folding City" },
+      { cn: "賽博龐克霓虹夜市", en: "Cyberpunk Neon Night Market" },
       { cn: "未来城市空港枢纽", en: "Future City Spaceport Hub" }
     ]
   },
@@ -367,7 +367,7 @@ export const INITIAL_BANKS = {
     label: { cn: "文字位置", en: "Text Position" },
     category: "location",
     options: [
-      { cn: "顶部中央", en: "Top Center" },
+      { cn: "頂部中央", en: "Top Center" },
       { cn: "底部中央", en: "Bottom Center" },
       { cn: "左上角偏中", en: "Top Left biased center" },
       { cn: "右上角偏中", en: "Top Right biased center" },
@@ -414,7 +414,7 @@ export const INITIAL_BANKS = {
       { cn: "千寻", en: "Chihiro" },
       { cn: "绿巨人", en: "Hulk" },
       { cn: "萨诺斯", en: "Thanos" },
-      { cn: "钢铁侠", en: "Iron Man" }
+      { cn: "鋼鐵俠", en: "Iron Man" }
     ]
   },
   art_type: {
@@ -476,13 +476,13 @@ export const INITIAL_BANKS = {
     label: { cn: "畫幅比例", en: "Aspect Ratio" },
     category: "visual",
     options: [
-      { cn: "3:4竖构图", en: "3:4 Vertical" },
-      { cn: "9:16竖构图", en: "9:16 Vertical" },
+      { cn: "3:4豎構圖", en: "3:4 Vertical" },
+      { cn: "9:16豎構圖", en: "9:16 Vertical" },
       { cn: "1:1", en: "1:1 Square" },
-      { cn: "4:3横构图", en: "4:3 Horizontal" },
-      { cn: "16:9横构图", en: "16:9 Horizontal" },
+      { cn: "4:3橫構圖", en: "4:3 Horizontal" },
+      { cn: "16:9橫構圖", en: "16:9 Horizontal" },
       { cn: "圆形画幅", en: "Circular Aspect Ratio" },
-      { cn: "2:3竖构图", en: "2:3 Vertical" }
+      { cn: "2:3豎構圖", en: "2:3 Vertical" }
     ]
   },
   // Fashion Template additions
@@ -490,7 +490,7 @@ export const INITIAL_BANKS = {
     label: { cn: "穿搭解構", en: "Fashion Deconstruct" },
     category: "item",
     options: [
-      { cn: "整齐折叠的外套和精致的高跟鞋", en: "Neatly folded coat and exquisite high heels" },
+      { cn: "整齐折疊的外套和精致的高跟鞋", en: "Neatly folded coat and exquisite high heels" },
       { cn: "散落的配饰与包包", en: "Scattered accessories and bags" },
       { cn: "悬挂的衬衫与百褶裙", en: "Hanging shirt and pleated skirt" },
       { cn: "堆叠的金属配饰与皮带", en: "Stacked metal accessories and belts" }
@@ -504,7 +504,7 @@ export const INITIAL_BANKS = {
       { cn: "暴力熊积木熊", en: "Bearbrick" },
       { cn: "泡泡玛特Molly", en: "Pop Mart Molly" },
       { cn: "复古泰迪熊", en: "Vintage Teddy Bear" },
-      { cn: "赛博朋克机械狗", en: "Cyberpunk Robo-Dog" }
+      { cn: "賽博龐克机械狗", en: "Cyberpunk Robo-Dog" }
     ]
   },
   
@@ -532,10 +532,10 @@ export const INITIAL_BANKS = {
       { cn: "大型顶置柔光箱，轻微侧向反射光", en: "Large overhead softbox, slight side reflection" },
       { cn: "自然窗光", en: "Natural window light" },
       { cn: "伦勃朗光", en: "Rembrandt lighting" },
-      { cn: "赛博朋克霓虹光", en: "Cyberpunk neon lighting" },
+      { cn: "賽博龐克霓虹光", en: "Cyberpunk neon lighting" },
       { cn: "影棚硬光", en: "Studio hard light" },
       { cn: "随意的肖像摄影，带有日常快照氛围", en: "Casual portrait photography with a daily snapshot vibe" },
-      { cn: "隐藏相机拍摄风格，Portra 400 胶片质感", en: "Hidden camera style, Portra 400 film grain aesthetic" },
+      { cn: "隱藏相机拍攝风格，Portra 400 胶片质感", en: "Hidden camera style, Portra 400 film grain aesthetic" },
       { cn: "阴天下的柔和自然光", en: "Soft natural light under overcast sky" }
     ]
   },
@@ -583,7 +583,7 @@ export const INITIAL_BANKS = {
     ]
   },
 
-  // 视频分镜-影视色调
+  // 影片分镜-影視色调
   video_color_tone: {
     label: { cn: "影視色調", en: "Cinematic Color Tone" },
     category: "visual",
@@ -591,15 +591,15 @@ export const INITIAL_BANKS = {
       { cn: "冷蓝调，暗部发青（如《银翼杀手2049》）", en: "Cool blue tones, teal shadows (Blade Runner 2049 style)" },
       { cn: "暖橙调，黄金时刻质感（如《疯狂的麦克斯》）", en: "Warm orange tones, golden hour feel (Mad Max: Fury Road style)" },
       { cn: "高对比青橙撞色（Teal & Orange）", en: "High-contrast teal and orange color grading" },
-      { cn: "低饱和灰绿调，胶片颗粒感（如《拯救大兵瑞恩》）", en: "Desaturated olive-green tones, film grain (Saving Private Ryan style)" },
-      { cn: "霓虹紫粉调，高饱和赛博感", en: "Neon purple-pink, high-saturation cyberpunk feel" },
+      { cn: "低飽和灰绿调，胶片颗粒感（如《拯救大兵瑞恩》）", en: "Desaturated olive-green tones, film grain (Saving Private Ryan style)" },
+      { cn: "霓虹紫粉调，高飽和赛博感", en: "Neon purple-pink, high-saturation cyberpunk feel" },
       { cn: "黑白高反差，黑色电影风格（Film Noir）", en: "High-contrast black and white, Film Noir style" },
-      { cn: "莫兰迪低饱和柔和调", en: "Morandi muted pastel tones" },
-      { cn: "日系清透过曝暖调", en: "Japanese overexposed warm pastel tones" }
+      { cn: "莫兰迪低飽和柔和调", en: "Morandi muted pastel tones" },
+      { cn: "日系清透過曝暖调", en: "Japanese overexposed warm pastel tones" }
     ]
   },
 
-  // 视频分镜-影视风格
+  // 影片分镜-影視风格
   video_art_style: {
     label: { cn: "影視風格", en: "Cinematic Style" },
     category: "visual",
@@ -608,14 +608,14 @@ export const INITIAL_BANKS = {
       { cn: "独立电影纪实风格（手持、自然光）", en: "Indie film documentary style (handheld, natural lighting)" },
       { cn: "日本动画电影风格（如新海诚）", en: "Japanese anime film style (Makoto Shinkai)" },
       { cn: "港片黄金时代（暗色、霓虹、快节奏）", en: "Hong Kong golden era (dark, neon, fast-paced)" },
-      { cn: "韩式影视风格（高级感、低饱和）", en: "Korean drama cinematic style (premium, desaturated)" },
+      { cn: "韓式影視風格（高級感、低飽和）", en: "Korean drama cinematic style (premium, desaturated)" },
       { cn: "复古录像带 VHS 风格", en: "Retro VHS tape aesthetic" },
-      { cn: "MV 风格（快速剪辑、视觉冲击）", en: "Music video style (fast cuts, visual impact)" },
+      { cn: "MV 风格（快速剪輯、視覺冲击）", en: "Music video style (fast cuts, visual impact)" },
       { cn: "游戏 CG 过场动画风格", en: "Game CG cutscene style" }
     ]
   },
 
-  // 视频分镜-场景类型
+  // 影片分镜-场景类型
   scene_type: {
     label: { cn: "場景類型", en: "Scene Type" },
     category: "location",
@@ -627,7 +627,7 @@ export const INITIAL_BANKS = {
       { cn: "深夜雨中的日本街道", en: "Rainy Japanese street at night" },
       { cn: "战场废墟，硝烟弥漫", en: "Battlefield ruins, smoke-filled" },
       { cn: "热带雨林深处，瀑布飞流", en: "Deep tropical rainforest, cascading waterfall" },
-      { cn: "赛博朋克地下酒吧", en: "Cyberpunk underground bar" }
+      { cn: "賽博龐克地下酒吧", en: "Cyberpunk underground bar" }
     ]
   },
 
@@ -636,12 +636,12 @@ export const INITIAL_BANKS = {
     label: { cn: "鏡頭類型", en: "Lens Type" },
     category: "visual",
     options: [
-      { cn: "标准镜头", en: "Standard Lens" },
-      { cn: "广角镜头", en: "Wide-angle Lens" },
-      { cn: "长焦镜头", en: "Telephoto Lens" },
-      { cn: "极端鱼眼镜头", en: "Extreme Fisheye Lens" },
-      { cn: "移轴镜头", en: "Tilt-shift Lens" },
-      { cn: "微距镜头", en: "Macro Lens" }
+      { cn: "标准鏡頭", en: "Standard Lens" },
+      { cn: "广角鏡頭", en: "Wide-angle Lens" },
+      { cn: "长焦鏡頭", en: "Telephoto Lens" },
+      { cn: "极端鱼眼鏡頭", en: "Extreme Fisheye Lens" },
+      { cn: "移轴鏡頭", en: "Tilt-shift Lens" },
+      { cn: "微距鏡頭", en: "Macro Lens" }
     ]
   },
   school_uniform: {
@@ -674,7 +674,7 @@ export const INITIAL_BANKS = {
     label: { cn: "動態動作", en: "Dynamic Action" },
     category: "action",
     options: [
-      { cn: "一只手夸张地伸向镜头前景", en: "One hand exaggeratedly reaching towards the foreground" },
+      { cn: "一只手夸张地伸向鏡頭前景", en: "One hand exaggeratedly reaching towards the foreground" },
       { cn: "双臂张开拥抱天空", en: "Arms open wide embracing the sky" },
       { cn: "旋转跳跃", en: "Spinning and jumping" },
       { cn: "奔跑前进", en: "Running forward" },
@@ -697,8 +697,8 @@ export const INITIAL_BANKS = {
       { cn: "在看一本厚厚的旧书", en: "reading a thick old book" },
       { cn: "在修剪巨大的室内绿植", en: "trimming a giant indoor plant" },
       { cn: "正在阅读书籍", en: "reading a book" },
-      { cn: "整理衣领时自信地看向镜头", en: "looking confidently into the lens while adjusting collar" },
-      { cn: "温柔地凝视着镜头，带着淡淡的忧郁", en: "Looking gently toward the camera, with a touch of melancholy" }
+      { cn: "整理衣领时自信地看向鏡頭", en: "looking confidently into the lens while adjusting collar" },
+      { cn: "温柔地凝視着鏡頭，带着淡淡的忧郁", en: "Looking gently toward the camera, with a touch of melancholy" }
     ]
   },
   draw_style: {
@@ -720,7 +720,7 @@ export const INITIAL_BANKS = {
       { cn: "自然裸色指甲", en: "Natural nude nails" },
       { cn: "装饰有钻石指甲", en: "Decorated with diamond nails" },
       { cn: "渐变色指甲", en: "Gradient nails" },
-      { cn: "艺术图案指甲", en: "Artistic pattern nails" }
+      { cn: "藝術圖案指甲", en: "Artistic pattern nails" }
     ]
   },
   building_cluster: {
@@ -744,7 +744,7 @@ export const INITIAL_BANKS = {
       { cn: "神话传说中的龙", en: "Legendary dragon" },
       { cn: "外星生物", en: "Alien creature" },
       { cn: "海洋深渊巨兽", en: "Deep sea behemoth" },
-      { cn: "森林精灵", en: "Forest elf" }
+      { cn: "森林精靈", en: "Forest elf" }
     ]
   },
   monster_feature: {
@@ -824,7 +824,7 @@ export const INITIAL_BANKS = {
       { cn: "温馨的教室", en: "Cozy classroom" },
       { cn: "现代咖啡厅", en: "Modern cafe" },
       { cn: "公园长椅", en: "Park bench" },
-      { cn: "图书馆角落", en: "Library corner" },
+      { cn: "圖書館角落", en: "Library corner" },
       { cn: "艺术工作室", en: "Art studio" },
       { cn: "屋顶天台", en: "Rooftop" },
       { cn: "火车站月台", en: "Railway platform" },
@@ -868,7 +868,7 @@ export const INITIAL_BANKS = {
       { cn: "自行车", en: "Bicycle" },
       { cn: "电动滑板车", en: "Electric scooter" },
       { cn: "蓝牙耳机", en: "Bluetooth headphones" },
-      { cn: "智能音箱", en: "Smart speaker" },
+      { cn: "智慧音箱", en: "Smart speaker" },
       { cn: "剃须刀", en: "Razor" },
       { cn: "电风扇", en: "Electric fan" },
       { cn: "水壶", en: "Kettle" }
@@ -927,7 +927,7 @@ export const INITIAL_BANKS = {
     category: "item",
     options: [
       { cn: "一束深红色玫瑰", en: "A bouquet of deep red roses" },
-      { cn: "优雅的白色马蹄莲", en: "Elegant white calla lilies" },
+      { cn: "優雅的白色马蹄莲", en: "Elegant white calla lilies" },
       { cn: "淡粉色牡丹", en: "Pale pink peonies" },
       { cn: "名贵的深色兰花", en: "Exotic dark orchids" },
       { cn: "干枯的桉树叶", en: "Dried eucalyptus leaves" },
@@ -941,7 +941,7 @@ export const INITIAL_BANKS = {
     options: [
       { cn: "单人角色：聚焦于个人生活方式", en: "Single: Focus on personal lifestyle" },
       { cn: "情侣角色：每人18件物品，用爱心符号连接，冷暖对比", en: "Couple: 18 items each, heart connectors, contrast" },
-      { cn: "孕妇角色：包含孕期用品、婴儿图标及B超照片", en: "Pregnant: Includes pregnancy items, baby icons, ultrasound" },
+      { cn: "孕婦角色：包含孕期用品、嬰兒图标及B超照片", en: "Pregnant: Includes pregnancy items, baby icons, ultrasound" },
       { cn: "亲子角色：包含成人与儿童用品，体现家庭温馨", en: "Family: Includes adult and child items, family warmth" }
     ]
   },
@@ -956,13 +956,13 @@ export const INITIAL_BANKS = {
     ]
   },
   item_layout_pixar: {
-    label: { cn: "物品布局", en: "Item Layout" },
+    label: { cn: "物品佈局", en: "Item Layout" },
     category: "visual",
     options: [
       { cn: "90度直角整齐排列 (Knolling)", en: "90-degree Knolling layout" },
-      { cn: "放射式构图 (Radial)", en: "Radial composition" },
-      { cn: "阶梯式错落布局 (Step)", en: "Step-like staggered layout" },
-      { cn: "网格对称布局 (Grid)", en: "Grid symmetrical layout" }
+      { cn: "放射式構圖 (Radial)", en: "Radial composition" },
+      { cn: "阶梯式错落佈局 (Step)", en: "Step-like staggered layout" },
+      { cn: "网格对称佈局 (Grid)", en: "Grid symmetrical layout" }
     ]
   },
   fashion_parts: {
@@ -973,7 +973,7 @@ export const INITIAL_BANKS = {
       { cn: "西装拆解：驳领、口袋、内衬、袖扣、垫肩", en: "Suit: Lapel, pockets, lining, cufflinks, shoulder pads" },
       { cn: "运动鞋拆解：鞋底、鞋面、鞋带、气垫、鞋垫", en: "Sneakers: Sole, upper, laces, air cushion, insole" },
       { cn: "连衣裙拆解：蕾丝边、拉链、腰部剪裁、裙摆、领口", en: "Dress: Lace trim, zipper, waist cut, hem, neckline" },
-      { cn: "包袋拆解：五金锁扣、肩带、内袋、缝线细节、手柄", en: "Bag: Metal lock, strap, inner pocket, stitching, handle" }
+      { cn: "包袋拆解：五金锁扣、肩帶、内袋、缝线细节、手柄", en: "Bag: Metal lock, strap, inner pocket, stitching, handle" }
     ]
   },
   beauty_items: {
@@ -990,9 +990,9 @@ export const INITIAL_BANKS = {
     label: { cn: "數碼生活拆解", en: "Digital Deconstruction" },
     category: "item",
     options: [
-      { cn: "手机拆解：手机壳、屏幕内容、摄像头模组、主板组件", en: "Phone: Case, screen content, camera module, motherboard" },
-      { cn: "相机拆解：镜头组、机身、闪光灯、存储卡、肩带", en: "Camera: Lens set, body, flash, memory card, strap" },
-      { cn: "影音：无线耳机、智能手表、平板电脑、蓝牙音箱", en: "Audio: Wireless headphones, smartwatch, tablet, speaker" },
+      { cn: "手機拆解：手機壳、螢幕內容、攝影機模组、主板组件", en: "Phone: Case, screen content, camera module, motherboard" },
+      { cn: "相机拆解：鏡頭组、机身、闪光灯、存储卡、肩帶", en: "Camera: Lens set, body, flash, memory card, strap" },
+      { cn: "影音：无线耳机、智慧手表、平板电脑、蓝牙音箱", en: "Audio: Wireless headphones, smartwatch, tablet, speaker" },
       { cn: "办公：笔记本电脑、键盘轴体、鼠标、手绘板", en: "Office: Laptop, keyboard switches, mouse, drawing tablet" }
     ]
   },
@@ -1026,7 +1026,7 @@ export const INITIAL_BANKS = {
       { cn: "运动：网球拍、滑板、滑雪镜、运动相机、水壶", en: "Sports: Tennis racket, skateboard, ski goggles, action cam, bottle" }
     ]
   },
-  // 新年海报相关词库
+  // 新年海报相关詞庫
   clothing_style_chinese: {
     label: { cn: "中式服飾風格", en: "Chinese Clothing Style" },
     category: "item",
@@ -1097,7 +1097,7 @@ export const INITIAL_BANKS = {
     label: { cn: "人物類型", en: "Character Type" },
     category: "character",
     options: [
-      { cn: "年轻学生", en: "Young Student" },
+      { cn: "年輕学生", en: "Young Student" },
       { cn: "都市白领", en: "Urban Professional" },
       { cn: "文艺青年", en: "Artistic Youth" },
       { cn: "普通上班族", en: "Office Worker" },
@@ -1113,10 +1113,10 @@ export const INITIAL_BANKS = {
     options: [
       { cn: "可爱粉色房间，粉彩床和墙壁，原创动物玩偶，妖精灯光，可爱海报，毛绒地毯", en: "Cute pink room, pastel pink bed and walls, original cute animal plushies, fairy lights, cute posters, fluffy rug" },
       { cn: "简约白色房间，白色家具，绿植，自然光，木质地板", en: "Minimalist white room, white furniture, plants, natural light, wooden floor" },
-      { cn: "复古粉色房间，复古家具，丝绒窗帘，古典装饰，温暖氛围", en: "Vintage pink room, vintage furniture, velvet curtains, classic decor, warm atmosphere" },
+      { cn: "复古粉色房间，复古家具，丝绒窗帘，古典装饰，溫暖氛围", en: "Vintage pink room, vintage furniture, velvet curtains, classic decor, warm atmosphere" },
       { cn: "梦幻紫色房间，紫色床单，星星灯串，梦幻壁纸，柔软地毯", en: "Dreamy purple room, purple sheets, star lights, dreamy wallpaper, soft carpet" },
       { cn: "清新蓝色房间，蓝色床品，海洋装饰，贝壳元素，清爽感觉", en: "Fresh blue room, blue bedding, ocean decor, shell elements, refreshing feel" },
-      { cn: "温暖橙色房间，橙色家具，阳光充足，活力装饰，舒适地毯", en: "Warm orange room, orange furniture, abundant sunlight, energetic decor, cozy rug" },
+      { cn: "溫暖橙色房间，橙色家具，阳光充足，活力装饰，舒适地毯", en: "Warm orange room, orange furniture, abundant sunlight, energetic decor, cozy rug" },
       { cn: "北欧风格房间，灰色床品，简约设计，自然材质，柔和灯光", en: "Nordic style room, grey bedding, minimalist design, natural materials, soft lighting" },
       { cn: "日式和风房间，榻榻米，纸灯笼，竹子装饰，禅意氛围", en: "Japanese style room, tatami, paper lanterns, bamboo decor, zen atmosphere" }
     ]
@@ -1125,14 +1125,14 @@ export const INITIAL_BANKS = {
     label: { cn: "可愛服裝", en: "Cute Outfit" },
     category: "item",
     options: [
-      { cn: "黑色紧身吊带连衣裙，长度到臀部，无袖，细肩带", en: "Black tight camisole dress, hip-length, sleeveless, thin straps" },
-      { cn: "白色蕾丝连衣裙，及膝长度，短袖，优雅设计", en: "White lace dress, knee-length, short sleeves, elegant design" },
-      { cn: "粉色学院风制服，百褶裙，领结，长袖衬衫", en: "Pink school uniform, pleated skirt, bow tie, long-sleeved shirt" },
+      { cn: "黑色紧身吊带连衣裙，长度到臀部，无袖，细肩帶", en: "Black tight camisole dress, hip-length, sleeveless, thin straps" },
+      { cn: "白色蕾丝连衣裙，及膝长度，短袖，優雅设计", en: "White lace dress, knee-length, short sleeves, elegant design" },
+      { cn: "粉色学院风制服，百褶裙，领结，長袖衬衫", en: "Pink school uniform, pleated skirt, bow tie, long-sleeved shirt" },
       { cn: "蓝色吊带裙，A字型，及膝长度，夏天风格", en: "Blue spaghetti strap dress, A-line, knee-length, summer style" },
-      { cn: "红色紧身连衣裙，高领，长袖，修身设计", en: "Red tight dress, high neck, long sleeves, slim-fit design" },
+      { cn: "红色紧身连衣裙，高领，長袖，修身设计", en: "Red tight dress, high neck, long sleeves, slim-fit design" },
       { cn: "黄色背带裤裙，可爱风格，短款，休闲设计", en: "Yellow overall dress, cute style, short length, casual design" },
       { cn: "紫色睡裙，丝绸材质，吊带，舒适款", en: "Purple nightgown, silk material, spaghetti straps, comfortable style" },
-      { cn: "格子图案连衣裙，英伦风格，及膝，长袖", en: "Plaid dress, British style, knee-length, long sleeves" }
+      { cn: "格子圖案連衣裙，英倫風格，及膝，長袖", en: "Plaid dress, British style, knee-length, long sleeves" }
     ]
   },
   product_category: {
@@ -1140,7 +1140,7 @@ export const INITIAL_BANKS = {
     category: "item",
     options: [
       { cn: "现代椅子", en: "Modern Chair" },
-      { cn: "智能手表", en: "Smart Watch" },
+      { cn: "智慧手表", en: "Smart Watch" },
       { cn: "高端耳机", en: "Premium Headphones" },
       { cn: "设计师台灯", en: "Designer Lamp" },
       { cn: "陶瓷器皿", en: "Ceramic Ware" },
@@ -1193,8 +1193,8 @@ export const INITIAL_BANKS = {
     label: { cn: "人物主體", en: "Character Subject" },
     category: "character",
     options: [
-      { cn: "年轻女性，长发，微笑", en: "Young woman with long hair, smiling" },
-      { cn: "成熟男性，短发，严肃表情", en: "Mature man with short hair, serious expression" },
+      { cn: "年輕女性，長髮，微笑", en: "Young woman with long hair, smiling" },
+      { cn: "成熟男性，短髮，严肃表情", en: "Mature man with short hair, serious expression" },
       { cn: "青少年，活泼开朗", en: "Teenager, lively and cheerful" },
       { cn: "儿童，天真可爱", en: "Child, innocent and cute" },
       { cn: "老人，慈祥温和", en: "Elderly person, kind and gentle" },
@@ -1212,8 +1212,8 @@ export const INITIAL_BANKS = {
       { cn: "半身像", en: "Half-body shot" },
       { cn: "全身像", en: "Full-body shot" },
       { cn: "四分之三侧面", en: "Three-quarter view" },
-      { cn: "仰视角度", en: "Low-angle shot" },
-      { cn: "俯视角度", en: "High-angle shot" },
+      { cn: "仰視角度", en: "Low-angle shot" },
+      { cn: "俯視角度", en: "High-angle shot" },
       { cn: "特写头像", en: "Close-up headshot" }
     ]
   },
@@ -1272,7 +1272,7 @@ export const INITIAL_BANKS = {
       { cn: "魂斗罗 (1987)", en: "Contra (1987)" },
       { cn: "街头霸王 II (1991)", en: "Street Fighter II (1991)" },
       { cn: "刺猬索尼克 (1991)", en: "Sonic the Hedgehog (1991)" },
-      { cn: "恶魔城 (1986)", en: "Castlevania (1986)" },
+      { cn: "惡魔城 (1986)", en: "Castlevania (1986)" },
       { cn: "洛克人 (1987)", en: "Mega Man (1987)" },
       { cn: "马里奥赛车 (1992)", en: "Mario Kart (1992)" },
       { cn: "口袋妖怪 红/蓝 (1996)", en: "Pokémon Red/Blue (1996)" },
@@ -1300,21 +1300,21 @@ export const INITIAL_BANKS = {
       { cn: "疫苗接种", en: "Vaccination" },
       { cn: "血液循环", en: "Blood Circulation" },
       { cn: "苯环结构", en: "The Structure of Benzene" },
-      { cn: "双螺旋发现", en: "The Double Helix Discovery" }
+      { cn: "双螺旋發現", en: "The Double Helix Discovery" }
     ]
   },
   cute_pose_dynamic: {
     label: { cn: "可愛動態姿勢", en: "Cute Dynamic Pose" },
     category: "action",
     options: [
-      { cn: "向前走时回望，从正上方自信俏皮地俯视，迷人微笑", en: "Walking forward while looking back, confidently and playfully looking down from directly above, charming smile" },
-      { cn: "坐在床边，双腿交叉，手玩头发，温柔微笑", en: "Sitting on bed edge, legs crossed, playing with hair, gentle smile" },
-      { cn: "站立姿势，手放在臀部，自信直视镜头", en: "Standing pose, hands on hips, confidently looking at camera" },
+      { cn: "向前走时回望，从正上方自信俏皮地俯視，迷人微笑", en: "Walking forward while looking back, confidently and playfully looking down from directly above, charming smile" },
+      { cn: "坐在床边，双腿交叉，手玩頭髮，温柔微笑", en: "Sitting on bed edge, legs crossed, playing with hair, gentle smile" },
+      { cn: "站立姿势，手放在臀部，自信直视鏡頭", en: "Standing pose, hands on hips, confidently looking at camera" },
       { cn: "躺在床上，侧身支撑头部，俏皮表情", en: "Lying on bed, propping head with hand, playful expression" },
       { cn: "跪坐姿势，双手放在膝盖上，无辜表情", en: "Kneeling pose, hands on knees, innocent expression" },
       { cn: "靠着墙站立，一只脚抬起，酷酷的表情", en: "Leaning against wall, one foot raised, cool expression" },
       { cn: "坐在地板上，双腿伸直，看书，专注表情", en: "Sitting on floor, legs extended, reading book, focused expression" },
-      { cn: "跳跃姿势，双手举起，快乐笑容，动态感", en: "Jumping pose, hands raised, happy smile, dynamic feel" }
+      { cn: "跳跃姿势，双手举起，快乐笑容，動態感", en: "Jumping pose, hands raised, happy smile, dynamic feel" }
     ]
   },
   fitness_location: {
@@ -1334,12 +1334,12 @@ export const INITIAL_BANKS = {
     options: [
       { cn: "半蹲姿势，侧身对镜子", en: "Half-squat pose, turned sideways to mirror" },
       { cn: "站立伸展，手臂高举", en: "Standing stretch with arms raised" },
-      { cn: "平板支撑姿势，侧视镜头", en: "Plank pose, side view to camera" },
+      { cn: "平板支撑姿势，侧视鏡頭", en: "Plank pose, side view to camera" },
       { cn: "弓步姿势，肌肉紧绷", en: "Lunge pose, muscles tensed" },
       { cn: "哑铃推举，专注表情", en: "Dumbbell press, focused expression" },
       { cn: "瑜伽树式姿势，单腿站立", en: "Yoga tree pose, standing on one leg" },
       { cn: "深蹲底部姿势，大腿发力", en: "Bottom of squat position, leg muscles engaged" },
-      { cn: "壶铃摆动，动态姿态", en: "Kettlebell swing, dynamic pose" }
+      { cn: "壶铃摆动，動態姿态", en: "Kettlebell swing, dynamic pose" }
     ]
   },
   fitness_clothing: {
@@ -1376,8 +1376,8 @@ export const INITIAL_BANKS = {
       { cn: "明显的胶片颗粒感", en: "Noticeable film grain" },
       { cn: "自然光线柔和", en: "Soft natural lighting" },
       { cn: "高对比度戏剧光影", en: "High contrast dramatic lighting" },
-      { cn: "轻微镜头眩光", en: "Slight lens flare" },
-      { cn: "浅景深背景虚化", en: "Shallow depth of field, background blur" },
+      { cn: "轻微鏡頭眩光", en: "Slight lens flare" },
+      { cn: "浅景深背景虛化", en: "Shallow depth of field, background blur" },
       { cn: "暗角效果", en: "Vignette effect" }
     ]
   },
@@ -1397,7 +1397,7 @@ export const INITIAL_BANKS = {
     label: { cn: "汗水狀態", en: "Sweat Appearance" },
     category: "character",
     options: [
-      { cn: "头发凌乱湿透，汗水明显", en: "Hair disheveled and damp with sweat" },
+      { cn: "頭髮凌亂湿透，汗水明显", en: "Hair disheveled and damp with sweat" },
       { cn: "皮肤微微出汗，光泽感", en: "Skin slightly sweaty, glossy look" },
       { cn: "汗珠挂在额头和鼻尖", en: "Sweat beads on forehead and nose tip" },
       { cn: "后背汗水浸湿衣物", en: "Back sweat soaking through clothes" },
@@ -1727,7 +1727,7 @@ export const INITIAL_BANKS = {
     ]
   },
 
-  // ==================== 室内设计词库 ====================
+  // ==================== 室内设计詞庫 ====================
 
   room_type: {
     label: { cn: "室內空間類型", en: "Room Type" },
@@ -1857,7 +1857,7 @@ export const INITIAL_BANKS = {
       { cn: "4K超高清分辨率", en: "4K Ultra HD resolution" },
       { cn: "8K超高清分辨率", en: "8K Ultra HD resolution" },
       { cn: "照片级真实渲染", en: "Photorealistic rendering" },
-      { cn: "电影级渲染质量", en: "Cinematic rendering quality" },
+      { cn: "電影級渲染质量", en: "Cinematic rendering quality" },
       { cn: "高清细节", en: "High definition details" },
       { cn: "超精细纹理细节", en: "Ultra-fine texture details" },
       { cn: "真实光影渲染", en: "Realistic lighting rendering" },
@@ -1885,11 +1885,11 @@ export const INITIAL_BANKS = {
     options: [
       { cn: "Proko 风格（简化几何、教学导向、清晰构造线）", en: "Proko style (simplified geometry, educational focus, clear construction lines)" },
       { cn: "Hampton 风格（构造线、体块分析、结构化方法）", en: "Hampton style (construction lines, form analysis, structural approach)" },
-      { cn: "Vilppu 风格（手势素描、流畅线条、动态感）", en: "Vilppu style (gesture drawing, flowing lines, dynamic feeling)" },
+      { cn: "Vilppu 风格（手势素描、流畅线条、動態感）", en: "Vilppu style (gesture drawing, flowing lines, dynamic feeling)" },
       { cn: "Bammes 风格（德国解剖学、精确构造、科学方法）", en: "Bammes style (German anatomy, precise construction, scientific method)" },
       { cn: "Loomis 风格（经典比例、标准人体、结构化）", en: "Loomis style (classic proportions, standard human figure, structured)" },
       { cn: "Bridgman 风格（体块分析、建筑感、厚重体积）", en: "Bridgman style (mass analysis, architectural feel, heavy volume)" },
-      { cn: "Hogarth 风格（动态夸张、戏剧性线条、肌肉强调）", en: "Hogarth style (dynamic exaggeration, dramatic lines, muscle emphasis)" },
+      { cn: "Hogarth 风格（動態夸张、戏剧性线条、肌肉强调）", en: "Hogarth style (dynamic exaggeration, dramatic lines, muscle emphasis)" },
       { cn: "医学解剖学教材风格（精确、科学、详细标注）", en: "Medical anatomy textbook style (precise, scientific, detailed labels)" }
     ]
   },
@@ -1907,7 +1907,7 @@ export const INITIAL_BANKS = {
     ]
   },
 
-  // 视频打斗风格词库
+  // 影片打斗风格詞庫
   fight_style: {
     label: { cn: "打斗風格", en: "Fight Style" },
     category: "action",
@@ -1918,17 +1918,17 @@ export const INITIAL_BANKS = {
       { cn: "港片动作风（成龙式、环境互动、幽默打斗）", en: "Hong Kong action style (Jackie Chan-esque, environmental interaction, comedic)" },
       { cn: "日式剑戟风（拔刀术、一刀流、静与动的对比）", en: "Japanese chambara style (iaijutsu, single-stroke, contrast of stillness and motion)" },
       { cn: "现代近身格斗（综合格斗、枪械近战混合）", en: "Modern close-quarters combat (MMA, gun-fu hybrid)" },
-      { cn: "魔幻战斗风（元素法术、能量冲击波）", en: "Fantasy combat style (elemental magic, energy shockwaves)" }
+      { cn: "魔幻戰鬥风（元素法术、能量冲击波）", en: "Fantasy combat style (elemental magic, energy shockwaves)" }
     ]
   },
 
-  // 镜头节奏词库
+  // 鏡頭节奏詞庫
   camera_rhythm: {
     label: { cn: "鏡頭節奏", en: "Camera Rhythm" },
     category: "visual",
     options: [
-      { cn: "快速切换蒙太奇（多角度快速剪辑）", en: "Rapid montage cutting (multi-angle fast edits)" },
-      { cn: "长镜头一镜到底（沉浸式跟随拍摄）", en: "Long take single shot (immersive follow-through)" },
+      { cn: "快速切換蒙太奇（多角度快速剪輯）", en: "Rapid montage cutting (multi-angle fast edits)" },
+      { cn: "长鏡頭一镜到底（沉浸式跟随拍攝）", en: "Long take single shot (immersive follow-through)" },
       { cn: "慢动作特写穿插（关键瞬间减速）", en: "Slow-motion close-up intercuts (key moment deceleration)" },
       { cn: "环绕旋转跟拍（360度围绕主角运镜）", en: "Orbiting tracking shot (360° rotation around subject)" },
       { cn: "推拉变焦节奏（紧张感逐步递进）", en: "Push-pull zoom rhythm (gradually building tension)" },
@@ -1936,13 +1936,13 @@ export const INITIAL_BANKS = {
     ]
   },
 
-  // 科幻电影风格词库
+  // 科幻电影风格詞庫
   sci_fi_movie_style: {
     label: { cn: "科幻電影風格", en: "Sci-Fi Movie Style" },
     category: "visual",
     options: [
       { cn: "好莱坞科幻大片（Hollywood Sci-Fi Blockbuster）", en: "Hollywood Sci-Fi Blockbuster" },
-      { cn: "赛博朋克美学（Cyberpunk Aesthetics）", en: "Cyberpunk Aesthetics" },
+      { cn: "賽博龐克美学（Cyberpunk Aesthetics）", en: "Cyberpunk Aesthetics" },
       { cn: "末日废土风格（Post-Apocalyptic Wasteland）", en: "Post-Apocalyptic Wasteland" },
       { cn: "太空歌剧史诗（Space Opera Epic）", en: "Space Opera Epic" },
       { cn: "反乌托邦未来（Dystopian Future）", en: "Dystopian Future" },
@@ -1952,13 +1952,13 @@ export const INITIAL_BANKS = {
     ]
   },
 
-  // 未来载具词库
+  // 未来载具詞庫
   futuristic_vehicle: {
     label: { cn: "未來載具", en: "Futuristic Vehicle" },
     category: "item",
     options: [
       { cn: "流线型反重力飞行器（Anti-gravity Vehicle）", en: "Streamlined Anti-gravity Vehicle" },
-      { cn: "太空战斗机（Space Fighter）", en: "Space Fighter" },
+      { cn: "太空戰鬥机（Space Fighter）", en: "Space Fighter" },
       { cn: "磁悬浮超跑（Magnetic Levitation Sports Car）", en: "Magnetic Levitation Sports Car" },
       { cn: "重型运输飞船（Heavy Cargo Spaceship）", en: "Heavy Cargo Spaceship" },
       { cn: "单兵飞行装甲（Single-Person Flight Armor）", en: "Single-Person Flight Armor" },
@@ -1968,7 +1968,7 @@ export const INITIAL_BANKS = {
     ]
   },
 
-  // 赛博朋克城市场景词库
+  // 賽博龐克城市场景詞庫
   cyberpunk_city_scene: {
     label: { cn: "賽博朋克城市場景", en: "Cyberpunk City Scene" },
     category: "location",
@@ -1984,13 +1984,13 @@ export const INITIAL_BANKS = {
     ]
   },
 
-  // 跟拍镜头类型词库
+  // 跟拍鏡頭类型詞庫
   tracking_camera_shot: {
     label: { cn: "跟拍鏡頭類型", en: "Tracking Camera Shot" },
     category: "visual",
     options: [
       { cn: "极具纵深感的广角跟拍（Wide Angle Tracking Shot）", en: "Wide Angle Tracking Shot with Deep Depth" },
-      { cn: "俯瞰追踪拍摄（Overhead Tracking Shot）", en: "Overhead Tracking Shot" },
+      { cn: "俯瞰追踪拍攝（Overhead Tracking Shot）", en: "Overhead Tracking Shot" },
       { cn: "侧面平行跟随（Side Parallel Follow）", en: "Side Parallel Follow" },
       { cn: "斜向45度跟拍（Diagonal 45° Tracking）", en: "Diagonal 45° Tracking" },
       { cn: "螺旋上升环绕（Spiral Ascent Orbit）", en: "Spiral Ascent Orbit" },
@@ -2000,23 +2000,23 @@ export const INITIAL_BANKS = {
     ]
   },
 
-  // 动作镜头类型词库
+  // 动作鏡頭类型詞庫
   action_camera_shot: {
     label: { cn: "動作鏡頭類型", en: "Action Camera Shot" },
     category: "visual",
     options: [
-      { cn: "紧张的驾驶舱视角（Cockpit View）", en: "Tense Cockpit View" },
+      { cn: "紧张的驾驶舱視角（Cockpit View）", en: "Tense Cockpit View" },
       { cn: "紧凑跟拍（Tight Action Shot）", en: "Tight Action Shot" },
-      { cn: "第一人称视角（First-Person POV）", en: "First-Person POV" },
-      { cn: "动作 GoPro 附着视角（Action GoPro Mount）", en: "Action GoPro Mount" },
-      { cn: "急速甩镜头（Whip Pan Transition）", en: "Whip Pan Transition" },
+      { cn: "第一人称視角（First-Person POV）", en: "First-Person POV" },
+      { cn: "动作 GoPro 附着視角（Action GoPro Mount）", en: "Action GoPro Mount" },
+      { cn: "急速甩鏡頭（Whip Pan Transition）", en: "Whip Pan Transition" },
       { cn: "慢动作特写（Slow-Motion Close-Up）", en: "Slow-Motion Close-Up" },
-      { cn: "动态震动镜头（Dynamic Camera Shake）", en: "Dynamic Camera Shake" },
-      { cn: "多角度快速切换（Multi-Angle Quick Cut）", en: "Multi-Angle Quick Cut" }
+      { cn: "動態震动鏡頭（Dynamic Camera Shake）", en: "Dynamic Camera Shake" },
+      { cn: "多角度快速切換（Multi-Angle Quick Cut）", en: "Multi-Angle Quick Cut" }
     ]
   },
 
-  // 自然环境类型词库
+  // 自然环境类型詞庫
   natural_environment: {
     label: { cn: "自然環境類型", en: "Natural Environment Type" },
     category: "location",
@@ -2032,23 +2032,23 @@ export const INITIAL_BANKS = {
     ]
   },
 
-  // 军用飞行器词库
+  // 军用飞行器詞庫
   military_aircraft: {
     label: { cn: "軍用飛行器", en: "Military Aircraft" },
     category: "item",
     options: [
-      { cn: "战斗机（Fighter Jet）", en: "Fighter Jet" },
+      { cn: "戰鬥机（Fighter Jet）", en: "Fighter Jet" },
       { cn: "隐形战机（Stealth Fighter）", en: "Stealth Fighter" },
       { cn: "攻击机（Attack Aircraft）", en: "Attack Aircraft" },
       { cn: "侦察机（Reconnaissance Plane）", en: "Reconnaissance Plane" },
       { cn: "轰炸机（Bomber）", en: "Bomber" },
       { cn: "垂直起降战机（VTOL Aircraft）", en: "VTOL Aircraft" },
-      { cn: "无人战斗机（UCAV）", en: "UCAV" },
+      { cn: "无人戰鬥机（UCAV）", en: "UCAV" },
       { cn: "超音速截击机（Supersonic Interceptor）", en: "Supersonic Interceptor" }
     ]
   },
 
-  // 航拍开场镜头词库
+  // 航拍开场鏡頭詞庫
   aerial_opening_shot: {
     label: { cn: "航拍開場鏡頭", en: "Aerial Opening Shot" },
     category: "visual",
@@ -2064,28 +2064,28 @@ export const INITIAL_BANKS = {
     ]
   },
 
-  // 动态跟拍风格词库
+  // 動態跟拍风格詞庫
   dynamic_tracking_shot: {
     label: { cn: "動態跟拍風格", en: "Dynamic Tracking Shot Style" },
     category: "visual",
     options: [
       { cn: "第三人称紧密跟拍（Third-Person Tight Tracking）", en: "Third-Person Tight Tracking" },
-      { cn: "第一人称视角（First-Person POV）", en: "First-Person POV" },
+      { cn: "第一人称視角（First-Person POV）", en: "First-Person POV" },
       { cn: "侧面跟随（Side Follow）", en: "Side Follow" },
-      { cn: "头顶俯视跟踪（Top-Down Tracking）", en: "Top-Down Tracking" },
+      { cn: "头顶俯視跟踪（Top-Down Tracking）", en: "Top-Down Tracking" },
       { cn: "斜后方45度跟拍（45-Degree Rear Tracking）", en: "45-Degree Rear Tracking" },
-      { cn: "动态环绕跟拍（Dynamic Orbit Tracking）", en: "Dynamic Orbit Tracking" },
-      { cn: "分离镜头（Split Shot）", en: "Split Shot" },
+      { cn: "動態环绕跟拍（Dynamic Orbit Tracking）", en: "Dynamic Orbit Tracking" },
+      { cn: "分离鏡頭（Split Shot）", en: "Split Shot" },
       { cn: "震动跟拍（Shaky Tracking）", en: "Shaky Tracking" }
     ]
   }
 };
 
 export const INITIAL_DEFAULTS = {
-  role: { cn: "游戏与动漫概念美术设计大师", en: "Master of Game and Anime Concept Art" },
+  role: { cn: "遊戲與動漫概念美術設計大師", en: "Master of Game and Anime Concept Art" },
   subject: { cn: "女性角色", en: "Female Character" },
   character_companion: { cn: "死侍 (Deadpool)", en: "Deadpool" },
-  layout_focus: { cn: "全身立绘", en: "Full-body Portrait" },
+  layout_focus: { cn: "全身立繪", en: "Full-body Portrait" },
   camera_angle: { cn: "脸颊和颈部特写", en: "Cheek and neck close-up" },
   connectors: { cn: "手绘箭头或引导线", en: "Hand-drawn arrows or guide lines" },
   underwear_style: { cn: "简约舒适棉质内衣", en: "Simple and comfortable cotton innerwear" },
@@ -2093,7 +2093,7 @@ export const INITIAL_DEFAULTS = {
   clothing_male: { cn: "剪裁合体的深蓝西装", en: "Tailored deep blue suit" },
   clothing_female: { cn: "炭灰色无袖连衣裙", en: "Charcoal grey sleeveless dress" },
   expressions: { cn: "疯狂、病娇、狂喜", en: "Crazy, Yandere, Ecstatic" },
-  character_originality: { cn: "创作一个原创人物", en: "Create an original character" },
+  character_originality: { cn: "创作一個原创人物", en: "Create an original character" },
   character_groups: { cn: "中外知名侦探（包青天、狄仁杰、福尔摩斯、柯南等）", en: "Famous Detectives (Bao Zheng, Di Renjie, Sherlock Holmes, Conan, etc.)" },
   social_media: { cn: "微信朋友圈", en: "WeChat Moments" },
   texture_zoom: { cn: "精细的皮肤纹理", en: "Fine skin texture" },
@@ -2101,19 +2101,19 @@ export const INITIAL_DEFAULTS = {
   special_view: { cn: "背影回眸", en: "Back view reflected in a mirror" },
   bag_content: { cn: "日常通勤包或手拿包", en: "Daily commuter bag or clutch" },
   cosmetics: { cn: "常用的化妆品组合", en: "Commonly used cosmetics combo" },
-  private_items: { cn: "智能运动手表", en: "Smart Sports Watch" },
+  private_items: { cn: "智慧运动手表", en: "Smart Sports Watch" },
   art_style: { cn: "高质量的 2D 插画风格", en: "High-quality 2D illustration style" },
   background_style: { cn: "漫画网格笔记本", en: "Manga grid notebook" },
-  fashion_deconstruct: { cn: "整齐折叠的外套和精致的高跟鞋", en: "Neatly folded coat and exquisite high heels" },
+  fashion_deconstruct: { cn: "整齐折疊的外套和精致的高跟鞋", en: "Neatly folded coat and exquisite high heels" },
   toy_companion: { cn: "Labubu艺术公仔", en: "Labubu Art Toy" },
   classic_scene: { cn: "黑客帝国", en: "The Matrix" },
   render_style: { cn: "Octane Render 和 Cinema 4D", en: "Octane Render and Cinema 4D" },
-  position: { cn: "顶部中央", en: "Top Center" },
+  position: { cn: "頂部中央", en: "Top Center" },
   company: { cn: "任天堂（Nintendo）", en: "Nintendo" },
-  ratio: { cn: "3:4竖构图", en: "3:4 Vertical" },
+  ratio: { cn: "3:4豎構圖", en: "3:4 Vertical" },
   
   // Grid defaults
-  grid_pose: { cn: "前景手指虚化", en: "Out-of-focus fingers in foreground" },
+  grid_pose: { cn: "前景手指虛化", en: "Out-of-focus fingers in foreground" },
   
   // Legacy defaults
   lens_param: { cn: "85mm, f/1.8", en: "85mm, f/1.8" },
@@ -2124,10 +2124,10 @@ export const INITIAL_DEFAULTS = {
   background_scene: { cn: "俯瞰纽约市的复仇者大厦楼顶", en: "Rooftop of Avengers Tower overlooking New York City" },
   
   // Fish Eye Urban defaults
-  lens_type: { cn: "极端鱼眼镜头", en: "Extreme Fisheye Lens" },
+  lens_type: { cn: "极端鱼眼鏡頭", en: "Extreme Fisheye Lens" },
   school_uniform: { cn: "灰色开衫和格子裙校服", en: "Grey cardigan and plaid skirt uniform" },
   urban_location: { cn: "涩谷十字路口", en: "Shibuya Crossing" },
-  dynamic_action: { cn: "一只手夸张地伸向镜头前景", en: "One hand exaggeratedly reaching towards the foreground" },
+  dynamic_action: { cn: "一只手夸张地伸向鏡頭前景", en: "One hand exaggeratedly reaching towards the foreground" },
   fingernail_detail: { cn: "手指甲清晰可见", en: "Fingernails clearly visible" },
   building_cluster: { cn: "扭曲的涩谷109大楼和其他建筑林立", en: "Distorted Shibuya 109 building and other forest of buildings" },
   crowd_traffic: { cn: "挤满行人和车辆", en: "Bustling traffic" },
@@ -2153,7 +2153,7 @@ export const INITIAL_DEFAULTS = {
   item_layout_pixar: { cn: "90度直角整齐排列 (Knolling)", en: "90-degree Knolling layout" },
   fashion_parts: { cn: "风衣拆解：翻领、肩章、腰带、袖口束带、主衣身", en: "Trench coat: Lapel, epaulets, belt, cuffs, main body" },
   beauty_items: { cn: "彩妆：口红（带切面）、眼影盘、粉饼、腮红刷", en: "Makeup: Lipstick (cut), eyeshadow palette, compact, blush brush" },
-  digital_items: { cn: "手机拆解：手机壳、屏幕内容、摄像头模组、主板组件", en: "Phone: Case, screen content, camera module, motherboard" },
+  digital_items: { cn: "手機拆解：手機壳、螢幕內容、攝影機模组、主板组件", en: "Phone: Case, screen content, camera module, motherboard" },
   luxury_hobby_items: { cn: "珠宝：项链、耳环、戒指（宝石带色散效果）", en: "Jewelry: Necklace, earrings, ring (gemstone dispersion)" },
   underwater_color: { cn: "深青色透明水下", en: "deep teal transparent underwater" },
   creatures: { cn: "许多银色小鱼", en: "many small silver fish" },
@@ -2164,8 +2164,8 @@ export const INITIAL_DEFAULTS = {
   city_glimpse_subtitle: { cn: "古韵悠长的千年古都", en: "The thousand-year-old ancient capital" },
   action_status: { cn: "玩PS5", en: "playing PS5" },
   draw_style: { cn: "手绘漫画风格", en: "Hand-drawn Manga Style" },
-  hair_style: { cn: "短发，柔和凌乱的深色头发", en: "Short, softly tousled dark hair" },
-  accessory_glasses: { cn: "戴着有轻微镜面反射的眼镜", en: "wearing glasses with mild lens reflections" },
+  hair_style: { cn: "短髮，柔和凌亂的深色頭髮", en: "Short, softly tousled dark hair" },
+  accessory_glasses: { cn: "戴著有轻微镜面反射的眼鏡", en: "wearing glasses with mild lens reflections" },
   // 新年海报默认值
   clothing_style_chinese: { cn: "古典红色汉服", en: "Classical red Hanfu" },
   clothing_color_traditional: { cn: "暗红色", en: "Dark Red" },
@@ -2173,10 +2173,10 @@ export const INITIAL_DEFAULTS = {
   greeting_new_year: { cn: "马到成功", en: "Immediate Success" },
   background_color_festive: { cn: "红色背景", en: "Red background" },
   character_heroic: { cn: "文艺青年", en: "Artistic Youth" },
-  // 可爱动态姿势默认值
+  // 可爱動態姿势默认值
   room_style_cute: { cn: "可爱粉色房间，粉彩床和墙壁，原创动物玩偶，妖精灯光，可爱海报，毛绒地毯", en: "Cute pink room, pastel pink bed and walls, original cute animal plushies, fairy lights, cute posters, fluffy rug" },
-  cute_outfit: { cn: "黑色紧身吊带连衣裙，长度到臀部，无袖，细肩带", en: "Black tight camisole dress, hip-length, sleeveless, thin straps" },
-  cute_pose_dynamic: { cn: "向前走时回望，从正上方自信俏皮地俯视，迷人微笑", en: "Walking forward while looking back, confidently and playfully looking down from directly above, charming smile" },
+  cute_outfit: { cn: "黑色紧身吊带连衣裙，长度到臀部，无袖，细肩帶", en: "Black tight camisole dress, hip-length, sleeveless, thin straps" },
+  cute_pose_dynamic: { cn: "向前走时回望，从正上方自信俏皮地俯視，迷人微笑", en: "Walking forward while looking back, confidently and playfully looking down from directly above, charming smile" },
 
   // 产品设计规范图默认值
   product_category: { cn: "现代椅子", en: "Modern Chair" },
@@ -2184,7 +2184,7 @@ export const INITIAL_DEFAULTS = {
   drawing_style: { cn: "建筑线图风格", en: "Architectural Line Drawing Style" },
 
   // 人物转手绘默认值
-  character_subject: { cn: "年轻女性，长发，微笑", en: "Young woman with long hair, smiling" },
+  character_subject: { cn: "年輕女性，長髮，微笑", en: "Young woman with long hair, smiling" },
   portrait_view: { cn: "正面肖像", en: "Front portrait" },
   line_art_style: { cn: "钢笔墨水风格", en: "Pen and ink style" },
   shading_technique: { cn: "极简排线阴影", en: "Minimalist cross-hatching" },
@@ -2193,7 +2193,7 @@ export const INITIAL_DEFAULTS = {
   // 经典游戏真实化默认值
   classic_game: { cn: "Donkey Kong (1981 街机游戏)", en: "Donkey Kong (1981 vintage arcade game)" },
 
-  // 科学发现纸雕模型默认值
+  // 科学發現纸雕模型默认值
   scientific_discovery: { cn: "DNA结构", en: "The Structure of DNA" },
 
   // 健身自拍场景默认值
@@ -2203,7 +2203,7 @@ export const INITIAL_DEFAULTS = {
   selfie_style: { cn: "原始真实的镜子自拍", en: "Raw, authentic mirror selfie" },
   photo_effect: { cn: "机顶闪光灯直闪", en: "On-camera flash firing" },
   physical_state: { cn: "健康健美的身材", en: "Healthy athletic build" },
-  sweat_appearance: { cn: "头发凌乱湿透，汗水明显", en: "Hair disheveled and damp with sweat" },
+  sweat_appearance: { cn: "頭髮凌亂湿透，汗水明显", en: "Hair disheveled and damp with sweat" },
   facial_expression: { cn: "脸颊泛红，眼神迷离", en: "Cheeks flushed red, dreamy and slightly unfocused eyes" },
   // 微缩模型系列默认值
   miniature_character: { cn: "消防员", en: "Firefighter" },
@@ -2220,7 +2220,7 @@ export const INITIAL_DEFAULTS = {
   bridal_hair_decoration: { cn: "红色纸剪花和蝴蝶装饰", en: "red paper-cut flowers and butterflies" },
   traditional_bridal_attire: { cn: "红色缎面旗袍", en: "red satin cheongsam" },
   bridal_jewelry: { cn: "白色珍珠首饰和小珍珠耳环", en: "white pearl jewelry and small pearl earrings" },
-  // 高端食品广告默认值
+  // 高端食品廣告默认值
   premium_food_subject: { cn: "手工巧克力球", en: "handcrafted chocolate truffles" },
   ingredient_bits: { cn: "可可粉和金箔碎屑", en: "cocoa powder and gold flakes" },
   // 紫禁城雪夜人形凤凰默认值
@@ -2241,24 +2241,24 @@ export const INITIAL_DEFAULTS = {
   // 解剖学人物画默认值
   anatomy_teaching_style: { cn: "Proko 风格（简化几何、教学导向、清晰构造线）", en: "Proko style (simplified geometry, educational focus, clear construction lines)" },
   construction_line_color: { cn: "紫色/紫罗兰色（主构造线）", en: "Purple/violet sketch lines (primary construction)" },
-  // 视频分镜-影视色调默认值
+  // 影片分镜-影視色调默认值
   video_color_tone: { cn: "冷蓝调，暗部发青（如《银翼杀手2049》）", en: "Cool blue tones, teal shadows (Blade Runner 2049 style)" },
-  // 视频分镜-影视风格默认值
+  // 影片分镜-影視风格默认值
   video_art_style: { cn: "好莱坞大片质感（高成本电影感）", en: "Hollywood blockbuster cinematic quality" },
-  // 视频分镜-场景类型默认值
+  // 影片分镜-场景类型默认值
   scene_type: { cn: "古代酒馆内部，烛光摇曳", en: "Ancient tavern interior, candlelight flickering" },
-  // 酒馆武打戏视频默认值
+  // 酒馆武打戏影片默认值
   fight_style: { cn: "武侠飘逸风（轻功、剑气、衣袂飘飘）", en: "Wuxia elegant style (light kung fu, sword aura, flowing robes)" },
-  camera_rhythm: { cn: "快速切换蒙太奇（多角度快速剪辑）", en: "Rapid montage cutting (multi-angle fast edits)" },
-  // 赛博朋克飞行器视频默认值
-  sci_fi_movie_style: { cn: "赛博朋克美学（Cyberpunk Aesthetics）", en: "Cyberpunk Aesthetics" },
+  camera_rhythm: { cn: "快速切換蒙太奇（多角度快速剪輯）", en: "Rapid montage cutting (multi-angle fast edits)" },
+  // 賽博龐克飞行器影片默认值
+  sci_fi_movie_style: { cn: "賽博龐克美学（Cyberpunk Aesthetics）", en: "Cyberpunk Aesthetics" },
   futuristic_vehicle: { cn: "流线型反重力飞行器（Anti-gravity Vehicle）", en: "Streamlined Anti-gravity Vehicle" },
   cyberpunk_city_scene: { cn: "未来主义超级城市峡谷（Megacity Canyon）", en: "Futuristic Megacity Canyon" },
   tracking_camera_shot: { cn: "极具纵深感的广角跟拍（Wide Angle Tracking Shot）", en: "Wide Angle Tracking Shot with Deep Depth" },
-  action_camera_shot: { cn: "紧张的驾驶舱视角（Cockpit View）", en: "Tense Cockpit View" },
-  // 雨林瀑布战机穿越视频默认值
+  action_camera_shot: { cn: "紧张的驾驶舱視角（Cockpit View）", en: "Tense Cockpit View" },
+  // 雨林瀑布战机穿越影片默认值
   natural_environment: { cn: "古代雨林（Ancient Rainforest）", en: "Ancient Rainforest" },
-  military_aircraft: { cn: "战斗机（Fighter Jet）", en: "Fighter Jet" },
+  military_aircraft: { cn: "戰鬥机（Fighter Jet）", en: "Fighter Jet" },
   aerial_opening_shot: { cn: "史诗超广角航拍（Epic Ultra Wide Aerial Shot）", en: "Epic Ultra Wide Aerial Shot" },
   dynamic_tracking_shot: { cn: "第三人称紧密跟拍（Third-Person Tight Tracking）", en: "Third-Person Tight Tracking" }
 };

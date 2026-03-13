@@ -5,17 +5,17 @@ import { PremiumButton } from '../PremiumButton';
 import { getLocalized } from '../../utils/helpers';
 
 /**
- * 分享模版导入弹窗组件
- * 显示从分享链接/口令导入的模版预览，并确认是否导入
+ * 分享模板匯入彈窗组件
+ * 显示从分享連結/口令匯入的模板預覽，并確認是否匯入
  *
  * @param {Object} props
- * @param {boolean} props.isOpen - 是否打开弹窗
- * @param {Object} props.templateData - 模版数据
- * @param {Function} props.onClose - 关闭弹窗的回调
- * @param {Function} props.onImport - 确认导入的回调
+ * @param {boolean} props.isOpen - 是否打开彈窗
+ * @param {Object} props.templateData - 模板数据
+ * @param {Function} props.onClose - 关闭彈窗的回调
+ * @param {Function} props.onImport - 確認匯入的回调
  * @param {Function} props.t - 翻译函数
- * @param {Object} props.TAG_STYLES - 标签样式
- * @param {Function} props.displayTag - 显示标签的函数
+ * @param {Object} props.TAG_STYLES - 標籤样式
+ * @param {Function} props.displayTag - 显示標籤的函数
  * @param {boolean} props.isDarkMode - 是否暗色模式
  * @param {string} props.language - 当前语言
  */

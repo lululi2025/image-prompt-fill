@@ -8,7 +8,7 @@ import { PremiumButton } from './PremiumButton';
 import { getLocalized } from '../utils/helpers';
 
 /**
- * TemplatesSidebar 组件 - 负责展示左侧模版列表
+ * TemplatesSidebar 组件 - 负责展示左侧模板列表
  */
 export const TemplatesSidebar = React.memo(({
   mobileTab,
@@ -105,7 +105,7 @@ export const TemplatesSidebar = React.memo(({
          </div>
 
          <div className="flex flex-col gap-4">
-            {/* 极简搜索框 */}
+            {/* 极简搜尋框 */}
             <div className={`premium-search-container group ${isDarkMode ? 'dark' : 'light'}`}>
                 <Search className={`absolute left-4 top-1/2 -translate-y-1/2 transition-colors pointer-events-none z-10 ${isDarkMode ? 'text-gray-600 group-focus-within:text-orange-500' : 'text-gray-400 group-focus-within:text-orange-500'}`} size={16} />
                 <input

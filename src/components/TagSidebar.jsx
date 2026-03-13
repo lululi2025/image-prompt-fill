@@ -3,7 +3,7 @@ import { TAG_LABELS } from '../constants/styles';
 
 /**
  * TagSidebar 组件 - 侧边 Tag 栏
- * 包含库源筛选、类型筛选和标签筛选功能
+ * 包含库源筛选、类型筛选和標籤筛选功能
  */
 export const TagSidebar = ({
   // 数据和状态
@@ -52,7 +52,7 @@ export const TagSidebar = ({
       }}
       className="hidden lg:flex flex-col flex-shrink-0 pt-12 pb-8 px-3 overflow-hidden"
     >
-      {/* 库源筛选 - 固定顶部 */}
+      {/* 库源筛选 - 固定頂部 */}
       <div className="flex flex-col gap-3 flex-shrink-0">
         <h3 className={`text-xs font-bold uppercase px-4 opacity-50 ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>
           {language === 'cn' ? '庫源' : 'Library'}
@@ -100,7 +100,7 @@ export const TagSidebar = ({
         </div>
       </div>
 
-      {/* 标签筛选 - 独立滚动区域 */}
+      {/* 標籤筛选 - 独立滚动区域 */}
       <div className="flex flex-col gap-3 mt-8 min-h-0 flex-1 overflow-hidden">
         <h3 className={`text-xs font-bold uppercase px-4 opacity-50 flex-shrink-0 ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>
           {language === 'cn' ? '標籤' : 'Tags'}

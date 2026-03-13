@@ -3,12 +3,12 @@ import { X, ExternalLink, CheckCircle2, Globe, LayoutGrid } from 'lucide-react';
 import { openExternalLink } from '../../utils/platform';
 
 /**
- * 复制成功弹窗组件
- * 告知用户复制成功，并提供生图网站推荐
+ * 複製成功彈窗组件
+ * 告知用户複製成功，并提供生图网站推薦
  *
  * @param {Object} props
- * @param {boolean} props.isOpen - 是否打开弹窗
- * @param {Function} props.onClose - 关闭弹窗的回调
+ * @param {boolean} props.isOpen - 是否打开彈窗
+ * @param {Function} props.onClose - 关闭彈窗的回调
  * @param {string} props.bestModel - 当前模板的最佳匹配模型
  * @param {string} props.templateType - 当前模板的类型 (image/video)
  * @param {boolean} props.isDarkMode - 是否暗色模式
@@ -25,21 +25,21 @@ const CopySuccessModal = ({ isOpen, onClose, bestModel, templateType = 'image', 
       id: 'jimeng',
       name: '即梦 (Jimeng)',
       url: 'https://jimeng.jianying.com/ai-tool/home/',
-      description: { cn: '字节跳动 AI 视频', en: 'Bytedance AI Video' },
+      description: { cn: '位元組跳動 AI 影片', en: 'Bytedance AI Video' },
       models: ['Seedance 2.0']
     },
     {
       id: 'kling',
       name: '可灵 (Kling AI)',
       url: 'https://klingai.kuaishou.com/',
-      description: { cn: '快手专业级视频大模型', en: 'Kuaishou AI Video' },
+      description: { cn: '快手專業級影片大模型', en: 'Kuaishou AI Video' },
       models: ['Kling 3.0']
     },
     {
       id: 'veo',
       name: 'Veo 3 (Google)',
       url: 'https://deepmind.google/technologies/veo/',
-      description: { cn: 'Google 视频生成模型', en: 'Google AI Video' },
+      description: { cn: 'Google 影片生成模型', en: 'Google AI Video' },
       models: ['Veo 3.1']
     }
   ] : [
@@ -61,7 +61,7 @@ const CopySuccessModal = ({ isOpen, onClose, bestModel, templateType = 'image', 
       id: 'jimeng',
       name: '即梦 (Jimeng)',
       url: 'https://jimeng.jianying.com/ai-tool/home/',
-      description: { cn: '字节跳动 AI 生图', en: 'Bytedance AI' },
+      description: { cn: '位元組跳動 AI 生图', en: 'Bytedance AI' },
       models: ['Zimage']
     }
   ];
@@ -72,14 +72,14 @@ const CopySuccessModal = ({ isOpen, onClose, bestModel, templateType = 'image', 
       id: 'luma',
       name: 'Luma Dream Machine',
       url: 'https://lumalabs.ai/dream-machine',
-      description: { cn: '电影级视频生成', en: 'Cinematic AI Video' },
+      description: { cn: '電影級影片生成', en: 'Cinematic AI Video' },
       models: []
     },
     {
       id: 'runway',
       name: 'Runway Gen-3',
       url: 'https://runwayml.com/',
-      description: { cn: '专业 AI 视频创作工具', en: 'Pro AI Video Tools' },
+      description: { cn: '專業 AI 影片創作工具', en: 'Pro AI Video Tools' },
       models: []
     }
   ] : [
@@ -94,7 +94,7 @@ const CopySuccessModal = ({ isOpen, onClose, bestModel, templateType = 'image', 
       id: 'flowith',
       name: 'Flowith',
       url: 'https://flowith.io/',
-      description: { cn: '多模型集成工作流', en: 'Multi-model Workflow' },
+      description: { cn: '多模型整合工作流', en: 'Multi-model Workflow' },
       models: []
     }
   ];
@@ -126,10 +126,10 @@ const CopySuccessModal = ({ isOpen, onClose, bestModel, templateType = 'image', 
           </button>
 
           <h3 className={`text-xl font-black mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-            {language === 'cn' ? '复制成功' : 'Copied Successfully'}
+            {language === 'cn' ? '複製成功' : 'Copied Successfully'}
           </h3>
           <p className={`text-xs font-bold mb-8 ${isDarkMode ? 'text-gray-500' : 'text-gray-400'}`}>
-            {language === 'cn' ? '提示词已存入剪贴板，快去生图吧！' : 'Prompt saved to clipboard, go generate!'}
+            {language === 'cn' ? '提示詞已存入剪貼簿，快去生图吧！' : 'Prompt saved to clipboard, go generate!'}
           </p>
 
           <div className="space-y-6">
@@ -150,7 +150,7 @@ const CopySuccessModal = ({ isOpen, onClose, bestModel, templateType = 'image', 
             <div>
               <p className={`flex items-center gap-2 text-[10px] font-black uppercase tracking-widest ${isDarkMode ? 'text-gray-600' : 'text-gray-400'} mb-3`}>
                 <LayoutGrid size={12} />
-                {language === 'cn' ? '第三方集成平台' : 'THIRD-PARTY'}
+                {language === 'cn' ? '第三方整合平台' : 'THIRD-PARTY'}
               </p>
               <div className="grid grid-cols-1 gap-2">
                 {thirdPartySites.map((site) => (

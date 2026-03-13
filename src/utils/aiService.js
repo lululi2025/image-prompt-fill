@@ -1,6 +1,6 @@
 /**
  * AI 服务工具函数
- * 用于处理 AI 词条生成的逻辑
+ * 用于处理 AI 詞條生成的逻辑
  * 对接宝塔后端 AI 代理接口
  */
 
@@ -8,16 +8,16 @@ import { AI_FEATURE_ENABLED } from '../constants/aiConfig';
 import { smartFetch } from './platform';
 
 /**
- * 智能生成词条（增强版：支持上下文感知）
+ * 智慧生成詞條（增強版：支持上下文感知）
  * @param {Object} params - 生成参数
- * @param {string} params.variableLabel - 变量标签
+ * @param {string} params.variableLabel - 變數標籤
  * @param {string} params.language - 语言 (cn/en)
  * @param {string} params.currentValue - 当前值
- * @param {Array} params.localOptions - 本地词库选项
- * @param {string} params.templateContext - 模板上下文内容
+ * @param {Array} params.localOptions - 本地詞庫选项
+ * @param {string} params.templateContext - 模板上下文內容
  * @param {number} params.count - 生成数量
- * @param {Object} params.selectedValues - 用户已选择的其他变量值（新增）
- * @returns {Promise<Array>} - AI 生成的词条数组
+ * @param {Object} params.selectedValues - 用户已選擇的其他變數值（新增）
+ * @returns {Promise<Array>} - AI 生成的詞條数组
  */
 export const generateAITerms = async (params) => {
   const {
@@ -27,10 +27,10 @@ export const generateAITerms = async (params) => {
     localOptions = [],
     templateContext = "",
     count = 5,
-    selectedValues = {}  // 新增：用户已选择的其他变量值
+    selectedValues = {}  // 新增：用户已選擇的其他變數值
   } = params;
 
-  // 检查功能开关
+  // 检查功能開關
   if (!AI_FEATURE_ENABLED) {
     console.warn('[AI Service] AI feature is disabled');
     return [];
@@ -54,7 +54,7 @@ export const generateAITerms = async (params) => {
           localOptions: localOptions.slice(0, 15), // 传递部分本地选项供参考
           currentValue,
           count,
-          selectedValues  // 新增：传递用户已选择的变量值
+          selectedValues  // 新增：传递用户已選擇的變數值
         }
       })
     });
@@ -79,18 +79,18 @@ export const generateAITerms = async (params) => {
 };
 
 /**
- * 智能一键润色与拆分
+ * 智慧一鍵潤色與拆分
  * @param {Object} params - 参数
- * @param {string} params.rawPrompt - 原始提示词
- * @param {string} params.existingBankContext - 现有词库上下文信息
- * @param {Array} params.availableTags - 可选标签列表
+ * @param {string} params.rawPrompt - 原始提示詞
+ * @param {string} params.existingBankContext - 现有詞庫上下文信息
+ * @param {Array} params.availableTags - 可选標籤列表
  * @param {string} params.language - 语言
  * @returns {Promise<Object>} - AI 处理结果
  */
 export const polishAndSplitPrompt = async (params) => {
   const { rawPrompt, existingBankContext = '', availableTags = [], language = 'cn' } = params;
 
-  // 检查功能开关
+  // 检查功能開關
   if (!AI_FEATURE_ENABLED) {
     console.warn('[AI Service] AI feature is disabled');
     throw new Error('AI 功能已禁用');
@@ -132,7 +132,7 @@ export const polishAndSplitPrompt = async (params) => {
 };
 
 /**
- * 以下函数由于采用了后端代理，且 Key 存储在服务器环境变量中，
+ * 以下函数由于採用了后端代理，且 Key 存储在服务器环境變數中，
  * 前端不再直接管理 API Key。保留空实现或按需移除。
  */
 export const validateApiKey = () => true;

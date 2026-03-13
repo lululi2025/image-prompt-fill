@@ -7,7 +7,7 @@ export const useAsyncStickyState = (defaultValue, key) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const isFirstRender = useRef(true);
 
-  // 加载初始数据
+  // 載入初始数据
   useEffect(() => {
     async function loadData() {
       try {
@@ -16,7 +16,7 @@ export const useAsyncStickyState = (defaultValue, key) => {
           setValue(savedValue);
         }
       } catch (error) {
-        console.error(`加载 IndexedDB 数据失败 (${key}):`, error);
+        console.error(`載入 IndexedDB 数据失败 (${key}):`, error);
       } finally {
         setIsLoaded(true);
       }
@@ -26,19 +26,19 @@ export const useAsyncStickyState = (defaultValue, key) => {
 
   // 监听值变化并保存
   useEffect(() => {
-    // 跳过首次渲染（已经加载过了或加载中）
+    // 跳过首次渲染（已经載入过了或載入中）
     if (isFirstRender.current) {
       isFirstRender.current = false;
       return;
     }
 
-    // 只有在数据加载完成后才允许保存，防止默认值覆盖已存在的数据
+    // 只有在数据載入完成后才允许保存，防止默认值覆盖已存在的数据
     if (!isLoaded) return;
 
     const saveData = async () => {
       try {
         const storageMode = window.localStorage.getItem('app_storage_mode') || 'browser';
-        // 如果是文件夹模式，交由 App.jsx 的同步逻辑处理
+        // 如果是資料夾模式，交由 App.jsx 的同步逻辑处理
         if (storageMode === 'folder') return;
         
         await dbSet(key, value);
@@ -47,7 +47,7 @@ export const useAsyncStickyState = (defaultValue, key) => {
       }
     };
 
-    // 使用 debounce 或简单的延迟以优化性能
+    // 使用 debounce 或简单的延迟以優化性能
     const timer = setTimeout(saveData, 300);
     return () => clearTimeout(timer);
   }, [key, value, isLoaded]);

@@ -7,8 +7,8 @@ import { MoonIcon } from '../icons/MoonIcon';
 import { SunMoonIcon } from '../icons/SunMoonIcon';
 
 /**
- * 移动端底部导航栏组件
- * 包含主页、编辑器、设置三个标签以及主题切换按钮
+ * 行動端底部導航栏组件
+ * 包含主页、編輯器、設定三个標籤以及主题切換按钮
  */
 const MobileBottomNav = ({
   mobileTab,
@@ -33,7 +33,7 @@ const MobileBottomNav = ({
     setIsBanksDrawerOpen(false);
   };
 
-  // 编辑器按钮
+  // 編輯器按钮
   const handleEditorClick = () => {
     setDiscoveryView(false);
     setZoomedImage(null);
@@ -46,7 +46,7 @@ const MobileBottomNav = ({
     setMobileTab('editor');
   };
 
-  // 设置按钮
+  // 設定按钮
   const handleSettingsClick = () => {
     setDiscoveryView(false, { skipMobileTabSync: true });
     setMobileTab('settings');
@@ -55,7 +55,7 @@ const MobileBottomNav = ({
     setIsBanksDrawerOpen(false);
   };
 
-  // 主题切换按钮
+  // 主题切換按钮
   const handleThemeToggle = () => {
     if (themeMode === 'light') setThemeMode('dark');
     else if (themeMode === 'dark') setThemeMode('system');
@@ -72,7 +72,7 @@ const MobileBottomNav = ({
         <HomeIcon size={28} />
       </button>
       
-      {/* 模版详情 (编辑器) */}
+      {/* 模板详情 (編輯器) */}
       <button 
         onClick={handleEditorClick}
         className={`p-2 group transition-all active:scale-90 ${mobileTab === 'editor' ? (isDarkMode ? 'text-[#FB923C]' : 'text-[#EA580C]') : (isDarkMode ? 'text-[#8E9196]' : 'text-[#6B7280]')} hover:text-[#F97316]`}
@@ -80,7 +80,7 @@ const MobileBottomNav = ({
         <ListIcon size={28} />
       </button>
       
-      {/* 设置 */}
+      {/* 設定 */}
       <button 
         onClick={handleSettingsClick}
         className={`p-2 group transition-all active:scale-90 ${mobileTab === 'settings' ? (isDarkMode ? 'text-[#FB923C]' : 'text-[#EA580C]') : (isDarkMode ? 'text-[#8E9196]' : 'text-[#6B7280]')} hover:text-[#F97316]`}
@@ -88,7 +88,7 @@ const MobileBottomNav = ({
         <SettingsIcon size={28} />
       </button>
 
-      {/* 主题切换 */}
+      {/* 主题切換 */}
       <button 
         onClick={handleThemeToggle}
         className={`p-2 group relative transition-all active:scale-90 ${isDarkMode ? 'text-[#8E9196]' : 'text-[#6B7280]'} hover:text-[#F97316]`}

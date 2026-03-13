@@ -114,8 +114,8 @@ const FuCharacter = React.memo(({ isDarkMode }) => {
 FuCharacter.displayName = 'FuCharacter';
 
 /**
- * VideoCard 组件 - 瀑布流中的视频卡片
- * 默认显示封面图（或视频首帧），hover 时自动播放视频
+ * VideoCard 组件 - 瀑布流中的影片卡片
+ * 默认显示封面图（或影片首帧），hover 时自动播放影片
  */
 const VideoCard = React.memo(({ videoUrl, imageUrl, alt }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -155,7 +155,7 @@ const VideoCard = React.memo(({ videoUrl, imageUrl, alt }) => {
           loading="lazy"
         />
       )}
-      {/* 视频层 - 始终存在，hover 时显示 */}
+      {/* 影片层 - 始终存在，hover 时显示 */}
       <video
         ref={videoRef}
         src={videoUrl}
@@ -216,7 +216,7 @@ export const DiscoveryView = React.memo(({
   }) => {
     const [columnCount, setColumnCount] = useState(1);
     const [columnGap, setColumnGap] = useState(20); // Default to gap-5 (20px)
-    const [isMobileTagsExpanded, setIsMobileTagsExpanded] = useState(false); // 手机端顶栏标签行默认折叠
+    const [isMobileTagsExpanded, setIsMobileTagsExpanded] = useState(false); // 手機端頂欄標籤行默认折疊
   
     useEffect(() => {
       const getColumnInfo = () => {
@@ -249,14 +249,14 @@ export const DiscoveryView = React.memo(({
     const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
 
   if (isMobile) {
-    // ... 保持移动端逻辑不变
+    // ... 保持行動端逻辑不变
     return (
       <main
         className={`fixed inset-0 z-10 flex flex-col overflow-y-auto overflow-x-hidden pb-32 md:pb-20 ${isDarkMode ? 'dark-gradient-bg' : 'mesh-gradient-bg'}`}
       >
-        {/* 顶部固定毛玻璃导航栏 - 全局最上层 */}
+        {/* 頂部固定毛玻璃導航栏 - 全局最上层 */}
         <div className={`fixed top-0 left-0 right-0 z-[100] pointer-events-none transition-[height] duration-200 ${isMobileTagsExpanded ? 'h-40' : 'h-24'}`}>
-          {/* 渐进式背景模糊层 */}
+          {/* 漸進式背景模糊层 */}
           <div 
             className="absolute inset-0"
             style={{
@@ -269,9 +269,9 @@ export const DiscoveryView = React.memo(({
               WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 50%, transparent 100%)'
             }}
           />
-          {/* 内容区域 - 类型行 + 可折叠标签行 */}
+          {/* 內容区域 - 类型行 + 可折疊標籤行 */}
           <div className="relative pt-safe pointer-events-auto overflow-hidden">
-            {/* 最上层级：全部/图片/视频（无底色，选中底部小圆点）+ 右侧折叠按钮 */}
+            {/* 最上层级：全部/圖片/影片（无底色，选中底部小圆点）+ 右侧折疊按钮 */}
             <div className="flex px-4 sm:px-6 gap-4 h-12 items-center justify-between">
               <div className="flex gap-6 items-center">
                 {[
@@ -304,7 +304,7 @@ export const DiscoveryView = React.memo(({
                 {isMobileTagsExpanded ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
               </button>
             </div>
-            {/* 标签选项行 - 可折叠 */}
+            {/* 標籤选项行 - 可折疊 */}
             {isMobileTagsExpanded && (
               <div className="flex overflow-x-auto no-scrollbar px-4 sm:px-6 gap-6 scroll-smooth h-12 items-center">
                 <button
@@ -341,7 +341,7 @@ export const DiscoveryView = React.memo(({
           </div>
         </div>
 
-        {/* 轮播图区域 - 只从下方有效结果中取（与瀑布流一致：全部/图片/视频+标签） */}
+        {/* 轮播图区域 - 只从下方有效结果中取（与瀑布流一致：全部/圖片/影片+標籤） */}
         <div className="w-full">
           <TemplateCarousel
             templates={filteredTemplates}
@@ -351,7 +351,7 @@ export const DiscoveryView = React.memo(({
           />
         </div>
 
-        {/* 图像展示区域（两列瀑布流） */}
+        {/* 圖像展示区域（两列瀑布流） */}
         <div className="flex flex-col w-full px-2 py-4 gap-4">
           <section className="columns-2 gap-1">
             {filteredTemplates.map(t_item => (
@@ -457,7 +457,7 @@ export const DiscoveryView = React.memo(({
                   <div className="w-full flex-1 flex items-center justify-center">
                     <FuCharacter isDarkMode={isDarkMode} />
                   </div>
-                  {/* 区块3: 新建模版按钮 - 贴底 */}
+                  {/* 区块3: 新建模板按钮 - 贴底 */}
                   <div className="w-full flex-shrink-0">
                       <PremiumButton
                           onClick={handleAddTemplate}

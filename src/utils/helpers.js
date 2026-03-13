@@ -4,13 +4,13 @@ import pako from 'pako';
 
 // ... (existing code)
 
-// 复制文本到剪贴板 (带手机端兼容性 fallback + Tauri 支持)
+// 複製文本到剪貼簿 (带手機端兼容性 fallback + Tauri 支持)
 export const copyToClipboard = async (text) => {
   if (typeof window === 'undefined') return false;
 
-  // --- 新增：Tauri 原生剪贴板支持 ---
+  // --- 新增：Tauri 原生剪貼簿支持 ---
   try {
-    // Tauri v2 插件通常挂载在 window.__TAURI_API__ 或通过直接调用
+    // Tauri v2 插件通常挂载在 window.__TAURI_API__ 或通過直接调用
     if (window.__TAURI_INTERNALS__ || window.__TAURI_IPC__) {
       // 尝试调用 Tauri 的 clipboard-manager 插件
       // 注意：这里需要配合我们之前在 Rust 里开通的权限
@@ -31,11 +31,11 @@ export const copyToClipboard = async (text) => {
       await navigator.clipboard.writeText(text);
       return true;
     } catch (err) {
-      console.warn('navigator.clipboard 复制失败，尝试 fallback:', err);
+      console.warn('navigator.clipboard 複製失败，尝试 fallback:', err);
     }
   }
 
-  // 2. Fallback: 使用隐藏 textarea + document.execCommand('copy')
+  // 2. Fallback: 使用隱藏 textarea + document.execCommand('copy')
   // 这是最兼容的方式，在 App 内也通常有效
   try {
     const textArea = document.createElement("textarea");
@@ -66,7 +66,7 @@ export const copyToClipboard = async (text) => {
     
     if (successful) return true;
   } catch (err) {
-    console.error('Fallback 复制也失败了:', err);
+    console.error('Fallback 複製也失败了:', err);
   }
 
   return false;
@@ -77,7 +77,7 @@ export const compressTemplate = (data, banks = null, categories = null, template
   try {
     if (!data) return null;
 
-    // 1. 提取核心数据，过滤掉巨大的 Base64 图像
+    // 1. 提取核心数据，过滤掉巨大的 Base64 圖像
     const simplifiedData = (data.n && data.c) ? {
       ...data,
       s: data.s || data.selections || {} // 确保 selections 被包含 (s 为精简键名)
@@ -89,13 +89,13 @@ export const compressTemplate = (data, banks = null, categories = null, template
       l: data.language || ['cn', 'en'],
       i: (typeof data.imageUrl === 'string' && data.imageUrl.startsWith('http')) ? data.imageUrl : "",
       s: data.selections || {}, // s for selections
-      // --- 新增视频模板相关字段 ---
+      // --- 新增影片模板相关字段 ---
       ty: data.type || 'image',    // ty for type
       vu: data.videoUrl || "",     // vu for videoUrl
       src: data.source || []       // src for source
     };
 
-    // 1.5 如果提供了 templates，打包 source 中关联的模版（一层，不递归）
+    // 1.5 如果提供了 templates，打包 source 中关联的模板（一层，不递归）
     if (templates) {
       const sourceArr = data.source || [];
       const linkedTemplateIds = [...new Set(
@@ -107,9 +107,9 @@ export const compressTemplate = (data, banks = null, categories = null, template
         linkedTemplateIds.forEach(tid => {
           const linkedTpl = templates.find(t => t.id === tid);
           if (linkedTpl) {
-            // 精简关联模版数据（不传 templates 参数，避免递归）
+            // 精简关联模板数据（不传 templates 参数，避免递归）
             const ltData = {
-              oid: tid, // oid = original id，用于导入时建立映射
+              oid: tid, // oid = original id，用于匯入时建立映射
               n: linkedTpl.name || "",
               c: linkedTpl.content || "",
               t: linkedTpl.tags || [],
@@ -119,7 +119,7 @@ export const compressTemplate = (data, banks = null, categories = null, template
               s: linkedTpl.selections || {},
               ty: linkedTpl.type || 'image',
               vu: linkedTpl.videoUrl || "",
-              // 关联模版的 source：降级处理，移除其中的 templateId 避免嵌套
+              // 关联模板的 source：降級处理，移除其中的 templateId 避免嵌套
               src: (linkedTpl.source || []).map(s => {
                 if (s.templateId) {
                   const { templateId, ...rest } = s;
@@ -138,7 +138,7 @@ export const compressTemplate = (data, banks = null, categories = null, template
       }
     }
 
-    // 2. 如果提供了 banks，提取模板中使用的自定义词库
+    // 2. 如果提供了 banks，提取模板中使用的自訂詞庫
     if (banks) {
       const contentStr = typeof simplifiedData.c === 'object' 
         ? Object.values(simplifiedData.c).join(' ') 
@@ -147,10 +147,10 @@ export const compressTemplate = (data, banks = null, categories = null, template
       const varRegex = /{{(.*?)}}/g;
       const matches = [...contentStr.matchAll(varRegex)];
       
-      // 使用更精确的解析逻辑提取 baseKey，支持带下划线的词库名
+      // 使用更精确的解析逻辑提取 baseKey，支持带下划线的詞庫名
       const baseKeys = [...new Set(matches.map(m => {
         const fullKey = m[1].trim();
-        // 匹配逻辑：提取末尾如果是 _数字 的部分之前的全部内容
+        // 匹配逻辑：提取末尾如果是 _数字 的部分之前的全部內容
         const match = fullKey.match(/^(.+?)(?:_(\d+))?$/);
         return match ? match[1] : fullKey;
       }))];
@@ -235,13 +235,13 @@ export const decompressTemplate = (compressedBase64) => {
       banks: data.b || null,
       categories: data.cg || null,
       selections: data.s || data.selections || {},
-      // --- 新增视频模板相关字段恢复 ---
+      // --- 新增影片模板相关字段還原 ---
       type: data.ty || data.type || 'image',
       videoUrl: data.vu || data.videoUrl || "",
       source: data.src || data.source || []
     };
 
-    // --- 还原关联模版数据 ---
+    // --- 还原关联模板数据 ---
     if (data.lt && Array.isArray(data.lt) && data.lt.length > 0) {
       result.linkedTemplates = data.lt.map(lt => ({
         originalId: lt.oid || '',
@@ -269,7 +269,7 @@ export const decompressTemplate = (compressedBase64) => {
 // 深拷贝对象
 export const deepClone = (obj) => JSON.parse(JSON.stringify(obj));
 
-// 生成唯一键名
+// 生成唯一鍵名
 export const makeUniqueKey = (base, existingKeys, suffix = "custom") => {
   let candidate = `${base}_${suffix}`;
   let counter = 1;
@@ -305,7 +305,7 @@ export const getSystemLanguage = () => {
   return lang.startsWith('zh') ? 'cn' : 'en';
 };
 
-// 等待图片加载完成，避免导出时空白
+// 等待圖片載入完成，避免匯出时空白
 export const waitForImageLoad = (img, timeout = 6000) => {
   if (!img) return Promise.resolve();
   if (img.complete && img.naturalWidth > 0) return Promise.resolve();
@@ -324,8 +324,8 @@ export const waitForImageLoad = (img, timeout = 6000) => {
 };
 
 /**
- * 自动识别并转换视频链接为嵌入地址 (B站, YouTube, X等)
- * @param {string} url 原始链接
+ * 自动识别并转换影片連結为嵌入地址 (B站, YouTube, X等)
+ * @param {string} url 原始連結
  * @returns {Object|null} { embedUrl, platform, isEmbed: true } 或 null
  */
 export const getVideoEmbedInfo = (url) => {
@@ -351,7 +351,7 @@ export const getVideoEmbedInfo = (url) => {
   const biliMatch = url.match(biliRegex);
   if (biliMatch) {
     return {
-      // 增加 high_quality=1&danmaku=0 等参数优化预览体验
+      // 增加 high_quality=1&danmaku=0 等参数優化預覽體驗
       embedUrl: `//player.bilibili.com/player.html?bvid=${biliMatch[1]}&page=1&high_quality=1&danmaku=0`,
       platform: 'bilibili',
       isEmbed: true
@@ -367,7 +367,7 @@ export const getVideoEmbedInfo = (url) => {
   if (xMatch) {
     return {
       // 使用 Twitter 官方的嵌入部件 URL (这种方式在 iframe 中可能受限，取决于平台策略)
-      // 备选方案是返回原始链接但在预览中提示使用 X 的嵌入
+      // 备选方案是返回原始連結但在預覽中提示使用 X 的嵌入
       embedUrl: `https://platform.twitter.com/embed/Tweet.html?id=${xMatch[1]}`,
       platform: 'x',
       isEmbed: true

@@ -1,12 +1,12 @@
 import { useState, useCallback, useRef } from 'react';
 
 /**
- * 变量名解析工具函数
- * 从变量名中提取 baseKey 和 groupId
+ * 變數名解析工具函数
+ * 从變數名中提取 baseKey 和 groupId
  * 例如: "fruit_1" -> { baseKey: "fruit", groupId: "1" }
  *       "fruit" -> { baseKey: "fruit", groupId: null }
  *
- * @param {string} varName - 变量名
+ * @param {string} varName - 變數名
  * @returns {Object} { baseKey, groupId }
  */
 export const parseVariableName = (varName) => {
@@ -21,15 +21,15 @@ export const parseVariableName = (varName) => {
 };
 
 /**
- * 联动组管理 Hook
- * 提供变量联动组的功能，支持相同 baseKey 和 groupId 的变量同步更新
+ * 聯動組管理 Hook
+ * 提供變數聯動組的功能，支持相同 baseKey 和 groupId 的變數同步更新
  *
- * @param {string} activeTemplateId - 当前激活的模版 ID
- * @param {Array} templates - 所有模版
- * @param {Function} setTemplates - 更新模版的函数
- * @param {Object} banks - 词库对象
+ * @param {string} activeTemplateId - 当前激活的模板 ID
+ * @param {Array} templates - 所有模板
+ * @param {Function} setTemplates - 更新模板的函数
+ * @param {Object} banks - 詞庫对象
  * @param {Function} handleAddOption - 添加选项的函数
- * @returns {Object} 联动组相关的函数和状态
+ * @returns {Object} 聯動組相关的函数和状态
  */
 export const useLinkageGroups = (
   activeTemplateId,
@@ -38,32 +38,32 @@ export const useLinkageGroups = (
   banks,
   handleAddOption
 ) => {
-  // 光标在变量内的状态
+  // 游標在變數内的状态
   const [cursorInVariable, setCursorInVariable] = useState(false);
   const [currentVariableName, setCurrentVariableName] = useState(null);
   const [currentGroupId, setCurrentGroupId] = useState(null);
 
   /**
-   * 查找模板中所有需要联动的变量
-   * 规则：相同 baseKey 且相同 groupId 的变量联动
+   * 查找模板中所有需要聯動的變數
+   * 规则：相同 baseKey 且相同 groupId 的變數聯動
    *
-   * @param {Object} template - 模版对象
-   * @param {string} baseKey - 变量的基础键名
+   * @param {Object} template - 模板对象
+   * @param {string} baseKey - 變數的基础键名
    * @param {string|null} groupId - 组 ID
-   * @returns {Array} 联动变量的 uniqueKey 数组
+   * @returns {Array} 聯動變數的 uniqueKey 数组
    */
   const findLinkedVariables = useCallback((template, baseKey, groupId) => {
-    if (!groupId) return []; // 没有 groupId 的变量不联动
+    if (!groupId) return []; // 没有 groupId 的變數不聯動
 
     const linkedKeys = new Set();
     
-    // 获取模版的所有内容（可能是对象或字符串）
+    // 获取模板的所有內容（可能是对象或字符串）
     const contentData = template.content;
     const contents = typeof contentData === 'object' 
       ? Object.values(contentData) 
       : [contentData || ''];
 
-    // 分别处理每段内容，以确保索引计算逻辑与渲染时保持一致
+    // 分別处理每段內容，以确保索引计算逻辑与渲染时保持一致
     contents.forEach(content => {
       if (!content) return;
       
@@ -74,7 +74,7 @@ export const useLinkageGroups = (
         const fullKey = match[1].trim();
         const parsed = parseVariableName(fullKey);
 
-        // 匹配相同 baseKey 且相同 groupId 的变量
+        // 匹配相同 baseKey 且相同 groupId 的變數
         if (parsed.baseKey === baseKey && parsed.groupId === groupId) {
           const idx = counters[fullKey] || 0;
           counters[fullKey] = idx + 1;
@@ -87,18 +87,18 @@ export const useLinkageGroups = (
   }, []);
 
   /**
-   * 更新模版的选择值，并同步更新所有联动的变量
+   * 更新模板的選擇值，并同步更新所有聯動的變數
    *
-   * @param {string} uniqueKey - 变量的唯一键
-   * @param {*} value - 要设置的值
-   * @param {Array} linkedKeys - 需要联动的变量键数组
+   * @param {string} uniqueKey - 變數的唯一鍵
+   * @param {*} value - 要設定的值
+   * @param {Array} linkedKeys - 需要聯動的變數键数组
    */
   const updateActiveTemplateSelection = useCallback((uniqueKey, value, linkedKeys = []) => {
     setTemplates(prev => prev.map(t => {
       if (t.id === activeTemplateId) {
         const newSelections = { ...t.selections, [uniqueKey]: value };
 
-        // 同步更新所有联动的变量
+        // 同步更新所有聯動的變數
         linkedKeys.forEach(linkedKey => {
           if (linkedKey !== uniqueKey) {
             newSelections[linkedKey] = value;
@@ -115,21 +115,21 @@ export const useLinkageGroups = (
   }, [activeTemplateId, setTemplates]);
 
   /**
-   * 处理变量选择
-   * 自动处理联动组的同步更新
+   * 处理變數選擇
+   * 自动处理聯動組的同步更新
    *
-   * @param {string} key - 变量键名
-   * @param {number} index - 变量索引
+   * @param {string} key - 變數键名
+   * @param {number} index - 變數索引
    * @param {*} value - 选中的值
    * @param {Function} setActivePopover - 关闭弹出层的函数
    */
   const handleSelect = useCallback((key, index, value, setActivePopover) => {
     const uniqueKey = `${key}-${index}`;
 
-    // 解析变量名，检查是否有联动组
+    // 解析變數名，检查是否有聯動組
     const parsed = parseVariableName(key);
 
-    // 如果有关联组，找到所有需要联动的变量
+    // 如果有关联组，找到所有需要聯動的變數
     let linkedKeys = [];
     if (parsed.groupId) {
       const activeTemplate = templates.find(t => t.id === activeTemplateId);
@@ -145,18 +145,18 @@ export const useLinkageGroups = (
   }, [parseVariableName, findLinkedVariables, updateActiveTemplateSelection, templates, activeTemplateId]);
 
   /**
-   * 添加自定义选项并选中
-   * 同时会添加到词库中（如果不存在）
+   * 添加自訂选项并选中
+   * 同时会添加到詞庫中（如果不存在）
    *
-   * @param {string} key - 变量键名
-   * @param {number} index - 变量索引
+   * @param {string} key - 變數键名
+   * @param {number} index - 變數索引
    * @param {string} newValue - 新选项的值
    * @param {Function} setActivePopover - 关闭弹出层的函数
    */
   const handleAddCustomAndSelect = useCallback((key, index, newValue, setActivePopover) => {
     if (!newValue || !newValue.trim()) return;
 
-    // 解析变量名，获取 baseKey（词库的 key）
+    // 解析變數名，获取 baseKey（詞庫的 key）
     const parsed = parseVariableName(key);
     const baseKey = parsed.baseKey;
 

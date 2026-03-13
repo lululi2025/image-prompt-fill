@@ -3,15 +3,15 @@ import { X, AlertCircle } from 'lucide-react';
 import { PremiumButton } from '../PremiumButton';
 
 /**
- * 通用确认弹窗组件
+ * 通用確認彈窗组件
  *
  * @param {Object} props
- * @param {boolean} props.isOpen - 是否打开弹窗
+ * @param {boolean} props.isOpen - 是否打开彈窗
  * @param {Function} props.onClose - 取消/关闭回调
- * @param {Function} props.onConfirm - 确认回调
- * @param {string} props.title - 弹窗标题
+ * @param {Function} props.onConfirm - 確認回调
+ * @param {string} props.title - 彈窗标题
  * @param {string} props.message - 提示消息
- * @param {string} props.confirmText - 确认按钮文字
+ * @param {string} props.confirmText - 確認按钮文字
  * @param {string} props.cancelText - 取消按钮文字
  * @param {boolean} props.isDarkMode - 是否暗色模式
  */
@@ -19,9 +19,9 @@ export const ConfirmModal = ({
   isOpen,
   onClose,
   onConfirm,
-  title = "确认操作",
-  message = "你确定要执行此操作吗？",
-  confirmText = "确定",
+  title = "確認操作",
+  message = "你確定要执行此操作吗？",
+  confirmText = "確定",
   cancelText = "取消",
   isDarkMode = false
 }) => {

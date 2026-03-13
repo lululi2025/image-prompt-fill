@@ -1,26 +1,26 @@
 /**
  * @typedef {Object} TemplateConfig
- * @property {string} id - 唯一标识符，建议使用 'tpl_' 前缀
- * @property {string|Object} name - 模板显示名称，支持双语对象 {cn: string, en: string} 或单语言字符串
- * @property {string|Object} content - 模板内容，支持 markdown 和 {{variable}} 变量，支持双语对象 {cn: string, en: string} 或单语言字符串
- * @property {string} imageUrl - 预览缩略图 URL
- * @property {string[]} [imageUrls] - 多图预览数组
+ * @property {string} id - 唯一标识符，建議使用 'tpl_' 前缀
+ * @property {string|Object} name - 模板显示名称，支援雙語对象 {cn: string, en: string} 或单语言字符串
+ * @property {string|Object} content - 模板內容，支持 markdown 和 {{variable}} 變數，支援雙語对象 {cn: string, en: string} 或单语言字符串
+ * @property {string} imageUrl - 預覽缩略图 URL
+ * @property {string[]} [imageUrls] - 多图預覽数组
  * @property {Object[]} [source] - 参考素材数组
  * @property {string} source[].type - 素材类型 ('image' | 'video')
- * @property {string} source[].url - 素材链接
- * @property {Object} source[].label - 素材标签 {cn, en}
- * @property {Object.<string, string|Object>} selections - 默认选中的变量值 map，支持双语对象或字符串
- * @property {string[]} tags - 模板标签数组，可选值：建筑、人物、摄影、产品、图表、卡通、宠物、游戏、创意
+ * @property {string} source[].url - 素材連結
+ * @property {Object} source[].label - 素材標籤 {cn, en}
+ * @property {Object.<string, string|Object>} selections - 默认选中的變數值 map，支援雙語对象或字符串
+ * @property {string[]} tags - 模板標籤数组，可选值：建筑、人物、摄影、产品、圖表、卡通、宠物、游戏、创意
  * @property {string|string[]} language - 模板语言，可选值：
  *   - 'cn' - 仅支持中文
  *   - 'en' - 仅支持英文
- *   - ['cn', 'en'] - 支持双语（默认值）
+ *   - ['cn', 'en'] - 支援雙語（默认值）
  * 
  * @example 双语模板
  * {
  *   id: "tpl_example",
  *   name: { cn: "示例模板", en: "Example Template" },
- *   content: { cn: "中文内容...", en: "English content..." },
+ *   content: { cn: "中文內容...", en: "English content..." },
  *   language: ["cn", "en"]
  * }
  * 
@@ -28,7 +28,7 @@
  * {
  *   id: "tpl_cn_only",
  *   name: "仅中文模板",
- *   content: "中文内容...",
+ *   content: "中文內容...",
  *   language: "cn",
     bestModel: "Nano Banana Pro",
     baseImage: "optional_base_image"  ,
@@ -38,12 +38,12 @@
  */
 
 /**
- * 模板系统版本号，每次更新 templates.js 或 banks.js 时请更新此版本号
+ * 模板系统版本号，每次更新 templates.js 或 banks.js 时請更新此版本号
  */
 export const SYSTEM_DATA_VERSION = "0.9.3";
 
 /**
- * 分享功能正式环境域名（扫码导入需使用公网可访问地址）
+ * 分享功能正式环境域名（扫码匯入需使用公网可访问地址）
  * 留空则自动使用当前访问地址
  */
 export const PUBLIC_SHARE_URL = "https://aipromptfill.com";
@@ -51,22 +51,22 @@ export const PUBLIC_SHARE_URL = "https://aipromptfill.com";
 export const TEMPLATE_SKETCH_REALITY_COMPARISON = {
   cn: `### 手绘速写与实景对比
 
-刚刚画完速写，把画纸和实景放在一起拍摄，展示"看我画得多像"的效果。
+刚刚画完速写，把画纸和实景放在一起拍攝，展示"看我画得多像"的效果。
 
 **核心场景：**
-一个人手持刚刚完成的速写作品，画纸旁边就是画中所描绘的真实场景。两者并排同框，形成强烈的视觉对比——左边是真实的建筑或场景，右边是手中的速写画作。画纸内容必须与实景完美对应，展现出高超的绘画技巧和观察力。
+一個人手持刚刚完成的速写作品，画纸旁边就是画中所描绘的真实场景。两者并排同框，形成强烈的視覺对比——左边是真实的建筑或场景，右边是手中的速写画作。画纸內容必须与实景完美对应，展现出高超的绘画技巧和观察力。
 
-**构图布局：**
+**構圖佈局：**
 - 手绘画作：手持画纸，位于画面一侧（右侧或左侧均可），清晰展示完整的速写作品
 - 真实场景：画纸旁边就是画中描绘的真实场景，两者在同一画面中
-- 速写风格：采用 {{line_art_style}}，展现手绘的艺术质感
+- 速写风格：採用 {{line_art_style}}，展现手绘的艺术质感
 - 分离展示：画纸和实景是两个独立的部分，不是融合叠加，而是物理分离的对比展示
 
-**视觉效果：**
-- 手绘部分：清晰的线条、流畅的笔触、完整的构图，展现速写的艺术魅力
+**視覺效果：**
+- 手绘部分：清晰的线条、流畅的笔触、完整的構圖，展现速写的艺术魅力
 - 实景部分：真实的场景细节、自然的光影、丰富的色彩，与手绘形成呼应
 - 对比效果：观众可以清楚地看到速写与实景的相似度，感受到"画得真像"的赞叹
-- 整体氛围：自然真实的拍摄感，带有轻微的颗粒感和胶片质感，像是艺术家完成作品后的纪念照片
+- 整体氛围：自然真实的拍攝感，带有轻微的颗粒感和胶片质感，像是艺术家完成作品后的纪念照片
 
 **情感表达：**
 这不是融合特效，而是真实的对比展示——艺术家站在自己刚刚描绘的场景前，举起画纸与实景合影，展现对场景的观察和再现能力。`,
@@ -95,23 +95,23 @@ This is not a fusion effect, but a genuine comparison display—the artist stand
 
 export const TEMPLATE_BRAND_CONCEPT_OBJECT = {
   cn: `### 品牌概念单品 (Brand Concept Object)
-一张由 {{company}} 设计并概念化的高端、光滑的概念艺术杂志编辑照片，展示一个独特且出乎意料的功能性物品。
+一张由 {{company}} 设计并概念化的高端、光滑的概念艺术杂志編輯照片，展示一個独特且出乎意料的功能性物品。
 
 **1. 概念与物品 (AI 发明):**
-基于 {{company}} 的设计哲学、品牌传承和材料语言，通过品牌的视角重新诠释并设计一个全新的实用单品：{{design_item}}。该物品应具有雕塑感，同时具备功能性，且绝非该品牌常规生产的服装或包袋。
+基于 {{company}} 的设计哲学、品牌传承和材料语言，通過品牌的視角重新诠释并设计一個全新的实用单品：{{design_item}}。该物品应具有雕塑感，同时具备功能性，且绝非该品牌常规生产的服装或包袋。
 
 **2. 材质与细节:**
 该物品由 {{company}} 标志性的超优质、高触感材料制成（例如：具有岁月的异域皮革、拉丝航空级钛金属、雕刻哑光陶瓷、模制碳纤维或高科技时尚面料）。每个细节都超写实：清晰的缝线、微观材料纹理、精密刻印以及复杂的材质对比。
 
 **3. 摄影与灯光:**
-使用飞思中画幅相机配合 100mm 微距镜头拍摄。极浅的景深，焦点清晰地聚集在物品的核心细节上，背景呈现出奶油般细腻平滑的虚化效果。灯光是复杂的工作室柔光箱布光：柔和、包裹式的补光，配合精准的轮廓光，以突出轮廓和材质纹理。
+使用飞思中画幅相机配合 100mm 微距鏡頭拍攝。极浅的景深，焦点清晰地聚集在物品的核心细节上，背景呈现出奶油般细腻平滑的虛化效果。灯光是复杂的工作室柔光箱布光：柔和、包裹式的补光，配合精准的轮廓光，以突出轮廓和材质纹理。
 
 **4. 环境:**
-纯净、超浅的马卡龙色调（如：脱饱和薄荷绿、浅粉色或乳白色）的无缝工作室环形背景，无阴影。
+纯净、超浅的马卡龙色调（如：脱飽和薄荷绿、浅粉色或乳白色）的无缝工作室环形背景，无阴影。
 
-**5. 布局与 UI 元素:**
-- **右下角:** {{company}} 的小型、低调、单色灰色 Logo。
-- **左下角:** 小型、极简的单色灰色文本描述。格式：“CONCEPT STUDY: [产品名称]. MATERIAL: [主要材质]. SS25。”字体风格类似 Manrope Regular，字间距紧凑。
+**5. 佈局与 UI 元素:**
+- **右下角:** {{company}} 的小型、低调、單色灰色 Logo。
+- **左下角:** 小型、极简的單色灰色文本描述。格式：“CONCEPT STUDY: [产品名称]. MATERIAL: [主要材质]. SS25。”字体风格类似 Manrope Regular，字间距紧凑。
 
 **规格:**
 - **画幅:** {{ratio}}`,
@@ -140,16 +140,16 @@ A seamless, impeccably clean studio cyclorama background in a pure, ultra-light 
 
 export const TEMPLATE_WOODEN_ART_XMAS = {
   cn: `### 激光切割木质层叠艺术 (Wood Art & Xmas)
-一件通过激光切割工艺制作的、细节丰富的多层木质艺术品插画。
+一件通過激光切割工艺制作的、细节丰富的多层木质艺术品插画。
 
-**视觉风格:**
+**視覺风格:**
 - **工艺:** 激光切割木质面板艺术，包含大量精细的层叠结构。
 - **艺术风格:** 抽象艺术，每一层都拥有不同的互补色彩。
 - **主题:** 艺术品主题为 {{xmas_theme}}，融合了几何图形与丰富的材质纹理，展现大师级水准。
 
 **摄影与呈现:**
 - **风格:** 顶级产品促销摄影风格，强调深度感与木质纤维的真实触感。
-- **美学:** 专业的商业摄影构图，利用光影勾勒出每一层木板的边缘，画面干净且极具格调。
+- **美学:** 专业的商业摄影構圖，利用光影勾勒出每一层木板的边缘，画面干净且极具格调。
 
 **规格:**
 - **画幅:** {{ratio}}`,
@@ -171,29 +171,29 @@ A beautiful, detailed illustration of multi-layered wooden art created by laser 
 
 export const DEFAULT_TEMPLATE_CONTENT = {
   cn: `### Role (角色设定)
-你是一位顶尖的 {{role}}，擅长制作详尽的角色设定图（Character Sheet）。你具备“像素级拆解”的能力，能够透视角色的穿着层级、捕捉微表情变化，并将与其相关的物品进行具象化还原。你特别擅长通过 {{subject}} 的品质生活好物、随身物件和生活细节来侧面丰满人物性格与背景故事。
+你是一位顶尖的 {{role}}，擅长制作详尽的角色设定图（Character Sheet）。你具备“像素级拆解”的能力，能够透視角色的穿着层级、捕捉微表情变化，并将与其相关的物品进行具象化还原。你特别擅长通過 {{subject}} 的品质生活好物、随身物件和生活细节来侧面丰满人物性格与背景故事。
 
 ### Task (任务目标)
-根据用户上传或描述的主体形象，生成一张**“全景式角色深度概念分解图”**。该图片必须包含 {{layout_focus}}，并在其周围环绕展示该人物的服装分层、不同表情、核心道具、材质特写，以及极具生活气息的品质生活好物与随身物品展示。
+根据用户上传或描述的主体形象，生成一张**“全景式角色深度概念分解图”**。该圖片必须包含 {{layout_focus}}，并在其周围环绕展示该人物的服装分层、不同表情、核心道具、材质特写，以及极具生活气息的品质生活好物与随身物品展示。
 
-### Visual Guidelines (视觉规范)
-**1. 构图布局 (Layout):**
-- **中心位 (Center):** 放置角色的 {{layout_focus}}，作为视觉锚点。
+### Visual Guidelines (視覺规范)
+**1. 構圖佈局 (Layout):**
+- **中心位 (Center):** 放置角色的 {{layout_focus}}，作为視覺锚点。
 - **环绕位 (Surroundings):** 在中心人物四周空白处，有序排列拆解后的元素。
-- **视觉引导 (Connectors):** 使用{{connectors}}，将周边的拆解物品与中心人物的对应部位或所属区域连接起来。
+- **視覺引导 (Connectors):** 使用{{connectors}}，将周边的拆解物品与中心人物的对应部位或所属区域连接起来。
 
-**2. 拆解内容 (Deconstruction Details):**
+**2. 拆解內容 (Deconstruction Details):**
 - **服装分层 (Clothing Layers):** 将角色的服装拆分为单品展示
 - **时尚内着设计:** 独立展示角色的内层衣物，重点突出设计感与材质。例如： {{underwear_style}} （展示细节与剪裁）。
 - **表情集 (Expression Sheet):** 在角落绘制 3-4 个不同的头部特写，展示不同的情绪，如： {{expressions}} 。
 - **材质特写 (Texture & Zoom):** 选取关键部位进行放大特写. 例如： {{texture_zoom}} ，增加对小物件材质的描绘。
 - **动作:** 绘制特殊的动作和表情，例如：{{action_detail}}，增加动作的深度刻画。
-- **特殊视角:** 绘制从某种特殊场景下拍摄的特殊视角，例如：{{special_view}}
+- **特殊視角:** 绘制从某种特殊场景下拍攝的特殊視角，例如：{{special_view}}
 
 - **关联物品 (Related Items):**
- - **随身包袋与内容物:** 绘制 {{bag_content}}，并将其“打开”，展示散落在旁的物品。
+ - **随身包袋与內容物:** 绘制 {{bag_content}}，并将其“打开”，展示散落在旁的物品。
  - **美妆与护理:** 展示 {{cosmetics}}。
- - **品质生活好物:** 具象化角色隐藏面的物品。根据角色性格可能包括： {{private_items}}，需以一种设计图的客观视角呈现。
+ - **品质生活好物:** 具象化角色隱藏面的物品。根据角色性格可能包括： {{private_items}}，需以一种设计图的客观視角呈现。
 
 **3.风格与注释 (Style & Annotations):**
 - **画风:** {{art_style}}，线条干净利落。
@@ -247,20 +247,20 @@ Based on the subject image uploaded or described by the user, generate a **"Pano
 export const TEMPLATE_PHOTO_GRID = {
   cn: `### Photo Grid Composition (九宫格摄影)
 
-**编辑场景:** 3x3网格布局，采用冷灰色无缝背景。人物（面部特征与上传图片完全一致）身穿 {{clothing}}，确保每张照片中人物形象保持一致。
+**編輯场景:** 3x3网格佈局，採用冷灰色无缝背景。人物（面部特征与上传圖片完全一致）身穿 {{clothing}}，确保每张照片中人物形象保持一致。
 
-**灯光设置:** {{lighting}}，营造统一而富有层次的光影效果。
+**灯光設定:** {{lighting}}，营造统一而富有层次的光影效果。
 
 **照片细节包括 (Grid Details)：**
-1. {{grid_pose}}，画面风格统一，镜头参数为 {{lens_param}}；
-2. {{grid_pose}}，镜头参数为 {{lens_param}}，展现不同的拍摄角度和表情；
-3. {{grid_pose}}，镜头参数为 {{lens_param}}，捕捉细腻的情感表达；
-4. {{grid_pose}}，镜头参数为 {{lens_param}}，利用景深营造层次感；
-5. {{grid_pose}}，镜头参数为 {{lens_param}}，突出动态瞬间的生动性；
-6. {{grid_pose}}，镜头参数为 {{lens_param}}，通过前景虚化增强视觉焦点；
-7. {{grid_pose}}，镜头参数为 {{lens_param}}，展现优雅的姿态和放松的状态；
-8. {{grid_pose}}，镜头参数为 {{lens_param}}，捕捉自然光线下的表情变化；
-9. {{grid_pose}}，镜头参数为 {{lens_param}}，微距特写展现面部细节和质感。
+1. {{grid_pose}}，画面风格统一，鏡頭参数为 {{lens_param}}；
+2. {{grid_pose}}，鏡頭参数为 {{lens_param}}，展现不同的拍攝角度和表情；
+3. {{grid_pose}}，鏡頭参数为 {{lens_param}}，捕捉细腻的情感表达；
+4. {{grid_pose}}，鏡頭参数为 {{lens_param}}，利用景深营造层次感；
+5. {{grid_pose}}，鏡頭参数为 {{lens_param}}，突出動態瞬间的生动性；
+6. {{grid_pose}}，鏡頭参数为 {{lens_param}}，通過前景虛化增強視覺焦点；
+7. {{grid_pose}}，鏡頭参数为 {{lens_param}}，展现優雅的姿态和放松的状态；
+8. {{grid_pose}}，鏡頭参数为 {{lens_param}}，捕捉自然光线下的表情变化；
+9. {{grid_pose}}，鏡頭参数为 {{lens_param}}，微距特写展现面部细节和质感。
 
 **后期处理:** 保持原始素材的真实感，平滑对比度，适度应用柔化效果，确保整体色调统一且富有质感。`,
   en: `### Photo Grid Composition
@@ -286,24 +286,24 @@ export const TEMPLATE_PHOTO_GRID = {
 export const TEMPLATE_PHOTO_GRID_V2 = {
   cn: `### Photo Grid Composition (九宫格摄影出格版)
 
-**编辑场景:** 3x3网格布局，采用冷灰色无缝背景。人物（面部特征与上传图片完全一致）身穿 {{clothing}}，确保每张照片中人物形象保持一致。
+**編輯场景:** 3x3网格佈局，採用冷灰色无缝背景。人物（面部特征与上传圖片完全一致）身穿 {{clothing}}，确保每张照片中人物形象保持一致。
 
-**灯光设置:** {{lighting}}，营造统一而富有层次的光影效果。
+**灯光設定:** {{lighting}}，营造统一而富有层次的光影效果。
 
 **照片细节包括 (Grid Details)：**
-1. {{grid_pose}}，画面风格统一，镜头参数为 {{lens_param}}；
-2. {{grid_pose}}，镜头参数为 {{lens_param}}，展现不同的拍摄角度和表情；
-3. {{grid_pose}}，镜头参数为 {{lens_param}}，捕捉细腻的情感表达；
-4. {{grid_pose}}，镜头参数为 {{lens_param}}，利用景深营造层次感；
-5. {{grid_pose}}，镜头参数为 {{lens_param}}，突出动态瞬间的生动性；
-6. {{grid_pose}}，镜头参数为 {{lens_param}}，通过前景虚化增强视觉焦点；
-7. {{grid_pose}}，镜头参数为 {{lens_param}}，展现优雅的姿态和放松的状态；
-8. {{grid_pose}}，镜头参数为 {{lens_param}}，捕捉自然光线下的表情变化；
-9. {{grid_pose}}，镜头参数为 {{lens_param}}，微距特写展现面部细节和质感。
+1. {{grid_pose}}，画面风格统一，鏡頭参数为 {{lens_param}}；
+2. {{grid_pose}}，鏡頭参数为 {{lens_param}}，展现不同的拍攝角度和表情；
+3. {{grid_pose}}，鏡頭参数为 {{lens_param}}，捕捉细腻的情感表达；
+4. {{grid_pose}}，鏡頭参数为 {{lens_param}}，利用景深营造层次感；
+5. {{grid_pose}}，鏡頭参数为 {{lens_param}}，突出動態瞬间的生动性；
+6. {{grid_pose}}，鏡頭参数为 {{lens_param}}，通過前景虛化增強視覺焦点；
+7. {{grid_pose}}，鏡頭参数为 {{lens_param}}，展现優雅的姿态和放松的状态；
+8. {{grid_pose}}，鏡頭参数为 {{lens_param}}，捕捉自然光线下的表情变化；
+9. {{grid_pose}}，鏡頭参数为 {{lens_param}}，微距特写展现面部细节和质感。
 
 **后期处理:** 保持原始素材的真实感，平滑对比度，适度应用柔化效果，确保整体色调统一且富有质感。
 
-**需要单独处理:**中央宫格的图片不局限在自己的宫格内，形成一种从中央宫格跃出画面的3D立体视觉，中央宫格人物占据图片较大面积且全身出镜，会覆盖到其他宫格，并对其他宫格形成阴影效果，营造一种裸眼3D的视觉张力`,
+**需要单独处理:**中央宫格的圖片不局限在自己的宫格内，形成一种从中央宫格跃出画面的3D立体視覺，中央宫格人物占据圖片较大面积且全身出镜，会覆盖到其他宫格，并对其他宫格形成阴影效果，营造一种裸眼3D的視覺张力`,
   en: `### Photo Grid Composition (Out-of-Box Version)
 
 **Scene:** 3x3 grid layout, using a seamless cool grey background. The character (facial features exactly as in the uploaded image) is wearing {{clothing}}, ensuring character consistency across all photos.
@@ -328,16 +328,16 @@ export const TEMPLATE_PHOTO_GRID_V2 = {
 
 export const TEMPLATE_FASHION_MOODBOARD = {
   cn: `### Fashion Illustration Moodboard (时尚插画情绪板)
-一张9:16竖屏的高级时尚插画情绪板，模拟平板扫描效果。
+一张9:16豎屏的高级时尚插画情绪板，模拟平板扫描效果。
 
 **背景:** 纯手绘的奶油色水彩晕染纸张，带有淡淡的粉色网格。
-**视觉核心:** 数张具有明显白色模切宽边和柔和投影的亮面乙烯基贴纸。
+**視覺核心:** 数张具有明显白色模切宽边和柔和投影的亮面乙烯基贴纸。
 
-**贴纸内容:**
+**贴纸內容:**
 - **中央:** {{sticker_core}}，光线明亮。
 - **左侧:** {{fashion_deconstruct}}。
-- **右下角:** 关键的隐藏层贴纸：一套折叠整齐的内衣，展现细腻纹理。
-- **互动元素:** 一只穿着粉色系、与用户服装呼应的 {{toy_companion}} 正趴在一个手绘对话框上。
+- **右下角:** 关键的隱藏层贴纸：一套折疊整齐的内衣，展现细腻纹理。
+- **互动元素:** 一只穿着粉色系、与用户服装呼应的 {{toy_companion}} 正趴在一個手绘对话框上。
 
 **装饰细节:** 周围装饰着蜡笔质感的 {{sticker_decor}} 和潦草的中文书法标注OOTD。
 **注意:** 画面中绝无任何人手、笔或物理桌面背景，纯粹的平面艺术插画。`,
@@ -359,11 +359,11 @@ A high-end 9:16 vertical fashion illustration moodboard, simulating a tablet sca
 
 export const TEMPLATE_CHARACTER_SELFIE = {
   cn: `### Character Selfie (人物趣味合影)
-让 {{character_companion}} 站在男人旁边，{{action_pose}}，同时对着镜头露出调皮的表情。
+让 {{character_companion}} 站在男人旁边，{{action_pose}}，同时对着鏡頭露出调皮的表情。
 
 **背景:** 以 {{background_scene}} 为背景。
 
-**要求:** 保持自拍构图不变，让两个角色自然地融入画面，光影统一，互动自然。`,
+**要求:** 保持自拍構圖不变，让两个角色自然地融入画面，光影统一，互动自然。`,
   en: `### Character Selfie
 Have {{character_companion}} stand next to the man, {{action_pose}}, while making a playful expression at the camera.
 
@@ -375,15 +375,15 @@ Have {{character_companion}} stand next to the man, {{action_pose}}, while makin
 export const TEMPLATE_CLASSIC_SCENE = {
   cn: `### 经典场景微缩复刻
 
-展示一个精致的、微缩 3D 卡通风格的{{classic_scene}}场景，采用清晰的 45° 俯视等轴侧视角（Isometric view）。
+展示一個精致的、微缩 3D 卡通风格的{{classic_scene}}场景，採用清晰的 45° 俯視等轴侧視角（Isometric view）。
 
-**核心构图：** 将主体最经典的形象突出地置于中心。自动搭配比例适宜的关键元素图标、象征性物品、迷人的小角色以及能诠释主体故事的道具。整体布局应当充满趣味且紧凑聚集，宛如一套高端的玩具盲盒套装。
+**核心構圖：** 将主体最经典的形象突出地置于中心。自动搭配比例适宜的关键元素图标、象征性物品、迷人的小角色以及能诠释主体故事的道具。整体佈局应当充满趣味且紧凑聚集，宛如一套高端的玩具盲盒套装。
 
-**渲染与材质：** 采用{{render_style}}风格进行渲染。建模必须精细、圆润流畅且质感丰富。使用逼真的 PBR 材质：混合用于有机形态的柔和哑光粘土、用于水体/玻璃元素的光泽树脂，以及用于结构组件的光滑 PVC 材质。着重表现具有触感、“看起来手感很好”的纹理细节。
+**渲染与材质：** 採用{{render_style}}风格进行渲染。建模必须精细、圆润流畅且质感丰富。使用逼真的 PBR 材质：混合用于有机形态的柔和哑光粘土、用于水体/玻璃元素的光泽树脂，以及用于结构组件的光滑 PVC 材质。着重表现具有触感、“看起来手感很好”的纹理细节。
 
-**灯光与氛围：** 采用柔和、逼真的摄影棚布光配合全局光照（Global Illumination）。利用柔和的阴影营造出温暖、舒适且充满魔力的氛围。
+**灯光与氛围：** 採用柔和、逼真的摄影棚布光配合全局光照（Global Illumination）。利用柔和的阴影营造出溫暖、舒适且充满魔力的氛围。
 
-**布局：** 保持干净、极简的布局，使用与主体配色相协调的纯色背景。
+**佈局：** 保持干净、极简的佈局，使用与主体配色相协调的纯色背景。
 
 **文字：** 在{{position}}，使用巨大的、圆润的 3D 字体醒目地展示主体名称，使其轻微悬浮于场景上方。`,
   en: `### Classic Scene Miniature Restoration
@@ -404,23 +404,23 @@ export const TEMPLATE_CORPORATE_GROWTH = {
   cn: `### 可视化企业成长之路
 
 **角色定义**  
-你是一位企业演变建筑师 (Corporate Evolution Architect)。你的目标是创建一个超高密度、垂直堆叠的等距轴测（Isometric）3D 渲染可视化图像，展示 {{company}} 公司的技术和产品历史。通过图像展示一个企业的时间线：底部是简陋的创业故事，通过产品迭代垂直向上升起，直到现代或未来的巅峰。
+你是一位企业演变建筑师 (Corporate Evolution Architect)。你的目标是建立一個超高密度、垂直堆叠的等距轴测（Isometric）3D 渲染可视化圖像，展示 {{company}} 公司的技术和产品历史。通過圖像展示一個企业的时间线：底部是简陋的创业故事，通過产品迭代垂直向上升起，直到现代或未来的巅峰。
 
-**核心能力 | 关键视觉策略（rameless Tech-Lapse）：**
-- **根除容器：** 严禁使用底板、边框或横截面视图。底部边缘是创业基地（车库/实验室/小办公室），无限延伸。
+**核心能力 | 关键視覺策略（rameless Tech-Lapse）：**
+- **根除容器：** 严禁使用底板、边框或横截面視圖。底部边缘是创业基地（车库/实验室/小办公室），无限延伸。
 - **垂直时间线：** “之字形上升（Zig-Zag Ascent）”穿越创新历程。  
-  - 底部（前景）：创业阶段岁月 + 第一个原型机  
+  - 底部（前景）：创业阶段岁月 + 第一個原型机  
   - 中部（上升中）：快速增长 / 全球扩张 / 标志性的中期产品  
-  - 顶部（背景）：当前总部 / 生态系统 / 未来研发
-- **集成 3D 标题：** 企业 Logo 必须渲染为巨大的、电影般的 3D 字体，矗立在前景，使用公司标志性字体/材质。
+  - 頂部（背景）：当前总部 / 生态系统 / 未来研发
+- **整合 3D 标题：** 企业 Logo 必须渲染为巨大的、电影般的 3D 字体，矗立在前景，使用公司标志性字体/材质。
 
 **检索与梳理：**
 - 提取企业历史的几个阶段。
 - 列出定义每个时代的“经典产品”。
 - 劳动力演变：可视化员工与设备的变化。
 
-**构图与光影：**  
-无框架、无边界、无横截面。垂直之字形时间线，将产品代际从底部的创业阶段堆叠到未来的顶部。灯光从近现代的暖光（创业初期）过渡到干净的白/蓝 LED 光（现代科技）。环境与公司经典产品随高度演变。公司的多款经典产品以“巨物化”呈现。  
+**構圖与光影：**  
+无框架、无边界、无横截面。垂直之字形时间线，将产品代际从底部的创业阶段堆叠到未来的頂部。灯光从近现代的暖光（创业初期）过渡到干净的白/蓝 LED 光（现代科技）。环境与公司经典产品随高度演变。公司的多款经典产品以“巨物化”呈现。  
 移轴摄影（Tilt-shift）与 {{render_style}}，画幅 {{ratio}}。`,
   en: `### Visualized Corporate Growth Path
 **Role Definition**
@@ -454,23 +454,23 @@ export const TEMPLATE_MAGAZINE_COVER = {
 生成一张 9:16 旅游杂志封面级照片，以我上传的真人照片为基准，实现 100% 五官还原，呈现专业、精致、具有真实杂志质感的封面画面。
 
 ### SUBJECT | 人物设定
-根据我上传人物的五官特征进行完整还原；人物置身于 {{travel_location}}，请根据这个地理位置给人物穿着符合当地此刻的实时天气、温度与季节服装逻辑；整体风格自然、优雅、有现场氛围。
+根据我上传人物的五官特征进行完整还原；人物置身于 {{travel_location}}，請根据这个地理位置给人物穿着符合当地此刻的实时天气、温度与季节服装逻辑；整体风格自然、優雅、有现场氛围。
 
 ### POSE & EXPRESSION | 姿态与表情
 人物以杂志封面标准姿态入镜，略带从容质感；面部表情自然放松但具吸引力；
-身体姿势根据场景与天气自由适配，呈现"在当地旅行中的真实状态"。
+身体姿势根据场景与天气自由適配，呈现"在当地旅行中的真实状态"。
 
 ### ENVIRONMENT | 场景要求
-背景呈现用户输入的地名代表性视觉线索，请根据用户输入的地理位置呈现符合当地此刻的实时天气、温度与季节场景逻辑；保持高级写实风格，不夸张、不超现实；
+背景呈现用户输入的地名代表性視覺线索，請根据用户输入的地理位置呈现符合当地此刻的实时天气、温度与季节场景逻辑；保持高级写实风格，不夸张、不超现实；
 光线以真实自然光为主，具有现场环境的时间感。
 
-### CAMERA & AESTHETICS | 拍摄规格
+### CAMERA & AESTHETICS | 拍攝规格
 画幅比例: {{ratio}}
-构图: 充分利用竖幅空间，打造"封面级"视觉中心；镜头语言: 专业摄影棚级别的清晰度与景深；肤质感可见毛孔与自然纹理（非磨皮）；整体氛围具有高级旅行杂志的真实感与美感。
+構圖: 充分利用竖幅空间，打造"封面级"視覺中心；鏡頭语言: 专业摄影棚级别的清晰度与景深；肤质感可见毛孔与自然纹理（非磨皮）；整体氛围具有高级旅行杂志的真实感与美感。
 
 ### MAGAZINE DESIGN | 封面设计
 版面风格现代、干净、具有国际旅行杂志氛围；
-主标题、副标题、杂志图形元素可自动生成但需与人物与地点匹配；
+主标题、副标题、杂志图形元素可自動生成但需与人物与地点匹配；
 色彩搭配高级、协调；
 最终呈现接近《Vogue》《National Geographic Traveler》级别的封面气质。`,
   en: `### PROJECT GOAL
@@ -500,7 +500,7 @@ The final result should approach the cover temperament of "Vogue" or "National G
 
 export const TEMPLATE_MANGA_TO_REALITY = {
   cn: `### SUBJECT | 人物主体
-{{character_originality}}，从漫画分镜边框中跨步走出并打破界限。真实版本与漫画版本之间充满动态且无缝的互动。
+{{character_originality}}，从漫画分镜边框中跨步走出并打破界限。真实版本与漫画版本之间充满動態且无缝的互动。
 
 ### SETTING | 场景设定
 地点：{{comic_scene}}
@@ -509,12 +509,12 @@ export const TEMPLATE_MANGA_TO_REALITY = {
 ### MANGA DETAILS | 漫画细节
 - **风格：** 超现实风格的黑白四格漫画
 - **技法：** 正宗日式排版，网点纸效果，粗黑墨线，线条清晰利落
-- **内容：** 同一个人的漫画版本被困在漫画书里面
-- **对比：** 单色漫画世界与鲜艳现实世界的强烈视觉对比
+- **內容：** 同一個人的漫画版本被困在漫画书里面
+- **对比：** 單色漫画世界与鲜艳现实世界的强烈視覺对比
 
 ### REAL LIFE VERSION | 真实版本
-- **视觉质感：** 生动、色彩丰富、照片级真实感、超逼真 8K 画质
-- **互动方式：** 动态地浮现于漫画表面，直接与漫画版本互动
+- **視覺质感：** 生动、色彩丰富、照片级真实感、超逼真 8K 画质
+- **互动方式：** 動態地浮现于漫画表面，直接与漫画版本互动
 - **情绪氛围：** 元风格 (Meta)，幽默的相遇
 
 ### TECHNICAL SPECS | 技术规格
@@ -548,15 +548,15 @@ A giant manga book is spread open on the floor.
 export const TEMPLATE_FISHEYE_URBAN = {
   cn: `### 极端鱼眼都市奇观
 
-{{character_originality}}，用{{lens_type}}拍摄的照片，主体是一位穿着{{school_uniform}}的{{subject}}，在{{urban_location}}兴奋地跳起，{{dynamic_action}}。
+{{character_originality}}，用{{lens_type}}拍攝的照片，主体是一位穿着{{school_uniform}}的{{subject}}，在{{urban_location}}兴奋地跳起，{{dynamic_action}}。
 
-**视觉焦点：**
+**視覺焦点：**
 - **前景细节：** {{fingernail_detail}}
 - **背景景观：** {{building_cluster}}，街道上挤满行人和车辆
 - **超现实元素：** {{monster_element}}漂浮在城市上空，{{monster_feature}}环绕着扭曲的城市景观
 
 **整体基调：**
-创造一个融合现实与奇幻的都市奇观，鱼眼镜头的畸变效果与卡通怪兽的出现形成强烈对比，营造出梦幻而充满活力的视觉冲击。`,
+创造一個融合现实与奇幻的都市奇观，鱼眼鏡頭的畸变效果与卡通怪兽的出现形成强烈对比，营造出梦幻而充满活力的視覺冲击。`,
   en: `### Extreme Fisheye Urban Spectacle
 {{character_originality}}, a photo taken with {{lens_type}}, the subject is a {{subject}} wearing {{school_uniform}}, jumping excitedly in {{urban_location}}, {{dynamic_action}}.
 
@@ -571,19 +571,19 @@ Create an urban spectacle blending reality and fantasy. The distortion of the fi
 
 export const TEMPLATE_INDUSTRIAL_DESIGN = {
   cn: `### 目标
-设计一个顶级的工业设计产品介绍页，使用极简的宣传页风格；需要深刻理解该设计师的设计理念、设计风格，并将这种设计理解完全融入到设计产品的工业设计与展示页面中
+设计一個顶级的工业设计产品介绍页，使用极简的宣传页风格；需要深刻理解该设计师的设计理念、设计风格，并将这种设计理解完全融入到设计产品的工业设计与展示页面中
 
-### 内容
+### 內容
 - **设计师：** {{designer}}
 - **产品：** {{design_item}}
 
 ### 画面
 - **设计师介绍：**
 约占整个画面非常少的部分，包括设计师的介绍（极具氛围感的头像）与设计师对于这个产品的设计思路与设计理解，以及设计师的签名。
-- **画面核心内容：**
-占整个画面的80%或更多用于呈现产品本身，一个完全符合设计师自己设计风格与设计方法的顶级产品设计图（一个完整的单张产品效果的呈现），基于工业成品设计成果使用不同的构图。整体配色需要与设计师的风格与产品内容完全相符
-- **构图：**
-最终构图：{{ratio}} 
+- **画面核心內容：**
+占整个画面的80%或更多用于呈现产品本身，一個完全符合设计师自己设计风格与设计方法的顶级产品设计图（一個完整的单张产品效果的呈现），基于工业成品设计成果使用不同的構圖。整体配色需要与设计师的风格与产品內容完全相符
+- **構圖：**
+最终構圖：{{ratio}} 
 整体排版主次分明，规整，极具格调与设计特色`,
   en: `### Goal
 Design a top-tier industrial design product introduction page using a minimalist promotional layout. Deeply understand the designer's philosophy and style, and fully integrate this design understanding into the product's industrial design and presentation page.
@@ -606,10 +606,10 @@ export const TEMPLATE_RAINDROP_ART = {
   cn: `### Raindrop Art (雨滴定格艺术)
 
 **核心表现:**
-捕捉了雨滴落入水面的瞬间，雨滴打落在水面上，飞溅的水珠在空中形成一个抽象的 {{rain_shape}}。
+捕捉了雨滴落入水面的瞬间，雨滴打落在水面上，飞溅的水珠在空中形成一個抽象的 {{rain_shape}}。
 
-**艺术视觉:**
-水滴构成的结果相对比较概念化，更遵从水滴溅落形成的动态感，但能从动作或神态中感受到其表达的艺术视觉。画面将雨水与自然交互的微妙之美的定格艺术作品，动感与优雅交融，呈现出诗意的视觉表达。
+**艺术視覺:**
+水滴构成的结果相对比较概念化，更遵从水滴溅落形成的動態感，但能从动作或神态中感受到其表达的艺术視覺。画面将雨水与自然交互的微妙之美的定格艺术作品，动感与優雅交融，呈现出诗意的視覺表达。
 
 **环境背景:**
 背景是朦胧的雨景。
@@ -634,24 +634,24 @@ export const TEMPLATE_ART_GROWTH = {
   cn: `### 可视化艺术成长之路
 
 **角色定义**  
-你是一位历史演变建筑师 (History Evolution Architect)。你的目标是创建一个超高密度、垂直堆叠的等距轴测（Isometric）3D 展厅渲染可视化图像，展示 {{art_type}} 的发展历史。通过展厅来展示一个里程发展的时间线：底部是简陋的发展初期，通过历史更迭迭代垂直向上升起，直到现代或未来的巅峰。
+你是一位历史演变建筑师 (History Evolution Architect)。你的目标是建立一個超高密度、垂直堆叠的等距轴测（Isometric）3D 展厅渲染可视化圖像，展示 {{art_type}} 的发展历史。通過展厅来展示一個里程发展的时间线：底部是简陋的发展初期，通過历史更迭迭代垂直向上升起，直到现代或未来的巅峰。
 
-**核心能力 | 关键视觉策略（rameless Tech-Lapse）：**
-- **展厅模拟：** 使用一个多层的艺术展厅承载所要表达的事物发展，层级代表时间维度的发展，每层可能存在不同的“房间”用于展示同一时代不同风格的作品
-- **根除容器：** 严禁使用底板、边框或横截面视图。底部边缘是历史起源（原始社会或古代社会）
+**核心能力 | 关键視覺策略（rameless Tech-Lapse）：**
+- **展厅模拟：** 使用一個多层的艺术展厅承载所要表达的事物发展，层级代表时间维度的发展，每层可能存在不同的“房间”用于展示同一时代不同风格的作品
+- **根除容器：** 严禁使用底板、边框或横截面視圖。底部边缘是历史起源（原始社会或古代社会）
 - **垂直时间线：** “之字形上升（Zig-Zag Ascent）”穿越创新历程。  
   - 底部（前景）：起源与原型  
   - 中部（上升中）：古代到现代的辉煌发展  
-  - 顶部（背景）：当前的发展状态与未来的可能性
-- **集成 3D 标题：** 明确的与主题相符合的标题
+  - 頂部（背景）：当前的发展状态与未来的可能性
+- **整合 3D 标题：** 明确的与主题相符合的标题
 
 **检索与梳理：**
 - 提取重要发展历史中的的几个阶段。
 - 列出定义每个时代的“经典”。
 - 工具与媒介的变化
 
-**构图与光影：**  
-等距视角的展厅视角。垂直之字形时间线，将事物发展从底部的创业阶段堆叠到未来的顶部，环境与划时代的经典作品随高度演变。多款经典产品以“巨物化”呈现。  
+**構圖与光影：**  
+等距視角的展厅視角。垂直之字形时间线，将事物发展从底部的创业阶段堆叠到未来的頂部，环境与划时代的经典作品随高度演变。多款经典产品以“巨物化”呈现。  
 移轴摄影（Tilt-shift）与 {{render_style}}，画幅 {{ratio}}。`,
   en: `### Visualized Artistic Growth Path
 **Role Definition**
@@ -679,13 +679,13 @@ Tilt-shift photography with {{render_style}}, aspect ratio {{ratio}}.`
 export const TEMPLATE_MINIATURE_DESK = {
   cn: `### 窗边书桌微缩场景
 
-展示一个在窗边书桌上的场景。
+展示一個在窗边书桌上的场景。
 
-**核心内容：**
-《{{show_name}}》的经典镜头微缩场景展示，采用了{{render_style}}风格，充分体现了微缩摄影的艺术表达。
+**核心內容：**
+《{{show_name}}》的经典鏡頭微缩场景展示，採用了{{render_style}}风格，充分体现了微缩摄影的艺术表达。
 
 **环境背景：**
-背景是真实的书桌，有一些制作工具，散乱的书本，营造一种刚刚加工完这个场景的凌乱感。书桌上还有编制的图纸和原型手稿。
+背景是真实的书桌，有一些制作工具，散乱的书本，营造一种刚刚加工完这个场景的凌亂感。书桌上还有编制的图纸和原型手稿。
 
 **窗外互动：**
 窗外，真实的{{character_name}}正好奇地向内观察这个桌上的作品。
@@ -711,19 +711,19 @@ Outside the window, a real {{character_name}} is curiously looking inside at the
 export const TEMPLATE_CHINESE_NEW_YEAR_POSTER = {
   cn: `### 中国新年时尚海报
 
-一张现代时尚感的中国新年海报，融合高端时尚摄影与传统节日元素，极具视觉冲击力和艺术美感。
+一张现代时尚感的中国新年海报，融合高端时尚摄影与传统节日元素，极具視覺冲击力和艺术美感。
 
 **核心主体：**
-{{character_originality}}，面部和颈部极致特写，{{character_heroic}}骑着白马优雅而富有力量地冲向屏幕，呈现出即将跃出取景框的瞬间动态。这是一位普通的中国人，穿着精心设计的{{clothing_style_chinese}}，色彩为{{clothing_color_traditional}}，面部表情自然亲切而富有生活气息，妆容精致淡雅，发型柔美自然，颈部线条优美修长。人物嘴里轻轻叼着一个精致的中国红包，增添节日趣味和喜庆氛围。
+{{character_originality}}，面部和颈部极致特写，{{character_heroic}}骑着白马優雅而富有力量地冲向螢幕，呈现出即将跃出取景框的瞬间動態。这是一位普通的中国人，穿着精心设计的{{clothing_style_chinese}}，色彩为{{clothing_color_traditional}}，面部表情自然亲切而富有生活气息，妆容精致淡雅，发型柔美自然，颈部线条优美修长。人物嘴里轻轻叼着一個精致的中国红包，增添节日趣味和喜庆氛围。
 
-**构图与摄影：**
+**構圖与摄影：**
 - 超近距离的面部和颈部特写，人物几乎填满整个画面
 - 极浅景深让背景柔化模糊，形成美丽的光斑效果
-- 精准控制的动态模糊，马尾和发丝轻柔飘动，展现优雅动感
-- 人物和马仿佛要跃出取景框，突破画面边界，带来强烈的视觉冲击
+- 精准控制的動態模糊，马尾和发丝轻柔飘动，展现優雅动感
+- 人物和马仿佛要跃出取景框，突破画面边界，带来强烈的視覺冲击
 - 高端时尚摄影的布光技巧，完美轮廓光勾勒人物轮廓和颈部线条
 - 时尚杂志级别的精修质感，皮肤光滑细腻，五官立体精致，颈部优美
-- 荷兰角构图，增强现代时尚感和动态张力
+- 荷兰角構圖，增強现代时尚感和動態张力
 
 **细节刻画：**
 - 面部细节：完美妆容，皮肤细腻光滑，眼神明亮有神，嘴角的红包增添俏皮感
@@ -736,16 +736,16 @@ export const TEMPLATE_CHINESE_NEW_YEAR_POSTER = {
 - 真实感的广袤草原背景，极具纵深感和空间感
 - 天空呈现壮丽的红色夕阳，晚霞染红整个天际，营造浪漫氛围
 - 夕阳的暖色调光辉洒在人物和马匹身上，形成金色轮廓光
-- 背景虚化处理，草原与红色天空的交界线柔和自然
-- 整体色调为温暖优雅的橙红色调，营造时尚而喜庆的视觉冲击力
+- 背景虛化处理，草原与红色天空的交界线柔和自然
+- 整体色调为溫暖優雅的橙红色调，营造时尚而喜庆的視覺冲击力
 
 **摄影风格：**
 - 极具艺术吸引力的顶级时尚摄影，富士胶片魅力
 - Fujicolor Velvia风格，色彩浓郁饱满，对比度适中偏柔
 - 轻微的胶片颗粒质感，增添高端复古艺术气息
-- 时尚杂志级景深控制，主体清晰突出，背景柔美虚化
+- 时尚杂志级景深控制，主体清晰突出，背景柔美虛化
 - 光线层次丰富，暗部和亮部细节保留完整
-- 具有强烈的时尚美感和视觉吸引力
+- 具有强烈的时尚美感和視覺吸引力
 
 **摄影规格：**
 {{ratio}}
@@ -794,15 +794,15 @@ High resolution, fashion poster grade quality, Fuji film photography style`
 };
 
 export const TEMPLATE_JAPANESE_PRODUCT_POSTER = {
-  cn: `### 日式产品海报（16:9横构图）
+  cn: `### 日式产品海报（16:9橫構圖）
 
-高级日式产品海报，16:9横构图格式，编辑级设计展示{{fruit_1}}汁皮肤包装概念，具有精致的视觉叙事：
+高级日式产品海报，16:9橫構圖格式，編輯级设计展示{{fruit_1}}汁皮肤包装概念，具有精致的視覺叙事：
 
 **左侧（画布40%）：**
-- **主角产品：** 一个大型{{fruit_1}}汁皮肤包装垂直展示，采用戏剧性柔和灯光，展现超写实的{{fruit_1}}果皮纹理包裹矩形容器，符合{{fruit_1}}特征质感的皮肤纹理，覆盖整个表面，具有该水果特有的自然质感、颜色和细节变化，看起来完全像真正的{{fruit_1}}果皮拉伸覆盖在包装上
-- **下方：** 一个横切的新鲜{{fruit_1}}，展示符合{{fruit_1}}特征的果肉质感，展现其独特的内部结构和颜色
-- **日式排版垂直对齐：** "{{fruit_1}}スキン"（{{fruit_1}}皮肤）采用优雅的细体哥特字体
-- **副标题：** "果汁皮肤 / {{fruit_1}}"采用精致风格
+- **主角产品：** 一個大型{{fruit_1}}汁皮肤包装垂直展示，採用戏剧性柔和灯光，展现超写实的{{fruit_1}}果皮纹理包裹矩形容器，符合{{fruit_1}}特征质感的皮肤纹理，覆盖整个表面，具有该水果特有的自然质感、颜色和细节变化，看起来完全像真正的{{fruit_1}}果皮拉伸覆盖在包装上
+- **下方：** 一個横切的新鲜{{fruit_1}}，展示符合{{fruit_1}}特征的果肉质感，展现其独特的内部结构和颜色
+- **日式排版垂直对齐：** "{{fruit_1}}スキン"（{{fruit_1}}皮肤）採用優雅的细体哥特字体
+- **副标题：** "果汁皮肤 / {{fruit_1}}"採用精致风格
 - **小字设计理念文本（日文）**
 
 **中央（画布30%）：**
@@ -814,12 +814,12 @@ export const TEMPLATE_JAPANESE_PRODUCT_POSTER = {
 
 **右侧（画布30%）：**
 - **两个{{fruit_1}}汁皮肤包装以不同角度和高度艺术性排列**
-- **一个完整的新鲜{{fruit_1}}，带有符合该水果特征的自然皮肤质感**
+- **一個完整的新鲜{{fruit_1}}，带有符合该水果特征的自然皮肤质感**
 - **排版：** "Natural Packaging / 自然な包装"
 - **标语：** "The skin is the package / 皮膚が包装である"
 - **细节标注指向符合水果特征的皮肤纹理细节**
 
-**设计原则：** 充足的留白，不对称平衡，侘寂美学，无印良品/则武编辑级极简主义
+**设计原则：** 充足的留白，不对称平衡，侘寂美学，无印良品/则武編輯级极简主义
 **色彩调色板：** 符合{{fruit_1}}特征的色调，纯白背景，果肉的特征颜色作为点缀
 **摄影：** 柔和扩散的影棚灯光，超清晰的微距细节展现符合水果特征的纹理，照片级真实渲染
 **关键：** {{fruit_1}}皮肤包装必须看起来极其真实——实际的有机纹理，完全符合该水果的自然特征，包括其特有的质感、颜色和细节，绝非塑料
@@ -859,15 +859,15 @@ Premium Japanese-style product poster in 16:9 landscape format, editorial design
 };
 
 export const TEMPLATE_LUXURY_EDITORIAL = {
-  cn: `### 高级时装编辑部人像
+  cn: `### 高级时装編輯部人像
 
 使用上传的参考图作为同一位{{subject}}。严格保持身份：相同的面部结构、肤色、发型。无性别转换。
 
-**姿态与构图：**
-四分之三背影。背部部分朝向镜头，躯干稍微向左倾斜。头部轻轻向右转动，露出干净的侧脸。眼睛轻轻向下看或闭上。肩膀放松。露背是主要的视觉焦点。
+**姿态与構圖：**
+四分之三背影。背部部分朝向鏡頭，躯干稍微向左倾斜。头部轻轻向右转动，露出干净的侧脸。眼睛轻轻向下看或闭上。肩膀放松。露背是主要的視覺焦点。
 
 **服装：**
-{{clothing}}。深V露背，带有优雅的垂坠感。哑光面料，无光泽，无闪粉，无婚礼元素。
+{{clothing}}。深V露背，带有優雅的垂坠感。哑光面料，无光泽，无闪粉，无婚礼元素。
 
 **配饰：**
 精美小巧的耳环。{{jewelry_style}}，带有微妙的宝石细节，沿着脊柱垂下。
@@ -876,7 +876,7 @@ export const TEMPLATE_LUXURY_EDITORIAL = {
 {{flower_type}}，拿在右肩上方。花朵部分重叠肩膀，营造出层次感的时尚遮挡效果。
 
 **摄影：**
-平视或略高于肩膀高度。85mm人像镜头质感。浅景深，压缩透视。无广角畸变。
+平視或略高于肩膀高度。85mm人像鏡頭质感。浅景深，压缩透视。无广角畸变。
 
 **灯光：**
 {{lighting}}。主光来自左上方，照亮侧脸和上背部。微妙的补光展现皮肤纹理。非常柔和的轮廓光勾勒出裙子和花朵。低对比度，平滑的色调过渡。
@@ -885,7 +885,7 @@ export const TEMPLATE_LUXURY_EDITORIAL = {
 {{background_style}}。无环境，无道具，无纹理。
 
 **风格：**
-奢侈时尚杂志美学。优雅、克制、永恒。自然精致的皮肤纹理，不过度磨皮。`,
+奢侈时尚杂志美学。優雅、克制、永恒。自然精致的皮肤纹理，不过度磨皮。`,
   en: `### High-Fashion Luxury Editorial Portrait
 
 Use the uploaded reference image as the same {{subject}}. Preserve identity strictly: same face structure, skin tone, hairstyle. No gender swap.
@@ -916,22 +916,22 @@ Luxury fashion magazine aesthetic. Elegant, restrained, timeless. Natural refine
 };
 
 export const TEMPLATE_PIXAR_DECONSTRUCTION = {
-  cn: `### 角色本质·艺术拆解升级版
+  cn: `### 角色本质·艺术拆解升級版
 
-**核心任务：** 创作一张电影级 3D {{render_style}} 风格的角色拆解海报。将 {{subject}} 转换为风格化写实的动画角色。
+**核心任务：** 创作一张電影級 3D {{render_style}} 风格的角色拆解海报。将 {{subject}} 转换为风格化写实的动画角色。
 
 **📷 角色与模式：**
 - **角色模式：** {{character_type_pixar}}。根据参考图高度一致还原身份、面部结构与气质。
 
-**📷 物品布局 (Item Layout)：**
-采用 {{item_layout_pixar}}，总物品数 30-36 件，围绕角色有序排列。
-- **分类1：时尚穿搭 (Fashion Atelier)** - {{fashion_parts}}。要求全部分离悬浮，展现精细材质。
-- **分类2：美妆个护 (Beauty Collection)** - {{beauty_items}}。展现玻璃通透感与液体折射。
-- **分类3：数码生活 (Modern Essentials)** - {{digital_items}}。展现金属与玻璃的 PBR 材质。
-- **分类4：个人爱好 (Luxury & Hobbies)** - {{luxury_hobby_items}}。宝石需有色散效果。
+**📷 物品佈局 (Item Layout)：**
+採用 {{item_layout_pixar}}，总物品数 30-36 件，围绕角色有序排列。
+- **分類1：时尚穿搭 (Fashion Atelier)** - {{fashion_parts}}。要求全部分离悬浮，展现精细材质。
+- **分類2：美妆个护 (Beauty Collection)** - {{beauty_items}}。展现玻璃通透感与液体折射。
+- **分類3：数码生活 (Modern Essentials)** - {{digital_items}}。展现金属与玻璃的 PBR 材质。
+- **分類4：个人爱好 (Luxury & Hobbies)** - {{luxury_hobby_items}}。宝石需有色散效果。
 
 **📷 技术规格 (Technical Specs)：**
-- **爆炸视图：** 使用优雅的虚线/实线连接悬浮部件，带有 01-36 的圆形编号标签。
+- **爆炸視圖：** 使用優雅的虚线/实线连接悬浮部件，带有 01-36 的圆形编号標籤。
 - **设计元素：** 包含材质样本微距特写、测量标尺、属性雷达图。
 - **标题设计：** 主标题 "📷 角色拆解艺术 · THE ART OF DECONSTRUCTION 📷"，副标题 "角色本质·艺术拆解 / Character Essence Unveiled"。
 - **色调方案：** {{theme_pixar}}。
@@ -965,13 +965,13 @@ Using {{item_layout_pixar}}, a total of 30-36 items arranged orderly around the 
 export const TEMPLATE_STREET_DIALOGUE = {
   cn: `### 街头的自我“对话”
 
-1. **核心主题与风格：** 一张具有深刻故事性和极佳摄影质感的街头摄影人像作品，捕捉“自我对话”的哲学瞬间。采用自然光影，呈现电影级叙事感和动态模糊艺术效果。
-2. **场景与背景地点：** {{building_cluster}}。时间与光影：{{lighting_atmosphere}}。光线聚焦于中心人物。氛围：忙碌、疏离，充满动态与静谧的对比。
-3. **核心人物描述位置与状态：** 位于画面正中央，静止站立，神态若有所思或平静凝视镜头，与周围环境的匆忙形成鲜明对比。着装：{{clothing}}，面部与上传图片高度一致
-4. **周边人群描述（关键叙事元素）身份与着装：** 所有路过行人都是核心人物的“不同自我”，身着代表其社会角色的服装：周围人物面部需要保持与上传图片的高度一致，众多不同着装的“我”在核心人物周围穿梭，周边人物快速移动，产生了较大的动态模糊，周边人物全部有移动产生的残影，极大的动态模糊和视觉残留，与核心人物的静态形成了鲜明对比，周边人物与核心人物都是一样的面孔和人物，不要添加其他无关人物，周边人物需要与核心人物有准确的前后关系。
-5. **摄影技术与构图镜头与景深：** {{lens_param}}，偏向与人物特写，较大的景深。核心人物面部和上身清晰锐利，前景和背景（包括动态模糊的人群和街头环境）适度虚化。半身像为主构图：中心构图，核心人物类似半身像，处画面中心较大位置。相机视角稍稍高出人物并微微向下俯视，只有核心人物抬头看向镜头，{{ratio}}。
+1. **核心主题与风格：** 一张具有深刻故事性和极佳摄影质感的街头摄影人像作品，捕捉“自我对话”的哲学瞬间。採用自然光影，呈现電影級叙事感和動態模糊艺术效果。
+2. **场景与背景地点：** {{building_cluster}}。时间与光影：{{lighting_atmosphere}}。光线聚焦于中心人物。氛围：忙碌、疏离，充满動態与静谧的对比。
+3. **核心人物描述位置与状态：** 位于画面正中央，静止站立，神态若有所思或平静凝視鏡頭，与周围环境的匆忙形成鲜明对比。着装：{{clothing}}，面部与上传圖片高度一致
+4. **周边人群描述（关键叙事元素）身份与着装：** 所有路过行人都是核心人物的“不同自我”，身着代表其社会角色的服装：周围人物面部需要保持与上传圖片的高度一致，众多不同着装的“我”在核心人物周围穿梭，周边人物快速移动，产生了较大的動態模糊，周边人物全部有移动产生的残影，极大的動態模糊和視覺残留，与核心人物的静态形成了鲜明对比，周边人物与核心人物都是一样的面孔和人物，不要添加其他无关人物，周边人物需要与核心人物有准确的前后关系。
+5. **摄影技术与構圖鏡頭与景深：** {{lens_param}}，偏向与人物特写，较大的景深。核心人物面部和上身清晰锐利，前景和背景（包括動態模糊的人群和街头环境）适度虛化。半身像为主構圖：中心構圖，核心人物类似半身像，处画面中心较大位置。相机視角稍稍高出人物并微微向下俯視，只有核心人物抬头看向鏡頭，{{ratio}}。
 6. **画质与色调：** 高分辨率，细腻的胶片质感，轻微颗粒感。色调以暖橙色和深蓝色阴影为主，色彩鲜明但有层次。
-7. **情绪与故事：** 传递出孤独、内省、身份多元性与内心对话的复杂情感。画面在动态中凝结了一个安静的哲学瞬间`,
+7. **情绪与故事：** 传递出孤独、内省、身份多元性与内心对话的复杂情感。画面在動態中凝结了一個安静的哲学瞬间`,
   en: `### Street Self-Dialogue
 
 1. **CORE THEME & STYLE:** A deeply storytelling street photography portrait capturing a philosophical moment of "self-dialogue." Uses natural lighting, cinematic narrative feel, and motion blur artistic effects.
@@ -985,23 +985,23 @@ export const TEMPLATE_STREET_DIALOGUE = {
 
 export const TEMPLATE_FASHION_FOCUS = {
   cn: `### 高端时尚杂志封面 (Fashion Magazine Cover)
-一张高端时尚杂志封面。人物为{{character_originality}}，气质自信前卫，身体张力强，动态姿态，直视镜头。
+一张高端时尚杂志封面。人物为{{character_originality}}，气质自信前卫，身体张力强，動態姿态，直视鏡頭。
 
-**视觉核心:**
-- **服饰:** {{clothing}}，现代编辑感穿搭。
-- **动作:** 模特双手比起“取景框”手势，仿佛与一个矩形选中框有互动，选中框覆盖脸部和肩部。
+**視覺核心:**
+- **服饰:** {{clothing}}，现代編輯感穿搭。
+- **动作:** 模特双手比起“取景框”手势，仿佛与一個矩形选中框有互动，选中框覆盖脸部和肩部。
 - **规则:** 只有选中框内部清晰且为自然彩色；选中框外完全灰度且强像素化（Pixelated），无任何颜色或清晰区域。
 
 **摄影与光影:**
-- **视角:** 略低机位仰拍（Low-angle shot）。
+- **視角:** 略低机位仰拍（Low-angle shot）。
 - **灯光:** 柔和漫射棚拍光。
 
 **版式设计 (Typography):**
-- **顶部:** 居中粗体大写扁宽型无衬线标题“FOCUS”，上方小字“DECEMBER 2025”；标题左下“VOL + 随机两位数”。
+- **頂部:** 居中粗体大写扁宽型无衬线标题“FOCUS”，上方小字“DECEMBER 2025”；标题左下“VOL + 随机两位数”。
 - **左下角:** 文字块（简短时尚自信标题、短段落、条形码）。
 - **右侧:** “FASHION INTERVIEW”；右下角衬线体小号“THE EDIT”及大号“01-09的随机数字”。
 - **层级:** 模特对标题有遮挡叠加，前后景关系分明，干净现代。
-- **颜色:** 字体均为白色，蒙太奇风格，文字与图像形成强烈对比。
+- **颜色:** 字体均为白色，蒙太奇风格，文字与圖像形成强烈对比。
 
 **规格:**
 - **画幅:** {{ratio}}`,
@@ -1030,22 +1030,22 @@ A high-end fashion magazine cover. The character is {{character_originality}}, w
 
 export const TEMPLATE_CITY_GLIMPSE = {
   cn: `### 都市一瞥 (City Glimpse)
-一种合适的艺术工具（例如：{{art_tool}}），仿佛正处于创作之中，从左下角向右上角勾勒出一条精致、优雅的曲线。
+一种合适的艺术工具（例如：{{art_tool}}），仿佛正处于创作之中，从左下角向右上角勾勒出一条精致、優雅的曲线。
 
-**视觉核心:**
+**視覺核心:**
 - **笔触景观:** 笔触之中包含著名的 {{city_name_1}} 地标的微缩景观：精选的一组标志性地点，融合当地特有的历史与现代建筑、自然元素以及城市生活气息。
 - **艺术风格:** 整体风格结合了 {{art_style_1}} 与学院派海报设计：多样化的笔触与痕迹营造出三维空间感，呈现出立体的微缩景观与浅浮雕质感。
 - **色彩:** {{dominant_colors}} 为主色调，其间点缀传统的 {{city_name_1}} 美学元素，并与现代城市天际线相互交织。
 
-**构图与背景:**
-- **视角:** 画面为极简的俯视视角，主体笔触之外保留大面积留白。
+**構圖与背景:**
+- **視角:** 画面为极简的俯視視角，主体笔触之外保留大面积留白。
 - **背景:** 具有纹理的纸张（高质量纤维质感），色调明亮、干净、清新（例如：{{background_color_clean}}），与画面主体形成清晰对比，营造纯净感。
-- **构图要求:** 绘画工具的笔尖应在笔触末端（右上角）停住，笔触之外保留干净的留白；微缩景观仅存在于笔触内部，细节密集但不显杂乱。
+- **構圖要求:** 绘画工具的笔尖应在笔触末端（右上角）停住，笔触之外保留干净的留白；微缩景观仅存在于笔触内部，细节密集但不显杂乱。
 
 **大师级排版 (Typography):**
-- **主标题:** “{{city_name_1}}”（与绘画风格美学相匹配的艺术字体，极具吸引力，高对比度，作为核心视觉层级）。
+- **主标题:** “{{city_name_1}}”（与绘画风格美学相匹配的艺术字体，极具吸引力，高对比度，作为核心視覺层级）。
 - **副标题:** “{{city_glimpse_subtitle}}”（在风格上与主标题及绘画肌理相互呼应的高级排版）。
-- **装饰文案:** 全部采用与 {{art_style_1}} 融合的字体风格，通过分段形成节奏与层级，与主标题呼应。
+- **装饰文案:** 全部採用与 {{art_style_1}} 融合的字体风格，通過分段形成节奏与层级，与主标题呼应。
 
 **规格:**
 - **画质:** 高细节度、超写实效果、HDR，以及 8K 分辨率。
@@ -1076,11 +1076,11 @@ A suitable artistic tool (e.g., {{art_tool}}), as if in the middle of creation, 
 export const TEMPLATE_MULTIPLE_SELVES_INDOOR = {
   cn: `### 多个自我“对话” (室内聚会版)
 
-**1. 核心主题与风格:** 一张具有深刻故事性和极佳摄影质感的摄影人像作品，捕捉“自我对话”的哲学瞬间。呈现电影级叙事感。
+**1. 核心主题与风格:** 一张具有深刻故事性和极佳摄影质感的摄影人像作品，捕捉“自我对话”的哲学瞬间。呈现電影級叙事感。
 
 **2. 场景与背景地点:** 现代风格的住宅室内。呈现一群样貌完全一样的人在室内的不同行为，如同在一场奇幻的节日聚会。
 
-**3. 核心人物 (视觉中心):** 位于客厅画面正中央，静止站立，神态若有所思，眼神平静地凝视镜头。这种绝对的静止与周围环境的匆忙形成鲜明对比。着装：{{clothing}}，面部特征与上传图片高度一致。
+**3. 核心人物 (視覺中心):** 位于客厅画面正中央，静止站立，神态若有所思，眼神平静地凝視鏡頭。这种绝对的静止与周围环境的匆忙形成鲜明对比。着装：{{clothing}}，面部特征与上传圖片高度一致。
 
 **4. 周边人群 (不同维度的自我):** 房间内还有 5 个面貌与核心人物完全一致的“自我”，他们身着不同的服装（与其当前动作匹配），正在进行以下活动：
 - 人物 A 正在 {{action_status}}；
@@ -1090,13 +1090,13 @@ export const TEMPLATE_MULTIPLE_SELVES_INDOOR = {
 - 人物 E 正在 {{action_status}}。
 所有的人都在客厅中各司其职又互不干扰，氛围呈现出一种节日聚会般的荒诞与欢愉。
 
-**5. 细节与构图:**
-- **摄影规格:** 使用 {{lens_param}} 拍摄。核心人物面部和上身清晰锐利，前景和背景人物及物体适度虚化，营造出极佳的景深感。
-- **环境细节:** 客厅墙上挂着一个精美的装饰性木雕艺术品，雕刻着“2025”字样，其中数字“5”呈现出摇摇欲坠、即将掉落的状态。
+**5. 细节与構圖:**
+- **摄影规格:** 使用 {{lens_param}} 拍攝。核心人物面部和上身清晰锐利，前景和背景人物及物体适度虛化，营造出极佳的景深感。
+- **环境细节:** 客厅墙上挂着一個精美的装饰性木雕艺术品，雕刻着“2025”字样，其中数字“5”呈现出摇摇欲坠、即将掉落的状态。
 
-**6. 画质与色调:** 高分辨率，细腻的胶片质感，带有轻微的颗粒感。色调以温暖的橙色调（暖色光）和深蓝色阴影（对比色）为主，色彩鲜明且富有层次。
+**6. 画质与色调:** 高分辨率，细腻的胶片质感，带有轻微的颗粒感。色调以溫暖的橙色调（暖色光）和深蓝色阴影（对比色）为主，色彩鲜明且富有层次。
 
-**7. 情绪与故事:** 传递出一种孤独中带着丰盈、内省中伴随身份多元性的复杂情感。画面在动态的忙碌中凝结了一个安静的哲学思考瞬间。`,
+**7. 情绪与故事:** 传递出一种孤独中带着丰盈、内省中伴随身份多元性的复杂情感。画面在動態的忙碌中凝结了一個安静的哲学思考瞬间。`,
   en: `### Multiple Self-Dialogue (Indoor Party Edition)
 
 **1. Core Theme & Style:** A storytelling photography portrait with exceptional quality, capturing a philosophical moment of "self-dialogue." It presents a cinematic narrative feel.
@@ -1124,9 +1124,9 @@ Everyone is busy with their own task in the living room without interfering with
 
 export const TEMPLATE_CHARACTER_SHEET_ART = {
   cn: `### 角色设定稿 (Character Sheet)
-**核心内容:** 角色设定稿，基于 {{character_originality}}。
+**核心內容:** 角色设定稿，基于 {{character_originality}}。
 
-**构图:** 多角度视角 (Multiple angles)，丰富的表情变化 (Expressive facial variations)。
+**構圖:** 多角度視角 (Multiple angles)，丰富的表情变化 (Expressive facial variations)。
 
 **媒介:** {{art_tool}}。
 
@@ -1153,7 +1153,7 @@ export const TEMPLATE_UNDERWATER_CAUSTICS = {
   cn: `### 创意水下摄影：焦散之美 (Underwater Caustics)
 
 **主体设定:**
-使用上传图片中的人物作为{{subject}}，严格保持面部特征的一致性。
+使用上传圖片中的人物作为{{subject}}，严格保持面部特征的一致性。
 人物穿着一件{{clothing}}，由于在水下浸湿，衣物呈现出若隐若现的半透明质感。
 
 **动作与场景:**
@@ -1161,8 +1161,8 @@ export const TEMPLATE_UNDERWATER_CAUSTICS = {
 身体周围环绕着许多{{creatures}}，营造出自然的生态律动感。
 
 **光影艺术 (Caustics):**
-核心视觉效果为强烈的**焦散光影（Caustics）**：阳光穿过起伏的水面，在人物的面部和衣服上投射出波动的金色光纹。
-光线在水中形成明显的**丁达尔效应 (Tyndall Effect)**，光柱从水面直插水底，增强空间深度。
+核心視覺效果为强烈的**焦散光影（Caustics）**：阳光穿过起伏的水面，在人物的面部和衣服上投射出波动的金色光纹。
+光线在水中形成明显的**丁达尔效应 (Tyndall Effect)**，光柱从水面直插水底，增強空间深度。
 
 **氛围与画质:**
 - **氛围:** 梦幻、超现实、静谧、电影质感。
@@ -1199,13 +1199,13 @@ export const TEMPLATE_DAILY_SNAPSHOT = {
 {{background_scene}}。
 
 **摄影风格:**
-{{lighting}}。画面没有经过精心的构图或布光，呈现出最真实的记录感。
+{{lighting}}。画面没有经过精心的構圖或布光，呈现出最真实的记录感。
 
 **人物特征:**
-主体为{{subject}}，采用{{clothing}}。{{accessory_glasses}}。
+主体为{{subject}}，採用{{clothing}}。{{accessory_glasses}}。
 
-**动态与构图:**
-{{action_status}}。采用{{camera_angle}}。
+**動態与構圖:**
+{{action_status}}。採用{{camera_angle}}。
 
 **服饰风味:**
 {{underwear_style}}。
@@ -1243,13 +1243,13 @@ export const TEMPLATE_FINE_ART_GARDEN = {
 主体为{{subject}}。她留着{{hair_style}}，神情平静内敛，带着淡淡的忧郁。{{action_status}}。她穿着{{clothing}}。
 
 **环境与氛围:**
-{{background_scene}}。画面中充满了繁茂的开花植物和柔和的绿植。{{flower_type}}，被微风捕捉到半空中的动态。
+{{background_scene}}。画面中充满了繁茂的开花植物和柔和的绿植。{{flower_type}}，被微风捕捉到半空中的動態。
 
-**构图与摄影:**
-采用{{camera_angle}}。优雅的中心构图，极浅的景深，背景是奶油般细腻的虚化效果。使用{{lens_param}}拍摄。
+**構圖与摄影:**
+採用{{camera_angle}}。優雅的中心構圖，极浅的景深，背景是奶油般细腻的虛化效果。使用{{lens_param}}拍攝。
 
 **光影与色彩:**
-{{lighting}}。色调以柔和的绿色、青色、淡桃色和白色为主。呈现出一种绘画般的、低饱和度的浪漫色调。
+{{lighting}}。色调以柔和的绿色、青色、淡桃色和白色为主。呈现出一种绘画般的、低飽和度的浪漫色调。
 
 **艺术风格:**
 {{role}}。追求极高的织物纹理和皮肤质感。
@@ -1281,10 +1281,10 @@ A {{camera_angle}}. Elegant, centered composition with a shallow depth of field 
 };
 
 export const TEMPLATE_SURVEILLANCE_STILL = {
-  cn: `### 隐藏摄像机 / 监控画面 (Surveillance Still)
+  cn: `### 隱藏摄像机 / 監控画面 (Surveillance Still)
 
-**相机设置:**
-{{camera_angle}}。隐藏拍摄视角，具有{{lighting}}。
+**相机設定:**
+{{camera_angle}}。隱藏拍攝視角，具有{{lighting}}。
 
 **人物主体:**
 主体为{{character_originality}}。留着{{hair_style}}。{{action_status}}。她身穿{{clothing}}。
@@ -1292,14 +1292,14 @@ export const TEMPLATE_SURVEILLANCE_STILL = {
 **环境背景:**
 {{background_scene}}。氛围安静、私密且亲密。
 
-**智能识别 (Overlay):**
-- **脸部锁定:** 红色半透明矩形框精准锁定面部，带有交叉瞄准线。
+**智慧识别 (Overlay):**
+- **脸部鎖定:** 红色半透明矩形框精准鎖定面部，带有交叉瞄准线。
 - **局部特写:** 右上角浮动放大窗口，4倍变焦特写眼睛细节，显示抓拍的高光。
-- **状态指示:** 屏幕边缘显示红点 REC 指示器及警告文本：“ALERT: SUBJECT AWARE / EYE CONTACT DETECTED”。
-- **时间戳:** 角落带有复古胶片时间戳 “[REC] 23:47:32 | CAM 04 - DRESSING RM”。
+- **状态指示:** 螢幕边缘显示红点 REC 指示器及警告文本：“ALERT: SUBJECT AWARE / EYE CONTACT DETECTED”。
+- **時間戳:** 角落带有复古胶片時間戳 “[REC] 23:47:32 | CAM 04 - DRESSING RM”。
 
-**构图与氛围:**
-主体位于画面中心，目光直视镜头。呈现出一种脆弱、紧张且极具临场感的瞬间。
+**構圖与氛围:**
+主体位于画面中心，目光直视鏡頭。呈现出一种脆弱、紧张且极具临场感的瞬间。
 
 **画幅:**
 {{ratio}}`,
@@ -1328,7 +1328,7 @@ Subject centered, direct gaze into the lens. The tone is vulnerable, tense, and 
 };
 
 export const TEMPLATE_CUTE_DYNAMIC_PORTRAIT = {
-  cn: `### 可爱动态人像
+  cn: `### 可爱動態人像
 
 **房间环境**:
 {{room_style_cute}}
@@ -1337,8 +1337,8 @@ export const TEMPLATE_CUTE_DYNAMIC_PORTRAIT = {
 20岁前半的日本女大学生。
 
 **摄影参数**:
-- 极端的地板级别低角度虫视视角
-- {{lens_type}}的畸变让她看起来很巨大的构图
+- 极端的地板级别低角度虫视視角
+- {{lens_type}}的畸变让她看起来很巨大的構圖
 - {{cute_pose_dynamic}}
 
 **服装**:
@@ -1348,10 +1348,10 @@ export const TEMPLATE_CUTE_DYNAMIC_PORTRAIT = {
 右手拿着和房间里一样的可爱动物毛绒玩具（粉色或白色的熊或兔子），自然地轻轻遮挡裙子后面的姿势。完全看不到内衣。
 
 **光影**:
-温暖的室内照明和窗户射入的自然光，妖精灯的柔和光辉，对肌肤友好的高光。
+溫暖的室内照明和窗户射入的自然光，妖精灯的柔和光辉，对肌肤友好的高光。
 
 **氛围**:
-充满自信、满童心、可爱又有点性感、动态的室内肖像照。`,
+充满自信、满童心、可爱又有点性感、動態的室内肖像照。`,
 
   en: `### Cute Dynamic Portrait
 
@@ -1386,13 +1386,13 @@ export const TEMPLATE_FITNESS_SELFIE = {
   cn: `### 健身自拍场景 (Fitness Selfie)
 
 **核心氛围:**
-一张原始真实的镜子自拍快照，在繁忙的健身房用机顶闪光灯直闪拍摄。
+一张原始真实的镜子自拍快照，在繁忙的健身房用机顶闪光灯直闪拍攝。
 
 **主体人物:**
-一位年轻漂亮的江南女子，拥有"网红"脸庞和温婉的东方魅力，呈现{{physical_state}}。她正在做{{fitness_pose}}，侧身对着镜子，手持智能手机。
+一位年輕漂亮的江南女子，拥有"网红"脸庞和温婉的东方魅力，呈现{{physical_state}}。她正在做{{fitness_pose}}，侧身对着镜子，手持智慧手機。
 
 **服装与外观:**
-穿着{{fitness_clothing}}。头发{{sweat_appearance}}，脸颊泛红，显示刚完成运动的明显痕迹。
+穿着{{fitness_clothing}}。頭髮{{sweat_appearance}}，脸颊泛红，显示刚完成运动的明显痕迹。
 
 **面部表情:**
 {{facial_expression}}
@@ -1441,9 +1441,9 @@ Aspect Ratio: {{ratio}} --niji 7`
 export const TEMPLATE_MINIATURE_MODEL = {
   cn: `### 微缩场景模型
 
-一个微缩场景模型，展现了渺小的 {{miniature_character}} 与一个超大的 {{giant_object}} 互动的场景。
+一個微缩场景模型，展现了渺小的 {{miniature_character}} 与一個超大的 {{giant_object}} 互动的场景。
 
-夸张的比例对比、富有表现力的姿势、电影级的光影效果。极其精细的道具、手工制作的逼真质感、微距镜头视角。
+夸张的比例对比、富有表现力的姿势、電影級的光影效果。极其精细的道具、手工制作的逼真质感、微距鏡頭視角。
 
 **画幅比例**：{{ratio}}`,
 
@@ -1459,13 +1459,13 @@ Exaggerated scale contrast, expressive poses, cinematic lighting. Extremely deta
 export const TEMPLATE_POP_MART_PLUSH = {
   cn: `### Pop Mart 盲盒风格毛绒玩具壁纸
 
-一张垂直手机壁纸，展示一群可爱的拟人化马毛绒玩具堆叠在 {{festive_archway}} 内。Pop Mart 盲盒风格，柔软毛绒质感，C4D 渲染。
+一张垂直手機壁纸，展示一群可爱的擬人化马毛绒玩具堆叠在 {{festive_archway}} 内。Pop Mart 盲盒风格，柔软毛绒质感，C4D 渲染。
 
 高度多样化和有趣表情：{{plush_expression}}。
 
 丰富多样的独特配饰和装饰：{{cute_accessory}}。
 
-色彩丰富、温暖照明、超精细细节，可爱有趣的氛围。`,
+色彩丰富、溫暖照明、超精细细节，可爱有趣的氛围。`,
 
   en: `### Pop Mart Blind Box Style Plush Toys Wallpaper
 
@@ -1481,7 +1481,7 @@ Colorful, warm lighting, ultra-detailed, cute and playful vibe.`
 export const TEMPLATE_3D_ISOMETRIC_DIORAMA = {
   cn: `### 3D等距透视模型展台
 
-一个干净、极简的3D等距透视模型展台，展示{{exhibition_type}}，特色是{{display_objects}}布置在{{pod_structure}}内，微妙的光照点缀，光滑的地板表面，柔和的摄影棚灯光，逼真的材质，圆润的边缘，微型建筑模型风格，高细节，中性背景。`,
+一個干净、极简的3D等距透视模型展台，展示{{exhibition_type}}，特色是{{display_objects}}布置在{{pod_structure}}内，微妙的光照点缀，光滑的地板表面，柔和的摄影棚灯光，逼真的材质，圆润的边缘，微型建筑模型风格，高细节，中性背景。`,
 
   en: `### 3D Isometric Diorama
 
@@ -1493,13 +1493,13 @@ export const TEMPLATE_CHINESE_BRIDAL_PORTRAIT = {
 
 一张传统中式新娘肖像摄影作品。女性主体盘着发髻，装饰着{{bridal_hair_decoration}}，身穿{{traditional_bridal_attire}}，佩戴{{bridal_jewelry}}。
 
-写实的人体比例，平视视角，带有纸剪装饰前景的近距离肖像。
+写实的人体比例，平視視角，带有纸剪装饰前景的近距离肖像。
 
 **核心材质**：光滑缎面质感、精致纸剪纹理、光泽珍珠表面。
 
-**光影氛围**：柔和侧光、柔和阴影、温暖优雅的传统中式喜庆氛围。
+**光影氛围**：柔和侧光、柔和阴影、溫暖優雅的传统中式喜庆氛围。
 
-**技术参数**：50mm镜头`,
+**技术参数**：50mm鏡頭`,
 
   en: `### Chinese Traditional Bridal Portrait Photography
 
@@ -1515,9 +1515,9 @@ Realistic human proportion, eye-level perspective, close-up portrait with paper-
 };
 
 export const TEMPLATE_PREMIUM_FOOD_ADVERTISING = {
-  cn: `### 高端食品广告摄影
+  cn: `### 高端食品廣告摄影
 
-{{premium_food_subject}}，高端食品广告，白色无缝背景，高调摄影棚灯光，悬浮堆叠构图，飘浮的食品块，散落着{{ingredient_bits}}，干净极简布局，表面清晰柔和阴影，超写实，微距产品摄影，100mm镜头观感，f/8清晰焦点，微妙纹理细节，编辑商业风格，8k分辨率。`,
+{{premium_food_subject}}，高端食品廣告，白色无缝背景，高调摄影棚灯光，悬浮堆叠構圖，飘浮的食品块，散落着{{ingredient_bits}}，干净极简佈局，表面清晰柔和阴影，超写实，微距产品摄影，100mm鏡頭观感，f/8清晰焦点，微妙纹理细节，編輯商业风格，8k分辨率。`,
 
   en: `{{premium_food_subject}}, premium food advertising, white seamless background, high key studio lighting, floating stacked composition, levitating pieces, {{ingredient_bits}} scattered, clean minimal layout, crisp soft shadow on surface, ultra realistic, macro product photography, 100mm lens look, f/8 sharp focus, subtle texture detail, editorial commercial, 8k`
 };
@@ -1527,7 +1527,7 @@ export const TEMPLATE_FORBIDDEN_CITY_PHOENIX = {
 
 在{{imperial_palace_scene}}中，一位"人形凤凰"化身宫殿的灵魂。她头戴{{phoenix_crown}}，身披{{flowing_garment}}，{{festive_props}}。
 
-构图上将华丽繁复的头饰与流动的丝绸华服与身后辉煌的建筑相呼应，形成强烈的视觉共鸣。背光在漫天飞雪中极大地增强了神话般的氛围，营造出穿越时空、华美而庄严的梦幻意境。`,
+構圖上将华丽繁复的头饰与流动的丝绸华服与身后辉煌的建筑相呼应，形成强烈的視覺共鸣。背光在漫天飞雪中极大地增強了神话般的氛围，营造出穿越时空、华美而庄严的梦幻意境。`,
 
   en: `### Forbidden City Snow Night Phoenix
 
@@ -1539,9 +1539,9 @@ The composition creates a strong visual resonance between the ornate headdress a
 export const TEMPLATE_INTERIOR_RENDERING = {
   cn: `### 室内设计真实渲染
 
-保持原图视角和墙体结构，生成室内 {{room_type}} 真实渲染图。进行合理的室内家具布置与材质搭配，为室内天花板、墙面、地板分别赋予材质，整体呈现 {{interior_design_style}}。房间内外均进行真实感渲染。
+保持原图視角和墙体结构，生成室内 {{room_type}} 真实渲染图。进行合理的室内家具布置与材质搭配，为室内天花板、墙面、地板分別赋予材质，整体呈现 {{interior_design_style}}。房间内外均进行真实感渲染。
 
-包括 {{furniture_set}}，材质质感逼真，{{interior_lighting}}。整体画面呈现出专业建筑摄影的光线效果，具备 {{render_quality}} 的图像细节。
+包括 {{furniture_set}}，材质质感逼真，{{interior_lighting}}。整体画面呈现出专业建筑摄影的光线效果，具备 {{render_quality}} 的圖像细节。
 
 **材质细节**:
 - 天花板：{{ceiling_material}}
@@ -1561,9 +1561,9 @@ Including {{furniture_set}}, with realistic material textures and {{interior_lig
 };
 
 export const TEMPLATE_ISOMETRIC_INTERIOR_SCENE = {
-  cn: `### 等距视角室内场景
+  cn: `### 等距視角室内场景
 
-基于设计需求，创作一张isometric视角（等距轴测视角）的{{room_type}}室内场景图像，无任何透视效果，保持视角和相机位置的一致性。包括建筑的主体部分保持一致。
+基于设计需求，创作一张isometric視角（等距轴测視角）的{{room_type}}室内场景圖像，无任何透视效果，保持視角和相机位置的一致性。包括建筑的主体部分保持一致。
 
 **房间状态**: {{room_condition}}
 
@@ -1573,7 +1573,7 @@ export const TEMPLATE_ISOMETRIC_INTERIOR_SCENE = {
 - 地面：{{floor_material}}
 - 墙面：{{wall_material}}
 
-**技术要求**: 使用3D建模的材质质感和建模软件常用的渲染效果，包括材质纹理效果、AO效果以及描边效果（根据房间状态选择是否使用）。白色背景，Blender渲染质感。`,
+**技术要求**: 使用3D建模的材质质感和建模软件常用的渲染效果，包括材质纹理效果、AO效果以及描边效果（根据房间状态選擇是否使用）。白色背景，Blender渲染质感。`,
 
   en: `### Isometric Interior Scene
 
@@ -1593,11 +1593,11 @@ Based on design requirements, create an isometric perspective (orthographic axon
 export const TEMPLATE_PRODUCT_DESIGN_SPEC = {
   cn: `### 产品设计规范图
 
-**布局**: 垂直 3:4 画布，暖色调中性纸张背景
+**佈局**: 垂直 3:4 画布，暖色调中性纸张背景
 
 **上半部分 - 生活方式产品图**:
 
-一个 {{product_category}}，放置在 {{environment_style}} 中。
+一個 {{product_category}}，放置在 {{environment_style}} 中。
 
 **环境细节**:
 - {{lighting}}，柔和但高对比度的阴影
@@ -1606,7 +1606,7 @@ export const TEMPLATE_PRODUCT_DESIGN_SPEC = {
 - 周围留有大量留白
 
 **渲染风格**:
-- 编辑式生活方式摄影
+- 編輯式生活方式摄影
 - 高真实感
 - 暖色、柔和、高端的色调分级
 
@@ -1614,19 +1614,19 @@ export const TEMPLATE_PRODUCT_DESIGN_SPEC = {
 
 **技术绘图** (左侧和中部):
 - {{drawing_style}}
-- 正视图、侧视图、四分之三剖面图
+- 正視圖、侧視圖、四分之三剖面图
 - 正交投影
 - 柔和的红色或深棕色细技术线
-- 最小的编辑式测量标注
+- 最小的編輯式测量标注
 
 **材料面板** (右侧):
 - 3-4 个符合产品调性的材质样本
 - 方形或矩形样品
-- 小型编辑式说明标签
+- 小型編輯式说明標籤
 - 技术但精致的语调
 
 **排版风格**:
-- 最小编辑式
+- 最小編輯式
 - 微妙的说明文字，无大标题
 - 柔和黑色或深棕色
 
@@ -1699,7 +1699,7 @@ export const TEMPLATE_CHARACTER_LINE_ART = {
 
 **人物主体**: {{character_subject}}
 
-**画面视角**: {{portrait_view}}
+**画面視角**: {{portrait_view}}
 
 **艺术风格**:
 - {{line_art_style}}
@@ -1712,7 +1712,7 @@ export const TEMPLATE_CHARACTER_LINE_ART = {
 **背景处理**: {{background_treatment}}
 
 **整体效果**:
-- 单色素描
+- 單色素描
 - 黑白线稿插图
 - 漫画书风格肖像
 - 极简主义，强调轮廓`,
@@ -1747,16 +1747,16 @@ export const TEMPLATE_CLASSIC_GAME_REALISM = {
 
 以照片级真实感重新想象经典游戏世界。
 
-在一个图像中，以摄影方式可视化 {{classic_game}} 的角色、敌人和周围世界的真实模样。使图像尽可能保持与游戏的可识别性。
+在一個圖像中，以摄影方式可视化 {{classic_game}} 的角色、敌人和周围世界的真实模样。使圖像尽可能保持与游戏的可识别性。
 
-**视觉要求**:
+**視覺要求**:
 - 照片级真实渲染
 - 8位/16位游戏美学的现实诠释
 - 标志性游戏元素的真实化呈现
 - 保持原始游戏色彩和氛围的参考
 
 **质量标准**:
-- 高细节，电影级照明
+- 高细节，電影級照明
 - 真实材质和纹理
 - 游戏场景的精确重建`,
 
@@ -1779,9 +1779,9 @@ In one image, photographically visualize what the characters, enemies, and surro
 };
 
 export const TEMPLATE_SCIENCE_PAPER_MODEL = {
-  cn: `### 科学发现纸雕模型
+  cn: `### 科学發現纸雕模型
 
-将重大科学发现解构为立体纸雕装置。
+将重大科学發現解构为立体纸雕装置。
 
 **输入**: {{scientific_discovery}}
 
@@ -1793,10 +1793,10 @@ export const TEMPLATE_SCIENCE_PAPER_MODEL = {
 
 **研究者（角色）**:
 - 识别关键科学家
-- 例如：沃森、克里克 & 富兰克林 | 爱因斯坦 | 巴斯德 | 哥白尼
+- 例如：沃森、克里克 & 富兰克林 | 愛因斯坦 | 巴斯德 | 哥白尼
 
 **数据（图解）**:
-- 识别笔记的视觉语言
+- 识别笔记的視覺语言
 - 例如：化学键、数学公式、生物草图、轨道路径
 
 **容器（实验日志）**:
@@ -1809,21 +1809,21 @@ export const TEMPLATE_SCIENCE_PAPER_MODEL = {
 **雕塑（纸艺理论）**:
 - 构建："模型"从书本中心装订处垂直升起
 - 材质：模型完全由书本自有的纸张条构成
-- 细节：纸条扭曲、折叠并连接形成结构（例如DNA的扭转梯形）
+- 细节：纸条扭曲、折疊并连接形成结构（例如DNA的扭转梯形）
 - 高光：纸模型上微妙使用彩色墨水或铅笔（红、蓝、黄）以区分部分（例如碱基对或原子）
 
 **叙事比例（科学家）**:
 - 人物："研究者"的1:35比例微型人物站在水平页面上
 - 服装：时代准确的服装（例如1950年代实验服、维多利亚西装、文艺复兴长袍）
-- 动作：他们正在与巨大的纸模型互动——指向、用微小工具测量或持有微型剪贴板
+- 动作：他们正在与巨大的纸模型互动——指向、用微小工具测量或持有微型剪貼簿
 
-**视觉效果**:
-- 背景：模型后方的垂直页面覆盖着手绘墨水插图和与发现相关的图表
-- 标题：页面顶部手写文本："[输入] 的发现"
+**視覺效果**:
+- 背景：模型后方的垂直页面覆盖着手绘墨水插图和与發現相关的圖表
+- 标题：页面頂部手写文本："[输入] 的發現"
 - 前景：地面页面散布着涂写笔记、公式和签名
 
 **输出**:
-- 单张图像，1:1纵横比
+- 单张圖像，1:1纵横比
 - 微距摄影，"学术历史"美学
 - 高纹理保真度`,
 
@@ -1877,21 +1877,21 @@ Deconstruct major scientific discoveries into 3D paper sculpture installations.
 };
 
 /**
- * 可用的模板标签
+ * 可用的模板標籤
  */
 export const TEMPLATE_TAGS = [
   "建筑",
   "人物",
   "摄影",
   "产品",
-  "图表",
+  "圖表",
   "卡通",
   "宠物",
   "游戏",
   "创意",
   "节日",
   "动作",
-  "影视",
+  "影視",
   "纪实",
   "幻想",
   "动画",
@@ -1901,19 +1901,19 @@ export const TEMPLATE_TAGS = [
 ];
 
 export const TEMPLATE_TAVERN_FIGHT_VIDEO = {
-  cn: `### 酒馆武打戏视频生成
+  cn: `### 酒馆武打戏影片生成
 
-这是一段酒馆武打戏的开头和结尾的画面，请基于这两个场景，生成一段流畅的黑衣女子与几个刺客打斗的画面。
+这是一段酒馆武打戏的开头和结尾的画面，請基于这两个场景，生成一段流畅的黑衣女子与几个刺客打斗的画面。
 
 **打斗风格：**
 {{fight_style}}
 
 **分镜与运镜要求：**
-- 运用到分镜和不同视角切换，让整个画面更有节奏感和电影感
+- 运用到分镜和不同視角切換，让整个画面更有节奏感和电影感
 - {{camera_rhythm}}
-- 开场镜头从酒馆全景推进到人物特写
+- 开场鏡頭从酒馆全景推进到人物特写
 - 打斗过程中穿插环境互动（桌椅翻飞、酒坛碎裂）
-- 结尾镜头从近景拉远，展现战斗后的酒馆全貌
+- 结尾鏡頭从近景拉远，展现戰鬥后的酒馆全貌
 
 **画面氛围：**
 - 昏暗的酒馆内部，烛光摇曳，光影交错
@@ -1967,10 +1967,10 @@ export const TEMPLATE_ANATOMY_FIGURE_STUDY = {
 - 白色/米白色背景
 - 手绘铅笔素描外观
 
-**构图 (COMPOSITION):**
+**構圖 (COMPOSITION):**
 - 参考照片：左上角，小比例
 - 几何分解：填充画布剩余的 80%
-- 干净的专业布局，类似解剖学教科书`,
+- 干净的专业佈局，类似解剖学教科书`,
   en: `### Anatomical Figure Drawing Study
 
 Geometric mannequin breakdown of human pose reference photo placed in top-left corner (small thumbnail), main area shows structural anatomy sketch.
@@ -2002,9 +2002,9 @@ Geometric mannequin breakdown of human pose reference photo placed in top-left c
 };
 
 export const TEMPLATE_3X3_STORYBOARD_VIDEO = {
-  cn: `使用故事板图片创建视频。
+  cn: `使用故事板圖片建立影片。
 
-将3x3故事板图片转换为视频。`,
+将3x3故事板圖片转换为影片。`,
 
   en: `Create a video using storyboard images.
 
@@ -2012,24 +2012,24 @@ Convert 3x3 storyboard images into video.`
 };
 
 export const TEMPLATE_CYBERPUNK_VEHICLE_CHASE = {
-  cn: `### 赛博朋克飞行器追逐视频
+  cn: `### 賽博龐克飞行器追逐影片
 
 **电影风格**：{{sci_fi_movie_style}}，高对比度霓虹光影，IMAX电影质感，史诗级配乐感。
 
-**视频时长**：10秒
+**影片时长**：10秒
 
 **分镜脚本**：
 
-[00:00-00:04] 镜头1：{{tracking_camera_shot}}
+[00:00-00:04] 鏡頭1：{{tracking_camera_shot}}
 画面：{{cyberpunk_city_scene}}，夜幕降临，还在下雨。
 动作：一辆{{futuristic_vehicle}}以极高速度在摩天大楼之间穿梭。
-环境细节（核心测试点）：数不清的巨大全息广告牌在闪烁，霓虹灯光极其复杂地反射在湿滑的玻璃幕墙和飞行器表面。飞行器尾部拉出长长的蓝色光流轨迹。
+环境细节（核心测试点）：数不清的巨大全息廣告牌在闪烁，霓虹灯光极其复杂地反射在湿滑的玻璃幕墙和飞行器表面。飞行器尾部拉出长长的蓝色光流轨迹。
 
-[00:04-00:07] 镜头2：{{action_camera_shot}}
-动作：飞行器为了躲避障碍物，做了一个急转弯侧滑动作。
-细节：镜头非常贴近飞行器，捕捉每一个细节。
+[00:04-00:07] 鏡頭2：{{action_camera_shot}}
+动作：飞行器为了躲避障碍物，做了一個急转弯侧滑动作。
+细节：鏡頭非常贴近飞行器，捕捉每一個细节。
 
-[00:07-00:10] 镜头3：拉远镜头，展现飞行器消失在霓虹闪烁的城市深处。`,
+[00:07-00:10] 鏡頭3：拉远鏡頭，展现飞行器消失在霓虹闪烁的城市深处。`,
 
   en: `### Cyberpunk Vehicle Chase Video
 
@@ -2052,13 +2052,13 @@ Details: The camera is extremely close to the vehicle, capturing every detail.
 };
 
 export const TEMPLATE_RAINFOREST_WATERFALL_JET = {
-  cn: `### 雨林瀑布战机穿越视频
+  cn: `### 雨林瀑布战机穿越影片
 
-一个电影感的视频序列，开场是 {{aerial_opening_shot}} 展示延伸至地平线的广阔 {{natural_environment}}，雾气在树冠中滚动，巨大的咆哮瀑布主导着中心景观，坠入阴影深处。
+一個电影感的影片序列，开场是 {{aerial_opening_shot}} 展示延伸至地平线的广阔 {{natural_environment}}，雾气在树冠中滚动，巨大的咆哮瀑布主导着中心景观，坠入阴影深处。
 
-镜头平滑过渡到 {{dynamic_tracking_shot}}，位置刚好在 {{military_aircraft}} 后方并略高于其上方，锁定其运动，因为它以极快的速度从高空向瀑布加速。
+鏡頭平滑过渡到 {{dynamic_tracking_shot}}，位置刚好在 {{military_aircraft}} 后方并略高于其上方，鎖定其运动，因为它以极快的速度从高空向瀑布加速。
 
-速度感通过湍流空气扭曲、蒸汽轨迹、引擎热浪闪烁和微妙的相机震动来强调，飞机穿过云层。
+速度感通過湍流空气扭曲、蒸汽轨迹、引擎热浪闪烁和微妙的相机震动来强调，飞机穿过云层。
 
 飞机快速下降，刚好掠过树梢上方，相机从后面紧密跟随，当飞机在参天大树和陡峭悬崖之间穿梭时，完美同步地倾斜和翻滚，动作精确而敏捷。
 
@@ -2091,11 +2091,11 @@ The sequence culminates as the jet bursts above the waterfall, revealing a breat
  * 系统内置模板列表
  * 
  * 如何添加新模板：
- * 1. 在上方定义模板内容常量 (可选，但推荐)
- * 2. 在数组中添加一个新的配置对象
+ * 1. 在上方定义模板內容常量 (可选，但推薦)
+ * 2. 在数组中添加一個新的配置对象
  * 3. 确保 id 唯一
- * 4. imageUrl 可以是外部链接，也可以是项目内的 import 资源
- * 5. tags 可以从 TEMPLATE_TAGS 中选择
+ * 4. imageUrl 可以是外部連結，也可以是项目内的 import 资源
+ * 5. tags 可以从 TEMPLATE_TAGS 中選擇
  */
 export const INITIAL_TEMPLATES_CONFIG = [
   {
@@ -2106,11 +2106,11 @@ export const INITIAL_TEMPLATES_CONFIG = [
     author: "@tanshilong（MarioTan）",
     selections: {
       "clothing": { cn: "炭灰色无袖连衣裙", en: "Charcoal grey sleeveless dress" },
-      "grid_pose-0": { cn: "前景手指虚化", en: "Out-of-focus fingers in foreground" },
-      "grid_pose-1": { cn: "目光锁定镜头", en: "Eyes locked on camera" },
-      "grid_pose-2": { cn: "单色下巴托手", en: "Monochrome hand on chin" },
+      "grid_pose-0": { cn: "前景手指虛化", en: "Out-of-focus fingers in foreground" },
+      "grid_pose-1": { cn: "目光鎖定鏡頭", en: "Eyes locked on camera" },
+      "grid_pose-2": { cn: "單色下巴托手", en: "Monochrome hand on chin" },
       "grid_pose-3": { cn: "正面特写阴影", en: "Frontal close-up with shadows" },
-      "grid_pose-4": { cn: "斜角拍摄", en: "Angled shot" },
+      "grid_pose-4": { cn: "斜角拍攝", en: "Angled shot" },
       "grid_pose-5": { cn: "双手置于锁骨", en: "Hands on collarbones" },
       "grid_pose-6": { cn: "坐姿半身侧面", en: "Seated half-body profile" },
       "grid_pose-7": { cn: "侧面微距水滴", en: "Side macro with water drops" },
@@ -2163,7 +2163,7 @@ export const INITIAL_TEMPLATES_CONFIG = [
     selections: {
       "classic_scene": { cn: "千与千寻", en: "Spirited Away" },
       "render_style": { cn: "Octane Render 和 Cinema 4D", en: "Octane Render and Cinema 4D" },
-      "position": { cn: "顶部中央", en: "Top Center" }
+      "position": { cn: "頂部中央", en: "Top Center" }
     },
     tags: ["卡通", "创意", "游戏"],
     language: ["cn", "en"],
@@ -2179,9 +2179,9 @@ export const INITIAL_TEMPLATES_CONFIG = [
     selections: {
       "company": { cn: "任天堂（Nintendo）", en: "Nintendo" },
       "render_style": { cn: "3D像素风格", en: "3D Pixel Art Style" },
-      "ratio": { cn: "3:4竖构图", en: "3:4 Vertical" }
+      "ratio": { cn: "3:4豎構圖", en: "3:4 Vertical" }
     },
-    tags: ["建筑", "创意", "图表"],
+    tags: ["建筑", "创意", "圖表"],
     language: ["cn", "en"],
     bestModel: "Nano Banana Pro",
     baseImage: "optional_base_image"
@@ -2193,12 +2193,12 @@ export const INITIAL_TEMPLATES_CONFIG = [
     imageUrl: "https://s3.bmp.ovh/imgs/2025/12/14/b21165a2afefaf4d.jpg",
     author: "@tanshilong（MarioTan）",
     selections: {
-      "lens_type": { cn: "极端鱼眼镜头", en: "Extreme Fisheye Lens" },
-      "role": { cn: "年轻女性", en: "Young woman" },
+      "lens_type": { cn: "极端鱼眼鏡頭", en: "Extreme Fisheye Lens" },
+      "role": { cn: "年輕女性", en: "Young woman" },
       "character_originality": { cn: "使用附图中的人物，确保结果与人物一致性", en: "Use character in attachment, ensure consistency" },
       "school_uniform": { cn: "灰色开衫和格子裙校服", en: "Grey cardigan and plaid skirt uniform" },
       "urban_location": { cn: "涩谷十字路口", en: "Shibuya Crossing" },
-      "dynamic_action": { cn: "一只手夸张地伸向镜头前景", en: "One hand exaggeratedly reaching towards the foreground" },
+      "dynamic_action": { cn: "一只手夸张地伸向鏡頭前景", en: "One hand exaggeratedly reaching towards the foreground" },
       "fingernail_detail": { cn: "手指甲清晰可见", en: "Fingernails clearly visible" },
       "building_cluster": { cn: "扭曲的涩谷109大楼和其他建筑林立", en: "Distorted Shibuya 109 building and other forest of buildings" },
       "crowd_traffic": { cn: "挤满行人和车辆", en: "Bustling traffic" },
@@ -2224,7 +2224,7 @@ export const INITIAL_TEMPLATES_CONFIG = [
     selections: {
       "character_groups": { cn: "中国古代开国皇帝", en: "Ancient Chinese Founding Emperors" },
       "social_media": { cn: "微信朋友圈", en: "WeChat Moments" },
-      "ratio": { cn: "9:16竖构图", en: "9:16 Vertical" }
+      "ratio": { cn: "9:16豎構圖", en: "9:16 Vertical" }
     },
     tags: ["创意", "人物", "摄影"],
     language: ["cn", "en"],
@@ -2243,7 +2243,7 @@ export const INITIAL_TEMPLATES_CONFIG = [
     author: "@hx831126（虎小象）",
     selections: {
       "travel_location": { cn: "东北雪乡", en: "Snow Village in Northeast China" },
-      "ratio": { cn: "9:16竖构图", en: "9:16 Vertical" }
+      "ratio": { cn: "9:16豎構圖", en: "9:16 Vertical" }
     },
     tags: ["人物", "摄影", "创意"],
     language: ["cn", "en"],
@@ -2259,7 +2259,7 @@ export const INITIAL_TEMPLATES_CONFIG = [
     selections: {
       "character_originality": { cn: "使用附图中的人物，确保结果与人物一致性", en: "Use character in attachment, ensure consistency" },
       "comic_scene": { cn: "唯美的卧室", en: "Beautiful bedroom" },
-      "ratio": { cn: "9:16竖构图", en: "9:16 Vertical" }
+      "ratio": { cn: "9:16豎構圖", en: "9:16 Vertical" }
     },
     tags: ["人物", "创意", "卡通"],
     language: ["cn", "en"],
@@ -2280,9 +2280,9 @@ export const INITIAL_TEMPLATES_CONFIG = [
     selections: {
       "designer": { cn: "Jonathan Ive (Jony Ive)", en: "Jonathan Ive" },
       "design_item": { cn: "无人机", en: "Drone" },
-      "ratio": { cn: "3:4竖构图", en: "3:4 Vertical" }
+      "ratio": { cn: "3:4豎構圖", en: "3:4 Vertical" }
     },
-    tags: ["产品", "创意", "图表"],
+    tags: ["产品", "创意", "圖表"],
     language: ["cn", "en"],
     bestModel: "Nano Banana Pro",
     baseImage: "optional_base_image"
@@ -2295,11 +2295,11 @@ export const INITIAL_TEMPLATES_CONFIG = [
     author: "PlayForge AI(@94van.AI)",
     selections: {
       "clothing": { cn: "炭灰色无袖连衣裙", en: "Charcoal grey sleeveless dress" },
-      "grid_pose-0": { cn: "前景手指虚化", en: "Out-of-focus fingers in foreground" },
-      "grid_pose-1": { cn: "目光锁定镜头", en: "Eyes locked on camera" },
-      "grid_pose-2": { cn: "单色下巴托手", en: "Monochrome hand on chin" },
+      "grid_pose-0": { cn: "前景手指虛化", en: "Out-of-focus fingers in foreground" },
+      "grid_pose-1": { cn: "目光鎖定鏡頭", en: "Eyes locked on camera" },
+      "grid_pose-2": { cn: "單色下巴托手", en: "Monochrome hand on chin" },
       "grid_pose-3": { cn: "正面特写阴影", en: "Frontal close-up with shadows" },
-      "grid_pose-4": { cn: "斜角拍摄", en: "Angled shot" },
+      "grid_pose-4": { cn: "斜角拍攝", en: "Angled shot" },
       "grid_pose-5": { cn: "双手置于锁骨", en: "Hands on collarbones" },
       "grid_pose-6": { cn: "坐姿半身侧面", en: "Seated half-body profile" },
       "grid_pose-7": { cn: "侧面微距水滴", en: "Side macro with water drops" },
@@ -2327,7 +2327,7 @@ export const INITIAL_TEMPLATES_CONFIG = [
     author: "@tanshilong（MarioTan）",
     selections: {
       "rain_shape": { cn: "芭蕾舞者", en: "Ballerina" },
-      "ratio": { cn: "3:4竖构图", en: "3:4 Vertical" }
+      "ratio": { cn: "3:4豎構圖", en: "3:4 Vertical" }
     },
     tags: ["摄影", "创意"],
     language: ["cn", "en"],
@@ -2343,9 +2343,9 @@ export const INITIAL_TEMPLATES_CONFIG = [
     selections: {
       "art_type": { cn: "美术学", en: "Fine Arts" },
       "render_style": { cn: "3D像素风格", en: "3D Pixel Art Style" },
-      "ratio": { cn: "3:4竖构图", en: "3:4 Vertical" }
+      "ratio": { cn: "3:4豎構圖", en: "3:4 Vertical" }
     },
-    tags: ["建筑", "创意", "图表"],
+    tags: ["建筑", "创意", "圖表"],
     language: ["cn", "en"],
     bestModel: "Nano Banana Pro",
     baseImage: "optional_base_image"
@@ -2360,7 +2360,7 @@ export const INITIAL_TEMPLATES_CONFIG = [
       "show_name": { cn: "龙猫", en: "My Neighbor Totoro" },
       "character_name": { cn: "龙猫", en: "Totoro" },
       "render_style": { cn: "毛毡与粘土", en: "Felt and Clay" },
-      "ratio": { cn: "4:3横构图", en: "4:3 Horizontal" }
+      "ratio": { cn: "4:3橫構圖", en: "4:3 Horizontal" }
     },
     tags: ["摄影", "创意", "卡通"],
     language: ["cn", "en"],
@@ -2375,7 +2375,7 @@ export const INITIAL_TEMPLATES_CONFIG = [
     author: "@berryxia（Berryxia.AI）",
     selections: {
       "fruit_1-0": { cn: "柠檬", en: "Lemon" },
-      "ratio": { cn: "16:9横构图", en: "16:9 Horizontal" }
+      "ratio": { cn: "16:9橫構圖", en: "16:9 Horizontal" }
     },
     tags: ["产品", "创意", "摄影"],
     language: ["cn", "en"],
@@ -2392,8 +2392,8 @@ export const INITIAL_TEMPLATES_CONFIG = [
       "subject": { cn: "女性", en: "Woman" },
       "clothing": { cn: "极简黑色高级定制礼服", en: "Minimalist black couture gown" },
       "background_style": { cn: "干净的纯白影棚背景", en: "Clean pure white studio background" },
-      "lighting": { cn: "柔和的编辑级影棚布光", en: "Soft editorial studio lighting" },
-      "ratio": { cn: "3:4竖构图", en: "3:4 Vertical" }
+      "lighting": { cn: "柔和的編輯级影棚布光", en: "Soft editorial studio lighting" },
+      "ratio": { cn: "3:4豎構圖", en: "3:4 Vertical" }
     },
     tags: ["人物", "摄影", "创意"],
     language: ["cn", "en"],
@@ -2402,7 +2402,7 @@ export const INITIAL_TEMPLATES_CONFIG = [
   },
   {
     id: "tpl_pixar_deconstruction",
-    name: { cn: "角色艺术拆解升级版", en: "Role Deconstruction" },
+    name: { cn: "角色艺术拆解升級版", en: "Role Deconstruction" },
     content: TEMPLATE_PIXAR_DECONSTRUCTION,
     imageUrl: "https://s3.bmp.ovh/imgs/2025/12/26/1931582fcfb9d1e5.png",
     author: "@berryxia（Berryxia.AI）",
@@ -2410,9 +2410,9 @@ export const INITIAL_TEMPLATES_CONFIG = [
       "render_style": { cn: "Pixar 卡通渲染", en: "Pixar Cartoon Rendering" },
       "subject": { cn: "时尚女性角色", en: "Fashionable Female Character" },
       "character_type_pixar": { cn: "单人角色：聚焦于个人生活方式", en: "Single: Focus on personal lifestyle" },
-      "ratio": { cn: "16:9横构图", en: "16:9 Horizontal" }
+      "ratio": { cn: "16:9橫構圖", en: "16:9 Horizontal" }
     },
-    tags: ["人物", "创意", "卡通", "图表"],
+    tags: ["人物", "创意", "卡通", "圖表"],
     language: ["cn", "en"],
     bestModel: "Nano Banana Pro",
     baseImage: "optional_base_image"
@@ -2428,7 +2428,7 @@ export const INITIAL_TEMPLATES_CONFIG = [
       "lighting_atmosphere": { cn: "夕阳余晖", en: "Sunset afterglow" },
       "clothing": { cn: "黑色修身西装", en: "Black slim-fit suit" },
       "lens_param": { cn: "85mm, f/1.8", en: "85mm, f/1.8" },
-      "ratio": { cn: "3:4竖构图", en: "3:4 Vertical" }
+      "ratio": { cn: "3:4豎構圖", en: "3:4 Vertical" }
     },
     tags: ["人物", "摄影", "创意"],
     language: ["cn", "en"],
@@ -2443,7 +2443,7 @@ export const INITIAL_TEMPLATES_CONFIG = [
     author: "@tanshilong(MarioTan)",
     selections: {
       "xmas_theme": { cn: "抽象圣诞树", en: "an abstract Christmas Tree" },
-      "ratio": { cn: "3:4竖构图", en: "3:4 Vertical" }
+      "ratio": { cn: "3:4豎構圖", en: "3:4 Vertical" }
     },
     tags: ["产品", "创意", "摄影"],
     language: ["cn", "en"],
@@ -2479,7 +2479,7 @@ export const INITIAL_TEMPLATES_CONFIG = [
     selections: {
       "character_originality": { cn: "使用附图中的人物，确保结果与人物一致性", en: "Use character in attachment, ensure consistency" },
       "clothing": { cn: "秋冬季顶级时尚服饰", en: "High-end autumn/winter fashion apparel" },
-      "ratio": { cn: "3:4竖构图", en: "3:4 Vertical" }
+      "ratio": { cn: "3:4豎構圖", en: "3:4 Vertical" }
     },
     tags: ["人物", "摄影", "创意"],
     language: ["cn", "en"],
@@ -2490,7 +2490,7 @@ export const INITIAL_TEMPLATES_CONFIG = [
     id: "tpl_city_glimpse",
     name: { cn: "都市一瞥", en: "City Glimpse" },
     content: TEMPLATE_CITY_GLIMPSE,
-    imageUrl: "https://s3.bmp.ovh/imgs/2025/12/29/d02fe64ad317ad60.jpg", // 暂无预览图，使用占位或稍后由用户补充
+    imageUrl: "https://s3.bmp.ovh/imgs/2025/12/29/d02fe64ad317ad60.jpg", // 暫無預覽图，使用占位或稍后由用户补充
     author: "阿兹特克小羊驼(@AztecaAlpaca)",
     selections: {
       "city_name": { cn: "京都", en: "Kyoto" },
@@ -2499,7 +2499,7 @@ export const INITIAL_TEMPLATES_CONFIG = [
       "dominant_colors": { cn: "传统的京都红与古朴的墨黑色", en: "Traditional Kyoto red and antique ink black" },
       "background_color_clean": { cn: "纯白", en: "Pure White" },
       "city_glimpse_subtitle": { cn: "古韵悠长的千年古都", en: "The thousand-year-old ancient capital" },
-      "ratio": { cn: "4:3横构图", en: "4:3 Horizontal" }
+      "ratio": { cn: "4:3橫構圖", en: "4:3 Horizontal" }
     },
     tags: ["建筑", "创意", "摄影"],
     language: ["cn", "en"],
@@ -2520,7 +2520,7 @@ export const INITIAL_TEMPLATES_CONFIG = [
       "action_status-3": { cn: "拿着香蕉在画画", en: "painting with a banana" },
       "action_status-4": { cn: "穿潜水脚蹼", en: "putting on diving fins" },
       "lens_param": { cn: "85mm, f/1.8", en: "85mm, f/1.8" },
-      "ratio": { cn: "3:4竖构图", en: "3:4 Vertical" }
+      "ratio": { cn: "3:4豎構圖", en: "3:4 Vertical" }
     },
     tags: ["人物", "摄影", "创意"],
     language: ["cn", "en"],
@@ -2534,7 +2534,7 @@ export const INITIAL_TEMPLATES_CONFIG = [
     imageUrl: "https://s3.bmp.ovh/imgs/2026/01/04/d530d1e38098944e.png",
     author: "@tanshilong",
     selections: {
-      "character_originality": { cn: "创作一个原创人物", en: "Create an original character" },
+      "character_originality": { cn: "创作一個原创人物", en: "Create an original character" },
       "art_tool": { cn: "毛笔", en: "Ink Brush" },
       "background_style": { cn: "极简纯色背景", en: "Minimalist solid color background" },
       "draw_style": { cn: "手绘漫画风格", en: "Hand-drawn Manga Style" }
@@ -2555,7 +2555,7 @@ export const INITIAL_TEMPLATES_CONFIG = [
       "clothing": { cn: "白色衬衫与内衣", en: "white shirt and lingerie" },
       "underwater_color": { cn: "深青色透明水下", en: "deep teal transparent underwater" },
       "creatures": { cn: "许多银色小鱼", en: "many small silver fish" },
-      "ratio": { cn: "3:4竖构图", en: "3:4 Vertical" }
+      "ratio": { cn: "3:4豎構圖", en: "3:4 Vertical" }
     },
     tags: ["人物", "摄影", "创意"],
     language: ["cn", "en"],
@@ -2572,12 +2572,12 @@ export const INITIAL_TEMPLATES_CONFIG = [
       "background_scene": { cn: "昏暗、平凡的房间，身后有一面素墙", en: "Dark, ordinary room with a plain wall behind the subject" },
       "lighting": { cn: "随意的肖像摄影，带有日常快照氛围", en: "Casual portrait photography with a daily snapshot vibe" },
       "clothing": { cn: "略显成熟的“大姐姐”时尚风格", en: "Slightly mature 'onee-san' fashion style" },
-      "accessory_glasses": { cn: "戴着有轻微镜面反射的眼镜", en: "wearing glasses with mild lens reflections" },
-      "action_status": { cn: "坐在沙发上，正随意地玩着手机", en: "Sitting on a sofa, casually playing on her phone" },
+      "accessory_glasses": { cn: "戴著有轻微镜面反射的眼鏡", en: "wearing glasses with mild lens reflections" },
+      "action_status": { cn: "坐在沙发上，正随意地玩着手機", en: "Sitting on a sofa, casually playing on her phone" },
       "camera_angle": { cn: "上半身特写", en: "upper-body close-up" },
       "underwear_style": { cn: "“纯欲风”服饰", en: "'pure-seductive' outfit style" },
       "subject": { cn: "女性，约20岁", en: "Female, around 20 years old" },
-      "ratio": { cn: "3:4竖构图", en: "3:4 Vertical" }
+      "ratio": { cn: "3:4豎構圖", en: "3:4 Vertical" }
     },
     tags: ["人物", "摄影"],
     language: ["cn", "en"],
@@ -2586,19 +2586,19 @@ export const INITIAL_TEMPLATES_CONFIG = [
   },
   {
     id: "tpl_surveillance_still",
-    name: { cn: "隐藏相机监控视角", en: "Surveillance Still" },
+    name: { cn: "隱藏相机監控視角", en: "Surveillance Still" },
     content: TEMPLATE_SURVEILLANCE_STILL,
     imageUrl: "https://s3.bmp.ovh/imgs/2026/01/08/ff4ac4b4171f41f5.jpg", 
     author: "@YaseenK7212",
     selections: {
-      "character_originality": { cn: "年轻韩国女团偶像", en: "Young Korean female K-pop idol" },
-      "hair_style": { cn: "黑色直发，垂在肩上", en: "Black straight hair, falling over shoulders" },
-      "action_status": { cn: "换衣时惊讶地抬头直视镜头", en: "frozen in surprise, looking directly into the lens while changing" },
+      "character_originality": { cn: "年輕韓國女團偶像", en: "Young Korean female K-pop idol" },
+      "hair_style": { cn: "黑色直髮，垂在肩上", en: "Black straight hair, falling over shoulders" },
+      "action_status": { cn: "换衣时惊讶地抬头直视鏡頭", en: "frozen in surprise, looking directly into the lens while changing" },
       "clothing": { cn: "半脱的灰色大号连帽衫，露出白色吊带", en: "half-removed oversized grey hoodie, revealing white camisole" },
       "background_scene": { cn: "昏暗舒适的后台更衣室或私密宿舍", en: "dimly lit, cozy backstage dressing room or private dorm room" },
-      "lighting": { cn: "隐藏相机拍摄风格，Portra 400 胶片质感", en: "Hidden camera style, Portra 400 film grain aesthetic" },
-      "camera_angle": { cn: "平视、略微隐藏的中景镜头", en: "eye-level, slightly hidden intimate medium shot" },
-      "ratio": { cn: "3:4竖构图", en: "3:4 Vertical" }
+      "lighting": { cn: "隱藏相机拍攝风格，Portra 400 胶片质感", en: "Hidden camera style, Portra 400 film grain aesthetic" },
+      "camera_angle": { cn: "平視、略微隱藏的中景鏡頭", en: "eye-level, slightly hidden intimate medium shot" },
+      "ratio": { cn: "3:4豎構圖", en: "3:4 Vertical" }
     },
     tags: ["人物", "摄影", "创意"],
     language: ["cn", "en"],
@@ -2613,8 +2613,8 @@ export const INITIAL_TEMPLATES_CONFIG = [
     author: "Taaruk(@Taaruk_)",
     selections: {
       "subject": { cn: "女性角色", en: "Female Character" },
-      "hair_style": { cn: "短发，柔和凌乱的深色头发", en: "Short, softly tousled dark hair" },
-      "action_status": { cn: "温柔地凝视着镜头，带着淡淡的忧郁", en: "Looking gently toward the camera, with a touch of melancholy" },
+      "hair_style": { cn: "短髮，柔和凌亂的深色頭髮", en: "Short, softly tousled dark hair" },
+      "action_status": { cn: "温柔地凝視着鏡頭，带着淡淡的忧郁", en: "Looking gently toward the camera, with a touch of melancholy" },
       "clothing": { cn: "柔和青色复古碎花连衣裙", en: "Muted teal floral dress with subtle vintage patterns" },
       "background_scene": { cn: "盛开的郁郁葱葱的花园", en: "Lush garden in full bloom" },
       "flower_type": { cn: "白色和淡桃色花瓣在空中飘落", en: "White and pale peach flower petals drifting through the air" },
@@ -2622,7 +2622,7 @@ export const INITIAL_TEMPLATES_CONFIG = [
       "lens_param": { cn: "85mm, f/1.8", en: "85mm, f/1.8" },
       "lighting": { cn: "阴天下的柔和自然光", en: "Soft natural light under overcast sky" },
       "role": { cn: "美术摄影与电影写实风格", en: "Fine-art photography blended with cinematic realism" },
-      "ratio": { cn: "2:3竖构图", en: "2:3 Vertical" }
+      "ratio": { cn: "2:3豎構圖", en: "2:3 Vertical" }
     },
     tags: ["人物", "摄影", "创意"],
     language: ["cn", "en"],
@@ -2636,11 +2636,11 @@ export const INITIAL_TEMPLATES_CONFIG = [
     imageUrl: "https://s3.bmp.ovh/imgs/2026/01/09/83205df357ad8c1c.jpg",
     author: "@tanshilong",
     selections: {
-      "character_originality": { cn: "创作一个原创人物", en: "Create an original character" },
+      "character_originality": { cn: "创作一個原创人物", en: "Create an original character" },
       "character_heroic": { cn: "文艺青年", en: "Artistic Youth" },
       "clothing_style_chinese": { cn: "古典红色汉服", en: "Classical red Hanfu" },
       "clothing_color_traditional": { cn: "暗红色", en: "Dark Red" },
-      "ratio": { cn: "2:3竖构图", en: "2:3 Vertical" }
+      "ratio": { cn: "2:3豎構圖", en: "2:3 Vertical" }
     },
     tags: ["创意", "人物", "时尚", "节日"],
     language: ["cn", "en"],
@@ -2649,16 +2649,16 @@ export const INITIAL_TEMPLATES_CONFIG = [
   },
   {
     id: "tpl_cute_dynamic_portrait",
-    name: { cn: "可爱动态人像", en: "Cute Dynamic Portrait" },
+    name: { cn: "可爱動態人像", en: "Cute Dynamic Portrait" },
     content: TEMPLATE_CUTE_DYNAMIC_PORTRAIT,
     imageUrl: "https://s3.bmp.ovh/imgs/2026/01/10/9e64b198ccc9663a.jpg",
     author: "M7(@mi7_crypto)",
     selections: {
       "room_style_cute": { cn: "可爱粉色房间，粉彩床和墙壁，原创动物玩偶，妖精灯光，可爱海报，毛绒地毯", en: "Cute pink room, pastel pink bed and walls, original cute animal plushies, fairy lights, cute posters, fluffy rug" },
-      "lens_type": { cn: "20mm 广角镜头", en: "20mm wide-angle lens" },
-      "cute_pose_dynamic": { cn: "向前走时回望，从正上方自信俏皮地俯视，迷人微笑", en: "Walking forward while looking back, confidently and playfully looking down from directly above, charming smile" },
-      "cute_outfit": { cn: "黑色紧身吊带连衣裙，长度到臀部，无袖，细肩带", en: "Black tight camisole dress, hip-length, sleeveless, thin straps" },
-      "lighting": { cn: "温暖的室内自然光，从窗射入，柔和的妖精灯在背景中", en: "Warm indoor natural light streaming through window, soft fairy lights in background" },
+      "lens_type": { cn: "20mm 广角鏡頭", en: "20mm wide-angle lens" },
+      "cute_pose_dynamic": { cn: "向前走时回望，从正上方自信俏皮地俯視，迷人微笑", en: "Walking forward while looking back, confidently and playfully looking down from directly above, charming smile" },
+      "cute_outfit": { cn: "黑色紧身吊带连衣裙，长度到臀部，无袖，细肩帶", en: "Black tight camisole dress, hip-length, sleeveless, thin straps" },
+      "lighting": { cn: "溫暖的室内自然光，从窗射入，柔和的妖精灯在背景中", en: "Warm indoor natural light streaming through window, soft fairy lights in background" },
       "camera_angle": { cn: "极低角度虫视，床高度", en: "Extreme low-angle worm's-eye view, bed height" }
     },
     tags: ["人物", "摄影", "创意"],
@@ -2676,12 +2676,12 @@ export const INITIAL_TEMPLATES_CONFIG = [
       "physical_state": { cn: "健康健美的身材", en: "Healthy athletic build" },
       "fitness_pose": { cn: "半蹲姿势，侧身对镜子", en: "Half-squat pose, turned sideways to mirror" },
       "fitness_clothing": { cn: "运动裙，紧身贴身", en: "Sports skirt, tight and form-fitting" },
-      "sweat_appearance": { cn: "头发凌乱湿透，汗水明显", en: "Hair disheveled and damp with sweat" },
+      "sweat_appearance": { cn: "頭髮凌亂湿透，汗水明显", en: "Hair disheveled and damp with sweat" },
       "facial_expression": { cn: "脸颊泛红，眼神迷离", en: "Cheeks flushed red, dreamy and slightly unfocused eyes" },
       "fitness_location": { cn: "繁忙的健身房，镜子和器械随处可见", en: "Busy gym with mirrors and equipment visible" },
       "selfie_style": { cn: "原始真实的镜子自拍", en: "Raw, authentic mirror selfie" },
       "photo_effect": { cn: "慢快门导致的运动模糊", en: "Motion blur from slow shutter speed" },
-      "ratio": { cn: "3:4竖构图", en: "3:4 vertical portrait" }
+      "ratio": { cn: "3:4豎構圖", en: "3:4 vertical portrait" }
     },
     tags: ["人物", "摄影", "卡通"],
     language: ["cn", "en"],
@@ -2697,7 +2697,7 @@ export const INITIAL_TEMPLATES_CONFIG = [
     selections: {
       "miniature_character": { cn: "消防员", en: "Firefighter" },
       "giant_object": { cn: "燃烧的火柴棍", en: "Burning Matchstick" },
-      "ratio": { cn: "16:9横构图", en: "16:9 horizontal landscape" }
+      "ratio": { cn: "16:9橫構圖", en: "16:9 horizontal landscape" }
     },
     tags: ["创意", "产品", "摄影"],
     language: ["cn", "en"],
@@ -2754,7 +2754,7 @@ export const INITIAL_TEMPLATES_CONFIG = [
   },
   {
     id: "tpl_premium_food_advertising",
-    name: { cn: "高端食品广告", en: "Premium Food Advertising" },
+    name: { cn: "高端食品廣告", en: "Premium Food Advertising" },
     content: TEMPLATE_PREMIUM_FOOD_ADVERTISING,
     imageUrl: "https://s3.bmp.ovh/imgs/2026/01/17/416c81356ded66d4.jpg",
     author: "Amira Zairi (@azed_ai)",
@@ -2807,7 +2807,7 @@ export const INITIAL_TEMPLATES_CONFIG = [
   },
   {
     id: "tpl_isometric_interior_scene",
-    name: { cn: "等距视角室内场景", en: "Isometric Interior Scene" },
+    name: { cn: "等距視角室内场景", en: "Isometric Interior Scene" },
     content: TEMPLATE_ISOMETRIC_INTERIOR_SCENE,
     imageUrl: "https://s3.bmp.ovh/imgs/2026/01/19/b04fd355944cfb21.jpg",
     author: "@tanshilong",
@@ -2835,7 +2835,7 @@ export const INITIAL_TEMPLATES_CONFIG = [
       "lighting": { cn: "自然窗光", en: "Natural window light" },
       "drawing_style": { cn: "建筑线图风格", en: "Architectural Line Drawing Style" }
     },
-    tags: ["产品", "创意", "图表"],
+    tags: ["产品", "创意", "圖表"],
     language: ["cn", "en"],
     bestModel: "Nano Banana Pro",
     baseImage: "optional_base_image"
@@ -2847,7 +2847,7 @@ export const INITIAL_TEMPLATES_CONFIG = [
     imageUrl: "https://s3.bmp.ovh/2026/01/31/GWQUDXpd.jpg",
     author: "Vigo Zhao (@VigoCreativeAI)",
     selections: {
-      "character_subject": { cn: "年轻女性，长发，微笑", en: "Young woman with long hair, smiling" },
+      "character_subject": { cn: "年輕女性，長髮，微笑", en: "Young woman with long hair, smiling" },
       "portrait_view": { cn: "正面肖像", en: "Front portrait" },
       "line_art_style": { cn: "钢笔墨水风格", en: "Pen and ink style" },
       "shading_technique": { cn: "极简排线阴影", en: "Minimalist cross-hatching" },
@@ -2874,14 +2874,14 @@ export const INITIAL_TEMPLATES_CONFIG = [
   },
   {
     id: "tpl_science_paper_model",
-    name: { cn: "科学发现纸雕模型", en: "Scientific Discovery Paper Model" },
+    name: { cn: "科学發現纸雕模型", en: "Scientific Discovery Paper Model" },
     content: TEMPLATE_SCIENCE_PAPER_MODEL,
     imageUrl: "https://s3.bmp.ovh/2026/01/31/gB4NpxYw.jpg",
     author: "Gadgetify (@Gdgtify)",
     selections: {
       "scientific_discovery": { cn: "DNA结构", en: "The Structure of DNA" }
     },
-    tags: ["创意", "图表", "摄影"],
+    tags: ["创意", "圖表", "摄影"],
     language: ["cn", "en"],
     bestModel: "Nano Banana Pro",
     baseImage: "no_base_image"
@@ -2896,7 +2896,7 @@ export const INITIAL_TEMPLATES_CONFIG = [
       "anatomy_teaching_style": { cn: "Proko 风格（简化几何、教学导向、清晰构造线）", en: "Proko style (simplified geometry, educational focus, clear construction lines)" },
       "construction_line_color": { cn: "紫色/紫罗兰色（主构造线）", en: "Purple/violet sketch lines (primary construction)" }
     },
-    tags: ["人物", "创意", "图表"],
+    tags: ["人物", "创意", "圖表"],
     language: ["cn", "en"],
     bestModel: "Nano Banana Pro",
     baseImage: "recommend_base_image"
@@ -2928,9 +2928,9 @@ export const INITIAL_TEMPLATES_CONFIG = [
     author: "YangGuang (@YangGuangAI)",
     selections: {
       "fight_style": { cn: "武侠飘逸风（轻功、剑气、衣袂飘飘）", en: "Wuxia elegant style (light kung fu, sword aura, flowing robes)" },
-      "camera_rhythm": { cn: "快速切换蒙太奇（多角度快速剪辑）", en: "Rapid montage cutting (multi-angle fast edits)" }
+      "camera_rhythm": { cn: "快速切換蒙太奇（多角度快速剪輯）", en: "Rapid montage cutting (multi-angle fast edits)" }
     },
-    tags: ["动作", "影视", "人物", "武侠"],
+    tags: ["动作", "影視", "人物", "武侠"],
     language: ["cn", "en"],
     bestModel: "Seedance 2.0",
     baseImage: "recommend_base_image",
@@ -2941,7 +2941,7 @@ export const INITIAL_TEMPLATES_CONFIG = [
   },
   {
     id: "tpl_3x3_storyboard_video",
-    name: { cn: "3x3故事板创建视频", en: "3x3 Storyboard Video Creation" },
+    name: { cn: "3x3故事板建立影片", en: "3x3 Storyboard Video Creation" },
     type: "video",
     content: TEMPLATE_3X3_STORYBOARD_VIDEO,
     videoUrl: "https://img.wjwj.top/2026/02/08/c35f4592aa1a3eb23eb3d4e72fdb02ae.mov",
@@ -2958,19 +2958,19 @@ export const INITIAL_TEMPLATES_CONFIG = [
   },
   {
     id: "tpl_cyberpunk_vehicle_chase",
-    name: { cn: "赛博朋克飞行器追逐", en: "Cyberpunk Vehicle Chase" },
+    name: { cn: "賽博龐克飞行器追逐", en: "Cyberpunk Vehicle Chase" },
     type: "video",
     content: TEMPLATE_CYBERPUNK_VEHICLE_CHASE,
     videoUrl: "https://img.wjwj.top/2026/02/08/85820eabd0f51ef1d215e5012cb2c8ff.mov",
     author: "John @johnAGI168",
     selections: {
-      sci_fi_movie_style: { cn: "赛博朋克美学（Cyberpunk Aesthetics）", en: "Cyberpunk Aesthetics" },
+      sci_fi_movie_style: { cn: "賽博龐克美学（Cyberpunk Aesthetics）", en: "Cyberpunk Aesthetics" },
       futuristic_vehicle: { cn: "流线型反重力飞行器（Anti-gravity Vehicle）", en: "Streamlined Anti-gravity Vehicle" },
       cyberpunk_city_scene: { cn: "未来主义超级城市峡谷（Megacity Canyon）", en: "Futuristic Megacity Canyon" },
       tracking_camera_shot: { cn: "极具纵深感的广角跟拍（Wide Angle Tracking Shot）", en: "Wide Angle Tracking Shot with Deep Depth" },
-      action_camera_shot: { cn: "紧张的驾驶舱视角（Cockpit View）", en: "Tense Cockpit View" }
+      action_camera_shot: { cn: "紧张的驾驶舱視角（Cockpit View）", en: "Tense Cockpit View" }
     },
-    tags: ["科幻", "动作", "影视", "游戏"],
+    tags: ["科幻", "动作", "影視", "游戏"],
     language: ["cn", "en"],
     bestModel: "Seedance 2.0",
     baseImage: "no_base_image"
@@ -2984,11 +2984,11 @@ export const INITIAL_TEMPLATES_CONFIG = [
     author: "Umesh @umesh_ai",
     selections: {
       natural_environment: { cn: "古代雨林（Ancient Rainforest）", en: "Ancient Rainforest" },
-      military_aircraft: { cn: "战斗机（Fighter Jet）", en: "Fighter Jet" },
+      military_aircraft: { cn: "戰鬥机（Fighter Jet）", en: "Fighter Jet" },
       aerial_opening_shot: { cn: "史诗超广角航拍（Epic Ultra Wide Aerial Shot）", en: "Epic Ultra Wide Aerial Shot" },
       dynamic_tracking_shot: { cn: "第三人称紧密跟拍（Third-Person Tight Tracking）", en: "Third-Person Tight Tracking" }
     },
-    tags: ["动作", "影视", "自然"],
+    tags: ["动作", "影視", "自然"],
     language: ["cn", "en"],
     bestModel: "Seedance 2.0",
     baseImage: "no_base_image"

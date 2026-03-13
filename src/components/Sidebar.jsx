@@ -17,7 +17,7 @@ import { openExternalLink } from '../utils/platform';
 // import SponsorModal from './modals/SponsorModal';
 
 /**
- * Sidebar 组件 - 通用侧边导航栏
+ * Sidebar 组件 - 通用侧边導航栏
  */
 export const Sidebar = ({
   activeTab = 'home', // 'home' | 'details' | 'settings'
@@ -54,7 +54,7 @@ export const Sidebar = ({
     width: '62px',
     height: '100%',
     borderRadius: '16px',
-    // 使用渐变背景 + 渐变描边技巧 (解决 border-radius 与 border-image 冲突)
+    // 使用渐变背景 + 渐变描边技巧 (解決 border-radius 与 border-image 冲突)
     border: '1px solid transparent',
     backgroundImage: 'linear-gradient(180deg, #FAF5F1 0%, #F6EBE6 100%), linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%)',
     backgroundOrigin: 'border-box',
@@ -67,14 +67,14 @@ export const Sidebar = ({
       className="relative flex flex-col justify-between items-center py-8 mr-4 flex-shrink-0"
     >
       
-      {/* 上部分：Logo + 导航按钮 */}
+      {/* 上部分：Logo + 導航按钮 */}
       <div className="flex flex-col items-center gap-8 w-full">
         {/* Logo */}
         <div className="mt-4 mb-2">
           <img src="/Logo_icon.svg" alt="提示詞填空器 (Prompt Fill) - AI 提示詞管理工具" className="w-9 h-9" />
         </div>
 
-        {/* 导航按钮组 */}
+        {/* 導航按钮组 */}
         <div className="flex flex-col items-center gap-6">
           <Tooltip content="主頁" isDarkMode={isDarkMode}>
             {activeTab === 'settings' ? (
@@ -158,7 +158,7 @@ export const Sidebar = ({
         </div>
       </div>
 
-      {/* 下部分：设置组 */}
+      {/* 下部分：設定组 */}
       <div className="flex flex-col items-center gap-6 w-full">
         <Tooltip content={t('language')} isDarkMode={isDarkMode}>
           <button 
@@ -215,8 +215,8 @@ export const Sidebar = ({
           </button>
         </Tooltip>
 
-        {/* 捐赠按钮 - 暂时隐藏
-        <Tooltip content={language === 'cn' ? '请我喝杯奶茶' : 'Buy me a bubble tea'} isDarkMode={isDarkMode}>
+        {/* 捐赠按钮 - 暫時隱藏
+        <Tooltip content={language === 'cn' ? '請我喝杯珍奶' : 'Buy me a bubble tea'} isDarkMode={isDarkMode}>
           <button
             onClick={() => setIsSponsorModalOpen(true)}
             className={`p-2 transition-colors ${isDarkMode ? 'text-[#8E9196]' : 'text-[#6B7280]'} hover:text-orange-500`}
@@ -227,7 +227,7 @@ export const Sidebar = ({
         */}
       </div>
 
-      {/* 打赏弹窗 - 暂时隐藏
+      {/* 打赏彈窗 - 暫時隱藏
       <SponsorModal
         isOpen={isSponsorModalOpen}
         onClose={() => setIsSponsorModalOpen(false)}

@@ -1,4 +1,4 @@
-// VisualEditor 组件 - 可视化编辑器
+// VisualEditor 组件 - 可视化編輯器
 import React, { useRef } from 'react';
 import { CATEGORY_STYLES } from '../constants/styles';
 
@@ -8,11 +8,11 @@ export const VisualEditor = React.forwardRef(({
   banks, 
   categories, 
   isDarkMode,
-  // 移动端常驻标题与作者
+  // 行動端常驻标题与作者
   activeTemplate,
   language,
   t,
-  onInteraction // 新增：交互回调（用于自动折叠信息区）
+  onInteraction // 新增：交互回调（用于自动折疊資訊區）
 }, ref) => {
   const preRef = useRef(null);
   const containerRef = useRef(null);
@@ -24,15 +24,15 @@ export const VisualEditor = React.forwardRef(({
     }
   };
 
-  // 同步滚动 (仅移动端启用)
+  // 同步滚动 (仅行動端启用)
   const handleContainerScroll = (e) => {
     if (isMobile && preRef.current) {
-      // 实际上在移动端，我们将 pre 和 textarea 放在一个非绝对定位的容器中，
+      // 实际上在行動端，我们将 pre 和 textarea 放在一個非绝对定位的容器中，
       // 让它们随父容器一起滚动，而不是自己拥有滚动条。
     }
   };
 
-  // ... 变量解析工具函数 ...
+  // ... 變數解析工具函数 ...
   const parseVariableName = (varName) => {
     const match = varName.match(/^(.+?)(?:_(\d+))?$/);
     if (match) {
@@ -51,11 +51,11 @@ export const VisualEditor = React.forwardRef(({
     return parts.map((part, i) => {
       if (part.startsWith('{{') && part.endsWith('}}')) {
         const fullKey = part.slice(2, -2).trim();
-        // 解析变量名，提取 baseKey（用于查找词库）
+        // 解析變數名，提取 baseKey（用于查找詞庫）
         const parsed = parseVariableName(fullKey);
         const baseKey = parsed.baseKey;
         
-        // 使用 baseKey 查找词库，确保即使变量名是 fruit_1 也能找到 fruit 词库
+        // 使用 baseKey 查找詞庫，确保即使變數名是 fruit_1 也能找到 fruit 詞庫
         const bank = banks[baseKey] || banks[fullKey]; // 后备：如果 baseKey 找不到，尝试 fullKey
         const categoryId = bank?.category || 'other';
         const colorKey = categories[categoryId]?.color || 'slate';
@@ -76,7 +76,7 @@ export const VisualEditor = React.forwardRef(({
     });
   };
 
-  // 移动端布局：标题作者和编辑器一起滚动
+  // 行動端佈局：标题作者和編輯器一起滚动
   if (isMobile) {
     const title = activeTemplate ? (typeof activeTemplate.name === 'object' ? (activeTemplate.name[language] || activeTemplate.name.cn || activeTemplate.name.en) : activeTemplate.name) : '';
     const author = activeTemplate ? activeTemplate.author : '';
@@ -142,7 +142,7 @@ export const VisualEditor = React.forwardRef(({
     );
   }
 
-  // 桌面端布局保持原样
+  // 桌面端佈局保持原样
   return (
     <div className={`relative w-full h-full overflow-hidden transition-colors duration-300 bg-transparent`}>
       {/* Backdrop */}

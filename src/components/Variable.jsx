@@ -1,4 +1,4 @@
-// Variable 组件 - 可点击的变量词
+// Variable 组件 - 可点击的變數詞
 import React, { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { Check, Plus, X, Loader2 } from 'lucide-react';
@@ -32,8 +32,8 @@ export const Variable = ({
   isDarkMode,
   groupId = null,  // 新增：分组ID，用于显示分组标识
   // AI 相关 props（预留接口）
-  onGenerateAITerms = null,  // AI 生成词条的回调函数
-  templateContext = "", // 新增：模版全文内容
+  onGenerateAITerms = null,  // AI 生成詞條的回调函数
+  templateContext = "", // 新增：模板全文內容
 }) => {
   const [isAdding, setIsAdding] = useState(false);
   const [newOptionPrimary, setNewOptionPrimary] = useState("");
@@ -43,12 +43,12 @@ export const Variable = ({
   const [alignTop, setAlignTop] = useState(false);
   const [maxPopoverWidth, setMaxPopoverWidth] = useState('95vw');
   
-  // 核心优化：改用即时检测，确保渲染初期定位逻辑正确
+  // 核心優化：改用即时检测，确保渲染初期定位逻辑正确
   // 增加阈值到 1024px，确保在平板和窄屏下也能触发居中模态框模式
   const [isMobileDevice, setIsMobileDevice] = useState(typeof window !== 'undefined' && window.innerWidth < 1024);
   const containerRef = useRef(null);
 
-  // 初始化移动端检测
+  // 初始化行動端检测
   useEffect(() => {
     const checkMobile = () => setIsMobileDevice(window.innerWidth < 1024);
     checkMobile();
@@ -57,11 +57,11 @@ export const Variable = ({
   }, []);
 
   // AI 相关状态
-  const [aiTerms, setAiTerms] = useState([]);  // AI 生成的词条
-  const [isAILoading, setIsAILoading] = useState(false);  // AI 加载状态
+  const [aiTerms, setAiTerms] = useState([]);  // AI 生成的詞條
+  const [isAILoading, setIsAILoading] = useState(false);  // AI 載入状态
   const [aiError, setAiError] = useState(null);  // AI 错误信息
-  const [visibleAiTermsCount, setVisibleAiTermsCount] = useState(0); // 新增：可见的 AI 词条数量，用于逐个显示效果
-  const [hasGeneratedOnce, setHasGeneratedOnce] = useState(false); // 新增：是否已经生成过词条
+  const [visibleAiTermsCount, setVisibleAiTermsCount] = useState(0); // 新增：可见的 AI 詞條数量，用于逐个显示效果
+  const [hasGeneratedOnce, setHasGeneratedOnce] = useState(false); // 新增：是否已经生成过詞條
 
   //文字渐变色
   const TEXT_GRADIENT = 'linear-gradient(90deg, #F77F56 0%, rgba(255, 71, 20, 0.97) 100%)';
@@ -118,7 +118,7 @@ export const Variable = ({
       setVisibleAiTermsCount(aiTerms.length); 
     } else {
       updatePosition();
-      // 仅在桌面端监听 resize，移动端固定居中无需重新计算
+      // 仅在桌面端监听 resize，行動端固定居中无需重新计算
       if (!isMobileDevice) {
         window.addEventListener('resize', updatePosition);
         return () => window.removeEventListener('resize', updatePosition);
@@ -126,9 +126,9 @@ export const Variable = ({
     }
   }, [isOpen, aiTerms.length, isMobileDevice]);
 
-  // 处理 AI 生成词条
+  // 处理 AI 生成詞條
   const handleGenerateAITerms = async () => {
-    // 检查功能开关
+    // 检查功能開關
     if (!AI_FEATURE_ENABLED) {
       console.warn('[AI] AI feature is disabled');
       return;
@@ -142,7 +142,7 @@ export const Variable = ({
 
     setIsAILoading(true);
     setAiError(null);
-    setAiTerms([]); // 清空旧词条
+    setAiTerms([]); // 清空旧詞條
     setVisibleAiTermsCount(0); // 重置可见计数
 
     try {
@@ -153,7 +153,7 @@ export const Variable = ({
         language: language,
         currentValue: getLocalized(currentVal, language),
         localOptions: config?.options || [], // 传递本地选项
-        templateContext: templateContext, // 传递模版全文
+        templateContext: templateContext, // 传递模板全文
         count: AI_GENERATION_COUNT.DEFAULT
       });
 
@@ -169,7 +169,7 @@ export const Variable = ({
           if (count >= result.length) {
             clearInterval(interval);
           }
-        }, 150); // 每 150ms 显示一个
+        }, 150); // 每 150ms 显示一個
       } else {
         setAiError(AI_ERROR_MESSAGES.GENERATION_FAILED[language] || 'Generation failed');
       }
@@ -215,7 +215,7 @@ export const Variable = ({
     if (!primary && !secondary) return;
 
     if (primary && secondary) {
-      // 双语模式
+      // 雙語模式
       onAddCustom({
         [language]: primary,
         [otherLanguage]: secondary
@@ -249,7 +249,7 @@ export const Variable = ({
 
   const popoverContent = (
     <>
-      {/* 1. 顶部：标题加标签 */}
+      {/* 1. 頂部：标题加標籤 */}
       <div className={`px-5 py-4 flex justify-between items-center ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>
         <span className="text-[17px] font-bold tracking-tight">
           {getLocalized(config.label, language)}
@@ -262,7 +262,7 @@ export const Variable = ({
         </span>
       </div>
 
-      {/* 2. 中部：词条区域 (圆角渐变框) */}
+      {/* 2. 中部：詞條区域 (圆角渐变框) */}
       <div className="px-3 pb-2 flex-1 flex flex-col min-h-0">
         <div 
           className={`
@@ -279,7 +279,7 @@ export const Variable = ({
             boxShadow: 'inset 0px 2px 4px 0px rgba(0, 0, 0, 0.2)'
           }}
         >
-          {/* AI 智能词条部分 */}
+          {/* AI 智慧詞條部分 */}
           {AI_FEATURE_ENABLED && (
             <div className={`flex flex-col pt-1`}>
               <div className="px-4 py-3 flex items-center justify-between">
@@ -329,7 +329,7 @@ export const Variable = ({
               </div>
 
               <div className="px-2 space-y-1">
-                {/* AI 加载中的骨架屏效果 */}
+                {/* AI 載入中的骨架屏效果 */}
                 {isAILoading && (
                   <div className="space-y-1">
                     {[1, 2, 3].map((i) => (
@@ -393,7 +393,7 @@ export const Variable = ({
             </div>
           )}
 
-          {/* 本地词库部分 */}
+          {/* 本地詞庫部分 */}
           <div className="flex flex-col mt-2">
             <div className="px-2 space-y-1 pb-3">
               {config.options.length > 0 ? config.options.map((opt, idx) => (
@@ -419,7 +419,7 @@ export const Variable = ({
         </div>
       </div>
 
-      {/* 3. 底部：添加自定义选项 */}
+      {/* 3. 底部：添加自訂选项 */}
       <div className={`px-4 pt-1 pb-4`}>
         {isAdding ? (
           <div className="flex items-stretch gap-3 animate-in slide-in-from-bottom-2 duration-200">
@@ -440,7 +440,7 @@ export const Variable = ({
                             }
                         }}
                     />
-                    {/* 语言标签提示 */}
+                    {/* 语言標籤提示 */}
                     <span className={`absolute right-3 top-3 text-[9px] font-black uppercase tracking-tighter opacity-30 pointer-events-none ${isDarkMode ? 'text-white' : 'text-black'}`}>
                         {language.toUpperCase()}
                     </span>
@@ -464,7 +464,7 @@ export const Variable = ({
                             }
                         }}
                     />
-                    {/* 语言标签提示 */}
+                    {/* 语言標籤提示 */}
                     <span className={`absolute right-3 top-2.5 text-[9px] font-black uppercase tracking-tighter opacity-30 pointer-events-none ${isDarkMode ? 'text-white' : 'text-black'}`}>
                         {otherLanguage.toUpperCase()}
                     </span>
@@ -544,17 +544,17 @@ export const Variable = ({
               background: `linear-gradient(135deg, ${premium.from}, ${premium.to})`,
               boxShadow: `0 2px 6px ${premium.shadowColor}, 0 0 0 2px rgba(255, 255, 255, 0.3)`
             }}
-            title={`联动组 ${groupId}`}
+            title={`聯動組 ${groupId}`}
           >
             {groupId}
           </span>
         )}
       </span>
       
-      {/* Popover - 词库选择器 */}
+      {/* Popover - 詞庫選擇器 */}
       {isOpen && (
         <>
-          {/* 移动端模式：使用 Portal 渲染到根节点，确保绝对居中且不被父级 transform 干扰 */}
+          {/* 行動端模式：使用 Portal 渲染到根节点，确保绝对居中且不被父级 transform 干扰 */}
           {isMobileDevice ? createPortal(
             <div 
               className="fixed inset-0 z-[2000] flex items-center justify-center pointer-events-none"
@@ -572,7 +572,7 @@ export const Variable = ({
                 onClick={onToggle}
               />
               
-              {/* 居中弹窗 - 显式设置居中定位和动画 */}
+              {/* 居中彈窗 - 显式設定居中定位和动画 */}
               <div
                 ref={popoverRef}
                 className="relative w-[90vw] max-w-[420px] max-h-[85vh] rounded-[32px] shadow-2xl overflow-hidden flex flex-col text-left animate-in zoom-in-95 fade-in duration-300 pointer-events-auto"

@@ -1,4 +1,4 @@
-// Lightbox 组件 - 图片预览灯箱
+// Lightbox 组件 - 圖片預覽灯箱
 import React from 'react';
 import { X } from 'lucide-react';
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { X, Video, ImageIcon, ChevronRight } from 'lucide-react';
 
 /**
- * AddTemplateTypeModal - 选择新建模板类型的弹窗
+ * AddTemplateTypeModal - 選擇新建模板类型的彈窗
  */
 export const AddTemplateTypeModal = ({ isOpen, onClose, onSelect, isDarkMode, language }) => {
   if (!isOpen) return null;
@@ -19,7 +19,7 @@ export const AddTemplateTypeModal = ({ isOpen, onClose, onSelect, isDarkMode, la
         {/* Header */}
         <div className={`p-6 md:p-8 flex justify-between items-center ${isDarkMode ? 'bg-white/[0.02]' : 'bg-gray-50/50'}`}>
           <h3 className={`font-black text-xl tracking-tight ${isDarkMode ? 'text-gray-100' : 'text-gray-900'}`}>
-            {language === 'cn' ? '选择模版类型' : 'Select Template Type'}
+            {language === 'cn' ? '選擇模板类型' : 'Select Template Type'}
           </h3>
           <button
             onClick={onClose}
@@ -54,10 +54,10 @@ export const AddTemplateTypeModal = ({ isOpen, onClose, onSelect, isDarkMode, la
               {/* Text Info */}
               <div className="text-left flex-1 min-w-0">
                 <h4 className={`font-black text-lg md:text-xl tracking-tight mb-1 transition-colors ${isDarkMode ? 'text-white group-hover:text-orange-400' : 'text-gray-900 group-hover:text-orange-600'}`}>
-                  {language === 'cn' ? '图像模版' : 'Image Template'}
+                  {language === 'cn' ? '圖像模板' : 'Image Template'}
                 </h4>
                 <p className={`text-xs md:text-sm font-medium leading-relaxed opacity-60 ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>
-                  {language === 'cn' ? '创建用于生成图片的提示词模版' : 'Create prompt templates for generating images'}
+                  {language === 'cn' ? '建立用于生成圖片的提示詞模板' : 'Create prompt templates for generating images'}
                 </p>
               </div>
 
@@ -90,10 +90,10 @@ export const AddTemplateTypeModal = ({ isOpen, onClose, onSelect, isDarkMode, la
               {/* Text Info */}
               <div className="text-left flex-1 min-w-0">
                 <h4 className={`font-black text-lg md:text-xl tracking-tight mb-1 transition-colors ${isDarkMode ? 'text-white group-hover:text-orange-400' : 'text-gray-900 group-hover:text-orange-600'}`}>
-                  {language === 'cn' ? '视频模版' : 'Video Template'}
+                  {language === 'cn' ? '影片模板' : 'Video Template'}
                 </h4>
                 <p className={`text-xs md:text-sm font-medium leading-relaxed opacity-60 ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>
-                  {language === 'cn' ? '创建用于生成视频的提示词模版，支持素材参考' : 'Create prompt templates for generating videos with assets'}
+                  {language === 'cn' ? '建立用于生成影片的提示詞模板，支援素材参考' : 'Create prompt templates for generating videos with assets'}
                 </p>
               </div>
 

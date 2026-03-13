@@ -3,18 +3,18 @@ import { X, Download } from 'lucide-react';
 import { PremiumButton } from '../PremiumButton';
 
 /**
- * 导入模版弹窗组件
- * 支持通过分享口令或链接导入模版
+ * 匯入模板彈窗组件
+ * 支持通過分享口令或連結匯入模板
  *
  * @param {Object} props
- * @param {boolean} props.isOpen - 是否打开弹窗
- * @param {Function} props.onClose - 关闭弹窗的回调
+ * @param {boolean} props.isOpen - 是否打开彈窗
+ * @param {Function} props.onClose - 关闭彈窗的回调
  * @param {string} props.tokenValue - 输入的口令值
  * @param {Function} props.onTokenChange - 口令值变化的回调
- * @param {Function} props.onConfirm - 确认导入的回调
+ * @param {Function} props.onConfirm - 確認匯入的回调
  * @param {boolean} props.isDarkMode - 是否暗色模式
  * @param {string} props.language - 当前语言
- * @param {string} props.confirmText - 确认按钮文字
+ * @param {string} props.confirmText - 確認按钮文字
  */
 const ImportTokenModal = ({ isOpen, onClose, tokenValue, onTokenChange, onConfirm, isDarkMode, language, confirmText }) => {
   if (!isOpen) return null;
@@ -51,10 +51,10 @@ const ImportTokenModal = ({ isOpen, onClose, tokenValue, onTokenChange, onConfir
             <X size={20} />
           </button>
           <h3 className={`text-xl font-black mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-            {language === 'cn' ? '导入模版' : 'Import Template'}
+            {language === 'cn' ? '匯入模板' : 'Import Template'}
           </h3>
           <p className={`text-xs font-bold mb-6 ${isDarkMode ? 'text-gray-500' : 'text-gray-400'}`}>
-            {language === 'cn' ? '请输入分享口令或链接' : 'Please enter share token or link'}
+            {language === 'cn' ? '請輸入分享口令或連結' : 'Please enter share token or link'}
           </p>
 
           <div className="space-y-4">
@@ -64,7 +64,7 @@ const ImportTokenModal = ({ isOpen, onClose, tokenValue, onTokenChange, onConfir
                 type="text"
                 value={tokenValue}
                 onChange={(e) => onTokenChange(e.target.value)}
-                placeholder={language === 'cn' ? '粘贴口令或链接...' : 'Paste token or link...'}
+                placeholder={language === 'cn' ? '貼上口令或連結...' : 'Paste token or link...'}
                 className={`w-full px-5 py-4 text-sm font-semibold rounded-2xl transition-all duration-300 border-2 outline-none ${
                   isDarkMode
                     ? 'bg-black/20 border-white/10 text-white focus:border-orange-500/50'

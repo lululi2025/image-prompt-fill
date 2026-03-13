@@ -2,14 +2,14 @@ import React from 'react';
 import { Sparkles, X } from 'lucide-react';
 
 /**
- * 应用更新提示弹窗
- * 当应用版本或数据版本有更新时显示
+ * 应用更新提示彈窗
+ * 当应用版本或資料版本有更新时显示
  *
  * @param {Object} props
- * @param {boolean} props.isOpen - 是否显示弹窗
+ * @param {boolean} props.isOpen - 是否显示彈窗
  * @param {string} props.noticeType - 更新类型: 'app' | 'data'
  * @param {Function} props.onRefresh - 刷新页面的回调
- * @param {Function} props.onClose - 关闭弹窗的回调
+ * @param {Function} props.onClose - 关闭彈窗的回调
  * @param {Function} props.t - 翻译函数
  */
 const AppUpdateNotice = ({ isOpen, noticeType, onRefresh, onClose, t }) => {

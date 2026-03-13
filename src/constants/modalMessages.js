@@ -1,10 +1,10 @@
 /**
- * 弹窗提示文案常量
- * 用于统一管理各种确认弹窗、警告提示的文案内容
+ * 彈窗提示文案常量
+ * 用于统一管理各种確認彈窗、警告提示的文案內容
  */
 
 /**
- * 智能拆分确认弹窗文案
+ * 智慧拆分確認彈窗文案
  */
 export const SMART_SPLIT_CONFIRM_MESSAGE = {
   cn: `智慧拆分將根據目前內容自動潤色、結構化並提取變數，
@@ -31,7 +31,7 @@ Continue?`
 };
 
 /**
- * 智能拆分标题
+ * 智慧拆分标题
  */
 export const SMART_SPLIT_CONFIRM_TITLE = {
   cn: '智慧拆分 (Beta)',
@@ -39,7 +39,7 @@ export const SMART_SPLIT_CONFIRM_TITLE = {
 };
 
 /**
- * 智能拆分按钮文案
+ * 智慧拆分按钮文案
  */
 export const SMART_SPLIT_BUTTON_TEXT = {
   confirm: {

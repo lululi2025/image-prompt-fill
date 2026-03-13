@@ -4,23 +4,23 @@ import { getLocalized, getVideoEmbedInfo } from '../../utils/helpers';
 import { PremiumButton } from '../PremiumButton';
 
 /**
- * 图片 3D 预览弹窗组件
- * 支持桌面端和移动端的 3D 效果、陀螺仪控制、手势操作
+ * 圖片 3D 預覽彈窗组件
+ * 支持桌面端和行動端的 3D 效果、陀螺仪控制、手势操作
  *
  * @param {Object} props
- * @param {string} props.zoomedImage - 当前预览的图片 URL
+ * @param {string} props.zoomedImage - 当前預覽的圖片 URL
  * @param {Array} props.templates - 所有模板列表
- * @param {string} props.language - 语言设置
- * @param {Function} props.setLanguage - 设置语言
+ * @param {string} props.language - 语言設定
+ * @param {Function} props.setLanguage - 設定语言
  * @param {Function} props.t - 翻译函数
- * @param {Object} props.TAG_STYLES - 标签样式
- * @param {Function} props.displayTag - 显示标签
- * @param {Function} props.setActiveTemplateId - 设置激活模版
- * @param {Function} props.setDiscoveryView - 设置发现页视图
- * @param {Function} props.setZoomedImage - 设置预览图片
- * @param {Function} props.setMobileTab - 设置移动端标签
+ * @param {Object} props.TAG_STYLES - 標籤样式
+ * @param {Function} props.displayTag - 显示標籤
+ * @param {Function} props.setActiveTemplateId - 設定激活模板
+ * @param {Function} props.setDiscoveryView - 設定發現页視圖
+ * @param {Function} props.setZoomedImage - 設定預覽圖片
+ * @param {Function} props.setMobileTab - 設定行動端標籤
  * @param {Function} props.handleRefreshSystemData - 刷新系统数据
- * @param {Function} props.setIsSettingsOpen - 设置设置面板打开状态
+ * @param {Function} props.setIsSettingsOpen - 設定設定面板打开状态
  * @param {boolean} props.isDarkMode - 是否暗色模式
  */
 const ImagePreviewModal = React.memo(({
@@ -39,7 +39,7 @@ const ImagePreviewModal = React.memo(({
   setIsSettingsOpen,
   isDarkMode
 }) => {
-  // 早期返回：如果没有图片预览，不渲染组件
+  // 早期返回：如果没有圖片預覽，不渲染组件
   if (!zoomedImage) return null;
 
   // 根据 zoomedImage 找到对应的模板（支持 imageUrl、imageUrls、videoUrl 匹配）
@@ -78,7 +78,7 @@ const ImagePreviewModal = React.memo(({
     return () => window.removeEventListener('deviceorientation', handleOrientation);
   }, [isMobile, isTextExpanded]);
 
-  // 获取所有图片列表
+  // 获取所有圖片列表
   const allImages = useMemo(() => {
     if (template?.imageUrls && Array.isArray(template.imageUrls) && template.imageUrls.length > 0) {
       return template.imageUrls;
@@ -93,10 +93,10 @@ const ImagePreviewModal = React.memo(({
 
   const currentImageUrl = allImages[currentIndex];
   const isVideo = template?.type === 'video';
-  // poster 只在有真实图片 URL 时使用，避免传入 videoUrl 或空字符串导致第一帧不显示
+  // poster 只在有真实圖片 URL 时使用，避免传入 videoUrl 或空字符串导致第一帧不显示
   const videoPoster = template?.imageUrl || undefined;
 
-  // 锁定/解锁背景滚动
+  // 鎖定/解锁背景滚动
   useEffect(() => {
     document.body.style.overflow = 'hidden';
     return () => {
@@ -118,9 +118,9 @@ const ImagePreviewModal = React.memo(({
     setCurrentIndex(prev => (prev + 1) % allImages.length);
   };
 
-  // 移动端手势处理
+  // 行動端手势处理
   const handleCardTouchStart = (e) => {
-    // 如果触摸开始于内容区域，不记录起始位置
+    // 如果触摸开始于內容区域，不记录起始位置
     if (e.target.closest('.content-scroll-area')) {
       return;
     }
@@ -128,7 +128,7 @@ const ImagePreviewModal = React.memo(({
   };
 
   const handleTouchMove = (e) => {
-    // 当卡片展开时，内容区域的滑动完全用于文字滚动，不更新3D效果
+    // 当卡片展开时，內容区域的滑动完全用于文字滚动，不更新3D效果
     if (isTextExpanded && e.target.closest('.content-scroll-area')) {
       return;
     }
@@ -139,7 +139,7 @@ const ImagePreviewModal = React.memo(({
   };
 
   const handleCardTouchEnd = (e) => {
-    // 如果触摸结束于内容区域，不处理展开/收起逻辑
+    // 如果触摸结束于內容区域，不处理展开/收起逻辑
     if (e.target.closest('.content-scroll-area') || touchStartY.current === 0) {
       touchStartY.current = 0;
       return;
@@ -328,7 +328,7 @@ const ImagePreviewModal = React.memo(({
                   {/* Hint for non-expanded state */}
                   {!isTextExpanded && (
                     <div className={`px-6 pb-24 text-[10px] font-medium animate-pulse text-center flex-shrink-0 ${isDarkMode ? 'text-white/20' : 'text-gray-400'}`}>
-                      {language === 'cn' ? '点击卡片或向上滑动查看详细内容' : 'Tap or swipe up to view details'}
+                      {language === 'cn' ? '点击卡片或向上滑动查看详细內容' : 'Tap or swipe up to view details'}
                     </div>
                   )}
               </div>

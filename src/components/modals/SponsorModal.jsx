@@ -2,27 +2,27 @@ import React from 'react';
 import { X } from 'lucide-react';
 
 /**
- * 打赏弹窗组件
+ * 打赏彈窗组件
  * 显示微信和支付宝收款码，附上暖心文案
  *
  * @param {Object} props
- * @param {boolean} props.isOpen - 是否打开弹窗
- * @param {Function} props.onClose - 关闭弹窗的回调
+ * @param {boolean} props.isOpen - 是否打开彈窗
+ * @param {Function} props.onClose - 关闭彈窗的回调
  * @param {boolean} props.isDarkMode - 是否暗色模式
  * @param {string} props.language - 当前语言
  */
 const SponsorModal = ({ isOpen, onClose, isDarkMode, language }) => {
   if (!isOpen) return null;
 
-  // 收款码图片路径（需要替换为实际的收款码图片）
+  // 收款码圖片路径（需要替换为实际的收款码圖片）
   const wechatQRCode = "/images/wechat-qr-code.jpg";
   const alipayQRCode = "/images/alipay-qr-code.jpg";
 
   const content = {
     cn: {
-      title: "请我喝杯奶茶",
+      title: "請我喝杯珍奶",
       subtitle: "您的支持是我持续更新的动力",
-      description: "如果这个工具对你有帮助，欢迎请我喝杯奶茶",
+      description: "如果這個工具對你有幫助，歡迎請我喝杯珍奶",
       wechat: "微信支付",
       alipay: "支付宝",
       thankYou: "感谢支持",
@@ -82,7 +82,7 @@ const SponsorModal = ({ isOpen, onClose, isDarkMode, language }) => {
             {/* 微信支付 */}
             <div className={`rounded-2xl p-4 border-2 transition-all hover:scale-105 ${isDarkMode ? 'bg-[#1a1a18] border-white/10 hover:border-green-500/50' : 'bg-gray-50 border-gray-200 hover:border-green-500'}`}>
               <div className="aspect-square rounded-xl bg-white mb-3 flex items-center justify-center overflow-hidden">
-                {/* 这里放置微信收款码图片 */}
+                {/* 这里放置微信收款码圖片 */}
                 <div className={`text-center ${isDarkMode ? 'text-gray-600' : 'text-gray-400'}`}>
                   <svg className="w-16 h-16 mx-auto mb-2 opacity-20" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M3 3h18v18H3z"/>
@@ -98,7 +98,7 @@ const SponsorModal = ({ isOpen, onClose, isDarkMode, language }) => {
             {/* 支付宝 */}
             <div className={`rounded-2xl p-4 border-2 transition-all hover:scale-105 ${isDarkMode ? 'bg-[#1a1a18] border-white/10 hover:border-blue-500/50' : 'bg-gray-50 border-gray-200 hover:border-blue-500'}`}>
               <div className="aspect-square rounded-xl bg-white mb-3 flex items-center justify-center overflow-hidden">
-                {/* 这里放置支付宝收款码图片 */}
+                {/* 这里放置支付宝收款码圖片 */}
                 <div className={`text-center ${isDarkMode ? 'text-gray-600' : 'text-gray-400'}`}>
                   <svg className="w-16 h-16 mx-auto mb-2 opacity-20" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M3 3h18v18H3z"/>

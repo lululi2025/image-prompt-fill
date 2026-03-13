@@ -27,7 +27,7 @@ export const useServiceWorker = () => {
             const newWorker = reg.installing;
             newWorker.addEventListener('statechange', () => {
               if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                console.log('[SW] 发现新版本');
+                console.log('[SW] 發現新版本');
                 setUpdateAvailable(true);
               }
             });
@@ -65,16 +65,16 @@ export const useServiceWorker = () => {
     }
   }, [registration]);
 
-  // 清理图片缓存
+  // 清理圖片缓存
   const clearImageCache = useCallback(() => {
     if (registration && registration.active) {
       registration.active.postMessage({ type: 'CLEAR_IMAGE_CACHE' });
       setCachedImageCount(0);
-      console.log('[SW] 图片缓存已清理');
+      console.log('[SW] 圖片缓存已清理');
     }
   }, [registration]);
 
-  // 获取缓存图片数量
+  // 获取缓存圖片数量
   const getCachedImageCount = useCallback(async () => {
     if ('caches' in window) {
       try {

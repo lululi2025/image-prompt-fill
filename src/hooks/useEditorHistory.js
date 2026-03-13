@@ -1,12 +1,12 @@
 import { useState, useCallback, useRef } from 'react';
 
 /**
- * 编辑器历史记录 Hook
+ * 編輯器历史记录 Hook
  * 提供撤销/重做功能
  *
- * @param {string} activeTemplateId - 当前激活的模版 ID
- * @param {Object} activeTemplate - 当前激活的模版对象
- * @param {Function} setTemplates - 更新模版的函数
+ * @param {string} activeTemplateId - 当前激活的模板 ID
+ * @param {Object} activeTemplate - 当前激活的模板对象
+ * @param {Function} setTemplates - 更新模板的函数
  * @returns {Object} 历史记录相关的状态和函数
  */
 export const useEditorHistory = (activeTemplateId, activeTemplate, setTemplates) => {
@@ -15,8 +15,8 @@ export const useEditorHistory = (activeTemplateId, activeTemplate, setTemplates)
   const historyLastSaveTime = useRef(0);
 
   /**
-   * 更新模版内容，并自动记录历史
-   * @param {*} newContent - 新的模版内容
+   * 更新模板內容，并自动记录历史
+   * @param {*} newContent - 新的模板內容
    * @param {boolean} forceSaveHistory - 是否强制保存历史记录
    */
   const updateActiveTemplateContent = useCallback((newContent, forceSaveHistory = false) => {
@@ -72,7 +72,7 @@ export const useEditorHistory = (activeTemplateId, activeTemplate, setTemplates)
   }, [activeTemplate.content, activeTemplateId, historyFuture, setTemplates]);
 
   /**
-   * 重置历史记录（当切换模版时调用）
+   * 重置历史记录（当切換模板时调用）
    */
   const resetHistory = useCallback(() => {
     setHistoryPast([]);

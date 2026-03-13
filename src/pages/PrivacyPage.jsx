@@ -29,7 +29,7 @@ const PrivacyPage = () => {
             className={`flex items-center gap-2 px-4 py-2 rounded-xl font-bold transition-all ${isDarkMode ? 'bg-white/5 text-orange-400' : 'bg-gray-100 text-blue-600'}`}
           >
             <Globe size={18} />
-            {language === 'cn' ? 'English' : '简体中文'}
+            {language === 'cn' ? 'English' : '繁體中文'}
           </button>
         </div>
 
@@ -44,7 +44,7 @@ const PrivacyPage = () => {
 
         <p className="leading-7 mb-6 text-lg">
           {t(
-            '本应用（“提示词填空器 / PromptFill”）非常重视用户隐私。我们承诺：不收集、不上传用户的个人信息，所有数据主要存储在本地设备或用户自己的 iCloud 中。',
+            '本应用（“提示詞填空器 / PromptFill”）非常重视用户隐私。我们承诺：不收集、不上传用户的个人信息，所有数据主要存储在本地设备或用户自己的 iCloud 中。',
             'PromptFill respects your privacy. We do not collect or upload personal information. Data is stored locally on your device or in your own iCloud (if enabled).'
           )}
         </p>
@@ -81,7 +81,7 @@ const PrivacyPage = () => {
             </h2>
             <p className="leading-7">
               {t(
-                '应用可能在以下场景发起网络请求：生成分享短链接、获取官方模板更新、AI 功能调用（如有）。这些请求不会包含用户的个人身份信息。',
+                '应用可能在以下场景发起网络請求：生成分享短連結、获取官方模板更新、AI 功能调用（如有）。这些請求不会包含用户的个人身份信息。',
                 'The app may access the network for short link generation, official template updates, and AI features (if any). These requests do not include personal identity information.'
               )}
             </p>
@@ -94,7 +94,7 @@ const PrivacyPage = () => {
             </h2>
             <p className="leading-7">
               {t(
-                '如用户使用分享、AI 等功能，相关请求会发送至我们的服务器或第三方服务提供商，仅用于完成对应功能。',
+                '如用户使用分享、AI 等功能，相关請求会发送至我们的服务器或第三方服务提供商，仅用于完成对应功能。',
                 'Requests for sharing or AI features may be sent to our servers or third-party providers only to complete the function.'
               )}
             </p>
@@ -103,11 +103,11 @@ const PrivacyPage = () => {
           <div>
             <h2 className={`text-xl font-black mb-4 flex items-center gap-2 ${isDarkMode ? 'text-gray-100' : 'text-gray-900'}`}>
               <span className="w-1.5 h-6 bg-orange-500 rounded-full"></span>
-              {t('5. 数据删除', '5. Data Deletion')}
+              {t('5. 数据刪除', '5. Data Deletion')}
             </h2>
             <p className="leading-7">
               {t(
-                '用户可在应用内删除所有数据；卸载应用后，本地数据将被清除。若启用了 iCloud，同步数据需在 iCloud 中由用户自行管理。',
+                '用户可在应用内刪除所有数据；卸载应用后，本地数据将被清除。若启用了 iCloud，同步数据需在 iCloud 中由用户自行管理。',
                 'You can delete all data in the app. Uninstalling the app removes local data. If iCloud is enabled, data is managed in your iCloud.'
               )}
             </p>
@@ -133,7 +133,7 @@ const PrivacyPage = () => {
             </h2>
             <p className="leading-7">
               {t(
-                '如有隐私相关问题，请联系：tanshilongmario@hotmail.com',
+                '如有隐私相关问题，請联系：tanshilongmario@hotmail.com',
                 'If you have privacy-related questions, contact: tanshilongmario@hotmail.com'
               )}
             </p>

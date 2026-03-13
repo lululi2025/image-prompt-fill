@@ -4,7 +4,7 @@ const SYNC_FILE_NAME = 'prompt_fill_sync.json';
 const ICLOUD_CONTAINER_ID = 'iCloud.com.promptfill.app.v2';
 
 /**
- * 检查是否在 Tauri 移动端环境
+ * 检查是否在 Tauri 行動端环境
  */
 const isTauriIOS = () => {
   return !!(window.__TAURI_INTERNALS__ && /iPhone|iPad|iPod/i.test(navigator.userAgent));
@@ -45,7 +45,7 @@ export const uploadToICloud = async (data) => {
 };
 
 /**
- * 从 iCloud 下载数据
+ * 从 iCloud 下載数据
  */
 export const downloadFromICloud = async () => {
   if (!isTauriIOS()) return null;

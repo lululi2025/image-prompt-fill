@@ -1,5 +1,5 @@
 /**
- * Preview 组件统一导出文件
+ * Preview 组件统一匯出文件
  */
 
 export { default as ImagePreviewModal } from './ImagePreviewModal';

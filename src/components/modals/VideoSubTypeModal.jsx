@@ -2,7 +2,7 @@ import React from 'react';
 import { X, LayoutTemplate, Sparkles, ChevronRight } from 'lucide-react';
 
 /**
- * 视频子类型选项配置
+ * 影片子类型选项配置
  * 便于后续扩展更多子类型
  */
 const VIDEO_SUB_TYPES = [
@@ -21,8 +21,8 @@ const VIDEO_SUB_TYPES = [
 ];
 
 /**
- * VideoSubTypeModal - 选择视频模板子类型的弹窗
- * 在用户选择「视频模版」后弹出，让用户选择「固定范式」或「自由创作」
+ * VideoSubTypeModal - 選擇影片模板子类型的彈窗
+ * 在用户選擇「影片模板」后弹出，让用户選擇「固定范式」或「自由创作」
  */
 export const VideoSubTypeModal = ({ isOpen, onClose, onSelect, isDarkMode, language, t }) => {
   if (!isOpen) return null;
